@@ -1,0 +1,1 @@
+某账号大量作业卡住，首先需要检查作业提交的脚本是否正确配置，例如submit.sh中设置的UCX_TLS参数是否合适，以及是否正确加载了所需的模块。其次，查看作业日志文件中的错误信息，如“Requested nodes are busy”或“UCX ERROR”等，这些信息可以帮助确定是资源不足还是通信库的问题。此外，检查存储配额是否超出限制，因为超过软限制或硬限制会导致I/O错误。同时，确认作业使用的内存和CPU资源是否合理，避免因资源争用导致作业无法启动。最后，联系系统管理员获取进一步的帮助和支持。[DC] unknown_source[KG] unknown_source[DC] unknown_source[KG] unknown_source[DC] unknown_source

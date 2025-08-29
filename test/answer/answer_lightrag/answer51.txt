@@ -1,0 +1,1 @@
+yhrun命令用于指定作业分区的主要选项是-p或--partition，该选项允许用户在指定的分区中分配资源。如果未指定，则由控制进程在系统默认分区中分配资源。此外，还有其他相关选项如--reservation可用于从预定义的预约中分配资源，但主要指定分区的选项是-p或--partition。1. -p, --partition=partition name：在指定分区中分配资源，若未指定则使用默认分区。2. --reservation=name：从指定的预约中为作业分配资源。[KG] unknown_source

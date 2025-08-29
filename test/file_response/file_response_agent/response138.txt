@@ -1,0 +1,13 @@
+{
+    "query": "如何获取系统中所有计算节点的最后活跃时间？",
+    "summaries": [
+        "用户询问如何查看计算节点的内存使用情况。首先通过命令yhq查找任务所使用的节点，确认节点为cn21。然后登录到该节点，使用top或free -g命令查看内存使用情况。此问题已解决。",
+        "TH-HPC4 GPU 分区统计机时（临时版）是针对该GPU分区的计算资源使用情况进行统计的临时方案。该方案旨在提供更准确的机时记录，以便更好地管理与分配计算资源。问题由郑刚于2022年9月19日创建，内容涵盖机时统计方法、数据采集方式及初步结果。该临时版方案力求覆盖大部分使用场景，为后续正式统计提供参考依据。",
+        "文本内容涉及计算任务和节点状态信息，包括多个节点的分配与空闲状态、作业ID、分区、用户、运行时间等。部分文件名和路径也有所提及，如`vasp.sh`、`pw.in`、`pw.out`等。整体为系统资源使用情况及部分文件目录信息的记录。"
+    ],
+    "contents": [
+        "up          494 alloc cn[S0-228,230-310,312-340, 342-349, 351-442, 444-459, 462-498 500-551]\nTH_LONG          up\nTHSHORT up,\nTHSHORT up\nTH_SHORT        we\n4 idle cn[311,460-461,499]\n1 drain® cn229\n3 drain cn[341,350,443]\n494 alloc cn[50-228,230-310,312-340,342-349, 351-442, 444-459, 462-498,500-551]\nTH_SHORT                   4 idle cn[311, 460-461, 499]\n[yantLxeth-| pete Pine exampte]s yhq\nJOBID PARTITION NAME USER ST      TIME NODES NODELIST(REASON)\n5926761 THONG vasp.sh 。 yantx R     32:20     4 cn[142,165,180-181]\n5907423 THLONG vasp.sh 。 yanlx R 1-06:30:15     4 cn[183,526-528]\nyantxeth-hpcl-tne examplels 1s\n€_ONCV_PBE-1.0.upf N_ONCV PBE-1.0.upf pw.in pw.out\n[yanlx@th-hpci-lno example]s vi slurm-5928800. out\nfyantx@th-hpel-Ino examplels cd pwscf.save/\npwscf.xml ge.sh slurm-5927829.out slurm-5928230.out\n[yantxeth-hpcl-Lne puscf.savels\nfharge-density.hdfs C_ONCY PBE-1-0.upf data-file-schema.aml_N_ONCV_PEE-2.0.upf|_wfedwi-hdf5 _wfcup2-hdfs\n[pened lige       ave\n总用量 32492\npwsEf-\nyanlx changd",
+        "【已解决】用户询问如何查看计算节点的内存使用情况\n**标签**: 无标签\n**创建时间**: 2021-11-12 17:30:53\n**更新时间**: 2021-12-10 15:43:11\n**作者**: 杜思慧\n**1.yhq查看任务所使用的节点**\n查到所用节点包含cn21\n**2.登录到计算节点“ssh cn21”**\n**3.两种查看方式：**\n**（1）top**\n**(2) free -g**",
+        "【已解决】TH-HPC4 GPU 分区统计机时（临时版）\n**标签**: th-hpc4,  gpu\n**创建时间**: 2022-09-19 20:50:02\n**更新时间**: 2022-09-19 20:50:02\n**作者**: 郑刚\n**问题**：TH-HPC4 GPU 分区统计机时（临时版）"
+    ]
+}

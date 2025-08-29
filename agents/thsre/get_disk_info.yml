@@ -1,0 +1,10 @@
+- hosts: all
+  user: root
+  gather_facts: False
+  tasks:
+    # 获取硬盘状态
+    - name: get_disk_info
+      shell: storcli /call/eall/s{{disk}} show all
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

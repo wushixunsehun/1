@@ -1,0 +1,2302 @@
+{
+    "cpu_usage_guest": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "cpu_usage_guest_nice": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "cpu_usage_idle": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "cpu_usage_iowait": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "cpu_usage_irq": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "cpu_usage_nice": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "cpu_usage_softirq": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "cpu_usage_steal": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "cpu_usage_system": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "cpu_usage_user": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "disk_free": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "disk_inodes_free": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "disk_inodes_total": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "disk_inodes_used": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "disk_total": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "disk_used": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "disk_used_percent": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "diskio_io_time": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "diskio_iops_in_progress": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "diskio_merged_reads": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "diskio_merged_writes": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "diskio_read_bytes": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "diskio_read_time": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "diskio_reads": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "diskio_weighted_io_time": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "diskio_write_bytes": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "diskio_write_time": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "diskio_writes": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "filebeat_server_response_result_code": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "go_gc_duration_seconds": {
+        "type": "summary",
+        "help": "A summary of the pause duration of garbage collection cycles."
+    },
+    "go_goroutines": {
+        "type": "gauge",
+        "help": "Number of goroutines that currently exist."
+    },
+    "go_info": {
+        "type": "gauge",
+        "help": "Information about the Go environment."
+    },
+    "go_memstats_alloc_bytes": {
+        "type": "gauge",
+        "help": "Number of bytes allocated and still in use."
+    },
+    "go_memstats_alloc_bytes_total": {
+        "type": "counter",
+        "help": "Total number of bytes allocated, even if freed."
+    },
+    "go_memstats_buck_hash_sys_bytes": {
+        "type": "gauge",
+        "help": "Number of bytes used by the profiling bucket hash table."
+    },
+    "go_memstats_frees_total": {
+        "type": "counter",
+        "help": "Total number of frees."
+    },
+    "go_memstats_gc_sys_bytes": {
+        "type": "gauge",
+        "help": "Number of bytes used for garbage collection system metadata."
+    },
+    "go_memstats_heap_alloc_bytes": {
+        "type": "gauge",
+        "help": "Number of heap bytes allocated and still in use."
+    },
+    "go_memstats_heap_idle_bytes": {
+        "type": "gauge",
+        "help": "Number of heap bytes waiting to be used."
+    },
+    "go_memstats_heap_inuse_bytes": {
+        "type": "gauge",
+        "help": "Number of heap bytes that are in use."
+    },
+    "go_memstats_heap_objects": {
+        "type": "gauge",
+        "help": "Number of allocated objects."
+    },
+    "go_memstats_heap_released_bytes": {
+        "type": "gauge",
+        "help": "Number of heap bytes released to OS."
+    },
+    "go_memstats_heap_sys_bytes": {
+        "type": "gauge",
+        "help": "Number of heap bytes obtained from system."
+    },
+    "go_memstats_last_gc_time_seconds": {
+        "type": "gauge",
+        "help": "Number of seconds since 1970 of last garbage collection."
+    },
+    "go_memstats_lookups_total": {
+        "type": "counter",
+        "help": "Total number of pointer lookups."
+    },
+    "go_memstats_mallocs_total": {
+        "type": "counter",
+        "help": "Total number of mallocs."
+    },
+    "go_memstats_mcache_inuse_bytes": {
+        "type": "gauge",
+        "help": "Number of bytes in use by mcache structures."
+    },
+    "go_memstats_mcache_sys_bytes": {
+        "type": "gauge",
+        "help": "Number of bytes used for mcache structures obtained from system."
+    },
+    "go_memstats_mspan_inuse_bytes": {
+        "type": "gauge",
+        "help": "Number of bytes in use by mspan structures."
+    },
+    "go_memstats_mspan_sys_bytes": {
+        "type": "gauge",
+        "help": "Number of bytes used for mspan structures obtained from system."
+    },
+    "go_memstats_next_gc_bytes": {
+        "type": "gauge",
+        "help": "Number of heap bytes when next garbage collection will take place."
+    },
+    "go_memstats_other_sys_bytes": {
+        "type": "gauge",
+        "help": "Number of bytes used for other system allocations."
+    },
+    "go_memstats_stack_inuse_bytes": {
+        "type": "gauge",
+        "help": "Number of bytes in use by the stack allocator."
+    },
+    "go_memstats_stack_sys_bytes": {
+        "type": "gauge",
+        "help": "Number of bytes obtained from system for stack allocator."
+    },
+    "go_memstats_sys_bytes": {
+        "type": "gauge",
+        "help": "Number of bytes obtained from system."
+    },
+    "go_threads": {
+        "type": "gauge",
+        "help": "Number of OS threads created."
+    },
+    "kernel_boot_time": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_context_switches": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_entropy_avail": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_interrupts": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_processes_forked": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_allocstall_dma": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_allocstall_dma32": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_allocstall_movable": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_allocstall_normal": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_balloon_deflate": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_balloon_inflate": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_balloon_migrate": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_compact_daemon_free_scanned": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_compact_daemon_migrate_scanned": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_compact_daemon_wake": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_compact_fail": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_compact_free_scanned": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_compact_isolated": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_compact_migrate_scanned": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_compact_stall": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_compact_success": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_drop_pagecache": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_drop_slab": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_htlb_buddy_alloc_fail": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_htlb_buddy_alloc_success": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_kswapd_high_wmark_hit_quickly": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_kswapd_inodesteal": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_kswapd_low_wmark_hit_quickly": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_active_anon": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_active_file": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_anon_pages": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_anon_transparent_hugepages": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_bounce": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_dirtied": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_dirty": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_dirty_background_threshold": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_dirty_threshold": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_file_hugepages": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_file_pages": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_file_pmdmapped": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_foll_pin_acquired": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_foll_pin_released": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_free_cma": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_free_pages": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_inactive_anon": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_inactive_file": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_isolated_anon": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_isolated_file": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_kernel_misc_reclaimable": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_kernel_stack": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_mapped": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_mlock": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_page_table_pages": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_shmem": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_shmem_hugepages": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_shmem_pmdmapped": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_slab_reclaimable": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_slab_unreclaimable": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_swapcached": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_unevictable": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_unstable": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_vmscan_immediate_reclaim": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_vmscan_write": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_writeback": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_writeback_temp": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_written": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_zone_active_anon": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_zone_active_file": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_zone_inactive_anon": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_zone_inactive_file": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_zone_unevictable": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_zone_write_pending": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_nr_zspages": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_numa_foreign": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_numa_hint_faults": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_numa_hint_faults_local": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_numa_hit": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_numa_huge_pte_updates": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_numa_interleave": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_numa_local": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_numa_miss": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_numa_other": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_numa_pages_migrated": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_numa_pte_updates": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_oom_kill": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pageoutrun": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgactivate": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgalloc_dma": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgalloc_dma32": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgalloc_movable": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgalloc_normal": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgdeactivate": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgfault": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgfree": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pginodesteal": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pglazyfree": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pglazyfreed": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgmajfault": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgmigrate_fail": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgmigrate_success": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgpgin": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgpgout": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgrefill": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgrotated": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgscan_anon": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgscan_direct": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgscan_direct_throttle": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgscan_file": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgscan_kswapd": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgskip_dma": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgskip_dma32": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgskip_movable": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgskip_normal": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgsteal_anon": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgsteal_direct": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgsteal_file": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pgsteal_kswapd": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pswpin": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_pswpout": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_slabs_scanned": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_swap_ra": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_swap_ra_hit": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_thp_collapse_alloc": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_thp_collapse_alloc_failed": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_thp_deferred_split_page": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_thp_fault_alloc": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_thp_fault_fallback": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_thp_fault_fallback_charge": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_thp_file_alloc": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_thp_file_fallback": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_thp_file_fallback_charge": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_thp_file_mapped": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_thp_split_page": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_thp_split_page_failed": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_thp_split_pmd": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_thp_split_pud": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_thp_swpout": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_thp_swpout_fallback": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_thp_zero_page_alloc": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_thp_zero_page_alloc_failed": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_unevictable_pgs_cleared": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_unevictable_pgs_culled": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_unevictable_pgs_mlocked": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_unevictable_pgs_munlocked": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_unevictable_pgs_rescued": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_unevictable_pgs_scanned": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_unevictable_pgs_stranded": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_workingset_activate_anon": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_workingset_activate_file": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_workingset_nodereclaim": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_workingset_nodes": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_workingset_refault_anon": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_workingset_refault_file": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_workingset_restore_anon": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_workingset_restore_file": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "kernel_vmstat_zone_reclaim_failed": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "linux_edac_correctable_errors_total": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "linux_edac_uncorrectable_errors_total": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "linux_filesystem_device_error": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "linux_filesystem_readonly": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "lustre2_client_mdc_volume_active": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "lustre2_client_osc_volume_active": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "lustre2_health_check": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "lustre2_route_status": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_active": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_available": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_available_percent": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_buffered": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_cached": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_commit_limit": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_committed_as": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_dirty": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_free": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_high_free": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_high_total": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_huge_page_size": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_huge_pages_free": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_huge_pages_total": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_inactive": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_low_free": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_low_total": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_mapped": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_page_tables": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_shared": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_slab": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_sreclaimable": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_sunreclaim": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_swap_cached": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_swap_free": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_swap_total": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_total": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_used": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_used_percent": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_vmalloc_chunk": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_vmalloc_total": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_vmalloc_used": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_write_back": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "mem_write_back_tmp": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "net_bytes_recv": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "net_bytes_sent": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "net_drop_in": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "net_drop_out": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "net_err_in": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "net_err_out": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_inaddrmaskreps": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_inaddrmasks": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_incsumerrors": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_indestunreachs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_inechoreps": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_inechos": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_inerrors": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_inmsgs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_inparmprobs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_inredirects": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_insrcquenchs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_intimeexcds": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_intimestampreps": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_intimestamps": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_outaddrmaskreps": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_outaddrmasks": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_outdestunreachs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_outechoreps": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_outechos": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_outerrors": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_outmsgs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_outparmprobs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_outredirects": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_outsrcquenchs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_outtimeexcds": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_outtimestampreps": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmp_outtimestamps": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmpmsg_intype0": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmpmsg_intype3": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmpmsg_intype8": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmpmsg_outtype0": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmpmsg_outtype3": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_icmpmsg_outtype8": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_ip_defaultttl": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_ip_forwarding": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_ip_forwdatagrams": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_ip_fragcreates": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_ip_fragfails": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_ip_fragoks": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_ip_inaddrerrors": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_ip_indelivers": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_ip_indiscards": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_ip_inhdrerrors": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_ip_inreceives": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_ip_inunknownprotos": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_ip_outdiscards": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_ip_outnoroutes": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_ip_outrequests": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_ip_reasmfails": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_ip_reasmoks": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_ip_reasmreqds": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_ip_reasmtimeout": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_packets_recv": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "net_packets_sent": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "net_tcp_activeopens": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_tcp_attemptfails": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_tcp_currestab": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_tcp_estabresets": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_tcp_incsumerrors": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_tcp_inerrs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_tcp_insegs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_tcp_maxconn": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_tcp_outrsts": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_tcp_outsegs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_tcp_passiveopens": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_tcp_retranssegs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_tcp_rtoalgorithm": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_tcp_rtomax": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_tcp_rtomin": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_udp_ignoredmulti": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_udp_incsumerrors": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_udp_indatagrams": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_udp_inerrors": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_udp_noports": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_udp_outdatagrams": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_udp_rcvbuferrors": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_udp_sndbuferrors": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_udplite_ignoredmulti": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_udplite_incsumerrors": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_udplite_indatagrams": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_udplite_inerrors": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_udplite_noports": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_udplite_outdatagrams": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_udplite_rcvbuferrors": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "net_udplite_sndbuferrors": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IcmpInDestUnreachs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IcmpInEchoReps": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IcmpInEchos": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IcmpInErrors": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IcmpInMsgs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IcmpMsgInType0": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IcmpMsgInType3": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IcmpMsgInType8": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IcmpMsgOutType0": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IcmpMsgOutType3": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IcmpMsgOutType8": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IcmpOutDestUnreachs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IcmpOutEchoReps": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IcmpOutEchos": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IcmpOutMsgs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IpDefaultTTL": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IpExtInBcastOctets": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IpExtInBcastPkts": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IpExtInMcastOctets": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IpExtInMcastPkts": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IpExtInNoECTPkts": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IpExtInOctets": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IpExtOutBcastOctets": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IpExtOutBcastPkts": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IpExtOutMcastOctets": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IpExtOutMcastPkts": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IpExtOutOctets": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IpForwarding": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IpInDelivers": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IpInReceives": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IpOutDiscards": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IpOutNoRoutes": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_IpOutRequests": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpActiveOpens": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpAttemptFails": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpCurrEstab": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpEstabResets": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtDelayedACKLocked": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtDelayedACKLost": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtDelayedACKs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtEmbryonicRsts": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtIPReversePathFilter": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtListenDrops": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtListenOverflows": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtLockDroppedIcmps": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtOutOfWindowIcmps": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtPruneCalled": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtSyncookiesFailed": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtSyncookiesRecv": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtSyncookiesSent": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPACKSkippedChallenge": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPACKSkippedFinWait2": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPACKSkippedSeq": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPACKSkippedSynRecv": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPACKSkippedTimeWait": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPAbortOnClose": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPAbortOnData": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPAbortOnMemory": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPAbortOnTimeout": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPAckCompressed": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPAutoCorking": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPBacklogCoalesce": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPBacklogDrop": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPChallengeACK": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPDSACKIgnoredNoUndo": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPDSACKIgnoredOld": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPDSACKOfoRecv": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPDSACKOfoSent": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPDSACKOldSent": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPDSACKRecv": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPDSACKUndo": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPDelivered": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPFastRetrans": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPFromZeroWindowAdv": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPFullUndo": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPHPAcks": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPHPHits": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPHystartDelayCwnd": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPHystartDelayDetect": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPHystartTrainCwnd": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPHystartTrainDetect": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPKeepAlive": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPLossFailures": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPLossProbeRecovery": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPLossProbes": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPLossUndo": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPLostRetransmit": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPOFOMerge": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPOFOQueue": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPOrigDataSent": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPPartialUndo": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPPureAcks": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPRcvCoalesce": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPRcvCollapsed": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPRenoFailures": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPRenoRecovery": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPRenoRecoveryFail": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPRenoReorder": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPReqQFullDoCookies": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPSACKReorder": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPSYNChallenge": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPSackFailures": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPSackMerged": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPSackRecovery": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPSackRecoveryFail": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPSackShiftFallback": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPSackShifted": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPSlowStartRetrans": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPSpuriousRTOs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPSpuriousRtxHostQueues": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPSynRetrans": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPTSReorder": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPTimeWaitOverflow": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPTimeouts": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPToZeroWindowAdv": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPWantZeroWindowAdv": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPWinProbe": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTCPWqueueTooBig": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpExtTW": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpInErrs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpInSegs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpMaxConn": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpOutRsts": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpOutSegs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpPassiveOpens": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpRetransSegs": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpRtoAlgorithm": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpRtoMax": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_TcpRtoMin": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_UdpIgnoredMulti": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_UdpInDatagrams": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_UdpNoPorts": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "nstat_UdpOutDatagrams": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "process_cpu_seconds_total": {
+        "type": "counter",
+        "help": "Total user and system CPU time spent in seconds."
+    },
+    "process_max_fds": {
+        "type": "gauge",
+        "help": "Maximum number of open file descriptors."
+    },
+    "process_open_fds": {
+        "type": "gauge",
+        "help": "Number of open file descriptors."
+    },
+    "process_resident_memory_bytes": {
+        "type": "gauge",
+        "help": "Resident memory size in bytes."
+    },
+    "process_start_time_seconds": {
+        "type": "gauge",
+        "help": "Start time of the process since unix epoch in seconds."
+    },
+    "process_virtual_memory_bytes": {
+        "type": "gauge",
+        "help": "Virtual memory size in bytes."
+    },
+    "process_virtual_memory_max_bytes": {
+        "type": "gauge",
+        "help": "Maximum amount of virtual memory available in bytes."
+    },
+    "processes_blocked": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "processes_dead": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "processes_idle": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "processes_paging": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "processes_running": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "processes_sleeping": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "processes_stopped": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "processes_total": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "processes_total_threads": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "processes_unknown": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "processes_zombies": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_child_major_faults": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_child_minor_faults": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_cpu_time": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_cpu_time_guest": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_cpu_time_guest_nice": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_cpu_time_idle": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_cpu_time_iowait": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_cpu_time_irq": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_cpu_time_nice": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_cpu_time_soft_irq": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_cpu_time_steal": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_cpu_time_system": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_cpu_time_user": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_cpu_usage": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_created_at": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_involuntary_context_switches": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_lookup_pid_count": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_lookup_result_code": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_lookup_running": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_major_faults": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_memory_data": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_memory_locked": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_memory_rss": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_memory_stack": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_memory_swap": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_memory_usage": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_memory_vms": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_minor_faults": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_nice_priority": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_num_fds": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_num_threads": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_pid": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_ppid": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_read_bytes": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_read_count": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_realtime_priority": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_cpu_time_hard": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_cpu_time_soft": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_file_locks_hard": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_file_locks_soft": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_memory_data_hard": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_memory_data_soft": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_memory_locked_hard": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_memory_locked_soft": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_memory_rss_hard": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_memory_rss_soft": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_memory_stack_hard": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_memory_stack_soft": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_memory_vms_hard": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_memory_vms_soft": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_nice_priority_hard": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_nice_priority_soft": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_num_fds_hard": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_num_fds_soft": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_realtime_priority_hard": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_realtime_priority_soft": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_signals_pending_hard": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_rlimit_signals_pending_soft": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_signals_pending": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_voluntary_context_switches": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_write_bytes": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "procstat_write_count": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "swap_free": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "swap_in": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "swap_out": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "swap_total": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "swap_used": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "swap_used_percent": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "system_load1": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "system_load15": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "system_load5": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "system_n_cpus": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "system_n_unique_users": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "system_n_users": {
+        "type": "gauge",
+        "help": "Telegraf collected metric"
+    },
+    "system_uptime": {
+        "type": "counter",
+        "help": "Telegraf collected metric"
+    },
+    "systemd_units_active_code": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "systemd_units_load_code": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "systemd_units_sub_code": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    },
+    "temp_temp": {
+        "type": "unknown",
+        "help": "Telegraf collected metric"
+    }
+}

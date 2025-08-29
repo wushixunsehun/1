@@ -1,0 +1,9 @@
+- hosts: 89.72.101.0
+  gather_facts: false
+  tasks:
+    - name: show_group_quota
+      shell: |
+        lfs quota -h -g "{{ group }}" "{{ fs }}"
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

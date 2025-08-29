@@ -1,0 +1,25 @@
+# Dataset
+data_file: data/Dataset1/Node1.csv    # Data path to be tested
+metric_file: metric.json            # Path to the metric file
+preprocess: 1                       # 1/0: 1- Preprocessing operation required, 0- No need
+
+# TSFEL
+center_feature: /home/tanxh/mas/agents/anomaly_model/AnomalyDetection/clustering/feature_center              # Path to the folder containing cluster centers and feature weights
+
+# MODEL
+model_dir: model_sharing/model                       # Path to store trained model
+result_dir: model_sharing/result                     # Path storing anomaly detection results
+model_name: Transformer.pth                       # Name of the trained Transformer model file
+score_file: score.csv                             # Name of the score file
+metric_weight_file: metric_feature_weight.json    # Name of the feature weight file
+center_file: center.csv                           # cluster center
+
+# Paramter
+nhead: 3                                      # the number of heads in the Transformer's multi-head attention mechanism
+num_layers: 3                                 # the number of encoder layers
+num_experts: 3                                # the number of experts
+k: 1                                          # the number of experts to select
+window_size: 80                               # window length when fitting threshold
+k_sigma: 3                                    # k-sigma
+period_seg: 20                                # segment evaluation window length
+ratio: 0.4                                    # threshold for the proportion of outliers

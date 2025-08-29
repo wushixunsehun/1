@@ -1,0 +1,9 @@
+- hosts: all
+  user: root
+  gather_facts: False
+  tasks:
+    - name: uptime
+      shell: uptime
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

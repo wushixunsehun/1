@@ -1,0 +1,1356 @@
+nohup: ignoring input
+/home/yuaw/anaconda3/envs/reacttest/lib/python3.10/site-packages/pytest_asyncio/plugin.py:217: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+✨ You're running DeepEval's latest Answer Relevancy Metric! (using 
+deepseek-r1:latest (Ollama), strict=False, async_mode=True)...
+✨ You're running DeepEval's latest Faithfulness Metric! (using 
+deepseek-r1:latest (Ollama), strict=False, async_mode=True)...
+✨ You're running DeepEval's latest Contextual Precision Metric! (using 
+deepseek-r1:latest (Ollama), strict=False, async_mode=True)...
+✨ You're running DeepEval's latest Contextual Relevancy Metric! (using 
+deepseek-r1:latest (Ollama), strict=False, async_mode=True)...
+✨ You're running DeepEval's latest Contextual Recall Metric! (using 
+deepseek-r1:latest (Ollama), strict=False, async_mode=True)...
+Evaluating 2 test case(s) in parallel: |          |  0% (0/2) [Time Taken: 00:00, ?test case/s]True !!!!!!!!!!!!
+**************************************************
+Contextual Precision Verbose Logs
+**************************************************
+
+Verdicts:
+[
+    {
+        "verdict": "yes",
+        "reason": "The context mentions using 'zpool status' to check the recovery state, and if it shows 'ONLINE' with no errors, the disk is normal. This directly addresses how to confirm the hard drive recovery status."
+    },
+    {
+        "verdict": "no",
+        "reason": "'There was a cat' in the context does not relate to confirming hard drive recovery status or using commands like zpool status."
+    }
+]
+ 
+Score: 1.0
+Reason: The score is 1.0 because all nodes with 'yes' verdict are ranked higher than those with 'no', and there's only one node with a negative verdict.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Contextual Recall Verbose Logs
+**************************************************
+
+Verdicts:
+[
+    {
+        "verdict": "yes",
+        "reason": "The sentence mentions using `zpool status` to check the storage pool status and looking for 'ONLINE' state without errors, which is directly stated in the retrieval context (e.g., node 1: '\u6267\u884c\u786c\u76d8\u66f4\u6362\u64cd\u4f5c\uff0c\u5305\u62ec...\u901a\u8fc7zpool status\u67e5\u770b\u6062\u590d\u72b6\u6001') and also demonstrated with specific output like 'errors: No known data errors'."
+    },
+    {
+        "verdict": "yes",
+        "reason": "The sentence refers to monitoring for 'resilvering' during the recovery process, which is covered in multiple nodes (node 2 mentions resilvering progress, node 3 has examples of degraded states with resilvering actions)."
+    },
+    {
+        "verdict": "no",
+        "reason": "This part does not directly attribute to any retrieval context node. The retrieval contexts focus on ZFS operations and Lustre file system management."
+    },
+    {
+        "verdict": "yes",
+        "reason": "The sentence discusses checking for alarms disappearing after the disk recovery, which aligns with node 1's mention of '\u62a5\u8b66\u6d88\u5931' (alarm disappearance) as an indicator that disks are normal. Also referenced in other nodes like node 4 and node 6."
+    },
+    {
+        "verdict": "yes",
+        "reason": "The sentence is about using the `zpool status` command to verify disk recovery, which matches exactly with node 1: '\u901a\u8fc7\u66f4\u6362\u5b58\u50a8\u786c\u76d8\u540e\uff0c\u53ef\u901a\u8fc7\u4ee5\u4e0b\u65b9\u5f0f\u786e\u8ba4\u786c\u76d8\u6062\u590d\u72b6\u6001\uff1a\u9996\u5148\u6267\u884c`zpool status`\u547d\u4ee4' and also appears in other nodes (e.g., node 2)."
+    },
+    {
+        "verdict": "no",
+        "reason": "This sentence is about the system environment, but the retrieval context does not mention Red Hat or Lustre versions except for brief references. The specific details like 'Red Hat 7.6' and 'Lustre 2.12.0' are mentioned in node 3, but they don't directly support this sentence."
+    },
+    {
+        "verdict": "yes",
+        "reason": "The sentence talks about the purpose of checking ZFS data sets for backend data management, which is explicitly described in node 5 and node 6 under '5.5 \u67e5\u770b zfs \u6570\u636e\u96c6\u4e2d\u5b58\u50a8\u7684\u540e\u53f0\u6570\u636e'."
+    },
+    {
+        "verdict": "no",
+        "reason": "This part does not correspond to any retrieval context node as it's about the format of the expected output JSON, which is not mentioned in the provided contexts."
+    }
+]
+ 
+Score: 0.625
+Reason: The score is 0.62 because although several sentences from the expected output are supported by specific nodes (like checking zpool status for ONLINE state and monitoring resilvering) there are also parts that lack direct attribution to any retrieval context node, such as those referring to system environment or JSON format details.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Contextual Precision Verbose Logs
+**************************************************
+
+Verdicts:
+[
+    {
+        "verdict": "no",
+        "reason": "The retrieval context does not mention anything about unlocking users due to multiple password failures. It talks about VBR and other Lustre file system operations, but not the specific user unlock procedure."
+    },
+    {
+        "verdict": "yes",
+        "reason": "This part of the context describes how to manually unlock a user with the command # yhpasswd -u login, which is directly relevant to the expected output's unlocking method."
+    },
+    {
+        "verdict": "no",
+        "reason": "The content discusses client-side retransmission and VBR functionality for Lustre file systems, but does not address user account lockouts due to multiple password errors. It focuses on system recovery aspects rather than user management."
+    },
+    {
+        "verdict": "yes",
+        "reason": "This part of the context explains that if automatic unlocking time is long, an administrator can unlock users via a command or through the operation platform by inputting node name and username, which aligns with the expected output's description of two unlocking methods."
+    },
+    {
+        "verdict": "no",
+        "reason": "The content describes how to add new users and associate them with Slurm accounts, but does not provide information on handling user lockouts. It is about account creation rather than recovery from failed authentication attempts."
+    },
+    {
+        "verdict": "yes",
+        "reason": "This part of the context details that after multiple incorrect password entries, if confirmed as unintentional by an administrator, users can be unlocked using # yhpasswd -u login command or through the operation platform interface. This matches exactly with what needs to be extracted for unlocking procedures."
+    },
+    {
+        "verdict": "no",
+        "reason": "The content discusses VBR functionality and how it handles client request replay during system recovery, but does not mention user account lockouts specifically. It is focused on file system reliability mechanisms rather than user management issues."
+    },
+    {
+        "verdict": "yes",
+        "reason": "This part of the context describes that when users are locked due to multiple incorrect password attempts, administrators can unlock them by connecting to the corresponding cluster and clicking '\u7528\u6237\u64cd\u4f5c'-'\u7528\u6237\u767b\u5f55\u89e3\u9501', then inputting node name and username. This is directly relevant to the expected output's unlocking procedure."
+    },
+    {
+        "verdict": "no",
+        "reason": "The content explains how to add users with Slurm accounts, but does not address user lockout scenarios or provide specific unlocking instructions. It is about account creation parameters rather than recovery actions."
+    },
+    {
+        "verdict": "yes",
+        "reason": "This part of the context confirms that administrators can unlock locked-out users by connecting to the cluster and using the operation platform, inputting node name and username. This matches with what needs to be extracted for unlocking procedures in the expected output."
+    }
+]
+ 
+Score: 0.5
+Reason: The contextual precision score is 0.50 because it indicates that half of the retrieved nodes are relevant (marked 'yes') while the other half are irrelevant (marked 'no'). The first two nodes with 'no' verdicts discuss VBR and system operations without addressing user lockouts, so they should be ranked lower than the third node which provides a direct unlocking command. Similarly, the fourth node is correct but it's at position 3, while there are multiple relevant nodes appearing later like positions 5,6,7,8,9,10 that offer more detailed and accurate unlocking procedures. The score isn't higher because some irrelevant nodes (e.g., reasons about VBR) appear before the first 'yes' node which is at position 3, but there are also multiple relevant nodes later on, so it's not too low either.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Contextual Recall Verbose Logs
+**************************************************
+
+Verdicts:
+[
+    {
+        "verdict": "no",
+        "reason": "The sentence does not mention any part of the retrieval context."
+    },
+    {
+        "verdict": "yes",
+        "reason": "\u7b2c2\u4e2a\u8282\u70b9\u63d0\u5230\u7528\u6237\u88ab\u9501\u5b9a\u540e\u53ef\u81ea\u52a8\u6216\u7ba1\u7406\u5458\u89e3\u9501\uff0c\u4e0e'\u5f53\u7528\u6237\u56e0\u591a\u6b21\u8f93\u9519\u5bc6\u7801\u88ab\u9501\u5b9a\u65f6\uff0c\u503c\u73ed\u5458\u53ef\u6309\u4ee5\u4e0b\u65b9\u5f0f\u89e3\u9501\uff1a\u82e5\u7cfb\u7edf\u8bbe\u7f6e\u7684\u81ea\u52a8\u89e3\u9501\u65f6\u95f4\uff08\u9ed8\u8ba45\u5206\u949f\uff09\u8f83\u77ed\uff0c\u5230\u8fbe\u65f6\u95f4\u540e\u7cfb\u7edf\u4f1a\u81ea\u52a8\u89e3\u9501\uff1b\u82e5\u81ea\u52a8\u89e3\u9501\u65f6\u95f4\u8f83\u957f\uff0c\u503c\u73ed\u5458\u5ba1\u6838\u786e\u8ba4\u7528\u6237\u975e\u6076\u610f\u7834\u89e3\u540e\uff0c\u53ef\u901a\u8fc7\u547d\u4ee4# yhpasswd -u login\uff08\u5176\u4e2d\u201clogin\u201d\u4e3a\u88ab\u9501\u5b9a\u7684\u7528\u6237\u540d\uff09\u624b\u52a8\u89e3\u9501\u3002'\u76f8\u7b26"
+    },
+    {
+        "verdict": "yes",
+        "reason": "\u7b2c2\u4e2a\u8282\u70b9\u63d0\u5230\u5bc6\u7801\u7b56\u7565\u5305\u62ec\u6700\u5927\u5931\u8d25\u6b21\u6570\u5bfc\u81f4\u9501\u5b9a\uff0c\u5e76\u4e14\u7ba1\u7406\u5458\u53ef\u4ee5\u89e3\u9501\u7528\u6237\uff0c\u4e0e\u90e8\u5206\u5185\u5bb9\u76f8\u7b26\u3002"
+    },
+    {
+        "verdict": "no",
+        "reason": "The sentence does not appear to be directly related to the retrieval context."
+    },
+    {
+        "verdict": "yes",
+        "reason": "\u7b2c6\u4e2a\u8282\u70b9\u8be6\u7ec6\u63cf\u8ff0\u4e86\u5982\u4f55\u4f7f\u7528# yhpasswd -u\u547d\u4ee4\u89e3\u9501\u7528\u6237\uff0c\u4e0e'\u53ef\u901a\u8fc7\u547d\u4ee4# yhpasswd -u login\uff08\u5176\u4e2d\u201clogin\u201d\u4e3a\u88ab\u9501\u5b9a\u7684\u7528\u6237\u540d\uff09\u624b\u52a8\u89e3\u9501\u3002'\u76f8\u7b26"
+    },
+    {
+        "verdict": "no",
+        "reason": "The sentence is about adding users and not directly related to unlocking."
+    },
+    {
+        "verdict": "yes",
+        "reason": "\u7b2c7\u4e2a\u8282\u70b9\u63d0\u5230\u4fee\u6539\u5bc6\u7801\u7b56\u7565\uff0c\u4f46\u4e0e\u7ed9\u5b9a\u53e5\u5b50\u4e0d\u5b8c\u5168\u5339\u914d\u3002"
+    },
+    {
+        "verdict": "no",
+        "reason": "The sentence is about adding users and not directly related to unlocking."
+    }
+]
+ 
+Score: 0.5
+Reason: The score is 0.50 because although there are some relevant points, such as the mention of user lockout handling in node2 (automatic unlock) and specific command usage in node6 (yhpasswd -u), the retrieval context does not fully align with all parts of the expected output sentences.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Contextual Relevancy Verbose Logs
+**************************************************
+
+Verdicts:
+[
+    {
+        "verdicts": [
+            {
+                "statement": "\u5f53\u670d\u52a1\u5904\u7406\u8bf7\u6c42\u4f46\u56de\u590d\u4e22\u5931\u65f6\uff0c\u5ba2\u6237\u7aef\u9700\u91cd\u53d1\u8bf7\u6c42\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "VBR\u529f\u80fd\u901a\u8fc7\u6bd4\u8f83\u5bf9\u8c61\u7684\u7248\u672c\u53f7\u5224\u65ad\u8bf7\u6c42\u662f\u5426\u53ef\u5b89\u5168\u91cd\u653e\uff0c\u63d0\u9ad8\u7cfb\u7edf\u53ef\u9760\u6027\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u9501\u6062\u590d\u8fc7\u7a0b\u4e2d\uff0c\u5ba2\u6237\u7aef\u91cd\u4f20\u9501\u4fe1\u606f\uff0cMDS\u4fe1\u4efb\u5ba2\u6237\u7aef\u63d0\u4f9b\u7684\u9501\u72b6\u6001\u3002\u8bf7\u6c42\u91cd\u53d1\u540e\uff0cMDS\u9700\u91cd\u5efa\u56de\u590d\uff0c\u786e\u4fdd\u64cd\u4f5c\u4e0d\u91cd\u590d\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "VBR\u901a\u8fc7\u8ddf\u8e2ainode\u7248\u672c\uff0c\u4f7f\u66f4\u591a\u5ba2\u6237\u7aef\u80fd\u91cd\u65b0\u96c6\u6210\uff0c\u907f\u514d\u6570\u636e\u4e22\u5931\u3002",
+                "verdict": "no",
+                "reason": "The statement mentions 'inode version' which is irrelevant to the input about unlocking user accounts due to multiple password failures."
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u5bc6\u7801\u7b56\u7565\u5305\u62ec\u6709\u6548\u671f\u3001\u6700\u5927\u5931\u8d25\u6b21\u6570\u3001\u6700\u5c0f\u5e74\u9f84\u3001\u957f\u5ea6\u9650\u5236\u53ca\u5f3a\u5236\u4fee\u6539\u7b49\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u7528\u6237\u9996\u6b21\u767b\u5f55\u6216\u91cd\u7f6e\u5bc6\u7801\u540e\u9700\u5f3a\u5236\u4fee\u6539\uff0c\u53ef\u901a\u8fc7-f\u9009\u9879\u542f\u7528\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u7ba1\u7406\u5458\u53ef\u4ee5\u89e3\u9501\u88ab\u9501\u5b9a\u7684\u7528\u6237\u8d26\u6237\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u6dfb\u52a0\u65b0\u7528\u6237\u65f6\u9700\u5173\u8054Slurm\uff0c\u5e76\u53ef\u8fc1\u79fb\u5bb6\u76ee\u5f55\u81f3\u6307\u5b9aMDT\u4ee5\u5747\u8861\u5b58\u50a8\u3002",
+                "verdict": "no",
+                "reason": "The statement mentions the process of adding new users and migrating home directories, which is unrelated to how administrators unlock locked accounts."
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u65b0\u4f1a\u8bdd972846\u7531\u7528\u6237root\u542f\u52a8\u3002",
+                "verdict": "no",
+                "reason": "The statement mentions a new session started by user root, but the input is about how to unlock users who are locked out due to multiple incorrect password attempts. The context does not provide any information related to unlocking procedures or user lockouts."
+            },
+            {
+                "statement": "\u5e38\u89c1\u62a5\u9519\u5305\u62ec\u5185\u5b58\u4e0d\u8db3\u3001\u6bb5\u9519\u8bef\u3001\u603b\u7ebf\u9519\u8bef\u548cLustre\u9519\u8bef\uff0c\u5904\u7406\u65b9\u5f0f\u5404\u6709\u4e0d\u540c\u3002",
+                "verdict": "no",
+                "reason": "The statement lists common errors and their handling methods, but the input specifically asks about unlocking users after multiple password failures. The context does not mention anything related to user lockouts or authentication issues."
+            },
+            {
+                "statement": "\u7528\u6237\u591a\u6b21\u8f93\u9519\u5bc6\u7801\u4f1a\u5bfc\u81f4\u9501\u5b9a\uff0c\u76d1\u63a7\u7cfb\u7edf\u4f1a\u62a5\u8b66\uff0c\u9700\u503c\u73ed\u5458\u6839\u636e\u60c5\u51b5\u89e3\u9501\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u6545\u969c\u8282\u70b9\u53efdrain\u5904\u7406\uff0c\u901a\u8fc7\u5e73\u53f0\u4fee\u6539\u8282\u70b9\u72b6\u6001\u3002",
+                "verdict": "no",
+                "reason": "The statement discusses handling faulty nodes by draining them and modifying node states, but the input is about user lockouts due to password errors. There is no direct connection between these two topics in the context."
+            },
+            {
+                "statement": "\u8fd0\u7ef4\u64cd\u4f5c\u5305\u62ec\u7528\u6237\u89e3\u9501\u3001\u8282\u70b9\u7ba1\u7406\u3001\u8d44\u6e90\u67e5\u8be2\u7b49\u3002",
+                "verdict": "yes",
+                "reason": ""
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "5\u5206\u949f\uff0c\u7ecf\u8fc7\u7ba1\u7406\u5458\u5ba1\u6838\u7528\u6237\u4e3a\u975e\u6076\u610f\u7834\u89e3\u5bc6\u7801\u65f6\uff0c\u53ef\u4ee5\u901a\u8fc7\u4ee5\u4e0b\u547d\u4ee4\u624b\u52a8\u89e3\u9501\u7528\u6237\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "# yhpasswd -u login",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "7.\u4fee\u6539\u5bc6\u7801\u7b56\u7565 \u7528\u6237\u5bc6\u7801\u7b56\u7565\u7531/etc/lam-yhpc/addPolicy.ldif\u6587\u4ef6\u8fdb\u884c\u5b9a\u4e49\u3002 \u5982\u679c\u9700\u8981\u4fee\u6539\u5bc6\u7801\u7b56\u7565\uff0c\u76f4\u63a5\u4fee\u6539\u4e0a\u8ff0\u6587\u4ef6\uff0c\u7136\u540e\u6267\u884c\u547d\u4ee4\uff1a # yhpolicy -u \u67e5\u8be2\u5f53\u524d\u5bc6\u7801\u7b56\u7565\uff0c\u6267\u884c\u547d\u4ee4 # yhpolicy -l",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "dn:cn=default,ou=pwpolicies,dc=yhpc cn: default objectClass: pwdPolicy pwdPolicyChecker person top pwdAttribute: userPassword pwdMinAge: 0 pwdMaxAge: 7776000 pwdMinLength: 12 pwdExpireWarning: 604800 pwdCheckModule: check_password.so pwdCheckQuality: 3 pwdMustChange: TRUE pwdAllowUserChange: TRUE pwdSafeModify: TRUE sn: yhpc pwdGraceAuthNLimit: 6 pwdInHistory: 2",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "8. \u6dfb\u52a0\u65b0\u7528\u6237 yhuseradd -h Usage: yhuseradd [options] LOGIN Options: ...",
+                "verdict": "no",
+                "reason": "The statement describes the command for adding a new user and its options, but it does not relate to unlocking an account when locked due to multiple incorrect password attempts."
+            },
+            {
+                "statement": "\u6587\u4ef6\u7cfb\u7edf\u5982\u679c\u91c7\u7528\u591a\u4e2aMDT\u6784\u6210\u7684",
+                "verdict": "no",
+                "reason": "This part of the context is about file systems using multiple MDTs, which has no relevance to the process of unlocking a user account that was locked due to incorrect password attempts."
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u7528\u6237\u56e0\u591a\u6b21\u8f93\u9519\u5bc6\u7801\u88ab\u9501\u5b9a\u65f6\uff0c\u503c\u73ed\u5458\u5e94\u5982\u4f55\u89e3\u9501\uff1f",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u8fde\u63a5\u76f8\u5e94\u96c6\u7fa4\uff0c\u70b9\u51fb\u201c\u7528\u6237\u64cd\u4f5c\u201d-\u201c\u7528\u6237\u767b\u5f55\u89e3\u9501\u201d\u3002",
+                "verdict": "no",
+                "reason": "The statement contains irrelevant parts such as 'user operation' and does not directly address the unlocking process."
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u6587\u4ef6\u7684\u5185\u5bb9\uff0c\u56de\u590d\u6570\u636e\u5305\u542b\u4e86\u53ef\u7528\u4e8e\u6807\u8bc6\u5ba2\u6237\u7aef\u7684\u7248\u672c\u53f7\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u57fa\u4e8e\u7248\u672c\u7684\u6062\u590d\u53ef\u4f7f\u7528\u57fa\u4e8e\u7248\u672c\u7684\u6062\u590d (VBR) \u529f\u80fd\u6765\u5904\u7406\u5728\u6062\u590d\u671f\u95f4\u65e0\u6cd5\u91cd\u653e\u7684\u5ba2\u6237\u7aef\u8bf7\u6c42(RPC)\uff0c\u4ece\u800c\u63d0\u9ad8 Lustre \u6587\u4ef6\u7cfb\u7edf\u7684\u53ef\u9760\u6027\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5728\u65e0 VBR \u529f\u80fd\u7684\u4e4b\u524d\u7684 Lustre \u7248\u672c\u4e2d\uff0c\u5982\u679c MGS \u6216 OST \u53d1\u751f\u6545\u969c\u5c06\u89e6\u53d1\u6062\u590d\u64cd\u4f5c\uff0c\u5ba2\u6237\u7aef\u4f1a\u5c1d\u8bd5\u91cd\u653e\u5176\u8bf7\u6c42\u3002\u5ba2\u6237\u7aef\u53ea\u5141\u8bb8\u6309\u987a\u5e8f\u91cd\u64adRPC\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u7531\u4e8e\u5fc5\u987b\u7b49\u5f85\u66f4\u65e9\u7684RPC \u5b8c\u6210, '\u4e0b\u6e38' \u5ba2\u6237\u7aef\u5c06\u6c38\u8fdc\u4e0d\u4f1a\u91cd\u653e\u5b83\u4eec\u7684\u8bf7\u6c42\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u6700\u7ec8\uff0c\u6062\u590d\u671f\u5c06\u8d85\u65f6\uff08\u56e0\u6b64\u7ec4\u4ef6\u53ef\u4ee5\u63a5\u53d7\u65b0\u8bf7\u6c42\uff09\uff0c\u5bfc\u81f4\u4e00\u4e9b\u5ba2\u6237\u88ab\u9a71\u9010\uff0c\u5176\u8bf7\u6c42\u548c\u6570\u636e\u4e22\u5931\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u4f7f\u7528VBR \u540e\uff0c\u6062\u590d\u673a\u5236\u4e0d\u4f1a\u5bfc\u81f4\u5ba2\u6237\u7aef\u6216\u5176\u6570\u636e\u4e22\u5931\uff0c\u8fd9\u662f\u56e0\u4e3a\u5bf9 inode \u7248\u672c\u7684\u66f4\u6539\u8fdb\u884c\u4e86\u8ddf\u8e2a\uff0c\u66f4\u591a\u5ba2\u6237\u7aef\u80fd\u591f\u91cd\u65b0\u96c6\u6210\u5230\u96c6\u7fa4\u4e2d\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u4f7f\u7528VBR \u8fdb\u884c node \u8ddf\u8e2a:\u3002 \u6bcf\u4e2a inode \u5b58\u50a8\u4e00\u4e2a\u7248\u672c\u559c\uff0c\u5373 inode \u66f4\u6539\u7684\u6700\u540e\u4e8b\u52a1\u7f16\u53f7 (transno) \u3002\u3002\u5f53\u8981\u66f4\u6539 inode \u65f6\uff0cinode \u7684\u64cd\u4f5c\u524d\u7248\u672c\u53f7\u5c06\u88ab\u4fdd\u5b58\u5728\u5ba2\u6237\u7aef\u7684\u6570\u636e\u4e2d\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5ba2\u6237\u7aef\u4fdd\u7559\u64cd\u4f5c\u524d inode \u7248\u672c\u5415\u548c\u64cd\u4f5c\u540e\u7248\u672c\u53f7 (\u4e8b\u52a1\u7f16\u53f7) \uff0c\u5e76\u5728\u670d\u52a1\u4eba\u9022\u53d1\u751f\u6545\u969c\u540e\u53d1\u9001\u5b83\u4eec\u3002\u3002 \u5982\u91c7\u64cd\u4f5c\u524d\u540e\u7248\u672c\u5339\u914d\uff0c\u5219\u91cd\u653e\u8bf7\u6c42\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5728\u8bf7\u6c42\u4e2d\u4fee\u6539\u7684\u6240\u6709 inode \u4e0a\u5206\u914d\u64cd\u4f5c\u540e\u7684ASS\u6ce8\u610f\u56e0\u4e3a\u64cd\u4f5c\u4e2d\u53ef\u80fd\u6d89\u53ca\u591a\u4e2a inode, RPC \u6700\u591a\u53ef\u5305\u542b\u56db\u4e2a\u9884\u64cd\u4f5c\u7248\u672c\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u8fdb\u884c '\u91cd\u547d\u540d' \u64cd\u4f5c\u65f6\uff0c\u53ef\u4ee5\u4fee\u6539\u56db\u4e2a\u4e0d\u540c\u7684 inode\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5728\u6b63\u94fa\u64cd\u4f5c\u671f\u95f4\uff0c\u670d\u52a1\u7855:\u3002\u66f4\u65b0\u7ed9\u5b9a\u64cd\u4f5c\u4e2d\u6d89\u53ca\u7684\u6240\u6709 inode \u7684\u7248\u672c\u3002\u3002 \u5c06\u65e7\u7684\u548c\u65b0\u7684 inode \u7248\u672c\u8fd4\u56de\u7ed9\u5ba2\u6237\u7aef\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5f53\u6062\u590d\u6b63\u5728\u8fdb\u884c\u65f6\uff0cVBR \u9075\u5faa\u4ee5\u4e0b\u6b65\u9aa4:1. \u53ea\u6709\u5f53\u53d7\u5f71\u54cd\u7684 inode \u6709\u4e0e\u539f\u59cb\u6267\u884c\u4e8b\u52a1\u65f6\u7248\u672c\u76f8\u540c\u65f6\uff0cVBR \u624d\u80fd\u5141\u8bb8\u5ba2\u6237\u7aef\u91cd\u65b0\u96c6\u6210\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "2. \u670d\u52a1\u8c46\u7b20\u8bd5\u6267\u884c\u548c\u5ba2\u6237\u7aef\u53d1\u8d77\u7684\u6bcf\u4e2a\u4e8b\u52a1\uff08\u5373\u4f7f\u91cd\u65b0\u96c6\u6210\u5931\u8d25)\u3002",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u4e0b\uff0c\u552f\u4e00\u7684\u53ef\u80fd\u662f\u670d\u52a1\u878d\u5904\u7406\u4e86\u4e00\u4e9b\u8bf7\u6c42\u4f46\u662f\u56de\u590d\u4e22\u5931\u4e86\u3002",
+                "verdict": "no",
+                "reason": "The statement mentions 'service fusion' which is not related to the input about unlocking when locked due to multiple password errors."
+            },
+            {
+                "statement": "\u5ba2\u6237\u7ad9\u5fc5\u987b\u5728\u5176\u91cd\u53d1\u5217\u8868\u4e2d\u5305\u542b\u8fd9\u4e9b\u8bf7\u6c42\uff0c\u4ee5\u4fbf\u6062\u590d\u5b9b\u6210\u540e\u8fdb\u884c\u91cd\u53d1\u3002",
+                "verdict": "no",
+                "reason": "The statement talks about client retransmission lists and recovery completion, which is unrelated to the input question about unlocking."
+            },
+            {
+                "statement": "\u5982\u6709\u679c\u6240\u6709\u5ba2\u6237\u7aef\u90fd\u672a\u91cd\u65b0\u8fde\u63a5\uff0c\u5219\u6545\u9690\u5ba2\u6237\u7aef\u53ef\u80fd\u6709\u4e0d\u4f1a\u518d\u88ab\u91cd\u653e\u7684\u8bf7\u6c42\u3002",
+                "verdict": "no",
+                "reason": "The statement discusses client reconnection issues and unreplayed requests, which does not address the input's question about unlocking."
+            },
+            {
+                "statement": "VBR\u529f\u80fd\u53ef\u7528\u4e8e\u786e\u5b9a\u95f4\u961f\u4e4b\u540e\u7684\u8bf7\u6c42\u662f\u5426\u53ef\u4ee5\u88ab\u5b89\u5168\u5730\u91cd\u653e\u3002",
+                "verdict": "no",
+                "reason": "This statement is about VBR function for replay safety, unrelated to password error locking and unlocking."
+            },
+            {
+                "statement": "\u6587\u4ef6\u7cfb\u7edf\u4e2d\u7684\u6bcf\u4e2a\u6761\u76ee\u3008\u300aMDSinode \u6216 OST \u5bf9\u8c61) \u5c06\u5728\u78c1\u594f\u4e0a\u5b58\u50a8\u88ab\u4fee\u6539\u7684\u6700\u540e\u4e8b\u52a1\u7f16\u53f7\u3002",
+                "verdict": "no",
+                "reason": "The statement describes file system entries storing transaction IDs, which is not relevant to the input about unlocking."
+            },
+            {
+                "statement": "\u6765\u76ee\u670d\u52a1\u90c1\u7684\u6bcf\u4e2a\u56de\u590d\u90fd\u542b\u5b83\u6240\u4f5c\u7528\u7684\u5bf9\u8c61\u5148\u524d\u7684\u7248\u672c\u53f7\u3002",
+                "verdict": "no",
+                "reason": "This statement mentions reply containing previous version numbers of objects, unrelated to password error locking and unlocking."
+            },
+            {
+                "statement": "\u5728 VBR \u91cd\u653e\u671f\u95f4\uff0c\u670d\u52a1\u5668\u5c06\u91cd\u65b0\u53d1\u9001\u8bf7\u6c42\u4e2d\u7684\u5148\u524d\u7248\u672c\u53f7\u4e0e\u5f53\u524d\u7248\u672c\u53f7\u8fdb\u884c\u5339\u914d\u3002",
+                "verdict": "no",
+                "reason": "The statement describes the process during VBR replay matching version numbers, which is unrelated to unlocking."
+            },
+            {
+                "statement": "\u5982\u679c\u6240\u6709\u5ba2\u6237\u7aef\u90fd\u91cd\u65b0\u8fde\u63a5\u4e14\u6240\u6709\u8bf7\u6c42\u90fd\u6210\u529f\u91cd\u653e\uff0c\u5219\u53ef\u4ee5\u7ee7\u7eed\u64cd\u4f5c\u3002",
+                "verdict": "yes",
+                "reason": ""
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u5f53\u7528\u6237\u56e0\u591a\u6b21\u8f93\u9519\u5bc6\u7801\u88ab\u9501\u5b9a\u65f6\uff0c\u503c\u73ed\u5458\u5e94\u5982\u4f55\u89e3\u9501\uff1f",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u7ba1\u7406\u5458\u89e3\u9501\u65b9\u5f0f\uff1a\u7ecf\u8fc7\u7ba1\u7406\u5458\u5ba1\u6838\u7528\u6237\u4e3a\u975e\u6076\u610f\u7834\u89e3\u5bc6\u7801\u65f6\uff0c\u53ef\u4ee5\u901a\u8fc7\u4ee5\u4e0b\u547d\u4ee4\u624b\u52a8\u89e3\u9501\u7528\u6237\u3002",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": ". 38.3. Rebuilding replies When the reply is lost, MDS needs to be able to rebuild it when the original request is resent. This must be done without repeating any unnecessary operations and while maintaining the integrity of the locking system.",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": ". 38.3.1. Required state For most requests, storing three types of data in the service line's last_zcvdq file is sufficient: The XID of the request, the transaction number (if any), and the result code (eq->rq_status).",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": ". 38.3.2. 'Open Request' reply The reply to an 'open request' can include up to three pieces of information (excluding the content of the 'request log'): file handle, Bayt*mds_body and information about the created file (O_CREAT).",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": ". 38.3.2.1. Finding the file handle The file handle can be found in the XID of the request and each exported open file handle list.",
+                "verdict": "no",
+                "reason": "The statement mentions finding the file handle in the XID, but the input is about unlocking when users are locked out due to multiple password errors. There's no connection between MDS requests and user account lockouts."
+            },
+            {
+                "statement": ". 38.3.2.2. Finding resource/FID The file handle contains the resource/FID.",
+                "verdict": "no",
+                "reason": "This statement is about finding resource/FID in a file handle, which has no relevance to user account lockouts or unlocking procedures."
+            },
+            {
+                "statement": ". 38.3.2.3. Finding lock handle The lock handle can be found by traversing the list of locks granted for each resource in the corresponding remote file handle (as displayed in the resent request).",
+                "verdict": "no",
+                "reason": "This statement discusses finding and verifying lock handles, which is unrelated to user account lockouts caused by multiple password failures."
+            },
+            {
+                "statement": ". 38.3.3. Multiple reply data on clients Starting from Lustre 2.8, MDS can save multiple reply data for each client. Reply data are stored in the internal file rceply_dqata of the MDT.",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": ". 38.4. Version-based recovery The VBR feature can be used to handle client requests (RPC) that cannot be replayed during recovery.",
+                "verdict": "no",
+                "reason": "This statement is about version-based recovery for Lustre file system operations, which does not relate to user account lockouts or unlocking procedures."
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u6dfb\u52a0\u65b0\u7528\u6237\u65f6\uff0c\u5982\u679c\u8be5\u7528\u6237\u9700\u8981\u91c7\u7528slurm\u63d0\u4ea4\u4f5c\u4e1a\uff0c\u5c31\u8fdb\u884cslurm\u4e0e\u7528\u6237\u5173\u8054\uff1a# yhacctmgr add user <login> account=test wckey=test",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u6587\u4ef6\u7cfb\u7edf\u5982\u679c\u91c7\u7528\u591a\u4e2aMDT\u6784\u6210\u7684lustre\u6587\u4ef6\u7cfb\u7edf\uff0c\u4e3a\u907f\u514d\u7528\u6237\u7684\u6587\u4ef6\u5143\u6570\u636e\u5168\u90e8\u5b58\u653e\u5728mdt0\u4e0a\uff0c\u53ef\u4ee5\u5c06\u7528\u6237\u5206\u6563\u5728\u4e0d\u540cmdt\u4e0a\u3002\u5728\u7528\u6237\u9996\u6b21\u767b\u5f55\u540e\uff0c\u4f1a\u5728\u6587\u4ef6\u7cfb\u7edf\u4e2d\u751f\u6210\u5176\u5bb6\u76ee\u5f55\uff0c\u5c06\u5bb6\u76ee\u5f55\u8fc1\u79fb\u5230\u6307\u5b9amdt\u4e0a,\u547d\u4ee4\u5982\u4e0b\uff1a# lfs migrate [mdt-count|-c] <mdt_count>  [mdt-hash|-H] <hash_type>   [mdt-index|-m] <start_mdt_index>",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "[verbose|-v]      <directory>",
+                "verdict": "no",
+                "reason": null
+            }
+        ]
+    }
+]
+ 
+Score: 0.6
+Reason: The contextual relevancy score is 0.6 because although there are statements about user account lockouts (e.g., '用户多次输错密码会导致锁定，监控系统会报警，需值班员根据情况解锁.' and '管理员解锁方式：经过管理员审核用户为非恶意破解密码时，可以通过以下命令手动解锁用户.') which provide some relevant information, the majority of the retrieved context discusses Lustre file system operations like VBR (version-based recovery), inode versions, node tracking, etc., with only a few sentences directly addressing user account lockouts. The irrelevancy reasons indicate that the context does not cover unlocking procedures or password error handling in detail.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Contextual Relevancy Verbose Logs
+**************************************************
+
+Verdicts:
+[
+    {
+        "verdicts": [
+            {
+                "statement": "\u6267\u884c\u786c\u76d8\u66f4\u6362\u64cd\u4f5c\uff0c\u5305\u62ec\u6807\u8bb0\u3001\u4e0b\u7ebf\u3001\u6e05\u9664\u8bbe\u5907\u540d\u3001\u66f4\u6362\u786c\u76d8\u53ca\u6062\u590d\u3002",
+                "verdict": "no",
+                "reason": "The statement describes the steps involved in replacing a hard drive, but it does not provide any specific information about how to confirm the recovery status using commands. The irrelevant part is '\u6267\u884c\u786c\u76d8\u66f4\u6362\u64cd\u4f5c\uff0c\u5305\u62ec\u6807\u8bb0\u3001\u4e0b\u7ebf\u3001\u6e05\u9664\u8bbe\u5907\u540d\u3001\u66f4\u6362\u786c\u76d8\u53ca\u6062\u590d.'"
+            },
+            {
+                "statement": "\u8fc7\u7a0b\u4e2d\u9700\u6ce8\u610f\u62a5\u8b66\u4fe1\u606f\uff0c\u786e\u8ba4\u786c\u76d8\u72b6\u6001\u3002",
+                "verdict": "no",
+                "reason": "The statement mentions paying attention to alarm information and confirming the hard drive status during the process, but it does not specify any command for confirmation. The irrelevant part is '\u8fc7\u7a0b\u4e2d\u9700\u6ce8\u610f\u62a5\u8b66\u4fe1\u606f\uff0c\u786e\u8ba4\u786c\u76d8\u72b6\u6001.'"
+            },
+            {
+                "statement": "\u66f4\u6362\u540e\u901a\u8fc7zpool status\u67e5\u770b\u6062\u590d\u72b6\u6001\uff0c\u5f85\u6240\u6709\u786c\u76d8Online\u540e\u5173\u95ed\u786c\u76d8\u706f\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u64cd\u4f5c\u6210\u529f\u6807\u5fd7\u4e3a\u65e0\u9519\u8bef\u4fe1\u606f\uff0c\u786c\u76d8\u6062\u590d\u6b63\u5e38\u8fd0\u884c\u3002",
+                "verdict": "no",
+                "reason": "The statement describes the success criteria of the operation, but it does not mention any specific command for confirming the recovery status. The irrelevant part is '\u64cd\u4f5c\u6210\u529f\u6807\u5fd7\u4e3a\u65e0\u9519\u8bef\u4fe1\u606f\uff0c\u786c\u76d8\u6062\u590d\u6b63\u5e38\u8fd0\u884c.'"
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u672c\u6587\u4e3b\u8981\u4ecb\u7ecd\u4e86\u5728ZFS\u5b58\u50a8\u6c60\u4e2d\u66f4\u6362\u786c\u76d8\u7684\u6b65\u9aa4\u548c\u6ce8\u610f\u4e8b\u9879\u3002",
+                "verdict": "no",
+                "reason": "The context mentions that the article discusses steps and precautions for replacing hard drives in ZFS storage pools, but it does not provide any specific information about Einstein's achievements. The irrelevant part is '\u672c\u6587\u4e3b\u8981\u4ecb\u7ecd\u4e86...' which directly states the topic of the article without connecting to Einstein."
+            },
+            {
+                "statement": "\u9996\u5148\u9700\u786e\u8ba4\u574f\u76d8\u662f\u5426\u5b58\u5728\u522b\u540d\uff0c\u5982slot-13\uff0c\u5e76\u68c0\u67e5\u5b58\u50a8\u6c60\u72b6\u6001\uff0c\u82e5\u663e\u793a\u4e3a\u6570\u5b57\u5219\u9700\u4f7f\u7528GID\u6362\u76d8\u3002",
+                "verdict": "no",
+                "reason": "This statement describes a step in the process of replacing hard drives, specifically about checking for disk aliases and pool status. It does not relate to Einstein's achievements as per the input."
+            },
+            {
+                "statement": "\u6362\u76d8\u547d\u4ee4\u683c\u5f0f\u4e3a`zpool replace -f <\u6c60\u540d> <\u65e7\u76d8> <\u65b0\u76d8>`\uff0c\u82e5\u65b0\u76d8\u522b\u540d\u66f4\u6539\uff0c\u53ef\u76f4\u63a5\u4f7f\u7528\u65b0\u522b\u540d\u3002",
+                "verdict": "no",
+                "reason": "The command format and alias usage mentioned here are part of the ZFS storage pool replacement process, not related to Einstein's achievements."
+            },
+            {
+                "statement": "\u6362\u76d8\u540e\u4f1a\u8fdb\u884c\u6570\u636e\u540c\u6b65\uff0c\u53ef\u901a\u8fc7`zpool status`\u67e5\u770b\u8fdb\u5ea6\u3002",
+                "verdict": "no",
+                "reason": "This statement talks about data synchronization and checking progress after disk replacement, which is unrelated to the question about Einstein's achievements."
+            },
+            {
+                "statement": "\u5bf9\u4e8e\u6709\u70ed\u5907\u76d8\u7684\u5b58\u50a8\u6c60\uff0c\u53ef\u4f7f\u7528\u70ed\u5907\u76d8\u66ff\u6362\u574f\u76d8\u3002",
+                "verdict": "no",
+                "reason": "The mention of hot spare disks in ZFS storage pools for replacement purposes does not pertain to the topic of Einstein's achievements."
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u6587\u672c\u4e3b\u8981\u63cf\u8ff0\u4e86\u5b58\u50a8\u7cfb\u7edf\u4e2d\u78c1\u76d8\u72b6\u6001\u4fe1\u606f\u53ca\u66f4\u6362\u574f\u76d8\u7684\u64cd\u4f5c\u6d41\u7a0b",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5f3a\u8c03\u53ef\u76f4\u63a5\u66f4\u6362\u65b0\u76d8\u800c\u4e0d\u9700\u8c03\u6574\u70ed\u5907\u76d8\u4f4d\u7f6e",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u540c\u65f6\u4ecb\u7ecd\u4e86\u5982\u4f55\u67e5\u770bZFS\u6570\u636e\u96c6\u7684\u540e\u53f0\u6570\u636e\uff0c\u5305\u62ec\u5378\u8f7d\u3001\u8bbe\u7f6ecanmount\u5c5e\u6027\u53ca\u91cd\u65b0\u6302\u8f7d\u7b49\u6b65\u9aa4",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u4ee5\u4fbf\u8fd0\u7ef4\u4eba\u5458\u8fdb\u884c\u6570\u636e\u7ba1\u7406\u548c\u8c03\u6574",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u7cfb\u7edf\u73af\u5883\u4e3aRed Hat 7.6\uff0c\u4f7f\u7528Lustre 2.12.0\u548cZFS 0.7.13",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "issued at 690M/s, 27.eT total\u201d",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "STATE READ WRITE CKSUM\u201d",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u201c\tosti9-5DEGRADED = @ Ss\u201d",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "2changed=1",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "unreachable=-8failed=@",
+                "verdict": "no",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u7248\u672c",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "- \u7cfb\u7edf\uff1aredhat7.6",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "- \u6587\u4ef6\u7cfb\u7edf\uff1aLustre\uff1a2.12.0",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "- ZFS\uff1a0.7.13",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "5.5.2\u3001\u76ee\u7684",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u4e3a\u8fd0\u7ef4\u4eba\u5458\u67e5\u770b\u540e\u53f0\u6570\u636e\uff0c\u505a\u76f8\u5e94\u8c03\u6574\uff0c\u63d0\u4f9b\u65b9\u4fbf\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "5.5.3\u3001\u65b9\u6cd5",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "- \u524d\u63d0\uff08\u4ee5 2 \u4e2a\u5b58\u50a8\u6c60 mds \u548c ost \u4e3a\u4f8b\uff09\uff1a",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u5b58\u5728 2 \u4e2a\u5b58\u50a8\u6c60 mds \u548c ost\uff0c\u201cMount type\u201d\u662f\u201czfs\u201d\uff0c\u4e14\u88ab\u683c\u5f0f\u5316\u4e3a lustre \u6587\u4ef6\u7cfb\u7edf\u7684\u6570\u636e\u96c6\u4e3a mds/mds\uff0cost/ost\uff08\u53ef\u4ee5\u662f\u5176\u4ed6\uff09\uff0cmds \u662f\u5143\u6570\u636e\u5b58\u50a8\u6c60\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "mds/mds \u548c ost/ost \u5747\u4ee5 lustre \u5f62\u5f0f\u6302\u8f7d\u3002mds \u548c ost \u4ee5 zfs \u5f62\u5f0f\u6302\u8f7d\u3002",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "# df -Th",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "Filesystem     Type      Size  Used Avail Use% Mounted on",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "/dev/sda1      ext4       11G  4.4G  5.8G  44% /",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "devtmpfs       devtmpfs  898M     0  898M   0% /dev",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "/dev/sda2      ext4      6.8G  1.6G  4.9G  25% /home",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "mds            zfs        20G     0   20G   0% /mds",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "mds/mds        lustre     20G  1.9M   20G   1% /mnt/mds",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "ost            zfs        58G     0   58G   0% /ost",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "ost/ost        lustre     58G  1.8M   58G   1% /mnt/ost",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u4ee5\u67e5\u770b\u8bbe\u5907 ost/ost \u4e2d\u4fe1\u606f\u4e3a\u4f8b\uff0c\u65b9\u6cd5\u5982\u4e0b\uff1a",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "- \u5378\u8f7d ost/ost",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u540c\u4e00\u4e2a\u6587\u4ef6\u7cfb\u7edf\u4e0d\u80fd\u4ee5 lustre \u548c zfs \u540c\u65f6\u6302\u8f7d\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "# umount <\u6302\u8f7d\u70b9\u6216\u6570\u636e\u96c6>",
+                "verdict": "no",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u8bbe\u5907 ost/ost \u4e2d\u4fe1\u606f\u4e3a\u4f8b\uff0c\u65b9\u6cd5\u5982\u4e0b\uff1a- \u5378\u8f7d ost/ost \u540c\u4e00\u4e2a\u6587\u4ef6\u7cfb\u7edf\u4e0d\u80fd\u4ee5 lustre \u548c zfs \u540c\u65f6\u6302\u8f7d\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "# umount <\u6302\u8f7d\u70b9\u6216\u6570\u636e\u96c6> \u793a\u4f8b:\u5378\u8f7d\u4ee5 lustre \u7c7b\u578b\u6302\u8f7d\u7684\u5b58\u50a8\u6c60 ost # umount ost",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "- \u83b7\u53d6\u5b58\u50a8\u6c60 ost \u7684 canmount \u5c5e\u6027 #  get canmount <\u5b58\u50a8\u6c60> \u793a\u4f8b\uff1a# zfs get canmount ost NAME PROPERTY VALUE SOURCE ost     canmount  on        default",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "- \u8bbe\u7f6e\u5b58\u50a8\u6c60 ost \u7684 canmount \u5c5e\u6027\u4e3a on # zfs set canmount=on <\u5b58\u50a8\u6c60> \u793a\u4f8b\uff1a# zfs set canmount=on ost",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "- \u8bbe\u7f6e\u6570\u636e\u96c6 ost/ost \u7684 canmount \u5c5e\u6027 canmount \u5c5e\u6027\u51b3\u5b9a\u4e86\u662f\u5426\u53ef\u4ee5\u6302\u8f7d\u3001\u67e5\u770b\u540e\u53f0\u6570\u636e\u3002 \u67e5\u770b\u6587\u4ef6\u7cfb\u7edf canmount \u5c5e\u6027 # zfs get canmount <\u6570\u636e\u96c6> \u793a\u4f8b\uff1a# zfs get canmount ost/ost NAME PROPERTY VALUE SOURCE ost/ost     canmount  off        local",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "- \u8bbe\u7f6e\u6570\u636e\u96c6 ost/ost \u7684 canmount \u5c5e\u6027\u4e3a on # zfs set canmount=on <\u6570\u636e\u96c6> \u793a\u4f8b\uff1a# zfs get canmount ost/ost NAME PROPERTY VALUE SOURCE ost/ost     canmount  on        local \u6b64\u65f6\uff0c\u8bbe\u5907 canmount \u5c5e\u6027\u4e3a\u201con\u201d\u72b6\u6001\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "- \u4ee5 zfs \u683c\u5f0f\u6302\u8f7d\u6570\u636e\u96c6 \u6302\u8f7d\u547d\u4ee4\uff1a # zfs mount <\u6570\u636e\u96c6> \u793a\u4f8b\uff1a# zfs mount ost/ost",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": ". unreachable=-8failed=@ . skipped-8 . rescued-8 \u2014ignored-0",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u64cd\u4f5c\u6267\u884c\u6210\u529f\u5373\u53ef\uff0cIdent=1\u8868\u793a\u786c\u76d8\u5904\u4e8e\u70b9\u4eae\u72b6\u6001\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "5\uff09\u4e0b\u7ebf\u786c\u76d8 JBOD19-S54 \u8f93\u5165\u5377\u548c\u786c\u76d8\u6765\u4e0b\u7ebf\u786c\u76d8\u3002\u811a\u672c\u53cd\u9988\u6267\u884c\u6210\u529f\u5373\u53ef\u3002",
+                "verdict": "no",
+                "reason": "The statement mentions 'operation execution success' and 'JBODxx-Sxx', but does not provide any information about how to confirm the recovery status of the hard disk through commands. It is irrelevant."
+            },
+            {
+                "statement": "6\uff09\u6e05\u9664\u786c\u76d8\u8bbe\u5907\u540d \u5c06\u6b65\u9aa45\u4e2d\u7684\u786c\u76d8\u8bbe\u5907\u540d\u586b\u5165\u5bf9\u8bdd\u6846\u4e2d\uff0c\u6765\u6e05\u9664\u76d8\u7b26\u3002",
+                "verdict": "no",
+                "reason": "The statement discusses clearing the disk device name, which does not relate to confirming recovery status via commands. It is irrelevant."
+            },
+            {
+                "statement": "7\uff09\u66f4\u6362\u786c\u76d8 \u786c\u76d8\u7684\u5907\u4ef6\u5728\u5907\u673a\uff08JBOD149\uff0cI/O66\u673a\u67dc\uff09\u91cc\u9762\u3002",
+                "verdict": "no",
+                "reason": "The statement talks about replacing the hard disk and its spare parts, but does not address command usage for confirming recovery status. It is irrelevant."
+            },
+            {
+                "statement": "8\uff09\u53ef\u4ee5\u901a\u8fc7zpool status\u67e5\u770b\u6062\u590d\u72b6\u6001 \u901a\u8fc7zpool status\u67e5\u770b\u76d8\u662f\u5426\u5728\u6062\u590d\uff0c\u4ee5\u53ca\u6062\u590d\u6240\u9700\u65f6\u95f4\u3002\u6839\u636e\u5b58\u50a8\u5377\u4f7f\u7528\u91cf\u4ee5\u53ca\u4f5c\u4e1a\u60c5\u51b5\uff0c\u6bcf\u5757\u76d8\u6062\u590d\u65f6\u95f4\u4e0d\u7b49\u3002",
+                "verdict": "yes",
+                "reason": ""
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "** \u4e0b\u662f\u5426\u5b58\u5728\u65b0\u76d8\u7684\u522b\u540d\uff0c\u5373 slot-13 \u8fd9\u4e2a\u94fe\u63a5\u662f\u5426\u5b58\u5728\uff0c\u5b58\u5728\u5219\u522b\u540d\u751f\u6548\u4e86\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u68c0\u67e5\u5b58\u50a8\u6c60\u72b6\u6001\uff0c\u67e5\u770b\u574f\u76d8 slot-13 \u5728\u5b58\u50a8\u6c60\u4e2d\u662f\u5426\u663e\u793a\u7684\u8fd8\u662f slot-13\uff0c\u5982\u679c\u4e3a\u4e00\u4e2a\u6570\u5b57\u5b57\u7b26\u4e32\uff0c\u5219\u4e3a\u5b58\u50a8\u6c60\u4e2d\u8be5\u6210\u5458\u76d8\u7684 id\uff08\u8fd9\u91cc\u7684 slot-13 \u5728\u91cd\u542f\u670d\u52a1\u5668\u540e\uff0c\u91cd\u65b0\u5bfc\u5165\u5b58\u50a8\u6c60\u53ef\u4ee5\u770b\u5230 gid \u4e3a 2823177480828651994\uff0c\u6b64\u65f6\u6362\u76d8\u5c31\u9700\u8981\u4f7f\u7528 gid \u6765\u8fdb\u884c\u6362\u76d8\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u6362\u76d8\u547d\u4ee4\u683c\u5f0f # zpool replace -f <\u5b58\u50a8\u6c60\u540d\u5b57> <\u574f\u76d8\u522b\u540d\u6216\u8005gid> <\u65b0\u76d8\u522b\u540d>",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u6309\u7167\u522b\u540d\u6362\u76d8\u793a\u4f8b\uff1a# zpool replace -f ost1 slot-13 slot-13",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u6309\u7167 gid \u6362\u76d8\u793a\u4f8b\uff1a # zpool replace -f ost1 2823177480828051994 slot-13",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u5982\u679c\u65b0\u76d8\u7684\u522b\u540d\u66f4\u6539\u4e86\uff0c\u90a3\u4e48\u53ef\u4ee5\u4f7f\u7528\u65b0\u76d8\u522b\u540d\u8fdb\u884c\u6362\u76d8 # zpool replace -f ost1 slot-13 <\u65b0\u76d8\u522b\u540d>",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u6e05\u9664\u914d\u7f6e\u4fe1\u606f\u547d\u4ee4\uff1a# zpool labelclear -f <\u786c\u76d8\u7684\u7edd\u5bf9\u8def\u5f84> \u793a\u4f8b: \u8fd9\u91cc\u5047\u8bbe\u786c\u76d8\u522b\u540d\u4e3a slot-13 \u5982\u679c\u91c7\u7528\u591a\u8def\u5f84\uff0c\u90a3\u4e48\u786c\u76d8\u7684\u7edd\u5bf9\u8def\u5f84\u5373\u4e3a\uff1a /dev/mapper/\u786c\u76d8\u540d # zpool labelclear -f /dev/mapper/slot-13",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u5982\u679c\u4f7f\u7528\u7684\u662f\u865a\u62df\u8bbe\u5907 vdev\uff0c\u90a3\u4e48\u786c\u76d8\u7684\u7edd\u5bf9\u8def\u5f84\u4e3a\uff1a /dev/disk/by-vdev/\u786c\u76d8\u540d-part1 # zpool labelclear -f /dev/disk/by-vdev/slot-13-part1",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "- \u6570\u636e\u540c\u6b65 \u6362\u76d8\u6210\u529f\u540e\uff0c\u5c06\u6267\u884c\u6570\u636e\u540c\u6b65\u3002 # zpool status ost1 pool: ost1 state: DEGRADED status: One or more devices is currently being resilvered. The pool will continue to function, possibly in a degraded state. action: Wait for the resilver to complete. scan: resilver in progress since Thu May 28 16:19:43 2020",
+                "verdict": "yes",
+                "reason": ""
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "# zpool replace ost0 slot-3 slot-3 -f",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u6362\u76d8\u5b8c\u6bd5\u540e\u9876\u66ff\u4e0a\u53bb\u7684\u70ed\u5907\u76d8 **slot-10** \u4f1a\u81ea\u52a8\u5206\u79bb\uff0c\u91cd\u65b0\u6210\u4e3a\u70ed\u5907\u76d8\uff0c\u5373\u72b6\u6001\u7531 **INUSE** \u6062\u590d\u4e3a **AVAIL**\u3002",
+                "verdict": "no",
+                "reason": "The statement mentions the recovery status of a hot spare disk (slot-10) but does not directly relate to how to confirm the recovery state when replacing storage hard drives. The user's input is about confirming via commands, and this part talks about automatic separation which might be relevant but doesn't explicitly address confirmation."
+            },
+            {
+                "statement": "5.5 \u67e5\u770b zfs \u6570\u636e\u96c6\u4e2d\u5b58\u50a8\u7684\u540e\u53f0\u6570\u636e",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "ONLINE       0     0     0",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "slot-15                ONLINE       0     0     0",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "slot-16                ONLINE       0     0     0",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "slot-17                ONLINE       0     0     0",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "slot-18                ONLINE       0     0     0",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "slot-19                ONLINE       0     0     0",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "errors: No known data errors",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "5.4.2\u3001\u6709\u70ed\u5907\u76d8\u7684\u5b58\u50a8\u6c60\u6362\u76d8",
+                "verdict": "no",
+                "reason": "The statement '5.4.2\u3001\u6709\u70ed\u5907\u76d8\u7684\u5b58\u50a8\u6c60\u6362\u76d8' refers to a storage pool replacement process, but the input is about confirming disk recovery status during disk replacement."
+            },
+            {
+                "statement": "\u6ce8\uff1aost0 \u4e3a\u5b58\u50a8\u6c60\u540d\u5b57 slot-x \u4e3a\u786c\u76d8\u522b\u540d",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u6b64\u5904\u6709\u4e24\u79cd\u6362\u76d8\u65b9\u6cd5:",
+                "verdict": "no",
+                "reason": "The statement '\u6b64\u5904\u6709\u4e24\u79cd\u6362\u76d8\u65b9\u6cd5' describes the existence of two disk replacement methods, but does not provide specific information about confirming recovery status."
+            },
+            {
+                "statement": "- ### \u4f7f\u7528\u70ed\u5907\u66ff\u6362\u574f\u76d8",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "1\u3001\u6362\u76d8",
+                "verdict": "no",
+                "reason": "The statement '1\u3001\u6362\u76d8' indicates the action of replacing a disk, but does not mention anything about confirming recovery status."
+            },
+            {
+                "statement": "\u6b64\u65f6\u7684\u5b58\u50a8\u6c60\u72b6\u6001\u4e3a\uff1a",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "# zpool status ost0",
+                "verdict": "no",
+                "reason": "The statement '# zpool status ost0' is a command to check the pool status, but does not provide information about confirming recovery status."
+            },
+            {
+                "statement": "pool: ost0",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "state: DEGRADED",
+                "verdict": "no",
+                "reason": "The statement 'state: DEGRADED' describes the degraded state of the pool, but does not mention recovery status."
+            },
+            {
+                "statement": "status: One or more devices could not be used because the label is missing or invalid. Sufficient replicas exist for the pool to continue functioning in a degraded state.",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "action: Replace the device using 'zpool replace'.",
+                "verdict": "no",
+                "reason": "The statement 'action: Replace the device using 'zpool replace'' describes an action to take, but does not confirm recovery status."
+            },
+            {
+                "statement": "see: http://zfsonlinux.org/msg/ZFS-8000-4J",
+                "verdict": "no",
+                "reason": "The statement 'see: http://zfsonlinux.org/msg/ZFS-8000-4J' is a reference to documentation, which is not directly related to confirming recovery status."
+            },
+            {
+                "statement": "scan: resilvered 148K in 0h0m with 0 errors on Wed May 27 11:12:23 2020",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "config:",
+                "verdict": "no",
+                "reason": "The statement 'config:' is a section header and does not contain specific information about disk recovery."
+            },
+            {
+                "statement": "NAME           STATE     READ WRITE CKSUM",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "ost0           DEGRADED",
+                "verdict": "no",
+                "reason": "The statement 'ost0           DEGRADED' describes the degraded state of the pool, but does not mention recovery status."
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "a degraded state.",
+                "verdict": "no",
+                "reason": "The context mentions 'degraded state' but it is part of the system's status, not related to confirming the recovery status of a storage hard drive."
+            },
+            {
+                "statement": "action: Wait for the resilver to complete.",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "scan: resilver in progress since Thu May 28 16:19:43 2020",
+                "verdict": "no",
+                "reason": "The context states 'resilver in progress' which is about the system's operation, but it does not directly confirm the recovery status of a storage hard drive."
+            },
+            {
+                "statement": "1.48G scanned out of 198G at 303M/s, 0h11m to go",
+                "verdict": "no",
+                "reason": "This statement provides details about the resilver progress but does not confirm that the hard drive has been recovered."
+            },
+            {
+                "statement": "140M resilvered, 0.75% done",
+                "verdict": "no",
+                "reason": "The context shows that only a small percentage of the resilver process is complete, indicating it's still in progress and not fully recovered."
+            },
+            {
+                "statement": "config: NAME                       STATE     READ WRITE CKSUM pool6                      DEGRADED     0     0     0",
+                "verdict": "no",
+                "reason": "The context indicates that the system is degraded, which means it's not fully recovered and thus irrelevant to confirming recovery."
+            },
+            {
+                "statement": "raidz2-0                 DEGRADED     0     0     0",
+                "verdict": "no",
+                "reason": "This statement shows a degraded state for raidz2-0, which is not indicative of the hard drive being recovered."
+            },
+            {
+                "statement": "slot-10                ONLINE       0     0     0",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "slot-11                ONLINE       0     0     0",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "slot-12                ONLINE       0     0     0",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "replacing-3            DEGRADED     0     0     0",
+                "verdict": "no",
+                "reason": "The context shows that replacing-3 is degraded, which means it's still in a faulty state and not recovered."
+            },
+            {
+                "statement": "1625424560663067014  UNAVAIL      0     0     0  was /dev/disk/by-vdev/slot-13/old",
+                "verdict": "no",
+                "reason": "This slot is unavailable, which indicates a problem and not recovery."
+            },
+            {
+                "statement": "slot-13              ONLINE       0     0     0  (resilvering)",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "slot-14                ONLINE       0     0     0",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "slot-15",
+                "verdict": "no",
+                "reason": "The context does not specify the state of slot-15, but it is listed without any information about recovery."
+            }
+        ]
+    }
+]
+ 
+Score: 0.5377358490566038
+Reason: The score is 0.54 because the retrieval context includes some relevant statements about using zpool status to check disk recovery, but it also contains many irrelevant points focusing on other aspects of storage pool management and hard drive replacement operations that do not directly address command-based confirmation.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Faithfulness Verbose Logs
+**************************************************
+
+Truths (limit=None):
+[
+    "When a service processes a request but the reply is lost, the client must resend the request.",
+    "The VBR feature compares inode version numbers to determine if a request can be safely replayed, improving system reliability.",
+    "During lock recovery, clients retransmit lock information, and MDS trusts the client-provided lock state.",
+    "MDS needs to rebuild replies when requests are resent to ensure operations do not repeat.",
+    "VBR tracks inode versions so that more clients can reintegrate after a failure without losing data.",
+    "The password policy includes maximum age, minimum length, expiration warning, and grace authentication limits.",
+    "Password strength is defined by the configuration file /etc/lam-yhpc/check_password.conf with parameters like min_points, use_cracklib, min_upper, etc.",
+    "Users are forced to change their password upon first login or after a password reset.",
+    "The pwdMustChange attribute in the policy can be set to TRUE to force users to change passwords on login.",
+    "Password policies can be modified by editing /etc/lam-yhpc/addPolicy.ldif and running yhpolicy -u command.",
+    "New user accounts are created with yhuseradd, which allows setting various attributes like home directory, shell, etc.",
+    "To associate a new user with Slurm for job submission, use the yhacctmgr add user command.",
+    "When adding users, if they need to use slurm to submit jobs, then link slurm with the user using yhacctmgr.",
+    "The Lustre file system can be configured with multiple MDTs (Metadata Target Disks) for better distribution of metadata operations.",
+    "To migrate a user's home directory to a specific MDT, use the lfs migrate command with appropriate options.",
+    "Common errors in the Lustre file system include out-of-memory, segmentation fault, bus error, and Lustre-specific errors.",
+    "Out-of-memory errors can be handled by reducing job scale or increasing core count on nodes.",
+    "Segmentation faults require checking the code at the point of failure and possibly resubmitting from another node.",
+    "Bus errors are more complex but can be attempted with a different node.",
+    "Lustre errors may indicate storage system issues.",
+    "Users exceeding password attempt limits get locked, and monitoring systems alert administrators.",
+    "If an error count is below 20, the user remains locked for observation; otherwise, manual intervention by admins might be needed.",
+    "The command to manually unlock a user is yhpasswd -u login.",
+    "Drain operations can be performed on nodes via the platform's 'resource operation' menu or using commands like yhnode drain.",
+    "When an error occurs in VBR replay, the system blocks reintegration until all clients have successfully replayed their requests."
+] 
+ 
+Claims:
+[
+    "When a user is locked due to multiple incorrect password attempts, the on-duty personnel need to take corresponding unlocking measures based on specific circumstances.",
+    "The steps for unlocking are: 1. Confirm if it was caused by operational error; if not malicious cracking, unlock the user manually via command line using # yhpasswd -u login, where 'login' is the username of the locked account.",
+    "2. If the system has an automatic unlocking mechanism configured, after reaching the set recovery time (default 5 minutes) following failed password attempts, the user will be automatically unlocked without manual intervention.",
+    "3. The on-duty personnel can also perform unlock operations through a unified monitoring and operation platform by connecting to the relevant cluster, clicking 'User Operation'-'User Login Unlock', entering node name and username in the pop-up dialog box, then clicking confirm to complete the unlocking."
+] 
+ 
+Verdicts:
+[
+    {
+        "verdict": "idk",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    }
+]
+ 
+Score: 1.0
+Reason: The score is 1.00 because there are no contradictions between the retrieval context and the actual output.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Answer Relevancy Verbose Logs
+**************************************************
+
+Statements:
+[
+    "执行换盘操作后，使用zpool status命令查看存储池的状态。",
+    "硬盘需要处于Online状态才能确认恢复完成。",
+    "观察每个硬盘的状态，在zpool status的输出中。",
+    "如果显示ONLINE，则表示硬盘已恢复正常。",
+    "若显示DEGRADED则表示仍在恢复过程中。",
+    "如果有热备盘，换盘后需确认热备盘是否成功接管并开始同步数据。",
+    "可通过zpool status进一步验证热备盘的恢复进度和状态。"
+] 
+ 
+Verdicts:
+[
+    {
+        "verdict": "yes",
+        "reason": ""
+    },
+    {
+        "verdict": "yes",
+        "reason": ""
+    },
+    {
+        "verdict": "yes",
+        "reason": ""
+    },
+    {
+        "verdict": "yes",
+        "reason": ""
+    },
+    {
+        "verdict": "yes",
+        "reason": ""
+    },
+    {
+        "verdict": "yes",
+        "reason": ""
+    }
+]
+ 
+Score: 1.0
+Reason: The score is 1.00 because there are no identified reasons for it to be lower, so it remains at its highest possible value of 1.00.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Answer Relevancy Verbose Logs
+**************************************************
+
+Statements:
+[
+    "The new laptop model has a high-resolution Retina display.",
+    "It includes a fast-charging battery with up to 12 hours of usage.",
+    "Security features include fingerprint authentication and an encrypted SSD.",
+    "Every purchase comes with a one-year warranty.",
+    "24/7 customer support is included."
+] 
+ 
+Verdicts:
+[
+    {
+        "verdict": "no",
+        "reason": "The statement about the laptop display does not address how to unlock a user who has been locked out due to multiple incorrect passwords."
+    },
+    {
+        "verdict": "no",
+        "reason": "The statement about battery charging capacity is unrelated to account lockout procedures or security feature bypass methods."
+    },
+    {
+        "verdict": "yes",
+        "reason": ""
+    },
+    {
+        "verdict": "idk",
+        "reason": ""
+    }
+]
+ 
+Score: 0.5
+Reason: The score is 0.50 because the actual output partially addresses the user's query by mentioning unlocking mechanisms, but it includes irrelevant statements about laptop displays and battery charging capacity that detract from its relevance to account lockout procedures or security feature bypass methods.
+
+======================================================================
+Evaluating 2 test case(s) in parallel: |█████     | 50% (1/2) [Time Taken: 03:07, 187.01s/test case]True !!!!!!!!!!!!
+**************************************************
+Faithfulness Verbose Logs
+**************************************************
+
+Truths (limit=None):
+[
+    "The text describes the process of replacing a failed disk in a ZFS storage pool.",
+    "The system environment is Red Hat 7.6 with Lustre version 2.12.0 and ZFS version 0.7.13.",
+    "Disk replacement involves marking, taking offline, clearing device names, swapping disks, and restoring the configuration.",
+    "During disk replacement, one must monitor for alarm messages to confirm the disk status.",
+    "After replacing a disk, use zpool replace command with either the alias or GID of the old disk and the new disk's identifier.",
+    "If the pool label is missing or invalid on the new disk, it can be cleared using zpool labelclear before replacement.",
+    "The process allows for direct disk replacement without needing to adjust hot spare positions.",
+    "After a successful disk replacement, data synchronization occurs which may take some time depending on storage volume and workload.",
+    "Once all disks are online, close the hard drive light as an indicator of normal operation.",
+    "Operational success is indicated by no error messages in zpool status after verification.",
+    "The text mentions that Lustre file systems cannot be mounted both as lustre type mount points and zfs simultaneously.",
+    "To view backend data within a ZFS dataset, one must first unmount it if currently mounted with lustre.",
+    "Then set the canmount property to 'on' for the dataset or storage pool before mounting it again using zfs mount command."
+] 
+ 
+Claims:
+[
+    "通过命令确认硬盘恢复状态需要执行以下步骤：1. 执行换盘操作后，使用zpool status命令查看存储池的状态，确认硬盘是否处于Online状态，以及是否有数据同步（resilvering）过程正在进行。",
+    "2. 在zpool status的输出中，观察每个硬盘的状态，如ONLINE表示硬盘已恢复正常，若显示DEGRADED则表示仍在恢复过程中。",
+    "3. 如果存储池中有热备盘，换盘后需确认热备盘是否成功接管并开始同步数据，可通过zpool status进一步验证恢复进度和状态。"
+] 
+ 
+Verdicts:
+[
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "no",
+        "reason": "The claim states that after replacing a disk, one must use zpool status to check if the hot spare has taken over and is syncing data. However, according to the retrieval context provided earlier (point 3), it does mention checking for hot spares using zpool status but also says 'If there are uncorrected errors in this log leaf...' which contradicts."
+    }
+]
+ 
+Score: 0.6666666666666666
+Reason: The score is 0.67 because while the actual output aligns with part of the retrieval context (checking if a hot spare has taken over), it misses or misrepresents other elements, such as the mention of 'uncorrected errors' in the log leaf which should have been included for completeness.
+
+======================================================================
+Evaluating 2 test case(s) in parallel: |██████████|100% (2/2) [Time Taken: 03:08, 77.61s/test case] Evaluating 2 test case(s) in parallel: |██████████|100% (2/2) [Time Taken: 03:08, 94.02s/test case]
+
+======================================================================
+
+Metrics Summary
+
+  - ✅ Answer Relevancy (score: 0.5, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 0.50 because the actual output partially addresses the user's query by mentioning unlocking mechanisms, but it includes irrelevant statements about laptop displays and battery charging capacity that detract from its relevance to account lockout procedures or security feature bypass methods., error: None)
+  - ✅ Faithfulness (score: 1.0, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 1.00 because there are no contradictions between the retrieval context and the actual output., error: None)
+  - ✅ Contextual Precision (score: 0.5, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The contextual precision score is 0.50 because it indicates that half of the retrieved nodes are relevant (marked 'yes') while the other half are irrelevant (marked 'no'). The first two nodes with 'no' verdicts discuss VBR and system operations without addressing user lockouts, so they should be ranked lower than the third node which provides a direct unlocking command. Similarly, the fourth node is correct but it's at position 3, while there are multiple relevant nodes appearing later like positions 5,6,7,8,9,10 that offer more detailed and accurate unlocking procedures. The score isn't higher because some irrelevant nodes (e.g., reasons about VBR) appear before the first 'yes' node which is at position 3, but there are also multiple relevant nodes later on, so it's not too low either., error: None)
+  - ✅ Contextual Relevancy (score: 0.6, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The contextual relevancy score is 0.6 because although there are statements about user account lockouts (e.g., '用户多次输错密码会导致锁定，监控系统会报警，需值班员根据情况解锁.' and '管理员解锁方式：经过管理员审核用户为非恶意破解密码时，可以通过以下命令手动解锁用户.') which provide some relevant information, the majority of the retrieved context discusses Lustre file system operations like VBR (version-based recovery), inode versions, node tracking, etc., with only a few sentences directly addressing user account lockouts. The irrelevancy reasons indicate that the context does not cover unlocking procedures or password error handling in detail., error: None)
+  - ✅ Contextual Recall (score: 0.5, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 0.50 because although there are some relevant points, such as the mention of user lockout handling in node2 (automatic unlock) and specific command usage in node6 (yhpasswd -u), the retrieval context does not fully align with all parts of the expected output sentences., error: None)
+
+For test case:
+
+  - input: 当用户因多次输错密码被锁定时，值班员应如何解锁？
+  - actual output: 值班员在用户因多次输错密码被锁定时，需要根据具体情况采取相应的解锁措施，具体步骤如下：1. 确认用户是否为操作失误导致被锁，若确认为非恶意破解，值班员可以通过命令行手动解锁用户，执行命令# yhpasswd -u login，其中login为被锁定的用户名；2. 如果系统配置了自动解锁机制，当密码验证失败后的恢复时间达到设定值（默认5分钟），用户将自动解锁，无需人工干预；3. 值班员也可以通过统一监控运维平台进行解锁操作，具体步骤是连接相应集群，点击“用户操作”-“用户登录解锁”，在弹出的对话框中输入节点名和用户名，然后点击确定完成解锁。
+  - expected output: 当用户因多次输错密码被锁定时，值班员可按以下方式解锁：若系统设置的自动解锁时间（默认5分钟）较短，到达时间后系统会自动解锁；若自动解锁时间较长，值班员审核确认用户非恶意破解后，可通过命令# yhpasswd -u login（其中“login”为被锁定的用户名）手动解锁。此外，还可在运维平台连接相应集群，点击“用户操作”-“用户登录解锁”，在弹出对话框中输入节点名和用户名后确定来完成解锁操作。此操作需确保用户身份无误，避免误操作影响其他用户。解锁后需记录处理日志。
+  - context: None
+  - retrieval context: ['当服务处理请求但回复丢失时，客户端需重发请求。VBR功能通过比较对象的版本号判断请求是否可安全重放，提高系统可靠性。锁恢复过程中，客户端重传锁信息，MDS信任客户端提供的锁状态。请求重发后，MDS需重建回复，确保操作不重复。VBR通过跟踪inode版本，使更多客户端能重新集成，避免数据丢失。', '密码策略包括有效期、最大失败次数、最小年龄、长度限制及强制修改等。密码强度通过配置文件定义，包含字符种类、大小写、数字、符号等要求。用户首次登录或重置密码后需强制修改，可通过-f选项启用。用户被锁定后可自动或管理员解锁。密码策略由配置文件定义，支持修改与查询。添加新用户时需关联Slurm，并可迁移家目录至指定MDT以均衡存储。', '新会话972846由用户root启动。常见报错包括内存不足、段错误、总线错误和Lustre错误，处理方式各有不同。用户多次输错密码会导致锁定，监控系统会报警，需值班员根据情况解锁。故障节点可drain处理，通过平台修改节点状态。运维操作包括用户解锁、节点管理、资源查询等。', '5分钟，经过管理员审核用户为非恶意破解密码时，可以通过以下命令手动解锁用户。\n# yhpasswd -u login\n7.修改密码策略\n用户密码策略由/etc/lam-yhpc/addPolicy.ldif文件进行定义。\n如果需要修改密码策略，直接修改上述文件，然后执行命令：\n# yhpolicy -u\n查询当前密码策略，执行命令\n# yhpolicy -l\ndn:cn=default,ou=pwpolicies,dc=yhpc\ncn: default\nobjectClass: pwdPolicy\npwdPolicyChecker\nperson\ntop\npwdAttribute: userPassword\npwdMinAge: 0\npwdMaxAge: 7776000\npwdMinLength: 12\npwdExpireWarning: 604800\npwdCheckModule: check_password.so\npwdCheckQuality: 3\npwdMustChange: TRUE\npwdAllowUserChange: TRUE\npwdSafeModify: TRUE\nsn: yhpc\npwdGraceAuthNLimit: 6\npwdInHistory: 2\n8. 添加新用户\nyhuseradd -h\nUsage: yhuseradd [options] LOGIN\nOptions:\n-c COMMENT    set the GECOS field for the new user account\n-d HOME_DIR   home directory for the new user account\n-g GROUP      force use GROUP for the new user account\n-G GROUPS     list of supplementary groups for the new\nuser account\n-h            display this help message and exit\n-p PASSWORD   set password for the new user account\n-s SHELL      the login shell for the new user account\n-u UID        force use the UID for the new user account\n-f            force Reset passwd in the first time\n添加新用户时，如果该用户需要采用slurm提交作业，就进行slurm与用户关联：\n# yhacctmgr add user <login> account=test wckey=test\n文件系统如果采用多个MDT构成的', ': New session 972846 of user root.\n\nFeb 9 16:00:04 cn1392 systema: Started Session 972846 of user root.\n常见的报错信息如下：\n报错信息 | 处理方式\nOut of memory | 节点数不变，减少作业规模，降低内存使用\n增加核数，减少每个节点的内存使用\n段错误 | 1）重提试试；2）检查程序报错位置的代码。\nBus error | 原因比较复杂，更换节点提交试试。\nLustre error | 可能是存储故障导致。\n4.6 用户输错密码过多\nth-hpc3-In0\n\nshixp登录错误8次\n\nTH-HPC\n\n其他\n\n安全\n如上图，用户输错密码过多后，监控会报警，报警信息包括集群、登录节点、用户名。\n错误次数不超过20持续观察，错误次数过多时值班员参考下面的流程进行处理：\n如果确认用户操作失误导致被锁，需要给用户解锁，按下面的流程操作：\n（1）连接相应集群，点击“用户操作”-“用户登录解锁”。\n统一监控运维平台 EAE\n\nwien\n\nvs\n览\n\n剧本编排\n\n剧本执行\n\n执行审计\n\n定制大屏Bias 运维总点\n\n其他操作 节点操作\n\nTH-HPC4\n日 ep TH-HPC\nOD 存储分区操作\nO 资涯党作\nO 用户操作\n© 作灿操作\n© 服务操作\n\n故障查询\n\nTH-HPC\n\n全 TH-HPC\n\n修改用户组配额\n\n修改用户配额\n\n查询账户资源\n\n查询用户组配额\n（2）在弹出的对话框中输入节点名和用户名，点击确定。\n您确定要执行用户登录解锁操作吗?\n\n* 节点名 th-hpct-Ind\n\n+用户各| sunbl\n4.7 drain计算节点\n值班过程中遇到故障节点或疑似故障节点，可以暂时drain起来，留给硬件维护人员处理。\n连接相应的平台，点击“资源操作”-“修改节点状态”：\n定制大屏运维总览故障查询\n\nTH-HPC\n其他操作 节点操作\n\n TH-HPC4PD TH-HPC\n日 ee TH-HPC\n©', '文件的内容，回复数据包含了可用于标识客户端的版本号。38.4. 基于版本的恢复可使用基于版本的恢复 (VBR) 功能来处理在恢复期间无法重放的客户端请求(RPC) ，从而提高 Lustre 文件系统的可靠性。在无 VBR 功能的之前的 Lustre 版本中，如果 MGS 或 OST 发生故障将触发恢复操作，客户端会尝试重放其请求。客户端只允许按顺序重放RPC。如果特定客户端无法重播其请求，那么这些请求以及后续序列中的客户奖请求都将丢失。由于必须等待更早的RPC 完成, "下游" 客户端将永远不会重放它们的请求。最终，恢复期将超时《因此组件可以接受新请求) ，导致一些客户被驱逐，其请求和数据丢失。使用VBR 后，恢复机制不会导致客户端或其数据丢失，这是因为对 inode 版本的更改进行了跟踪，更多客户端能够重新集成到集群中。使用VBR 进行 node 跟踪:。 每个 inode 存储一个版本喜，即 inode 更改的最后事务编号 〈transno ) 。。当要更改 inode 时，inode 的操作前版本号将被保存在客户端的数据中。"客户端保留操作前 inode 版本吕和操作后版本号 〈事务编号) ，并在服务人逢发生故障后发送它们。。 如采操作前后版本匹配，则重放请求。在请求中修改的所有 inode 上分配操作后的ASS注意因为操作中可能涉及多个 inode, RPC 最多可包含四个预操作版本。进行" 重命名"操作时，可以修改四个不同的 inode。在正铺操作期间，服务硕:。更新给定操作中涉及的所有 inode 的版本。。 将旧的和新的 inode 版本返回给客户端。当恢复正在进行时，VBR 遵循以下步骤:1. 只有当受影响的 inode 有与原始执行事务时版本相同时，VBR A SUV EPP sina HE HB事务〈即使因客户端丢失导致事务序列存在间陀)。2. 服务豆笠试执行和客户端发起的每个事务〈即使重新集成失败)。六-一468\n—Lustre 文件系统操作手册 译者:DCZR At3', '下，唯一的可能是服务融处理了一些请求但是回复丢失了。客户站必须在其重发列表中包含这些请求，以便恢复宛成后进行重发。如有果所有客户端都未重新连接，则故隐客户端可能有不会再被重放的请求。VBR功能可用于确定间队之后的请求是否可以被安全地重放。文件系统中的每个条目〈《MDSinode 或 OST 对象) 将在磁奏上存储被修改的最后事务编号。来目服务郁的每个回复都含它所作用的对象先前的版本号。在 VBR 重放期间，服务器将重新发送请求中的先前版本号与当前版本号进行匹配。如果版本匹配，则请求将作用于对象，且可以安全地进行重放。有关更多信息，请参见本章第 4 节" 基于版本的恢复"。38.2.8. 锁恢复如果所有请求都成功重放且所有客户端都重新连接，客户端会进行锁重放。人每个客户端都会发送它从此服务器获取的每个锁的信息以及其状态 〈无论何时被授予、什么模式、什么属性等) ，随后恢复成功完成。目前，Lustre 软件不进行锁验证，而是信任客户端呈现准确的锁状态。这不会带来任何安全问题，因为 Lustre 软件版本 Lx 客户端的其他信息〈如用户 ID) 在正常操作期间也是可信任的。在重放了所有已保存的请求和锁之后，客户端发送一个MDS_GETSTATUS请求并设置1ast-replay标志。在所有客户端都完成重放 (发送带有相同标记的 getstatus 请求)前，该请求的回复将被阻止，以便客户端在恢复完成之前不发送非恢复请求。466\nLustre 文件系统操作手册 译者:As大38.2.9. 请求重发且服务锅上恢复了所有先前共享的状态〈目标文件系统更新至客户器缓存，且服务需已重建客户问持有的锁) ，客户端就可以重新发送任何之前没有得到答复的请求。该处理与正常请求的处理类似，在一些情况下，服务俘可以进行重新生成回复。38.3. 重建回复当回复丢失时，MDS 需要能够在原始请求被重新发送时重建回复。在保持锁定系统的完整性的同时，必须在不重复任何非需等操作的情况下完成此操作。MDS', ': 密码有效期，到期需要强制修改密码，单位是秒\n- pwdMaxFailure: 密码最大失效次数，超过后账号被锁定\n- pwdMinAge: 密码有效期，正整数值表示2次修改密码的时间，避免反复修改密码，0表示不限制\n- pwdMinLength: 用户修改密码时最短的密码长度\n- pwdMustChange: 用户登录系统后提示修改密码，设置为TRUE或FALSE\n- pwdSafeModify: 是否允许用户修改密码，与pwdMustChange共同使用\n密码强度：\n密码强度配置文件：/etc/lam-yhpc/check_password.conf\n# cat check_password.conf\nmin_points 2\nuse_cracklib 1\nmin_upper 2\nmin_lower 2\nmin_digit 2\nmin_punct  0\nmax_consecutive_per_class 0\n密码强度属性解析：\n- min_points: 表示输入密码字符的种类数\n- use_cracklib 1表示使用字典，0表示不使用字典\n- min_upper：表示大写字母最小位数\n- min_lower：表示小写字母最小位数\n- min_digit：表示数字最小位数\n- min_punct：表示符号最小位数\n- max_consecutive_per_class：表示每类字符最大连续位数\n5. 用户首次登录系统强制修改用户密码\n当用户首次登录系统和重置密码后，强制用户修改密码。如果要启用该功能，在添加新用户（yhuseradd）和重置用户密码(yhpasswd)时,使用-f选项，如：\n# yhuseradd -f zqh\n# yhpasswd -f zqh\n6. 用户解锁\n当用户连续输入错误密码次数超过密码策略规定值后，系统将锁定用户。被锁定的用户需要解锁才能登录系统，解锁方式有2种。\n6.1 自动解锁\n当pwdFailureCountInterval密码验证失败后恢复时间设置比较短时，默认5分钟，当恢复时间达到时会自动解锁\n6.2 管理员解锁\n当pwdFailureCountInterval密码验证失败后恢复时间设置比较长时，默认5分钟，经过管理员审核用户为非恶意破解密码时，可以通过以下命令手动解锁用户。\n# yhpasswd -u login\n7.修改密码策略\n用户密码策略由/etc/lam-yhpc/addPolicy', '。38.3. 重建回复当回复丢失时，MDS 需要能够在原始请求被重新发送时重建回复。在保持锁定系统的完整性的同时，必须在不重复任何非需等操作的情况下完成此操作。MDS 故隐切换时，用于重建回复的信息必须在与磁盘上进行组合或价套事务的序列化。38.3.1. 所需状态对于大多数请求来说，服务句在last_zcvdq文件中存储三种数据就足够了:。 请求的 XID。产生的事务编号〈如果有的话)。 结果代码 (eq->rq_status)对于" 打开请求"来说，请求的处置信息也必须保存。38.3.2. BE" 打开请求" 的回复"打开请求" 的回复最多包含三条信息《除了"请求日志" 的内容):。 文件句柄© Bayt*mds_ body 以及所创建文件的相关信息 (O_CREAT)处置、状态和请求数据〈由客户端重刹发送的完整数据) 足以确定所授予的是哪种类型的锁和句柄、是否创建了打开文件句柄，以及应在ndqs_bodqy中描述的资源。38.3.2.1. 查找文件句柄”文件句柄可以在请求的XID 和每个导出的打开文件句柄列表中找到。38.3.2.2. 查找资源/FID ”文件句柄包含资源/FID。38.3.2.3. 查找锁句柄“可以通过遍历相应远程文件句柄 〈显示在重发的请求中) 下资源所授予的锁列表来查找锁句柄。验证锁的模式是否正确 (通过执行上面的处置/请求/状态分析来确定) ，以及是和否被授予至适当的客户端。467\nLustre 文件系统操作手册 译者:As大38.3.3. 客户端上的多个回复数据从 Lustre 2.8 起，MDS 可为每个客户端保存多个回复数据。回复数据存储在 MDT的内部文件rceply_dqata中。除了请求的XID、事务编号、结果代码和打开请求的处置信息外，得益于1ast_rcvq文件的内容，回复数据包含了可用于标识客户端的版本号。38.4. 基于版本的恢复可使用基于版本的恢复 (VBR) 功能来处理在恢复期间无法重放的客户端请求(RPC) ，从而', "添加新用户时，如果该用户需要采用slurm提交作业，就进行slurm与用户关联：\n# yhacctmgr add user <login> account=test wckey=test\n文件系统如果采用多个MDT构成的lustre文件系统，为避免用户的文件元数据全部存放在mdt0上，可以将用户分散在不同mdt上。在用户首次登录后，会在文件系统中生成其家目录，将家目录迁移到指定mdt上,命令如下：\n# lfs migrate [mdt-count|-c] <mdt_count>  [mdt-hash|-H] <hash_type>   [mdt-index|-m] <start_mdt_index>\n[verbose|-v]      <directory>\nmdt:    MDTs to stripe over, if only one MDT is specified, it's the MDT index of first stripe\nmdt_count: number of MDTs to stripe a directory over\nmdt_hash:  hash type of the striped directory. mdt types:\nall_char  (type 1)sum of characters % MDT_COUNT\nfnv_1a_64 (type 2)FNV-1a hash algorithm (default)\ncrush     (type 3)CRUSH hash algorithm"]
+
+======================================================================
+
+Metrics Summary
+
+  - ✅ Answer Relevancy (score: 1.0, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 1.00 because there are no identified reasons for it to be lower, so it remains at its highest possible value of 1.00., error: None)
+  - ✅ Faithfulness (score: 0.6666666666666666, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 0.67 because while the actual output aligns with part of the retrieval context (checking if a hot spare has taken over), it misses or misrepresents other elements, such as the mention of 'uncorrected errors' in the log leaf which should have been included for completeness., error: None)
+  - ✅ Contextual Precision (score: 1.0, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 1.0 because all nodes with 'yes' verdict are ranked higher than those with 'no', and there's only one node with a negative verdict., error: None)
+  - ✅ Contextual Relevancy (score: 0.5377358490566038, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 0.54 because the retrieval context includes some relevant statements about using zpool status to check disk recovery, but it also contains many irrelevant points focusing on other aspects of storage pool management and hard drive replacement operations that do not directly address command-based confirmation., error: None)
+  - ✅ Contextual Recall (score: 0.625, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 0.62 because although several sentences from the expected output are supported by specific nodes (like checking zpool status for ONLINE state and monitoring resilvering) there are also parts that lack direct attribution to any retrieval context node, such as those referring to system environment or JSON format details., error: None)
+
+For test case:
+
+  - input: 更换存储硬盘时，如何通过命令确认硬盘恢复状态？
+  - actual output: 通过命令确认硬盘恢复状态需要执行以下步骤：1. 执行换盘操作后，使用zpool status命令查看存储池的状态，确认硬盘是否处于Online状态，以及是否有数据同步（resilvering）过程正在进行。2. 在zpool status的输出中，观察每个硬盘的状态，如ONLINE表示硬盘已恢复正常，若显示DEGRADED则表示仍在恢复过程中。3. 如果存储池中有热备盘，换盘后需确认热备盘是否成功接管并开始同步数据，可通过zpool status进一步验证恢复进度和状态。
+  - expected output: 更换存储硬盘后，可通过以下方式确认硬盘恢复状态：首先执行`zpool status`命令，查看存储池状态，若显示“ONLINE”且无错误信息，表明硬盘恢复正常；同时留意是否有“resilvering”字样及相关进度百分比，以此判断数据同步进度，例如显示“resilvering in progress”及完成百分比、剩余时间等。此外，还可结合运维平台查看报警是否消失，当所有硬盘状态均为“ONLINE”且无报警时，说明硬盘已恢复正常运行。
+  - context: None
+  - retrieval context: ['执行硬盘更换操作，包括标记、下线、清除设备名、更换硬盘及恢复。过程中需注意报警信息，确认硬盘状态。更换后通过zpool status查看恢复状态，待所有硬盘Online后关闭硬盘灯。操作成功标志为无错误信息，硬盘恢复正常运行。', '本文主要介绍了在ZFS存储池中更换硬盘的步骤和注意事项。首先需确认坏盘是否存在别名，如slot-13，并检查存储池状态，若显示为数字则需使用GID换盘。换盘命令格式为`zpool replace -f <池名> <旧盘> <新盘>`，若新盘别名更改，可直接使用新别名。若换盘失败，提示存在ZFS文件系统，需用`labelclear`清除配置。换盘后会进行数据同步，可通过`zpool status`查看进度。对于有热备盘的存储池，可使用热备盘替换坏盘。', '文本主要描述了存储系统中磁盘状态信息及更换坏盘的操作流程，强调可直接更换新盘而不需调整热备盘位置。同时介绍了如何查看ZFS数据集的后台数据，包括卸载、设置canmount属性及重新挂载等步骤，以便运维人员进行数据管理和调整。系统环境为Red Hat 7.6，使用Lustre 2.12.0和ZFS 0.7.13。', 'issued at 690M/s, 27.eT total”,\n\nSTATE READ WRITE CKSUM",\n\n"\\tosti9-5DEGRADED = @ Ss",\n\n"At raidz2-@DEGRADED = @ Ss",\nJBOD19-S46 ONLINEee 8 en，\nBoD19-s47 。 ONLINEee 8 eB,\nJBOD19-S48 。 ONLINEee 8 eB,\n3B0D19-S49 。 ONLINEee 8 eB,\n3BOD19-S5@_ ONLINEee 8 en，\n]Bop19-ss1 。 ONLINEee 8 eB,\nBoD19-ss2 。 ONLINEee 8 eB,\n380D19-S53_ ONLINEee a",\nreplacing-8 DEGRADED @ 9 6\noldOFFLINE 101e\n3B0D19-S54_ ONLINEe@_(resilvering)”,\nJBOD19-S55___ ONLINE9 9 6\n\nrrors: No known data errors”\n\nPLAY. RECAP S00; aso Oo ESOS EEE BO BEBO ERE IOOCBEOO UE GO RESO CEE IOC ESOC GEO IOE\n\n89.72.103.18: ok=2changed=1 。 unreachable=-8failed=@ 。 skipped-8 。 rescued-8 —ignored-0\n图中指JBOD19-S54还有4分钟恢复完毕。\n9）盘恢复完毕后关闭硬盘灯\n报警消失，查看zpool status状态，盘都是ONLINE状态。\noss18坦询zpool油状态 X\n\nwith @ errors on Mon Mar 11 11:35:08 2024",\n\nSTATE | READ WRITE CKSUM"”\n“\\tost19-5ONLINE日\nAt raidz2-8ONLINE\n"At 3B0D19-546| ONLINE\n"At 3B0D19-547| ONLINE\n3B0D19-s48| ONLINE\n3B0D19-S49] ONLINE\n3B0D19-s56| ONLINE\n3B0D19-S51] ONLINE\n3B0D19-S52] ONLINE\n3B0D19-S53] ONLINE\n3B0D19-S54] ONLINE\n3B0D19-S55] ONLINE\n\neeecesceecee000\nooooooooeooa\noaeoaoaeoeaeoeaeaoae\n\n“errors: No known data errors”\n\nPLAY. RECAP S00; aso Oo', '2changed=1 。 unreachable=-8failed=@ 。 skipped-8 。 rescued-8 —ignored-0\n\n口 “执行结果:成功\n通过查询得到硬盘符为sdbm。\n4）标记硬盘\n根据JBOD19-S54点亮硬盘。\n行标记硬盘操作吗?\n\n硬盘 JBOD19-S54\n\n动作 | RE\n© PLAY [al1] xzrrrrrrrsrrrrrrrrrsrrrrrrrrrrrrrrrrerrrrrrrrerrrerrrrrerrrrrrrrrerr\n\n© changed: [89.72.103.18]\n\n© ok: [89.72.103.18] => {\n“msg”: [\n\n” HGST H4162-] 3010",\n\n“Enclosure Status diagnostic page:",\n\n” INVOP=0, INFO=1, NON-CRIT=, CRIT=0, UNRECOV:\ngeneration code: exe",\nstatus descriptor list”,\n\nElement 54 descriptor:",\n\n.Predicted failure=0, Disabled=0, Swa\nOk=0, Reserved device=@, Hot spare=, Cons check=\nIn crit array=, In failed array-0, Rebuild/remap=0, R/R abort:\nApp client bypass A=®, Do_not_remove=®, Enc bypass A=®, Enc bypass B-8",\nheady to insert, tv-e[ Toeneei Reporte”,\nApp client bypass 8-0, Fault sensed-0, Fault regstd-0, Device of!\n.Bypassed A=®, Bypassed B=@, Dev bypassed A=0, Dev bypassed B-0"\n\nPLAY. RECAP S00; aso Oo ESOS EEE BO BEBO ERE IOOCBEOO UE GO RESO CEE IOC ESOC GEO IOE\n\n89.72.103.18: ok=2changed=1 。 unreachable=-8failed=@ 。 skipped-8 。 rescued-8 —ignored-0\n操作执行成功即可，Ident=1表示硬盘处于点亮状态。\n5）下线硬盘\nJBOD19-S54', '版本\n- 系统：redhat7.6\n- 文件系统：Lustre：2.12.0\n- ZFS：0.7.13\n5.5.2、目的\n为运维人员查看后台数据，做相应调整，提供方便。\n5.5.3、方法\n- 前提（以 2 个存储池 mds 和 ost 为例）：\n存在 2 个存储池 mds 和 ost，“Mount type”是“zfs”，且被格式化为 lustre 文件系统的数据集为 mds/mds，ost/ost（可以是其他），mds 是元数据存储池。 mds/mds 和 ost/ost 均以 lustre 形式挂载。mds 和 ost 以 zfs 形式挂载。\n# df -Th\nFilesystem     Type      Size  Used Avail Use% Mounted on\n/dev/sda1      ext4       11G  4.4G  5.8G  44% /\ndevtmpfs       devtmpfs  898M     0  898M   0% /dev\n/dev/sda2      ext4      6.8G  1.6G  4.9G  25% /home\nmds            zfs        20G     0   20G   0% /mds\nmds/mds        lustre     20G  1.9M   20G   1% /mnt/mds\nost            zfs        58G     0   58G   0% /ost\nost/ost        lustre     58G  1.8M   58G   1% /mnt/ost\n以查看设备 ost/ost 中信息为例，方法如下：\n- 卸载 ost/ost\n同一个文件系统不能以 lustre 和 zfs 同时挂载。\n# umount <挂载点或数据集>\n示例', '设备 ost/ost 中信息为例，方法如下：\n- 卸载 ost/ost\n同一个文件系统不能以 lustre 和 zfs 同时挂载。\n# umount <挂载点或数据集>\n示例:\n卸载以 lustre 类型挂载的存储池 ost\n# umount ost\n- 获取存储池 ost 的 canmount 属性\n#  get canmount <存储池>\n示例：\n# zfs get canmount ost\nNAME  PROPERTY  VALUE     SOURCE\nost     canmount  on        default\n存储池 ost 默认 canmount 属性为“on”状态。若为“off”状态，要设置为“on”状态。\n- 设置存储池 ost 的 canmount 属性为 on\n# zfs set canmount=on <存储池>\n示例：\n# zfs set canmount=on ost\n- 设置数据集 ost/ost 的 canmount 属性\ncanmount 属性决定了是否可以挂载、查看后台数据。\n查看文件系统 canmount 属性\n# zfs get canmount <数据集>\n示例：\n# zfs get canmount ost/ost\nNAME     PROPERTY  VALUE     SOURCE\nost/ost     canmount  off        local\nost/ost 默认 canmount 状态为“off”。要将其设置为“on”状态。\n# zfs set canmount=on <数据集>\n示例：\n# zfs get canmount ost/ost\nNAME     PROPERTY  VALUE     SOURCE\nost/ost     canmount  on        local\n此时，设备 canmount 属性为“on”状态。\n- 以 zfs 格式挂载数据集\n挂载命令：\n# zfs mount <数据集>\n示例：\n# zfs mount ost/ost\n# df -Th\nFilesystem     Type      Size  Used Avail', '。 unreachable=-8failed=@ 。 skipped-8 。 rescued-8 —ignored-0\n操作执行成功即可，Ident=1表示硬盘处于点亮状态。\n5）下线硬盘\nJBOD19-S54\n输入卷和硬盘来下线硬盘。脚本反馈执行成功即可。\n6）清除硬盘设备名\n将步骤5中的硬盘设备名填入对话框中，来清除盘符。\n清除硬盘设备名操作吗?\n\n设备名 | sdbm|\n7）更换硬盘\n硬盘的备件在备机（JBOD149，I/O66机柜）里面。\n在存储机柜将硬盘更换好，填入卷和硬盘，更换硬盘。\n您确定要执行更换硬瘟操作f\n\nB ostt9s\n\nwa | se0v19-ss4\n执行成功即换盘成功。如未返回成功，可能是未识别盘符，通过运维平台查看日志，判断是否有新硬盘插入，如果没有，可以再换一块盘试试。\n换盘过程中，会有如下报警，均为正常\n故障点\n\noss18\n\noss18\n\noss18\n\n故障原因\n\nthfs1-0ST0070卷降级\n\nost19-5JBOD19-S54磁盘状态异常\n\nost19-5状态异党\n\n故障级别\n\n。 严重\n\n。 严重\n\n。 严重\n将故障硬盘贴签，注明日期、JBODxx-Sxx、硬盘编号。\n8）可以通过zpool status查看恢复状态\n通过zpool status查看盘是否在恢复，以及恢复所需时间。根据存储卷使用量以及作业情况，每块盘恢复时间不等。\n要执行查询zpool池杖\n\nse [onto\noss18查鹿zpool池状态 x\n\nstate: DEGRADED",\n\ntatus: One or more devices is currently being resilvered. The pool will",\ntcontinue to function, possibly in a degraded state.",\n\n‘action: Wait for the resilver to complete.”,\n\nt27.0T scanned at 695M/s, 26.8T issued at 690M/s, 27.eT total”,\n\nSTATE READ WRITE CKSUM",\n\n"\\tosti9-5DEGRADED = @ Ss",\n\n"At raidz2-@', '** 下是否存在新盘的别名，即 slot-13 这个链接是否存在，存在则别名生效了。\n- 换盘\n检查存储池状态，查看坏盘 slot-13 在存储池中是否显示的还是 slot-13，如果为一个数字字符串，则为存储池中该成员盘的 id（这里的 slot-13 在重启服务器后，重新导入存储池可以看到 gid 为 2823177480828651994，此时换盘就需要使用 gid 来进行换盘。\n换盘命令格式\n# zpool replace -f <存储池名字> <坏盘别名或者gid> <新盘别名>\n示例：\n按照别名换盘\n# zpool replace -f ost1 slot-13 slot-13\n按照 gid 换盘\n# zpool replace -f ost1  2823177480828651994 slot-13\n如果新盘的别名更改了，那么可以使用新盘别名进行换盘\n# zpool replace -f ost1 slot-13 <新盘别名>\n换盘时如果换盘失败，提醒说新盘中存在 zfs 文件系统，此时可以使用以下方法清除配置信息：\n清除配置信息命令：\n# zpool labelclear -f <硬盘的绝对路径>\n示例:\n这里假设硬盘别名为 slot-13\n如果采用多路径，那么硬盘的绝对路径即为： /dev/mapper/硬盘名\n# zpool labelclear -f /dev/mapper/slot-13\n如果使用的是虚拟设备 vdev，那么硬盘的绝对路径为： /dev/disk/by-vdev/硬盘名-part1\n# zpool labelclear -f /dev/disk/by-vdev/slot-13-part1\n- 数据同步\n换盘成功后，将执行数据同步。\n# zpool status ost1\npool: ost1\nstate: DEGRADED\nstatus: One or more devices is currently being resilvered.  The pool will\ncontinue to function, possibly in a degraded state.\naction: Wait for the resilver to complete.\nscan: resilver in progress since Thu May 28 16:19:43 2020\n1.48G', 'ONLINE       0     0     0\nslot-10  ONLINE       0     0     0\nslot-4   ONLINE       0     0     0\nslot-5   ONLINE       0     0     0\nslot-6   ONLINE       0     0     0\nslot-7   ONLINE       0     0     0\nslot-8   ONLINE       0     0     0\nslot-9   ONLINE       0     0     0\nspares\nslot-11    AVAIL\nslot-3     AVAIL\nerrors: No known data errors\n- ### 直接更换坏盘\n特别注意： 以上使用热备替换坏盘的操作流程是 解绑、换盘、添加新热备盘，所有操作完成后热备盘位置发生了变化。其实完全可以直接更换新盘，不用更改热备盘位置。操作方法：\n1、拔掉坏盘后直接在坏盘的槽位插入新盘\n2、生成新的别名（映射），参考本节上文 **更换新盘** 和 **重新生成映射** 进行操作\n3、执行换盘操作\n# zpool replace ost0 slot-3 slot-3 -f\n换盘完毕后顶替上去的热备盘 **slot-10** 会自动分离，重新成为热备盘，即状态由 **INUSE** 恢复为 **AVAIL**。此后存储池即进行数据恢复。\n5.5 查看 zfs 数据集中存储的后台数据\n5.5.1、软件版本\n- 系统：redhat7.6\n- 文件系统：Lustre：2.12.0\n- ZFS：0.7.13\n5.5.2、目的\n为运维人员查看后台数据，做相应调整，提供方便。\n5.5.3、', "ONLINE       0     0     0\nslot-15                ONLINE       0     0     0\nslot-16                ONLINE       0     0     0\nslot-17                ONLINE       0     0     0\nslot-18                ONLINE       0     0     0\nslot-19                ONLINE       0     0     0\nerrors: No known data errors\n5.4.2、有热备盘的存储池换盘\n注：ost0 为存储池名字 slot-x 为硬盘别名\n此处有两种换盘方法：\n- ### 使用热备替换坏盘\n1、换盘\n此时的存储池状态为：\n# zpool status ost0\npool: ost0\nstate: DEGRADED\nstatus: One or more devices could not be used because the label is missing or\ninvalid.  Sufficient replicas exist for the pool to continue\nfunctioning in a degraded state.\naction: Replace the device using 'zpool replace'.\nsee: http://zfsonlinux.org/msg/ZFS-8000-4J\nscan: resilvered 148K in 0h0m with 0 errors on Wed May 27 11:12:23 2020\nconfig:\nNAME           STATE     READ WRITE CKSUM\nost0           DEGRADED", 'a degraded state.\naction: Wait for the resilver to complete.\nscan: resilver in progress since Thu May 28 16:19:43 2020\n1.48G scanned out of 198G at 303M/s, 0h11m to go\n140M resilvered, 0.75% done\nconfig:\nNAME                       STATE     READ WRITE CKSUM\npool6                      DEGRADED     0     0     0\nraidz2-0                 DEGRADED     0     0     0\nslot-10                ONLINE       0     0     0\nslot-11                ONLINE       0     0     0\nslot-12                ONLINE       0     0     0\nreplacing-3            DEGRADED     0     0     0\n1625424560663067014  UNAVAIL      0     0     0  was /dev/disk/by-vdev/slot-13/old\nslot-13              ONLINE       0     0     0  (resilvering)\nslot-14                ONLINE       0     0     0\nslot-15']
+
+======================================================================
+
+Overall Metric Pass Rates
+
+Answer Relevancy: 100.00% pass rate
+Faithfulness: 100.00% pass rate
+Contextual Precision: 100.00% pass rate
+Contextual Relevancy: 100.00% pass rate
+Contextual Recall: 100.00% pass rate
+
+======================================================================
+
+
+✓ Tests finished 🎉! Run 'deepeval login' to save and analyze evaluation results
+on Confident AI.
+ 
+✨👀 Looking for a place for your LLM test data to live 🏡❤️ ? Use Confident AI 
+to get & share testing reports, experiment with models/prompts, and catch 
+regressions for your LLM system. Just run 'deepeval login' in the CLI. 
+
+评估结果已保存至: ./evaluation_results/results1.json
+Running teardown with pytest sessionfinish...
+Error loading test run from disk: [Errno 2] No such file or directory: 
+'.deepeval/.temp_test_run_data.json'
+
+[33m[33m[1m2 warnings[0m[33m in 189.71s (0:03:09)[0m[0m
+Test Run is empty, please try again.

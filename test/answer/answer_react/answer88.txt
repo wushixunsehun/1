@@ -1,0 +1,13 @@
+根据提供的文档内容，Lustre 文件系统的 OST 服务网络请求调度策略（NRS）可以通过多种策略类型和参数配置来优化批量读写性能。以下是相关总结：  
+1. TBF（Token Bucket Filter）策略通过限制RPC速率来保证服务质量，可以根据NID、JobID、OPCode、UID/GID等分类，并通过规则列表动态调整速率限制。例如，添加实时特性的命令格式为`lctl set param x.x.x.nrs tbf rule="start rule name arguments... realtime=1"`，该策略可以确保高优先级请求的带宽分配，避免因拥塞导致某些类错过最后期限。  
+2. 延迟策略通过模拟高负载来测试系统对时间敏感问题的处理能力，允许设置请求延迟的最小和最大时间范围。例如，`lctl get param {service}.nrs delay min`和`lctl set param {service}.nrs delay min=0-65535`可以调整请求的最小延迟时间，而`lctl get param {service}.nrs delay max`和`lctl set param {service}.nrs delay max=0-65535`可以调整最大延迟时间。  
+3. ORR（Operation Rate Limiting）策略用于设置支持的RPC类型，如reads、writes或reads_and_writes。通过`lctl set param ost.OSS.ost_io.nrs orr supported=reads|writes|reads_and_writes`可以设置ORR策略支持的RPC类型，从而控制不同类型的RPC请求。  
+4. TRR（Target Round Robin）策略基于目标OST索引进行批量循环调度，其参数与ORR类似，但调度顺序由目标OST索引决定。TRR策略和ORR策略的实施效果相同，使用`lctl set param ost.OSS.ost_io.nrs trr quantum`和`lctl set param ost.OSS.ost_io.nrs trr offset type`等参数调整行为。  
+5. 条带化配置也是优化性能的重要手段。通过`lfs setstripe`命令可以设置文件的条带数量、大小和起始OST，以实现负载均衡和空间利用。推荐的条带大小在1MB到4MB之间，适用于高速网络线性IO场景。  
+结合以上策略和参数，用户可以通过具体指令调整NRS配置，例如：  
+- 使用`lctl set_param ost.OSS.ost_io.nrs policies="tbf"`启用TBF策略，并通过`lctl set_param x.x.x.nrs tbf rule="..."`添加规则。  
+- 设置延迟策略的最小和最大延迟时间，例如`lctl set_param ost.OSS.ost_io.nrs delay min=10`和`lctl set_param ost.OSS.ost_io.nrs delay max=300`。  
+- 配置ORR策略支持的RPC类型，例如`lctl set_param ost.OSS.ost_io.nrs orr supported=reads_and_writes`。  
+- 调整TRR策略的参数，如`lctl set_param ost.OSS.ost_io.nrs trr quantum=100`。  
+此外，条带化配置可以通过`lfs setstripe -c stripe_count -s stripe_size`命令实现，其中`-c`指定OST数量，`-s`指定条带大小。这些配置需要根据具体的应用场景和网络环境进行调整，以达到最佳性能。
+

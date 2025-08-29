@@ -1,0 +1,31 @@
+用户需要在HPC4系统上提交一个MPI+OpenMP混合并行作业，要求使用2个计算节点，每个节点运行4进程，每进程开启9线程。根据提供的知识库和文档内容，可以编写如下的作业脚本，并说明参数含义：1. 作业脚本示例如下：  
+```bash
+#!/bin/bash
+#SBATCH -J MPI_OpenMP_Job       # 作业名称
+#SBATCH -N 2                    # 使用2个计算节点
+#SBATCH -n 8                    # 总共运行8个进程（每个节点4个进程）
+#SBATCH --ntasks-per-node=4     # 每个节点运行4个进程
+#SBATCH --cpus-per-task=9       # 每个进程开启9个线程
+#SBATCH -p cp6                  # 提交到cp6分区
+module add singularity/3.11.0  # 加载Singularity模块
+export PERLLIB=${HOME}/perl-5.16.3/lib/5.16.3:${HOME}/perl # 设置PERL库路径
+export PATH=${PATH}:$HOME/intel18ddd/bin:$HOME/dddmpi18/bin # 设置可执行文件路径
+export LD_LIBRARY_PATH=$HOME/intel18ddd/lib:$HOME/dddmpi18/lib:$HOME/metis-5.1.0-icc18/lib # 设置库路径
+export I_MPI_SHM_LMT=shm        # 设置共享内存限制
+export SLURM_MPI_TYPE=pmi2      # 设置MPI类型为pmi2
+singularity exec /fs2/software/node/redhat-7.2.sif mpiexec.slurm -n 8 ./par.exe # 运行MPI程序
+```
+2. 参数含义说明：  
+- `#SBATCH -J MPI_OpenMP_Job`：设置作业的名称为MPI_OpenMP_Job。  
+- `#SBATCH -N 2`：指定使用2个计算节点。  
+- `#SBATCH -n 8`：指定总共运行8个进程。  
+- `#SBATCH --ntasks-per-node=4`：指定每个节点运行4个进程。  
+- `#SBATCH --cpus-per-task=9`：指定每个进程开启9个线程。  
+- `#SBATCH -p cp6`：指定作业提交到cp6分区。  
+- `module add singularity/3.11.0`：加载Singularity模块，用于运行容器化应用。  
+- `export PERLLIB=${HOME}/perl-5.16.3/lib/5.16.3:${HOME}/perl`：设置PERL库路径，确保Perl模块可用。  
+- `export PATH=${PATH}:$HOME/intel18ddd/bin:$HOME/dddmpi18/bin`：设置可执行文件路径，确保Intel编译器和MPI库可用。  
+- `export LD_LIBRARY_PATH=$HOME/intel18ddd/lib:$HOME/dddmpi18/lib:$HOME/metis-5.1.0-icc18/lib`：设置库路径，确保动态链接库可用。  
+- `export I_MPI_SHM_LMT=shm`：设置共享内存限制，避免MPI错误。  
+- `export SLURM_MPI_TYPE=pmi2`：设置MPI类型为pmi2，避免glex网络兼容性问题。  
+- `singularity exec /fs2/software/node/redhat-7.2.sif mpiexec.slurm -n 8 ./par.exe`：使用Singularity容器运行MPI程序，指定运行8个进程。  

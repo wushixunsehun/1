@@ -1,0 +1,11 @@
+---
+  - hosts: operation
+    tasks:
+      - name: copy node_exporter
+        unarchive:
+          src: /root/software/ant/node_exporter-1.6.0.linux-amd64.tar.gz
+          dest: /opt
+      - name: rename
+        shell: 'mv /opt/node_exporter-1.6.0.linux-amd64.tar.gz /opt/node_exporter'
+      - name: start
+        shell: 'chmod +x /opt/node_exporter/start.sh && chmod +x /opt/node_exporter/stop.sh && /opt/node_exporter/start.sh'

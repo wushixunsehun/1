@@ -1,0 +1,1 @@
+为了确保提交作业时只分配具有“gpu”特性的节点，可以采取以下措施：1. 在作业脚本中指定分区为gpu相关的分区，例如使用#SBATCH partition=gpu1或SBATCH partition=gpul来确保作业被调度到支持GPU的节点上；2. 设置合适的资源参数，如gpus-per-node和cpus-per-gpu，以明确请求GPU资源，例如设置gpus-per-node=8或gpus-per-node=1来指定每个节点需要的GPU数量；3. 如果需要更细粒度的控制，可以通过设置CUDA_VISIBLE_DEVICES环境变量来指定具体的GPU设备号，从而确保作业仅使用特定的GPU资源。此外，在提交作业时必须设置-N或-n参数，否则会因资源规格错误而无法提交作业。

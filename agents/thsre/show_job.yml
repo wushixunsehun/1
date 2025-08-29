@@ -1,0 +1,9 @@
+- hosts: 89.72.100.1
+  user: root
+  gather_facts: false
+  tasks:
+    - name: show_job
+      shell: scontrol show jobid "{{ jobid }}"
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

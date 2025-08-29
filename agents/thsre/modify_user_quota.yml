@@ -1,0 +1,12 @@
+- hosts: 89.72.101.0
+  gather_facts: false
+  tasks:
+    - name: modify_user_quota
+      shell: |
+        lfs setquota -u "{{ user }}" -b "{{ softquota }}" -B "{{ hardquota }}" -i "{{ softinode }}" -I "{{ hardinode }}" "{{ fs }}"
+        echo "用户配额已修改"
+        echo
+        lfs quota -h -u "{{ user }}" "{{ fs }}"
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

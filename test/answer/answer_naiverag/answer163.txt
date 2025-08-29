@@ -1,0 +1,2 @@
+为lisn用户开通ssh到服务器节点的权限，需要从以下几个方面进行操作：1. 确保环境变量配置正确，避免因Anaconda等第三方库导致的OpenSSL版本冲突，例如在~/.bashrc中添加export LD_LIBRARY_PATH=/usr/lib64:$LD_LIBRARY_PATH，以确保ssh使用系统标准库而非第三方库。2. 检查并修改相关配置文件，如/etc/pam.d/sshd或/etc/pam.d/password-auth，配置密码复杂度、密码锁定机制等安全策略，确保用户登录符合系统安全要求。3. 配置欢迎信息和禁止使用su等安全加固措施，例如在Ubuntu系统中通过编辑/etc/update-motd.d/welcome文件设置欢迎信息，在/etc/pam.d/su中添加auth required pam_wheel.so以限制su使用权限。4. 确保用户账户已正确创建，并且具有访问服务器节点的权限，包括正确的SSH密钥或密码配置，以及在系统中没有被锁定或禁用。5. 检查系统日志，如/auth.log或/var/log/sec，确认用户登录过程无异常，并根据需要调整相关服务配置。
+

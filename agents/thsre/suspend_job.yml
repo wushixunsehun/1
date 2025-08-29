@@ -1,0 +1,13 @@
+- hosts: 89.72.100.1
+  user: root
+  gather_facts: false
+  tasks:
+    - name: suspend_job
+      shell: |
+        scontrol suspend "{{ jobid }}"
+        echo "作业已挂起"
+        echo
+        scontrol show jobid "{{ jobid }}"
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}

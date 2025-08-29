@@ -1,0 +1,1 @@
+yhacctmgr 和 yhcontrol 分别可以实现以下功能：1. yhacctmgr 是一个用于查看和修改帐号信息的工具，它允许用户管理账户、关联和集群配置，支持添加、创建、删除、列出、显示和修改实体信息。yhacctmgr 通过 slurmdbd 提供的数据库访问接口来管理帐号信息，这些信息包括用户、集群、分区和帐号。yhacctmgr 还可以管理资源限制，如 GrpCPUs（最大CPU数）、GrpJobs（最大作业数）和 GrpCPUMins（最大CPU分钟数）。2. yhcontrol 并未在提供的内容中提及，因此无法提供其具体功能。

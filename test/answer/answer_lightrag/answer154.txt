@@ -1,0 +1,1 @@
+为TH-ES系统添加代理，可以按照以下步骤进行：1. 执行 `/THL5/software/env/proxy/copy-proxy.sh` 脚本来配置代理设置；2. 运行 `source ~/.bashrc` 命令以应用 shell 配置更改；3. 加载 `module add proxy/1.0` 模块以完成代理配置。这些步骤能够有效配置TH-ES系统的代理环境，确保用户能够顺利访问外部资源。

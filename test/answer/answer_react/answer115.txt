@@ -1,0 +1,8 @@
+根据工具返回的内容，总结和问题相关的信息如下：HTCondor 是一个用于管理分布式计算资源的软件系统，配置和启动 HTCondor 服务需要进行一系列步骤。首先通过下载源码并解压，使用 build-on-linux.sh 脚本编译生成 deb 包进行安装。在配置文件中需设置 CONDOR_HOST 和权限参数，启动服务后可查看相关进程。根据需求启动不同服务组合，如 manager、submit 或 execute 节点。提交作业时需编写 .sub 文件，并使用 condor_submit 提交任务，支持普通用户提交作业及并行任务配置。此外，还需要注意将 DedicatedScheduler 属性添加到机器的 classad 中，重启 Condor 服务，并编写提交脚本。对于 TH-ES 开代理的步骤，执行特定命令可以有效配置代理环境。结合这些信息，以下是具体的解决方案和指令：  
+1. 安装 HTCondor：首先下载源码并解压，使用 build-on-linux.sh 脚本编译生成 deb 包进行安装，具体命令为 `wget http://parrot.cs.wisc.edu//symlink/20200806145602/8/8.8/8.8.9/788ba1a65b3ed1e41ccef82b9eac1e74/condor_src-8.8.9-all-all.tar.gz`，然后解压并执行 `./build-on-linux.sh` 脚本，最后使用 `dpkg -i htcondor_8.8.9-1_arm64.deb libclassad10_8.8.9-1_arm64.deb condor-dev_8.8.9-1_all.deb` 安装生成的 deb 包。  
+2. 配置 HTCondor：编辑 `/etc/condor/condor_config` 文件，设置 `CONDOR_HOST = 25.8.101.25`（替换为实际的 manager node IP），并配置 `DAEMON_LIST = COLLECTOR MASTER NEGOTIATOR SCHEDD STARTD`，同时设置权限参数如 `ALLOW_WRITE = *` 和 `ALLOW_READ = *`。  
+3. 启动 HTCondor 服务：使用 `systemctl start condor` 命令启动服务，检查进程是否正常运行，确保有 `condor_master`、`condor_collector`、`condor_negotiator`、`condor_schedd` 和 `condor_startd` 等进程。  
+4. 提交作业：编写 `.sub` 文件，例如 `test.sub`，指定可执行文件、日志路径等，然后使用 `condor_submit test.sub` 提交任务。对于并行任务，需在配置文件中添加 `DedicatedScheduler` 属性，并重启服务。  
+5. 配置代理环境（适用于 TH-ES）：执行 `/THL5/software/env/proxy/copy-proxy.sh`，然后运行 `source ~/.bashrc`，最后加载 `module add proxy/1.0`。  
+以上步骤涵盖了 HTCondor 的安装、配置、启动以及作业提交的完整流程，确保服务正常运行并能够高效管理分布式计算资源。
+

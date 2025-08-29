@@ -1,0 +1,1 @@
+yhacct 命令可以通过指定特定的字段来输出作业的最大虚拟内存、最大RSS和平均RSS等详细信息，具体方法如下：1. 使用 --format 选项自定义输出字段，可选择的字段包括 MaxVMSize（最大虚拟内存）、MaxRSS（最大RSS）、AveRSS（平均RSS）等，例如通过 --format=jobid,MaxVMSize,MaxRSS,AveRSS 来指定需要显示的字段；2. 如果需要更详细的输出，可以结合 --dump 选项转储原始数据，但需要注意此时 --brief 和 --format 等选项将失效；3. 可以使用默认的字段列表，例如 --fields=jobid,MaxVMSize,MaxRSS,AveRSS 来直接获取所需信息，同时还可以通过调整字段格式来优化输出结果。

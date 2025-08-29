@@ -1,0 +1,2 @@
+该错误主要由于链接阶段缺少必要的库文件或版本不兼容导致，具体原因及解决方法如下：1. 缺少freetype库导致符号未定义，需在链接命令中添加-lfreetype参数以正确链接该库；2. fontconfig依赖的freetype版本过低，需升级fontconfig和freetype版本以满足程序需求；3. 链接顺序不当或未加载必要模块，应确保编译器、MPI、blas、lapack等模块已正确加载，并在Makefile中正确设置库路径和编译选项。
+

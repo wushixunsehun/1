@@ -1,0 +1,10 @@
+- hosts: all
+  user: root
+  gather_facts: false
+  tasks:
+  - name: ping
+    shell: "if ping -w 1 -s 1 -c1 \"{{ node }}\" | grep \"1 received\" > /dev/null\
+      \ 2>&1\nthen\n  echo \"healthy\"\nelse\n  echo \"dead\"\nfi\n"
+    register: result
+  - debug:
+      msg: '{{ result.stdout_lines }}'

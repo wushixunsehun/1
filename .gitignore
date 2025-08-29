@@ -1,0 +1,20 @@
+# agents/
+agents/config.yaml
+agents/.vscode/
+agents/agent_mn10/system_perception/.well-known
+agents/agent_mn10/command_run/.well-known
+agents/agent_a6000/report_generate/.well-known
+agents/agent_a6000/strategy_plan/.well-known
+agents/service/
+
+
+# agents/chatbot
+
+
+
+# milvus/
+milvus/config.yaml
+milvus/authorization.py
+milvus/app/
+milvus/.vscode/
+milvus/=1.3.3

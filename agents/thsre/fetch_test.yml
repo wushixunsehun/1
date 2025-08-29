@@ -1,0 +1,15 @@
+---
+- hosts: "{{ node }}" 
+  remote_user: root
+  gather_facts: F
+  tasks:
+    # 测试fetch
+    - name: fetch file
+      fetch:
+        src: /opt/thsre/netbox/etc/prometheus/alert.yml
+        dest: /opt/thsre/ansible-runner-service/samples/project/
+        flat: yes
+    - name: test param
+      debug:
+        msg: "{{ msg }}"
+

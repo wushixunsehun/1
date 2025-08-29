@@ -1,0 +1,29 @@
+- hosts: all
+  user: root
+  gather_facts: false
+  tasks:
+    - name:
+      shell: |
+        node_id=`echo $(hostname) | cut -d 's' -f 3`
+        jobd_id=`echo "{{ jbod }}" |awk -F 'JBOD' '{print $2}' |awk -F '-' '{print $1}'`
+        s_id=`echo "{{ jbod }}" |awk -F 'S' '{print $2}'`
+        if [[ $(($node_id % 2)) == 0 ]];then
+          if [[ $(($jobd_id % 2)) == 0 ]];then
+            controller=`wddcs show  | grep Device |awk '{print $NF}' | awk 'NR==1 {print}'`
+          elif [[ $(($jobd_id % 2)) == 1 ]];then
+            controller=`wddcs show  | grep Device |awk '{print $NF}' | awk 'NR==2 {print}'`
+          fi
+        elif [[ $(($node_id % 2)) == 1 ]];then
+          if [[ $(($jobd_id % 2)) == 0 ]];then
+            controller=`wddcs show  | grep Device |awk '{print $NF}' | awk 'NR==2 {print}'`
+          elif [[ $(($jobd_id % 2)) == 1 ]];then
+            controller=`wddcs show  | grep Device |awk '{print $NF}' | awk 'NR==1 {print}'`
+          fi
+        fi
+
+        sg_ses $controller -I0,${s_id} "{{ active }}" ident
+        sg_ses $controller -I0,${s_id} 
+
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

@@ -1,0 +1,12 @@
+- hosts: 25.8.100.1
+  gather_facts: false
+  tasks:
+  - name: null
+    shell: 'yhusermod -e "{{ date }}" "{{ user }}"
+
+      echo "用户登录期限已修改"
+
+      '
+    register: result
+  - debug:
+      msg: '{{ result.stdout_lines }}'

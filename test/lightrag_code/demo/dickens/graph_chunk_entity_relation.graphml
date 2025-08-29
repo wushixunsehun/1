@@ -1,0 +1,1345 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d11" for="edge" attr.name="created_at" attr.type="long" />
+  <key id="d10" for="edge" attr.name="file_path" attr.type="string" />
+  <key id="d9" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="d8" for="edge" attr.name="keywords" attr.type="string" />
+  <key id="d7" for="edge" attr.name="description" attr.type="string" />
+  <key id="d6" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d5" for="node" attr.name="created_at" attr.type="long" />
+  <key id="d4" for="node" attr.name="file_path" attr.type="string" />
+  <key id="d3" for="node" attr.name="source_id" attr.type="string" />
+  <key id="d2" for="node" attr.name="description" attr.type="string" />
+  <key id="d1" for="node" attr.name="entity_type" attr.type="string" />
+  <key id="d0" for="node" attr.name="entity_id" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="Lustre文件系统">
+      <data key="d0">Lustre文件系统</data>
+      <data key="d1">category</data>
+      <data key="d2">Lustre文件系统is a distributed file system designed for high-performance computing environments, supporting large-scale data storage and access across multiple nodes.&lt;SEP&gt;Lustre文件系统is a distributed file system designed for high-performance computing environments, supporting large-scale data storage and access.&lt;SEP&gt;Lustre是一个高性能、可扩展的分布式文件系统，支持POSIX标准，具备高可用性、数据完整性及多种网络协议。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-e7fb9eee733d54e659726818cc59dce8&lt;SEP&gt;chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="ZFS">
+      <data key="d0">ZFS</data>
+      <data key="d1">organization</data>
+      <data key="d2">ZFS is a file system and logical volume manager designed for high reliability, performance, and data integrity, often used as a backend storage solution for Lustre.&lt;SEP&gt;ZFS是一种用于存储可靠性的文件系统，被Lustre用来确保数据的完整性和可靠性。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="RDMA">
+      <data key="d0">RDMA</data>
+      <data key="d1">organization</data>
+      <data key="d2">RDMA (Remote Direct Memory Access) is a network technology that allows for fast and low-latency data transfer between nodes, supported by Lustre for high-performance I/O.&lt;SEP&gt;RDMA(远程直接内存访问)是一种高速网络技术，被Lustre支持以提高数据传输效率。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="MGS">
+      <data key="d0">MGS</data>
+      <data key="d1">organization</data>
+      <data key="d2">MGS is a Management Service that manages the Lustre file system configuration and communication between components.&lt;SEP&gt;MGS(管理服务器)是Lustre文件系统的核心组件之一，负责管理元数据目标(MGT)。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="MDS">
+      <data key="d0">MDS</data>
+      <data key="d1">organization</data>
+      <data key="d2">MDS (Metadata Server) is a component of the Lustre file system that manages metadata operations, such as file creation, deletion, and access control.&lt;SEP&gt;MDS(元数据服务器)是Lustre文件系统的组件之一，负责处理元数据操作。&lt;SEP&gt;Metadata Server (MDS) is a component of the Lustre file system responsible for managing metadata, such as file names and directory structures.</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-27f6c6c3e472783859eac1f81a80a21f&lt;SEP&gt;chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="MDT">
+      <data key="d0">MDT</data>
+      <data key="d1">organization</data>
+      <data key="d2">MDT (Metadata Target) is a component of the Lustre file system responsible for storing metadata about files and directories, including information about their location on OSTs.&lt;SEP&gt;MDT is a metadata target that stores metadata for the Lustre file system. It is configured on dedicated nodes and works with the Metadata Client (MDC) to provide transparent access to multiple MDTs.&lt;SEP&gt;MDT(元数据目标)是Lustre文件系统中存储元数据的组件，主MDT保存根目录，其他MDT可用于子目录。&lt;SEP&gt;Metadata Target (MDT) is a component of the Lustre file system that stores metadata for files and directories.</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-27f6c6c3e472783859eac1f81a80a21f&lt;SEP&gt;chunk-d19dbf92b27cb94a1a8709ed46ccbf48&lt;SEP&gt;chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="OSS">
+      <data key="d0">OSS</data>
+      <data key="d1">organization</data>
+      <data key="d2">OSS (Object Storage Server) is a component of the Lustre file system that manages data storage on OSTs, providing I/O services for client access.&lt;SEP&gt;OSS is an object storage service that provides file IO services and network requests for one or more local OSTs. It is configured on dedicated nodes and serves between two to eight OSTs, each with a maximum capacity of 16TiB.&lt;SEP&gt;OSS(对象存储服务)为OST提供I/O服务，每个OST存储文件数据。&lt;SEP&gt;Object Storage Server (OSS) is a component of the Lustre file system that stores data objects and handles data I/O operations.</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-27f6c6c3e472783859eac1f81a80a21f&lt;SEP&gt;chunk-d19dbf92b27cb94a1a8709ed46ccbf48&lt;SEP&gt;chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="OST">
+      <data key="d0">OST</data>
+      <data key="d1">organization</data>
+      <data key="d2">OST (Object Storage Target) is a component of the Lustre file system that stores actual file data, allowing for scalable and parallel data access across multiple storage devices.&lt;SEP&gt;OST is an object storage target where user file data is stored in one or more objects, each located in a separate OST within the Lustre file system. Each file's object count is configurable based on workload performance needs.&lt;SEP&gt;OST(对象存储目标)是Lustre文件系统中存储文件数据的组件。&lt;SEP&gt;Object Storage Target (OST) is a component of the Lustre file system that stores data objects on disk.</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-27f6c6c3e472783859eac1f81a80a21f&lt;SEP&gt;chunk-d19dbf92b27cb94a1a8709ed46ccbf48&lt;SEP&gt;chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="MDC">
+      <data key="d0">MDC</data>
+      <data key="d1">organization</data>
+      <data key="d2">MDC is a metadata client that interacts with MDTs to manage metadata operations in the Lustre file system.&lt;SEP&gt;MDC(元数据客户端)是客户端组件，用于访问Lustre文件系统的元数据。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="OSC">
+      <data key="d0">OSC</data>
+      <data key="d1">organization</data>
+      <data key="d2">OSC is an object storage client that interacts with OSTs to manage data operations in the Lustre file system.&lt;SEP&gt;OSC(对象存储客户端)是客户端组件，用于访问Lustre文件系统的数据存储。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="LNet">
+      <data key="d0">LNet</data>
+      <data key="d1">organization</data>
+      <data key="d2">LNet is the networking layer of the Lustre file system, enabling communication between Lustre components over various network technologies.&lt;SEP&gt;LNet is the networking layer of the Lustre file system, enabling communication between clients and servers.&lt;SEP&gt;LNet是Lustre的网络通信基础设施，负责节点之间的通信。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-27f6c6c3e472783859eac1f81a80a21f&lt;SEP&gt;chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="FID">
+      <data key="d0">FID</data>
+      <data key="d1">organization</data>
+      <data key="d2">FID(文件标识符)用于唯一标识Lustre文件系统中的文件。&lt;SEP&gt;File Identifier (FID) is a 128-bit unique identifier used by Lustre to replace UNIX inode numbers for identifying files and objects.</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="LFSCK">
+      <data key="d0">LFSCK</data>
+      <data key="d1">organization</data>
+      <data key="d2">LFSCK (Lustre File System Check) is a tool used to verify and repair consistency between MDT and OST components in the Lustre file system.&lt;SEP&gt;LFSCK is a file system consistency check tool used to verify the consistency of file objects between MDTs and OSTs in the Lustre file system.&lt;SEP&gt;LFSCK是Lustre文件系统提供的灾难恢复工具，用于检查和修复文件系统一致性。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-e7fb9eee733d54e659726818cc59dce8&lt;SEP&gt;chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="llstat">
+      <data key="d0">llstat</data>
+      <data key="d1">organization</data>
+      <data key="d2">llstat is a command-line utility used to monitor and display statistics related to Lustre file system components such as MDTs, OSTs, and other subsystems.&lt;SEP&gt;llstat是Lustre文件系统中用于监控文件系统统计信息的工具。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="llverdev">
+      <data key="d0">llverdev</data>
+      <data key="d1">organization</data>
+      <data key="d2">llverdev is a command-line tool used for device validation in the Lustre file system. It allows users to perform partial or full verification of storage devices.&lt;SEP&gt;llverdev is a utility used to verify the integrity of block devices, ensuring that data can be written and read correctly without corruption.&lt;SEP&gt;llverdev是Lustre文件系统中用于验证块设备完整性的工具。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-27f6c6c3e472783859eac1f81a80a21f&lt;SEP&gt;chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="lshowmount">
+      <data key="d0">lshowmount</data>
+      <data key="d1">organization</data>
+      <data key="d2">lshowmount是Lustre文件系统中用于显示Lustre导出信息的工具。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="lst">
+      <data key="d0">lst</data>
+      <data key="d1">organization</data>
+      <data key="d2">lst is a command used to initiate LNet self-tests, ensuring proper installation and configuration of the Lustre networking layer.&lt;SEP&gt;lst是Lustre文件系统中用于启动LNet自检的命令。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="NFS">
+      <data key="d0">NFS</data>
+      <data key="d1">organization</data>
+      <data key="d2">NFS是一种网络文件系统协议，Lustre可通过NFS导出文件系统。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="CIFS">
+      <data key="d0">CIFS</data>
+      <data key="d1">organization</data>
+      <data key="d2">CIFS是一种网络文件系统协议，Lustre可通过CIFS导出文件系统。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="Linux">
+      <data key="d0">Linux</data>
+      <data key="d1">geo</data>
+      <data key="d2">Linux是Lustre文件系统运行的操作系统平台。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="GPL 2.0">
+      <data key="d0">GPL 2.0</data>
+      <data key="d1">organization</data>
+      <data key="d2">GPL 2.0是Lustre文件系统的开源许可证，允许自由使用和修改代码。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="细粒度元数据锁定">
+      <data key="d0">细粒度元数据锁定</data>
+      <data key="d1">category</data>
+      <data key="d2">细粒度元数据锁定是Lustre的功能之一，允许多个客户端同时读取和修改相同文件或目录，确保一致性。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="配额管理">
+      <data key="d0">配额管理</data>
+      <data key="d1">category</data>
+      <data key="d2">配额管理是Lustre文件系统的一项功能，用于限制用户和组的存储使用。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="文件布局控制">
+      <data key="d0">文件布局控制</data>
+      <data key="d1">category</data>
+      <data key="d2">文件布局控制是Lustre的功能，允许在文件、目录或文件系统级别配置跨OST的文件布局。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="灾难恢复工具">
+      <data key="d0">灾难恢复工具</data>
+      <data key="d1">category</data>
+      <data key="d2">灾难恢复工具是Lustre提供的功能，包括LFSCK工具，用于检查和修复文件系统一致性。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="性能监视">
+      <data key="d0">性能监视</data>
+      <data key="d1">category</data>
+      <data key="d2">性能监视是Lustre提供的功能，包含多种机制用于检查性能和进行调整。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="RAID-0条带化">
+      <data key="d0">RAID-0条带化</data>
+      <data key="d1">category</data>
+      <data key="d2">RAID-0条带化是Lustre的存储策略，用于在OST之间分布文件数据以提高性能。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="网络数据完整性保护">
+      <data key="d0">网络数据完整性保护</data>
+      <data key="d1">category</data>
+      <data key="d2">网络数据完整性保护是Lustre的功能，通过校验和防止数据在传输期间损坏。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="MPI I/O">
+      <data key="d0">MPI I/O</data>
+      <data key="d1">category</data>
+      <data key="d2">MPI I/O是Lustre架构中优化并行I/O的专用层。</data>
+      <data key="d3">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="Management Server (MGS)">
+      <data key="d0">Management Server (MGS)</data>
+      <data key="d1">organization</data>
+      <data key="d2">Management Server (MGS) is responsible for storing configuration information for all Lustre file systems and providing this information to other Lustre components.</data>
+      <data key="d3">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="Metadata Server (MDS)">
+      <data key="d0">Metadata Server (MDS)</data>
+      <data key="d1">organization</data>
+      <data key="d2">Metadata Server (MDS) manages metadata for the Lustre file system, including file names, directories, and permissions, and provides network request handling for one or more Metadata Targets (MDTs).</data>
+      <data key="d3">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="Metadata Target (MDT)">
+      <data key="d0">Metadata Target (MDT)</data>
+      <data key="d1">organization</data>
+      <data key="d2">Metadata Target (MDT) stores metadata on the MDS's attached storage, such as file names, directories, permissions, and file layout.</data>
+      <data key="d3">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="Object Storage Server (OSS)">
+      <data key="d0">Object Storage Server (OSS)</data>
+      <data key="d1">organization</data>
+      <data key="d2">Object Storage Server (OSS) is responsible for storing and managing the actual data objects in the Lustre file system.</data>
+      <data key="d3">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="Lustre Clients">
+      <data key="d0">Lustre Clients</data>
+      <data key="d1">organization</data>
+      <data key="d2">Lustre Clients are the end-user systems that access the Lustre file system over a network, using either Ethernet or InfiniBand.</data>
+      <data key="d3">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="FID-in-dirent">
+      <data key="d0">FID-in-dirent</data>
+      <data key="d1">category</data>
+      <data key="d2">FID-in-dirent is a feature in the Lustre file system that allows files across multiple MDTs to be identified and accessed independently.&lt;SEP&gt;FID-in-dirent is a feature in the Lustre file system that stores the File Identifier (FID) within the directory entry, enabling faster lookup and path reconstruction.&lt;SEP&gt;FID-in-dirent is a feature that allows the Lustre file system to identify files across multiple MDTs, providing backward compatibility with version 1.8 of the Idiskfs disk format.</data>
+      <data key="d3">chunk-27f6c6c3e472783859eac1f81a80a21f&lt;SEP&gt;chunk-e7fb9eee733d54e659726818cc59dce8&lt;SEP&gt;chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="/dev/sda">
+      <data key="d0">/dev/sda</data>
+      <data key="d1">geo</data>
+      <data key="d2">/dev/sda is a block device representing a physical storage drive used in the Lustre file system configuration.</data>
+      <data key="d3">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="Timestamp">
+      <data key="d0">Timestamp</data>
+      <data key="d1">event</data>
+      <data key="d2">Timestamp refers to a specific point in time recorded during operations in the Lustre file system, often used for tracking changes or events.</data>
+      <data key="d3">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="showmount">
+      <data key="d0">showmount</data>
+      <data key="d1">category</data>
+      <data key="d2">showmount is a command-line utility used to display information about Lustre mounts, including MGS, MDS, and obdfilter exports.</data>
+      <data key="d3">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="LNet BK">
+      <data key="d0">LNet BK</data>
+      <data key="d1">organization</data>
+      <data key="d2">LNet BK refers to the LNet Backing Kernel, which is part of the LNet networking stack used in the Lustre file system.</data>
+      <data key="d3">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="Lustre Networking">
+      <data key="d0">Lustre Networking</data>
+      <data key="d1">category</data>
+      <data key="d2">Lustre Networking (LNet) is a custom network API that provides communication infrastructure for Lustre file system services between clients and servers.&lt;SEP&gt;Lustre Networking is the communication infrastructure that enables interaction between Lustre components over different network technologies.</data>
+      <data key="d3">chunk-27f6c6c3e472783859eac1f81a80a21f&lt;SEP&gt;chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="test batch">
+      <data key="d0">test batch</data>
+      <data key="d1">event</data>
+      <data key="d2">Test batch refers to a collection of named tests used in validating the functionality and performance of the Lustre file system.</data>
+      <data key="d3">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="point-to-point test">
+      <data key="d0">point-to-point test</data>
+      <data key="d1">event</data>
+      <data key="d2">Point-to-point test is a type of individual test within a test batch, used to evaluate specific aspects of the Lustre file system.</data>
+      <data key="d3">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="Lustre component">
+      <data key="d0">Lustre component</data>
+      <data key="d1">category</data>
+      <data key="d2">Lustre component refers to any of the individual parts of the Lustre file system architecture, such as MGS, MDS, MDT, OSS, and clients.</data>
+      <data key="d3">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="configuration">
+      <data key="d0">configuration</data>
+      <data key="d1">category</data>
+      <data key="d2">Configuration refers to the setup and parameters defined for the Lustre file system, including storage, networking, and component interactions.</data>
+      <data key="d3">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="system architecture">
+      <data key="d0">system architecture</data>
+      <data key="d1">category</data>
+      <data key="d2">System architecture describes the overall design and structure of the Lustre file system, including its components and their relationships.</data>
+      <data key="d3">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="network technology">
+      <data key="d0">network technology</data>
+      <data key="d1">category</data>
+      <data key="d2">Network technology refers to the communication methods used in the Lustre file system, such as Ethernet and InfiniBand.</data>
+      <data key="d3">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="data consistency">
+      <data key="d0">data consistency</data>
+      <data key="d1">category</data>
+      <data key="d2">Data consistency refers to the state where all components of the Lustre file system maintain uniform and accurate data across MDTs and OSTs.</data>
+      <data key="d3">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="file system consistency">
+      <data key="d0">file system consistency</data>
+      <data key="d1">category</data>
+      <data key="d2">File system consistency ensures that the Lustre file system maintains correct and reliable data structures and metadata.</data>
+      <data key="d3">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="system maintenance">
+      <data key="d0">system maintenance</data>
+      <data key="d1">category</data>
+      <data key="d2">System maintenance involves activities like checking and repairing inconsistencies in the Lustre file system using tools like LFSCK.</data>
+      <data key="d3">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="linkEA">
+      <data key="d0">linkEA</data>
+      <data key="d1">category</data>
+      <data key="d2">linkEA (Link Extended Attribute) is an extended attribute stored in a file that contains information about its parent FID and file name, used to reconstruct the full path of a file.</data>
+      <data key="d3">chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="Layout EA">
+      <data key="d0">Layout EA</data>
+      <data key="d1">category</data>
+      <data key="d2">Layout EA (Extended Attribute) stores information about how a file's data is laid out across OSTs, including which objects are used and their locations.</data>
+      <data key="d3">chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="POSIX">
+      <data key="d0">POSIX</data>
+      <data key="d1">category</data>
+      <data key="d2">POSIX (Portable Operating System Interface) is a set of standards for operating systems, ensuring compatibility and portability of applications across different platforms.</data>
+      <data key="d3">chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="Lustre File System Operation Manual">
+      <data key="d0">Lustre File System Operation Manual</data>
+      <data key="d1">event</data>
+      <data key="d2">Lustre File System Operation Manual is a document that provides detailed instructions and guidance on using and managing the Lustre file system.&lt;SEP&gt;Lustre File System Operation Manual is a document that provides detailed instructions and technical specifications for using and managing the Lustre file system.</data>
+      <data key="d3">chunk-d19dbf92b27cb94a1a8709ed46ccbf48&lt;SEP&gt;chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="Ba">
+      <data key="d0">Ba</data>
+      <data key="d1">person</data>
+      <data key="d2">Ba is a translator of the Lustre File System Operation Manual, contributing to the localization of technical documentation.</data>
+      <data key="d3">chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="李硕">
+      <data key="d0">李硕</data>
+      <data key="d1">person</data>
+      <data key="d2">李硕is a translator of the Lustre File System Operation Manual, contributing to the localization of technical documentation.</data>
+      <data key="d3">chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="Lustre Client">
+      <data key="d0">Lustre Client</data>
+      <data key="d1">organization</data>
+      <data key="d2">Lustre Client is a computing node running Lustre client software that enables interaction with the Lustre file system. It includes components like the metadata client (MDC), object storage clients (OSC), and others.</data>
+      <data key="d3">chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="Lustre File System">
+      <data key="d0">Lustre File System</data>
+      <data key="d1">event</data>
+      <data key="d2">Lustre File System is a distributed file system designed for high-performance computing environments, supporting large-scale data storage and access.&lt;SEP&gt;Lustre File System is a distributed file system that allows multiple clients to access and modify files concurrently. It uses components like MDT, OST, and OSC to manage metadata and data storage.</data>
+      <data key="d3">chunk-27f6c6c3e472783859eac1f81a80a21f&lt;SEP&gt;chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="LMV">
+      <data key="d0">LMV</data>
+      <data key="d1">organization</data>
+      <data key="d2">LMV is a Logical Metadata Volume that aggregates metadata clients (MDC) to provide transparent access to all MDTs, allowing clients to view multiple MDTs as a single coherent namespace.</data>
+      <data key="d3">chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="LOV">
+      <data key="d0">LOV</data>
+      <data key="d1">organization</data>
+      <data key="d2">LOV is a Logical Object Volume that aggregates object storage clients (OSC) to provide transparent access to all OSTs, allowing clients to see all OSTs as a single coherent namespace.</data>
+      <data key="d3">chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="Client">
+      <data key="d0">Client</data>
+      <data key="d1">organization</data>
+      <data key="d2">Client is a user or application that accesses the Lustre file system to read or write data.</data>
+      <data key="d3">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="InfiniBand">
+      <data key="d0">InfiniBand</data>
+      <data key="d1">geo</data>
+      <data key="d2">InfiniBand is a high-speed network technology often used in Lustre clusters for low-latency, high-bandwidth communication.</data>
+      <data key="d3">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="Ethernet">
+      <data key="d0">Ethernet</data>
+      <data key="d1">geo</data>
+      <data key="d2">Ethernet is a common network technology used in Lustre clusters for general-purpose communication.</data>
+      <data key="d3">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="Lustre Cluster">
+      <data key="d0">Lustre Cluster</data>
+      <data key="d1">event</data>
+      <data key="d2">Lustre Cluster refers to a large-scale deployment of the Lustre file system, consisting of multiple components like MDS, OSS, and clients.</data>
+      <data key="d3">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="MGT">
+      <data key="d0">MGT</data>
+      <data key="d1">organization</data>
+      <data key="d2">Management Group (MGT) is a component of the Lustre file system that manages configuration and administrative tasks.</data>
+      <data key="d3">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="Lustre File System Components">
+      <data key="d0">Lustre File System Components</data>
+      <data key="d1">category</data>
+      <data key="d2">Lustre File System Components include MDS, OSS, Clients, and various networking technologies like InfiniBand and Ethernet.</data>
+      <data key="d3">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="Storage Arrays">
+      <data key="d0">Storage Arrays</data>
+      <data key="d1">organization</data>
+      <data key="d2">Storage Arrays are enterprise-class storage solutions used in conjunction with the Lustre file system for large-scale data storage.</data>
+      <data key="d3">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="Commodity Storage">
+      <data key="d0">Commodity Storage</data>
+      <data key="d1">organization</data>
+      <data key="d2">Commodity Storage refers to standard, cost-effective storage solutions that can be integrated with the Lustre file system.</data>
+      <data key="d3">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <node id="SAN Fabric">
+      <data key="d0">SAN Fabric</data>
+      <data key="d1">organization</data>
+      <data key="d2">SAN Fabric is a high-speed network infrastructure used for connecting storage devices in a Lustre environment.</data>
+      <data key="d3">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1751874190</data>
+    </node>
+    <edge source="Lustre文件系统" target="MGS">
+      <data key="d6">9.0</data>
+      <data key="d7">MGS是Lustre文件系统的重要组成部分，负责管理元数据目标(MGT)。</data>
+      <data key="d8">management,system architecture</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="MDS">
+      <data key="d6">17.0</data>
+      <data key="d7">MDS是Lustre文件系统的组件之一，负责处理元数据操作。&lt;SEP&gt;The Lustre file system uses MDS to manage metadata operations, such as file creation and access control."|&gt;"metadata management, system architecture</data>
+      <data key="d8">8,metadata management,system architecture</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="MDT">
+      <data key="d6">18.0</data>
+      <data key="d7">MDT是Lustre文件系统中存储元数据的组件，主MDT保存根目录。&lt;SEP&gt;The Lustre file system relies on MDTs to manage metadata, including file attributes and directory structures."|&gt;"metadata management, file system architecture</data>
+      <data key="d8">9,metadata storage,system architecture</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="OSS">
+      <data key="d6">17.0</data>
+      <data key="d7">OSS为OST提供I/O服务，是Lustre文件系统的关键组件。&lt;SEP&gt;The Lustre file system uses OSS to manage data storage on OSTs, providing I/O services for clients."|&gt;"data management, storage services</data>
+      <data key="d8">8,data storage,system architecture</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="OST">
+      <data key="d6">18.0</data>
+      <data key="d7">OST是Lustre文件系统中存储文件数据的组件。&lt;SEP&gt;The Lustre file system uses OSTs to store actual file data, enabling scalable and parallel data access across multiple storage targets."|&gt;"data storage, scalability</data>
+      <data key="d8">9,data storage,system architecture</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="LNet">
+      <data key="d6">16.0</data>
+      <data key="d7">LNet is the networking layer that enables communication between components of the Lustre file system."|&gt;"networking, system architecture&lt;SEP&gt;LNet是Lustre文件系统的网络通信基础设施，负责节点间的数据传输。</data>
+      <data key="d8">8,communication,network infrastructure</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="FID">
+      <data key="d6">7.0</data>
+      <data key="d7">FID用于唯一标识Lustre文件系统中的文件，是文件管理的重要机制。</data>
+      <data key="d8">file identification,system management</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="LFSCK">
+      <data key="d6">23.0</data>
+      <data key="d7">LFSCK is a tool used by the Lustre file system to check and repair inconsistencies between MDT and OST components."|&gt;"system maintenance, data integrity&lt;SEP&gt;LFSCK is a tool used to ensure the consistency of the Lustre file system, particularly between MDTs and OSTs."|&gt;"system maintenance, data integrity&lt;SEP&gt;LFSCK是Lustre文件系统的灾难恢复工具，用于检查和修复文件系统一致性。</data>
+      <data key="d8">7,8,data integrity,recovery</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-e7fb9eee733d54e659726818cc59dce8&lt;SEP&gt;chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="NFS">
+      <data key="d6">14.0</data>
+      <data key="d7">Lustre可通过NFS协议导出文件系统，使其兼容非Linux客户端。&lt;SEP&gt;NFS是Lustre文件系统支持的导出协议之一，用于共享文件。</data>
+      <data key="d8">file sharing,protocol compatibility,protocol integration</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="CIFS">
+      <data key="d6">14.0</data>
+      <data key="d7">CIFS是Lustre文件系统支持的导出协议之一，用于共享文件。&lt;SEP&gt;Lustre可通过CIFS协议导出文件系统，使其兼容非Linux客户端。</data>
+      <data key="d8">file sharing,protocol compatibility,protocol integration</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="GPL 2.0">
+      <data key="d6">16.0</data>
+      <data key="d7">GPL 2.0是Lustre文件系统的开源许可证，提供法律保障。&lt;SEP&gt;Lustre文件系统基于GPL 2.0开源许可证，允许自由使用和修改代码。</data>
+      <data key="d8">licensing,open source</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="ZFS">
+      <data key="d6">13.0</data>
+      <data key="d7">Lustre can utilize ZFS as a backend storage solution, leveraging its scalability and data integrity features."|&gt;"storage integration, reliability&lt;SEP&gt;ZFS用于增强Lustre文件系统的存储可靠性，确保数据完整性。</data>
+      <data key="d8">6,data integrity,storage reliability</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="RDMA">
+      <data key="d6">17.0</data>
+      <data key="d7">Lustre supports RDMA for high-speed, low-latency data transfers, enhancing performance in distributed computing environments."|&gt;"network performance, high-speed I/O&lt;SEP&gt;RDMA技术提升Lustre文件系统的数据传输效率，支持高速网络环境。</data>
+      <data key="d8">9,data transfer,network performance</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="细粒度元数据锁定">
+      <data key="d6">8.0</data>
+      <data key="d7">细粒度元数据锁定是Lustre的核心功能之一，确保多客户端对文件的一致性访问。</data>
+      <data key="d8">concurrency control,metadata management</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="配额管理">
+      <data key="d6">7.0</data>
+      <data key="d7">配额管理是Lustre文件系统的一项关键功能，用于限制用户和组的存储使用。</data>
+      <data key="d8">resource control,storage management</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="文件布局控制">
+      <data key="d6">8.0</data>
+      <data key="d7">文件布局控制是Lustre的重要功能，允许灵活配置文件在OST上的分布。</data>
+      <data key="d8">data distribution,performance optimization</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="灾难恢复工具">
+      <data key="d6">8.0</data>
+      <data key="d7">灾难恢复工具如LFSCK是Lustre的关键功能，用于保障系统稳定性。</data>
+      <data key="d8">data integrity,system resilience</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="性能监视">
+      <data key="d6">7.0</data>
+      <data key="d7">性能监视是Lustre的功能，帮助管理员监控和优化系统性能。</data>
+      <data key="d8">performance tuning,system monitoring</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="RAID-0条带化">
+      <data key="d6">7.0</data>
+      <data key="d7">RAID-0条带化是Lustre的存储策略，提高数据读写效率。</data>
+      <data key="d8">data distribution,performance optimization</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="网络数据完整性保护">
+      <data key="d6">8.0</data>
+      <data key="d7">网络数据完整性保护确保数据在传输过程中不被损坏。</data>
+      <data key="d8">data security,transmission integrity</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="MPI I/O">
+      <data key="d6">8.0</data>
+      <data key="d7">MPI I/O是Lustre架构中优化并行I/O的专用层，提升大规模数据处理能力。</data>
+      <data key="d8">I/O optimization,parallel processing</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="Linux">
+      <data key="d6">8.0</data>
+      <data key="d7">Linux是Lustre文件系统运行的操作系统平台。</data>
+      <data key="d8">operating system,platform support</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="Management Server (MGS)">
+      <data key="d6">9.0</data>
+      <data key="d7">The Management Server (MGS) provides configuration information for the Lustre file system to other components."|&gt;"configuration management, system architecture</data>
+      <data key="d8">9</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="Metadata Server (MDS)">
+      <data key="d6">9.0</data>
+      <data key="d7">The Metadata Server (MDS) manages metadata for the Lustre file system, which is essential for its operation."|&gt;"metadata management, system functionality</data>
+      <data key="d8">9</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="Metadata Target (MDT)">
+      <data key="d6">8.0</data>
+      <data key="d7">The Metadata Target (MDT) stores metadata for the Lustre file system, supporting the operations of the Metadata Server (MDS)."|&gt;"metadata storage, system architecture</data>
+      <data key="d8">8</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="Object Storage Server (OSS)">
+      <data key="d6">9.0</data>
+      <data key="d7">The Object Storage Server (OSS) handles the storage and retrieval of data objects in the Lustre file system."|&gt;"data management, system architecture</data>
+      <data key="d8">9</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="FID-in-dirent">
+      <data key="d6">15.0</data>
+      <data key="d7">FID-in-dirent is a feature of the Lustre file system that enhances file lookup and path reconstruction by storing FIDs directly in directory entries."|&gt;"file management, performance optimization&lt;SEP&gt;FID-in-dirent is a feature of the Lustre file system that enhances its ability to manage files across multiple MDTs."|&gt;"file management, system enhancement</data>
+      <data key="d8">7,8</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8&lt;SEP&gt;chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="Lustre Clients">
+      <data key="d6">7.0</data>
+      <data key="d7">Lustre Clients interact with the Lustre file system to access and manage data."|&gt;"user interaction, system usage</data>
+      <data key="d8">7</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="test batch">
+      <data key="d6">7.0</data>
+      <data key="d7">Test batches are used to validate the functionality and performance of the Lustre file system through structured testing."|&gt;"system validation, testing</data>
+      <data key="d8">7</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="point-to-point test">
+      <data key="d6">6.0</data>
+      <data key="d7">Point-to-point tests are individual tests within a test batch used to evaluate specific aspects of the Lustre file system."|&gt;"system testing, performance evaluation</data>
+      <data key="d8">6</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="system architecture">
+      <data key="d6">9.0</data>
+      <data key="d7">The system architecture defines how the components of the Lustre file system interact and function together."|&gt;"system design, component integration</data>
+      <data key="d8">9</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="network technology">
+      <data key="d6">8.0</data>
+      <data key="d7">Network technology supports communication between components of the Lustre file system, such as Ethernet and InfiniBand."|&gt;"communication infrastructure, system connectivity</data>
+      <data key="d8">8</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="data consistency">
+      <data key="d6">8.0</data>
+      <data key="d7">Data consistency is maintained across the Lustre file system to ensure reliable and accurate data storage and retrieval."|&gt;"data integrity, system reliability</data>
+      <data key="d8">8</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="file system consistency">
+      <data key="d6">8.0</data>
+      <data key="d7">File system consistency ensures that the Lustre file system maintains correct and reliable data structures and metadata."|&gt;"data integrity, system reliability</data>
+      <data key="d8">8</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="system maintenance">
+      <data key="d6">7.0</data>
+      <data key="d7">System maintenance includes tasks like checking and repairing inconsistencies in the Lustre file system using tools like LFSCK."|&gt;"system upkeep, fault detection</data>
+      <data key="d8">7</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="linkEA">
+      <data key="d6">7.0</data>
+      <data key="d7">The Lustre file system uses linkEA to store information about file links, enabling path reconstruction and file management."|&gt;"file management, metadata handling</data>
+      <data key="d8">7</data>
+      <data key="d9">chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="Layout EA">
+      <data key="d6">8.0</data>
+      <data key="d7">The Lustre file system uses Layout EA to store information about how a file's data is distributed across OSTs, enabling efficient data retrieval."|&gt;"data distribution, performance optimization</data>
+      <data key="d8">8</data>
+      <data key="d9">chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="POSIX">
+      <data key="d6">8.0</data>
+      <data key="d7">The Lustre file system is designed to be POSIX-compliant, ensuring compatibility with standard Unix file operations and applications."|&gt;"compatibility, standardization</data>
+      <data key="d8">8</data>
+      <data key="d9">chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre文件系统" target="Lustre File System Operation Manual">
+      <data key="d6">9.0</data>
+      <data key="d7">The Lustre File System Operation Manual provides detailed guidance on the operation and configuration of the Lustre file system."|&gt;"documentation, technical reference</data>
+      <data key="d8">9</data>
+      <data key="d9">chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="MGS" target="LNet">
+      <data key="d6">8.0</data>
+      <data key="d7">LNet负责MGS与其他节点之间的通信，是系统互联的基础。</data>
+      <data key="d8">communication,network infrastructure</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="MGS" target="MDS">
+      <data key="d6">8.0</data>
+      <data key="d7">MGS和MDS共同构成Lustre的元数据管理架构。</data>
+      <data key="d8">metadata management,system architecture</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="MGS" target="Lustre File System">
+      <data key="d6">7.0</data>
+      <data key="d7">MGS is a critical component that manages the configuration and communication within the Lustre file system."|&gt;"system management, configuration</data>
+      <data key="d8">7</data>
+      <data key="d9">chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="MDS" target="MDT">
+      <data key="d6">8.0</data>
+      <data key="d7">MDS与MDT相互配合，共同管理Lustre文件系统的元数据。</data>
+      <data key="d8">metadata management,system coordination</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="MDS" target="MDC">
+      <data key="d6">7.0</data>
+      <data key="d7">MDS与MDC配合，实现客户端对元数据的访问。</data>
+      <data key="d8">client-server interaction,metadata access</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="MDS" target="Lustre File System">
+      <data key="d6">9.0</data>
+      <data key="d7">The Metadata Server (MDS) is a critical component of the Lustre File System responsible for managing metadata.</data>
+      <data key="d8">metadata management,system architecture</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="MDS" target="Lustre Cluster">
+      <data key="d6">9.0</data>
+      <data key="d7">The MDS is a core component of the Lustre Cluster, responsible for managing metadata.</data>
+      <data key="d8">metadata management,system architecture</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="MDT" target="Lustre Client">
+      <data key="d6">7.0</data>
+      <data key="d7">Lustre Clients interact with MDTs through metadata clients (MDC) to manage metadata associated with files."|&gt;"metadata management, client interaction</data>
+      <data key="d8">7</data>
+      <data key="d9">chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="MDT" target="Lustre File System">
+      <data key="d6">18.0</data>
+      <data key="d7">The Lustre File System uses MDTs to store metadata, enabling clients to access and manage files across multiple nodes."|&gt;"file system architecture, metadata storage&lt;SEP&gt;The Metadata Target (MDT) is a component of the Lustre File System that stores metadata for files and directories.</data>
+      <data key="d8">9,metadata management,system architecture</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f&lt;SEP&gt;chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="MDT" target="LMV">
+      <data key="d6">8.0</data>
+      <data key="d7">LMV aggregates metadata clients (MDC) to provide transparent access to multiple MDTs, creating a unified namespace for metadata."|&gt;"metadata aggregation, namespace management</data>
+      <data key="d8">8</data>
+      <data key="d9">chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="MDT" target="MDC">
+      <data key="d6">8.0</data>
+      <data key="d7">MDC interacts with MDTs to manage metadata operations in the Lustre file system."|&gt;"metadata management, system components</data>
+      <data key="d8">8</data>
+      <data key="d9">chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="MDT" target="Lustre Cluster">
+      <data key="d6">9.0</data>
+      <data key="d7">The MDT is a component of the Lustre Cluster, storing metadata for files and directories.</data>
+      <data key="d8">metadata management,system architecture</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="OSS" target="OST">
+      <data key="d6">18.0</data>
+      <data key="d7">OSS provides file IO services and network requests for one or more OSTs, which store user data in objects."|&gt;"storage architecture, file management&lt;SEP&gt;OSS为OST提供I/O服务，是数据存储的关键环节。</data>
+      <data key="d8">9,data access,storage management</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9&lt;SEP&gt;chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="OSS" target="OSC">
+      <data key="d6">7.0</data>
+      <data key="d7">OSS与OSC配合，实现客户端对数据的访问。</data>
+      <data key="d8">client-server interaction,data access</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="OSS" target="Lustre File System">
+      <data key="d6">9.0</data>
+      <data key="d7">The Object Storage Server (OSS) is a key component of the Lustre File System that stores and manages data objects.</data>
+      <data key="d8">data storage,system architecture</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="OSS" target="Lustre Cluster">
+      <data key="d6">9.0</data>
+      <data key="d7">The OSS is a core component of the Lustre Cluster, responsible for storing and managing data.</data>
+      <data key="d8">data storage,system architecture</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="OST" target="Lustre Client">
+      <data key="d6">8.0</data>
+      <data key="d7">Lustre Clients interact with OSTs through object storage clients (OSC) to access and manage data stored on them."|&gt;"client-server interaction, data access</data>
+      <data key="d8">8</data>
+      <data key="d9">chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="OST" target="Lustre File System">
+      <data key="d6">18.0</data>
+      <data key="d7">The Lustre File System uses OSTs to store user data, allowing clients to access and manage large-scale data efficiently."|&gt;"data storage, distributed file system&lt;SEP&gt;The Object Storage Target (OST) is a component of the Lustre File System that stores data objects on disk.</data>
+      <data key="d8">9,data storage,system architecture</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f&lt;SEP&gt;chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="OST" target="LOV">
+      <data key="d6">8.0</data>
+      <data key="d7">LOV aggregates object storage clients (OSC) to provide transparent access to multiple OSTs, creating a unified namespace for data."|&gt;"data aggregation, namespace management</data>
+      <data key="d8">8</data>
+      <data key="d9">chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="OST" target="OSC">
+      <data key="d6">8.0</data>
+      <data key="d7">OSC interacts with OSTs to manage data operations in the Lustre file system."|&gt;"data management, system components</data>
+      <data key="d8">8</data>
+      <data key="d9">chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="OST" target="Lustre Cluster">
+      <data key="d6">9.0</data>
+      <data key="d7">The OST is a component of the Lustre Cluster, storing data objects on disk.</data>
+      <data key="d8">data storage,system architecture</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="LNet" target="LFSCK">
+      <data key="d6">7.0</data>
+      <data key="d7">LNet为LFSCK提供网络通信支持，用于执行系统一致性检查。</data>
+      <data key="d8">network support,system maintenance</data>
+      <data key="d9">chunk-63d92c5f0332011b55be8cc34e8d4dd9</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="LNet" target="Lustre Clients">
+      <data key="d6">16.0</data>
+      <data key="d7">LNet enables communication between Lustre Clients and other components of the Lustre file system."|&gt;"networking, client-server interaction&lt;SEP&gt;Lustre Clients rely on LNet for network communication with other components of the Lustre file system."|&gt;"networking, client-server interaction</data>
+      <data key="d8">8</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="LNet" target="Object Storage Server (OSS)">
+      <data key="d6">8.0</data>
+      <data key="d7">LNet facilitates communication between the Object Storage Server (OSS) and other components of the Lustre file system."|&gt;"networking, system communication</data>
+      <data key="d8">8</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="LNet" target="Lustre component">
+      <data key="d6">9.0</data>
+      <data key="d7">LNet is a critical component of the Lustre file system, enabling communication between all other components."|&gt;"system infrastructure, component interaction</data>
+      <data key="d8">9</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="LNet" target="Lustre File System">
+      <data key="d6">9.0</data>
+      <data key="d7">LNet is the networking layer of the Lustre File System, enabling communication between clients and servers.</data>
+      <data key="d8">networking layer,system communication</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="LNet" target="Lustre Cluster">
+      <data key="d6">9.0</data>
+      <data key="d7">LNet is the networking layer of the Lustre Cluster, enabling communication between clients and servers.</data>
+      <data key="d8">networking layer,system communication</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="FID" target="Lustre File System">
+      <data key="d6">9.0</data>
+      <data key="d7">The File Identifier (FID) is a unique identifier used by the Lustre File System to track and manage files and objects.</data>
+      <data key="d8">file management,system identification</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="llstat" target="Lustre File System">
+      <data key="d6">8.0</data>
+      <data key="d7">llstat is a monitoring tool used to track the performance and status of various components in the Lustre file system."|&gt;"system monitoring, performance tracking</data>
+      <data key="d8">8</data>
+      <data key="d9">chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="llverdev" target="Lustre File System">
+      <data key="d6">15.0</data>
+      <data key="d7">llverdev is a tool used for validating and testing the integrity of the Lustre file system components."|&gt;"system validation, storage testing&lt;SEP&gt;llverdev is a utility used to validate the integrity of block devices within the Lustre File System.</data>
+      <data key="d8">7,device validation,system integrity</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f&lt;SEP&gt;chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Management Server (MGS)" target="Metadata Server (MDS)">
+      <data key="d6">7.0</data>
+      <data key="d7">The Management Server (MGS) provides configuration information to the Metadata Server (MDS), which uses it to manage metadata."|&gt;"system integration, configuration</data>
+      <data key="d8">7</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Metadata Server (MDS)" target="Metadata Target (MDT)">
+      <data key="d6">8.0</data>
+      <data key="d7">The Metadata Server (MDS) manages the Metadata Target (MDT), which stores metadata for the Lustre file system."|&gt;"metadata management, system architecture</data>
+      <data key="d8">8</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Metadata Server (MDS)" target="Lustre Clients">
+      <data key="d6">7.0</data>
+      <data key="d7">Lustre Clients interact with the Metadata Server (MDS) to retrieve metadata about files."|&gt;"client-server interaction, metadata access</data>
+      <data key="d8">7</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Object Storage Server (OSS)" target="Lustre Clients">
+      <data key="d6">7.0</data>
+      <data key="d7">Lustre Clients access data stored on the Object Storage Server (OSS) via the network."|&gt;"client-server interaction, data access</data>
+      <data key="d8">7</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="FID-in-dirent" target="Lustre File System">
+      <data key="d6">8.0</data>
+      <data key="d7">FID-in-dirent is a feature in the Lustre File System that enables cross-MDT file identification.</data>
+      <data key="d8">file management,metadata handling</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="FID-in-dirent" target="Lustre Cluster">
+      <data key="d6">8.0</data>
+      <data key="d7">FID-in-dirent is a feature in the Lustre Cluster that enables cross-MDT file identification.</data>
+      <data key="d8">file management,metadata handling</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre Networking" target="Lustre File System">
+      <data key="d6">9.0</data>
+      <data key="d7">Lustre Networking provides the communication infrastructure necessary for the operation of the Lustre File System.</data>
+      <data key="d8">network infrastructure,system communication</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre component" target="system architecture">
+      <data key="d6">9.0</data>
+      <data key="d7">Each Lustre component contributes to the overall system architecture of the Lustre file system."|&gt;"component integration, system design</data>
+      <data key="d8">9</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="system architecture" target="network technology">
+      <data key="d6">8.0</data>
+      <data key="d7">The system architecture of the Lustre file system depends on the underlying network technology for communication."|&gt;"system design, infrastructure dependency</data>
+      <data key="d8">8</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="system architecture" target="data consistency">
+      <data key="d6">8.0</data>
+      <data key="d7">The system architecture ensures that data consistency is maintained across the Lustre file system."|&gt;"system design, data integrity</data>
+      <data key="d8">8</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="data consistency" target="file system consistency">
+      <data key="d6">9.0</data>
+      <data key="d7">Data consistency is a key aspect of file system consistency in the Lustre file system."|&gt;"data integrity, system reliability</data>
+      <data key="d8">9</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="file system consistency" target="system maintenance">
+      <data key="d6">7.0</data>
+      <data key="d7">System maintenance procedures help ensure file system consistency in the Lustre file system."|&gt;"system upkeep, data integrity</data>
+      <data key="d8">7</data>
+      <data key="d9">chunk-e7fb9eee733d54e659726818cc59dce8</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre File System Operation Manual" target="Ba">
+      <data key="d6">7.0</data>
+      <data key="d7">Ba is one of the translators of the Lustre File System Operation Manual, contributing to the translation of technical content."|&gt;"translation, localization</data>
+      <data key="d8">7</data>
+      <data key="d9">chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre File System Operation Manual" target="李硕">
+      <data key="d6">7.0</data>
+      <data key="d7">李硕is one of the translators of the Lustre File System Operation Manual, contributing to the translation of technical content."|&gt;"translation, localization</data>
+      <data key="d8">7</data>
+      <data key="d9">chunk-d19dbf92b27cb94a1a8709ed46ccbf48</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre File System Operation Manual" target="Lustre File System">
+      <data key="d6">9.0</data>
+      <data key="d7">The operation manual provides detailed instructions for using and managing the Lustre file system."|&gt;"documentation, system management</data>
+      <data key="d8">9</data>
+      <data key="d9">chunk-b186281eb49fd23aab018d9a13b63be0</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre File System" target="Client">
+      <data key="d6">7.0</data>
+      <data key="d7">Clients interact with the Lustre File System to access and manage data stored on the system.</data>
+      <data key="d8">system access,user interaction</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre File System" target="InfiniBand">
+      <data key="d6">8.0</data>
+      <data key="d7">InfiniBand is a network technology often used in Lustre clusters to support high-speed communication.</data>
+      <data key="d8">cluster performance,network technology</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre File System" target="Ethernet">
+      <data key="d6">7.0</data>
+      <data key="d7">Ethernet is a common network technology used in Lustre clusters for general communication purposes.</data>
+      <data key="d8">cluster communication,network technology</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre File System" target="MGT">
+      <data key="d6">7.0</data>
+      <data key="d7">The Management Group (MGT) is part of the Lustre File System, responsible for configuration and administrative tasks.</data>
+      <data key="d8">configuration,system administration</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre File System" target="Storage Arrays">
+      <data key="d6">7.0</data>
+      <data key="d7">Storage Arrays are used in conjunction with the Lustre File System for large-scale data storage.</data>
+      <data key="d8">data management,storage integration</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre File System" target="Commodity Storage">
+      <data key="d6">6.0</data>
+      <data key="d7">Commodity Storage solutions can be integrated with the Lustre File System for cost-effective storage.</data>
+      <data key="d8">cost efficiency,storage integration</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre File System" target="SAN Fabric">
+      <data key="d6">8.0</data>
+      <data key="d7">SAN Fabric is a high-speed network infrastructure used to connect storage devices in a Lustre environment.</data>
+      <data key="d8">high-speed connectivity,storage networking</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Client" target="Lustre Cluster">
+      <data key="d6">7.0</data>
+      <data key="d7">Clients are part of the Lustre Cluster, interacting with the system to access and manage data.</data>
+      <data key="d8">system interaction,user access</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="InfiniBand" target="Lustre Cluster">
+      <data key="d6">8.0</data>
+      <data key="d7">InfiniBand is often used in Lustre Clusters to provide high-speed, low-latency communication.</data>
+      <data key="d8">cluster performance,network infrastructure</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Ethernet" target="Lustre Cluster">
+      <data key="d6">7.0</data>
+      <data key="d7">Ethernet is commonly used in Lustre Clusters for general network communication.</data>
+      <data key="d8">cluster communication,network infrastructure</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre Cluster" target="MGT">
+      <data key="d6">7.0</data>
+      <data key="d7">The MGT is part of the Lustre Cluster, managing configuration and administrative tasks.</data>
+      <data key="d8">configuration,system administration</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre Cluster" target="Storage Arrays">
+      <data key="d6">7.0</data>
+      <data key="d7">Storage Arrays are used in the Lustre Cluster for large-scale data storage.</data>
+      <data key="d8">data management,storage integration</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre Cluster" target="Commodity Storage">
+      <data key="d6">6.0</data>
+      <data key="d7">Commodity Storage solutions are integrated into the Lustre Cluster for cost-effective storage.</data>
+      <data key="d8">cost efficiency,storage integration</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+    <edge source="Lustre Cluster" target="SAN Fabric">
+      <data key="d6">8.0</data>
+      <data key="d7">SAN Fabric is used in the Lustre Cluster to connect storage devices for high-speed data access.</data>
+      <data key="d8">high-speed connectivity,storage networking</data>
+      <data key="d9">chunk-27f6c6c3e472783859eac1f81a80a21f</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1751874190</data>
+    </edge>
+  </graph>
+</graphml>

@@ -1,0 +1,13 @@
+- hosts: 25.8.100.26
+  user: root
+  gather_facts: false
+  tasks:
+  - name: networkchecker
+    shell: 'systemctl "{{ status }}" networkchecker.service
+
+      echo "执行成功"
+
+      '
+    register: result
+  - debug:
+      msg: '{{ result.stdout_lines }}'

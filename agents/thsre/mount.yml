@@ -1,0 +1,12 @@
+- hosts: all
+  gather_facts: False
+  tasks:
+    - name: mount
+      shell: |
+        /usr/local/sbin/fssetup
+        sleep 1
+        mkdir -p /thfs1
+        mount -t lustre -o nosuid,localflock 89.72.102.0@o2ib:/thfs1 /thfs1
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

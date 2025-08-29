@@ -1,0 +1,13 @@
+# 重启客户端
+---
+- hosts: "{{ target_node }}"
+  remote_user: root
+  gather_facts: F
+  tasks:
+    # t1 重启服务
+    - name: restart service
+      service: 
+        name: "{{ exporter_name }}"
+        state: restarted
+        enabled: no
+

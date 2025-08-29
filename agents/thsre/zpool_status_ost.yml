@@ -1,0 +1,10 @@
+- hosts: all
+  user: root
+  gather_facts: false
+  tasks:
+    - name:
+      shell: |
+        zpool status "{{ ost }}"
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

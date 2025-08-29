@@ -1,0 +1,1 @@
+yhstat --fields 命令中可输出的字段包括但不限于以下内容：1. CPU 使用情况，如 SystemCPU 和 UserCPU；2. 内存使用情况，如 Memory Usage；3. 作业状态，如 State；4. 作业的退出代码，如 Exit Code；5. 作业的运行时间，如 Elapsed Time；6. 作业的节点信息，如 Node；7. 作业的分区信息，如 Partition；8. 作业的优先级信息，如 Priority；9. 作业的资源使用情况，如 Resource Usage；10. 作业的步骤信息，如 Job Step。这些字段可以帮助用户详细监控和管理作业的执行情况。

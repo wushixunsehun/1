@@ -1,0 +1,10 @@
+---
+- name: say 'test'
+  hosts: "25.16.225.36: replica: 'A'"
+  gather_facts: False
+  tasks:
+    # task 1
+    - name: test connection
+      debug:
+        msg: "{{ replica  }}"
+

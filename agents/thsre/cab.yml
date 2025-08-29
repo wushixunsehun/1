@@ -1,0 +1,9 @@
+- hosts: 89.72.100.1
+  gather_facts: False
+  tasks:
+    - name: cab
+      shell: |
+        cab "{{ cabinet }}"
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

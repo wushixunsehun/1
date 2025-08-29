@@ -1,0 +1,1 @@
+根据提供的信息，安装 Medusa 软件的步骤如下：1. 配置 Spack 环境，加载所需的依赖环境，包括 g++、cmake、libhdf5-dev、doxygen 和 graphviz。其中，doxygen 环境可能需要根据 Spack 教程进行手动配置。2. 下载 Medusa 源代码，使用 Git 克隆仓库，指定分支为 master。3. 在源代码目录下创建 build 目录，并进入该目录，使用 CMake 生成构建文件，指定安装路径。4. 编译并安装 Medusa，生成的二进制文件和头文件分别位于 medusa/bin 和 medusa/include 目录下。5. 设置环境变量，如 PATH、LD_LIBRARY_PATH、C_INCLUDE_PATH 和 CPLUS_INCLUDE_PATH，以便使用 Medusa。

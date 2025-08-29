@@ -1,0 +1,56 @@
+# prometheus 配置文件部署
+# from_node: 监控服务器ip
+# instance_type: 该配置文件所属数据源实例类型：目前支持prometheus和es
+# src_path: 配置文件在监控服务器上面的路径
+# file_name: 配置文件在监控服务器上面的名字
+# target_node: 数据源实例服务器IP列表（必须在ars的hosts中存在）
+# dest_path: 配置文件在数据源实例服务器上面的路径
+# config_file_name: 配置文件数据源实例服务器上面的名字
+# file_type: 要拷贝的
+---
+- hosts: "{{ from_node }}"
+  remote_user: root
+  gather_facts: F
+  vars:
+    instance_type: "{{ instance_type }}"
+    file_type: "{{ file_type }}"
+  tasks:
+    # t1 从监控服务器拷贝报警文件到 ansible
+    - name: fetch file
+      fetch:
+        src: "{{ src_path }}"
+        dest: "/usr/local/ars/ansible-runner-service/samples/{{ instance_type }}/{{ file_name }}"
+        flat: yes
+
+- hosts: "{{ target_node }}"
+  remote_user: root
+  gather_facts: F
+  tasks:
+    # t1 从 ansible 拷贝 config 文件 到 promethues/es
+    # 不同 promeheus 节点配置文件不同，所以拷贝的文件是带有参数的，所以使用template
+    - name: copy prometheus/es config file
+      template:
+        src: "/usr/local/ars/ansible-runner-service/samples/{{ instance_type }}/{{ file_name }}"
+        dest: "{{ dest_path }}{{ config_file_name }}"
+      when: file_type == "config"
+
+    # t2 从 ansible 拷贝 alert文件到 prometheus/es
+    # template 不识别{{$message}} 这样的字符串,使用copy
+    - name: copy prometheus/es alert file | alertmanage config file
+      copy:
+        src: "/usr/local/ars/ansible-runner-service/samples/{{ instance_type }}/{{ file_name }}"
+        dest: "{{ dest_path }}{{ config_file_name }}"
+      when: file_type != "config"
+
+    # t2 重启 promethues 服务
+    - name: reload prometheus
+      shell: curl -X POST localhost:10900/-/reload
+      when: instance_type=="Prometheus"
+
+    - name: reload alertengine
+      shell: docker restart alertengine
+      when: instance_type=="ElasticSearch"
+
+    - name: reload alertmanage
+      shell: docker restart alertmanager
+      when: instance_type=="AlertManage"

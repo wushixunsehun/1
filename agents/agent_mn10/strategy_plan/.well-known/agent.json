@@ -1,0 +1,35 @@
+{
+  "capabilities": {
+    "extensions": null,
+    "pushNotifications": null,
+    "stateTransitionHistory": null,
+    "streaming": true
+  },
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ],
+  "description": "策略规划 Agent（A2A 版）",
+  "documentationUrl": null,
+  "iconUrl": null,
+  "name": "strategy_plan",
+  "provider": null,
+  "security": null,
+  "securitySchemes": null,
+  "skills": [
+    {
+      "description": "根据系统状态数据和异常分析情况制定自愈策略",
+      "examples": null,
+      "id": "strategy_plan",
+      "inputModes": null,
+      "name": "Strategy plan",
+      "outputModes": null,
+      "tags": []
+    }
+  ],
+  "supportsAuthenticatedExtendedCard": null,
+  "url": "http://a6000-G5500-V6:5003/",
+  "version": "1.0.0"
+}

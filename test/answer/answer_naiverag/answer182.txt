@@ -1,0 +1,2 @@
+通过Modules工具加载Intel编译器和IMPI环境需要使用`module add`命令并遵循特定的模块命名规则，具体步骤如下：1. 加载Intel编译器模块，例如`module add Intel_compiler/版本号`；2. 加载IMPI模块，例如`module add MPI/模块名`；3. 验证模块是否加载成功，可以使用`module li`命令查看已加载的模块。模块命名规则通常包括编译器名称、版本号以及MPI实现的名称和版本号，例如`Intel_compiler/19.1.2`和`MPI/mvapich2/2.3.6-icc19.1`。具体命令示例包括`module add Intel_compiler/19.1.2`和`module add MPI/mvapich2/2.3.6-icc19.1`。此外，还可以通过`module list`或`module li`命令查看当前加载的模块列表。在某些情况下，可能需要先卸载旧版本的模块，再加载新版本的模块以确保环境一致性。
+

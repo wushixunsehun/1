@@ -1,0 +1,13 @@
+dom_stripesize 参数是Lustre文件系统中用于控制DoM（Directory of Metadata）文件的最大条带大小的配置参数。它在启用Data-onMDT（DoM）特性时起到关键作用，具体包括以下几个方面：  
+1. dom_stripesize 参数的作用是限制DoM文件的条带大小，确保元数据不会占用过多的MDT空间。默认值为1MB，可以通过lctl工具进行调整。当用户尝试创建一个超过该参数限制的DoM文件时，操作会失败并报错。例如，如果将dom_stripesize设置为64KB，而用户试图创建一个1MB的DoM文件，则会因为超出限制而失败。  
+2. 在启用DoM特性时，dom_stripesize 参数决定了DoM组件的最大大小。这有助于防止MDT被大文件填满，从而保证系统的稳定性和性能。通过合理设置该参数，可以平衡MDT的存储使用和文件的性能需求。  
+3. dom_stripesize 参数还可以通过不同的命令进行设置和获取。例如，使用lctl get_param命令可以查看当前的dom_stripesize值，而使用lctl set_param命令可以临时更改该参数的值。对于永久性设置，可以使用lctl conf_param命令将参数值保存到配置日志中。  
+4. 当dom_stripesize参数被设置为0时，将禁用DoM文件的创建。这意味着所有在该MDT上创建的文件都将不再使用DoM布局，而是采用默认的布局方式。这一功能可以用于测试或调试目的，以验证其他配置对系统性能的影响。  
+5. 除了直接设置dom_stripesize参数外，还可以通过lfs setstripe命令为目录或文件设置DoM布局。设置后，所有在此目录下创建的文件将默认继承该布局，并受到dom_stripesize参数的限制。例如，使用lfs setstripe -E 1M -L mdt命令可以为目录设置一个1MB的DoM布局，但实际创建的DoM文件大小将受制于MDT上的dom_stripesize参数。  
+综上所述，dom_stripesize参数在启用DoM特性时起到了重要的作用，它不仅限制了DoM文件的大小，还影响了系统的性能和稳定性。通过合理配置该参数，可以优化Lustre文件系统的整体表现。如果需要进一步调整或查询相关参数，可以使用以下命令：  
+1. 查看当前dom_stripesize参数的值：`lctl get_param lod.*MDT*.dom_stripesize`。  
+2. 临时更改dom_stripesize参数的值：`lctl set_param lod.*MDT*.dom_stripesize=<value>`。  
+3. 永久更改dom_stripesize参数的值：`lctl conf_param <fsname>-MDT<index>.lod.dom_stripesize=<value>`。  
+4. 禁用DoM文件的创建：将dom_stripesize参数设置为0，例如：`lctl set_param lod.*MDT*.dom_stripesize=0`。  
+5. 验证DoM文件的布局和大小：使用`lfs getstripe`命令查看文件或目录的布局信息，确认其是否符合预期。
+

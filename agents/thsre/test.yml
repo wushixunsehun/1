@@ -1,0 +1,24 @@
+---
+- name: say 'test'
+  hosts: 
+    - login
+  gather_facts: False
+  tasks:
+    # task 1
+    - name: test connection
+      ping:
+      register: message
+    # task 2
+    - name: print debug message
+      debug: 
+        msg: "{{ message }}"
+    # task 3
+    - name: sleep test
+      command: sleep 10
+      async: 15
+    # task 4
+    - name: get ip
+      command: ifconfig
+    # task 5
+    - name: ls test
+      command: ls /tmp/

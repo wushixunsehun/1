@@ -1,0 +1,20 @@
+在Lustre文件系统中处理OST降级状态以避免影响整体性能，需要遵循一系列操作步骤和参数配置。首先，当OST处于降级状态时，MDS将不再为其分配新对象，从而避免因OST降级引起全局性能下降。标记OST降级的操作步骤包括使用`lctl set_param obdfilter.{OST name}.degraded=1`命令将OST标记为降级状态，而恢复OST的正常模式则使用`lctl set_param obdfilter.{OST name}.degraded=0`命令。此外，可以通过`lctl get_param obdfilter.*.degraded`命令检查当前处于降级模式的OST。
+1. 操作步骤：
+   - 使用`umount`命令优雅地关闭Lustre OST、MDT或MGT，保留客户端连接状态。若使用`-f`强制标志，将中断连接且不恢复。
+   - 对于故障切换模式，可通过`--param="failover.mode=failout"`设置为failout模式，避免等待OST恢复。
+   - 当OST损坏时，可使用`mkfs.lustre`命令替换故障OST，并通过`--replace`选项恢复配置。若配置文件不可用，可从其他OST复制`mountdata`文件。
+   - 挂载新OST后，需恢复配置并重新激活。若OST不可用，需在MGS中更新状态。
+   - 使用`lctl`命令获取OST节点信息，更改故障节点地址或分离MGS/MDT。
+2. 相关参数配置：
+   - 在创建文件系统时，使用`--fsname`参数分配唯一的文件系统名称，确保多个文件系统在同一MGS上运行时不会发生冲突。
+   - 在格式化时指定`--param="failover.mode=failout"`选项，设置OST的故障切换模式为failout，以便客户端在超时后立即接收错误消息。
+   - 使用`tunefs.lustre`工具进行模式更改，例如将模式设置为failout：`tunefs.lustre --param failover.mode=failout /dev/ost_device`。
+   - 在挂载文件系统时，使用`mount`命令指定相应的MGS节点和文件系统名称，如`mount -t lustre mgsnode:/foo /mnt/foo`。
+3. 解决方案和指令：
+   - 如果OST处于降级状态，应立即标记为降级，防止MDS分配新对象。具体操作为`lctl set_param obdfilter.{OST name}.degraded=1`。
+   - 若需要恢复OST的正常模式，执行`lctl set_param obdfilter.{OST name}.degraded=0`。
+   - 在处理OST降级时，确保所有受影响的OST已挂载，以便正确应用参数配置。
+   - 如果OST无法恢复，需在MGS中更新状态，并重新激活OST。例如，使用`lctl conf param ost_name.osc.active=1`重新激活永久不可用的OST。
+   - 对于故障切换模式，确保在创建文件系统时正确设置`--param="failover.mode=failout"`，以避免客户端长时间等待OST恢复。
+   - 在日常运维中，定期监控OST的状态，使用自动脚本（如MD-RAID的maaqm命令）来检测和标记降级状态，确保及时处理潜在问题。
+

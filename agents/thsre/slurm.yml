@@ -1,0 +1,78 @@
+- hosts: localhost
+  user: root
+  vars:
+    module: "{{ module }}"
+  tasks:
+
+  
+  - name: show_node
+    when: 
+      module=="show_node"
+    shell: scontrol show node {{ nodelist }}
+    register: show_node_result
+  - debug:
+      msg: "{{ show_node_result.stdout_lines }}"
+    when: 
+      module=="show_node"
+
+
+  - name: show_partition
+    when:
+      module=="show_partition"
+    shell: scontrol show partition {{ partitionname }}
+    register: show_partition_result
+  - debug:
+      msg: "{{ show_partition_result.stdout_lines }}"
+    when: 
+      module=="show_partition"
+
+
+  - name: update_partition_node
+    when:
+      module=="update_partition_node"
+    shell: |
+      scontrol show partition {{ partitionname }}
+      scontrol update partitionname={{ partitionname }} nodes={{ nodelist }}
+      echo "队列节点已调整"
+      echo 
+      scontrol show partition {{ partitionname }}
+    register: update_partition_node_result
+  - debug:
+      msg: 
+        - "{{ update_partition_node_result.stdout_lines }}"
+    when:
+      module=="update_partition_node"
+
+
+  - name: update_partition_preemptmode
+    when:
+      module=="update_partition_preemptmode"
+    shell: |
+      scontrol show partition {{ partitionname }}
+      scontrol update partitionname="{{ partitionname }}" preemptmode="{{ preemptmode }}"
+      echo "队列抢占模式已调整"
+      echo
+      scontrol show partition {{ partitionname }}
+    register: update_partition_preemptmode_result
+  - debug:
+      msg:
+        - "{{ update_partition_preemptmode_result.stdout_lines }}"
+    when:
+        module=="update_partition_preemptmode"
+
+
+  - name: update_partition_prioritytier
+    when:
+      module=="update_partition_prioritytier"
+    shell: |
+      scontrol show partition {{ partitionname }}
+      scontrol update partitionname={{ partitionname }} prioritytier={{ prioritytier }}
+      echo "队列优先级已调整"
+      echo
+      scontrol show partition {{ partitionname }}
+    register: update_partition_prioritytier_result
+  - debug:    
+      msg: 
+        - "{{ update_partition_prioritytier_result.stdout_lines }}"
+    when:
+      module=="update_partition_prioritytier"

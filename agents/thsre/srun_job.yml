@@ -1,0 +1,15 @@
+- hosts: 25.8.100.1
+  user: root
+  gather_facts: false
+  tasks:
+  - name: srun_job
+    shell: 'echo "作业已提交"
+
+      echo
+
+      srun -Z -p "{{ partitionname }}" -w "{{ nodes }}" hostname
+
+      '
+    register: result
+  - debug:
+      msg: '{{ result.stdout_lines }}'

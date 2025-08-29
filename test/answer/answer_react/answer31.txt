@@ -1,0 +1,2 @@
+1. 确保只分配具有 "gpu" 特性的节点，需要在提交作业时指定资源请求和节点选择策略。具体来说，可以使用 Kubernetes 的节点选择器（nodeSelector）或节点亲和性（nodeAffinity）来确保作业运行在具有 GPU 的节点上。此外，还可以通过设置资源请求（如 nvidia.com/gpu）来确保作业能够获得 GPU 资源。如果当前状态不确定，可以通过以下步骤进行查询和验证：首先，检查集群中是否有具有 "gpu" 特性的节点，可以使用 kubectl get nodes 命令查看节点信息。其次，检查节点是否标记了 "gpu" 特性，可以使用 kubectl describe node <node-name> 命令查看节点的标签。最后，确保在作业配置文件中正确设置了 nodeSelector 或 nodeAffinity，以选择具有 "gpu" 特性的节点。如果需要进一步的帮助，可以查阅 Kubernetes 官方文档或联系集群管理员。
+

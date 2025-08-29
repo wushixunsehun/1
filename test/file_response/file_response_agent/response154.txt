@@ -1,0 +1,14 @@
+{
+    "query": "如何为TH-eX系统添加代理？",
+    "summaries": [
+        "TH-ES 开启代理的步骤为：执行 `/THL5/software/env/proxy/copy-proxy.sh`，然后运行 `source ~/.bashrc`，最后加载 `module add proxy/1.0`。此方法可有效配置代理环境。",
+        "ES系统使用proxy代理的步骤如下：首先安装私有环境，执行路径为/THL5/software/env/proxy/copy-proxy.sh；然后加载私有环境，通过source ~/.bashrc命令和module add proxy/1.0命令完成配置。",
+        "TH-ES系统用户在使用proxy代理下载TensorFlow及Python脚本调用GPU时遇到问题，并已解决。用户需运行脚本`/THL5/software/env/proxy/copy-proxy.sh`并添加`module add proxy/1.0`至`.bashrc`文件以配置proxy。对于GPU使用，需编写包含`yhrun -N 1 -n 1 -p TH_GPU python3`的脚本并提交作业，通过`nvidia-smi`查看GPU状态。问题已通过上述步骤成功解决。"
+    ],
+    "contents": [
+        "【已解决】TH-ES 开代理 proxy\n**标签**: TH-ES proxy\n**创建时间**: 2023-08-29 14:55:20\n**更新时间**: 2023-08-29 14:55:20\n**作者**: 郑刚\n**问题**：TH-ES 开代理 proxy\nTH-ES 开代理 proxy\n执行 `/THL5/software/env/proxy/copy-proxy.sh`\n再执行 `source ~/.bashrc`\n再加载 `module add proxy/1.0`",
+        "【已解决】ES系统如何使用proxy代理\n**标签**: ES系统，proxy代理\n**创建时间**: 2022-04-02 15:24:16\n**更新时间**: 2022-04-02 15:24:16\n**作者**: 吴琪\nES系统使用proxy代理步骤\nstep1：安装私有环境\n/THL5/software/env/proxy/copy-proxy.sh\nstep2：加载私有环境\nsource ~/.bashrc\nmodule add proxy/1.0",
+        "/MedMNIST/train.py\n```\n2. 提交\n```bash\nyhbatch -N 1 -n 1 -p TH_GPU ./sub.sh\n```\n3. 查看GPU使用情况\n```bash\n[gtcao@gn2 ~]$ nvidia-smi\nThu Sep 30 09:53:27 2021\n++\n| NVIDIA-SMI 470.57.02    Driver Version: 470.57.02    CUDA Version: 11.4     |\n|+++\n| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |\n|                               |                      |               MIG M. |\n|++|\n|   0  Tesla K80           Off  | 00000000:84:00.0 Off |                    0 |\n| N/A   56C    P0   144W / 149W |   1542MiB / 11441MiB |     98%      Default |\n|                               |                      |                  N/A |\n++++\n|   1",
+        "【已解决】TH-ES系统用户proxy配置问题及使用GPU的系列问题\n**标签**: ES系统；GPU分区；proxy；python进行GPU计算\n**创建时间**: 2021-09-29 18:00:08\n**更新时间**: 2021-10-11 09:41:30\n**作者**: 韩振鑫\n**问题**：试用用户问题解决\n1. 【2021-09-30-华东师范大学曹桂涛组】TH-ES系统使用proxy代理下载tensorflow\n主要参考[ES系统如何使用proxy代理 | NSCC-TJ 文档中心](http://172.18.2.98/faqs/th-es-proxy/#基本情况)\n1. 运行脚本\n```bash\nsh /THL5/software/env/proxy/copy-proxy.sh\nyes\n```\n2. 在.bashrc中添加\n```bash\nmodule add proxy/1.0\n```\n主要参考[ES系统如何使用proxy代理 | NSCC-TJ 文档中心](http://172.18.2.98/faqs/th-es-proxy/#基本情况)\n1. 运行脚本\n```bash\nsh /THL5/software/env/proxy/copy-proxy.sh\nyes\n```\n2. 在.bashrc中添加\n```bash\nmodule add proxy/1.0\n```\nsh /THL5/software/env/proxy/copy-proxy.sh\nyes\n2. 在.bashrc中添加\n```bash\nmodule add proxy/1.0\n```\nmodule add proxy/1.0\n2. 【2021-09-30-华东师范大学曹桂涛组】TH-ES系统使用python3脚本使用GPU问题\n1. 构建脚本\n```bash\n#!/bin/bash\nyhrun -N 1 -n 1 -p TH_GPU python3 /THL5/home/gtcao/ljw/MedMNIST/train.py\n```\n2. 提交\n```bash\nyhbatch -N 1 -n 1 -p TH_GPU ./sub.sh\n```"
+    ]
+}

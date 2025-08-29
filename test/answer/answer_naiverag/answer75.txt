@@ -1,0 +1,1 @@
+yhacctmgr 命令可用于文件的导入与导出，具体指令如下：1. 导出文件时，可以使用 dump 命令将 association 数据导出到指定文件，例如运行命令 `yhacctmgr dump tux file=tux.cfg`，其中 file=tux.cfg 是可选参数，用于指定输出文件名。2. 导入文件时，可以使用 load 命令从之前导出的文件中加载数据，例如运行命令 `yhacctmgr load file=tux.cfg`。3. 在导入文件时，还可以添加其他选项，如 `e clean` 用于删除已有的数据并从头开始导入，或者 `e Cluster=` 用于为文件中的集群指定一个不同的名称。文件内容需要按照特定格式编写，每行以 Cluster、Parent、Account 或 User 开头，并包含相应的选项和值。

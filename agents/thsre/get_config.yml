@@ -1,0 +1,12 @@
+# prometheus/es 配置文件拷贝
+---
+- hosts: "{{ target_node }}"
+  remote_user: root
+  gather_facts: F
+  tasks:
+    # t1 从 ansible 拷贝 config 文件 到 监控服务器
+    - name: copy prometheus/es config file
+      copy:
+        src: "/usr/local/ars/ansible-runner-service/samples/{{ instance_type }}/{{ file_name }}"
+        dest: "{{ dest_path }}"
+        remote_src: no

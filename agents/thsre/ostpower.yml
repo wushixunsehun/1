@@ -1,0 +1,9 @@
+- hosts: 89.72.100.1
+  user: root
+  gather_facts: false
+  tasks:
+    - name: power
+      shell: ipmitool -I lanplus -H mon_{{ node }} -Uadmin -PTscc@2021 power {{ status }}
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

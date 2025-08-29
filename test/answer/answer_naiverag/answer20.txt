@@ -1,0 +1,2 @@
+基于对象的循环（ORR）策略的配置方法涉及多个可调参数，这些参数用于控制RPC批处理的行为和调度方式。1. nrs_orr_quantum 参数用于确定RPC的最大批处理大小，该参数支持常规和高优先级RPC的不同设置，其取值范围为1-65535。2. nrs_orr_offset_type 参数用于决定ORR策略是基于逻辑文件偏移量还是物理磁盘偏移量对每批次RPC进行排序，这一设置影响RPC的排序依据。3. nrs_orr_supported 参数用于确定ORR策略处理的RPC类型，可以设置为reads、writes或reads_and_writes，以指定支持的RPC类型。这些参数可以通过lctl命令进行设置和调整，从而实现对ORR策略的精细控制。
+

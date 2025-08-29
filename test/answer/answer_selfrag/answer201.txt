@@ -1,0 +1,1 @@
+安装nubeam的过程主要包括环境配置、下载解压组件、修改配置文件和完成配置。1. 环境配置：需要加载必要的模块如GCC、netcdf、mpich等，确保编译环境正确。2. 下载并解压组件：从指定网址下载PSPLINE、PREACT、XPLASMA、TRREAD和NUBEAM等组件，并解压到指定目录。3. 修改配置文件：在share目录下编辑Make.local和Make.flags文件，设置编译参数、库路径及安装目录，例如定义NETCDF_DIR、OPENBLAS_DIR等变量，并指定编译器和链接器选项。4. 完成配置：根据修改后的配置文件进行后续的编译和部署准备，确保所有依赖项和路径设置正确。

@@ -1,0 +1,9 @@
+- hosts: all
+  user: root
+  gather_facts: False
+  tasks:
+    - name: kill
+      shell: kill -9 "{{ process }}"
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

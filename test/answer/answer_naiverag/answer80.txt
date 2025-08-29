@@ -1,0 +1,1 @@
+利用yhreport命令从记账数据生成报表时，有效的报表类型包括集群、作业、预留和用户报表，每种报表类型对应的report选项如下：1. cluster: AccountUtilizationByUser, UserUtilizationByAccount, UserUtilizationByWckey, Utilization, WCKeyUtilizationByUser。2. job: SizesByAccount, SizesByWckey。3. reservation: Utilization。4. user: TopUsage。

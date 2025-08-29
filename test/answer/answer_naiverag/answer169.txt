@@ -1,0 +1,2 @@
+处理drain的fn2节点需要按照以下步骤进行：1. 通过命令查询特定原因导致的drain节点列表并确认正常节点；2. 清除节点的dmesg信息；3. 检查节点间的网络连通性。具体步骤如下：1. 通过命令yhi –R | grep [reason]获取drain节点列表，例如Hold_on_0531，并使用yhi –n $drain_nodelist –p ALL确认其中的正常开机节点列表；2. 在管理节点进入指定目录，如/home/test641/1903.alltoall_test，运行脚本./zni_clean_dmesg_inband.sh并传入节点列表以清除dmesg信息；3. 使用ccst [机框号]查看机框节点列表，确保节点间的网络连通性正常。
+

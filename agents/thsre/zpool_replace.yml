@@ -1,0 +1,10 @@
+- hosts: all
+  user: root
+  gather_facts: false
+  tasks:
+    - name:
+      shell: |
+        zpool replace -f "{{ ost }}" "{{ jbod }}" "{{ jbod }}"
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

@@ -1,0 +1,13 @@
+- hosts: 89.72.100.1
+  user: root
+  gather_facts: False
+  tasks:
+    - name: update_job_priority
+      shell: |
+        scontrol update jobid="{{ jobid }}" priority="{{ priority }}"
+        echo "作业优先级已调整"
+        echo
+        scontrol show jobid "{{ jobid }}"
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

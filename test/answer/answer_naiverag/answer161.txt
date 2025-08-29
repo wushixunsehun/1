@@ -1,0 +1,2 @@
+根据提供的内容，调整HPC4系统上的作业fu至最高级需要进行以下步骤：1. 修改作业配置文件，包括设置正确的路径和参数，例如在fluent-singularity.sh中调整分区、节点数、cpuspernode、journalfile、cttype及exe等参数，确保作业能够适配计算环境。2. 调整作业提交脚本中的资源分配，如通过yhbatch命令提交任务时指定合适的节点数和GPU卡号，以优化计算资源的使用。3. 确保所有相关文件和依赖项正确配置，例如在运行Fluent-UDF时，需修改user.udf文件中的FLUENT_INC变量路径及CSOURCES，并替换libudf中的C文件，保证编译和运行的正确性。
+

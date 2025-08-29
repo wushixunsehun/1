@@ -1,0 +1,23 @@
+- hosts: 89.72.100.1
+  user: root
+  gather_facts: false
+  tasks:
+    - name: suspend_job_all
+      shell: |
+        partitionname=`scontrol show partition | grep "PartitionName" | grep -v ALL |awk -F '=' '{print $2}'`
+        for i in $partitionname
+        do
+        scontrol update partition=$i state=down
+        done
+
+        sleep 1
+
+        jobid=`squeue -h -t R | awk '{print $1}'`
+        for j in $jobid
+        do
+        scontrol suspend $j
+        echo $j
+        done
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

@@ -1,0 +1,9 @@
+- hosts: all
+  user: root
+  gather_facts: False
+  tasks:
+    - name: dmest -T
+      shell: dmesg -T
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

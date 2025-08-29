@@ -1,0 +1,14 @@
+- hosts: 25.16.106.209
+  user: root
+  gather_facts: False
+  tasks:
+    - name: update_partition_prioritytier
+      shell: |
+        scontrol show partition {{ partitionname }}
+        scontrol update partitionname={{ partitionname }} prioritytier={{ prioritytier }}
+        echo "队列优先级已调整"
+        echo
+        scontrol show partition {{ partitionname }}
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

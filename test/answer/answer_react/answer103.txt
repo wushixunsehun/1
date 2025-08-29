@@ -1,0 +1,12 @@
+yhalloc 是资源管理系统中用于获取资源分配并执行命令的工具，而 yhacct 是用于实时查询作业记账数据的命令，可以显示作业、作业步、状态及退出代码等信息。通过结合使用这两个工具，用户可以在获取资源后验证资源分配是否符合预期。以下是具体步骤和解决方案：  
+1. 使用 yhalloc 获取资源并执行命令：首先，通过 yhalloc 命令请求资源，例如指定节点数、CPU 数量等参数。在成功分配资源后，yhalloc 会运行用户指定的命令。如果未指定命令，则默认运行用户的 Shell。此过程可以通过选项如 --nodes、--cpus-per-task 等进行精确控制。例如，使用命令 `yhalloc --nodes=2 --cpus-per-task=4` 可以请求 2 个节点，每个任务分配 4 个 CPU。  
+2. 通过 yhacct 查询作业的记账数据：在作业运行过程中或结束后，使用 yhacct 命令实时查询作业的记账数据。yhacct 默认显示所有用户的作业信息（root 用户），非 root 用户仅显示自身作业。可以通过选项如 --user、--jobid 或 --format 自定义输出字段。例如，使用 `yhacct --jobid=<job_id>` 可以查看特定作业的信息，或者使用 `yhacct --format=jobid,ncpus,elapsed,state` 查看作业 ID、CPU 数量、运行时间和状态等关键数据。  
+3. 验证资源分配是否符合预期：通过比较 yhalloc 请求的资源与 yhacct 返回的记账数据，确认资源分配是否满足需求。例如，检查作业是否实际分配了预期的 CPU 数量（AllocCPUS 字段）、运行时间（Elapsed 字段）以及作业状态（State 字段）。如果发现分配的资源与预期不符，可能需要调整 yhalloc 的参数或检查系统配置。此外，若某些字段数据为 0，可能是由于系统调用（如 getrusage()）收集的信息不完整，需进一步排查系统兼容性问题。  
+4. 具体指令示例：  
+   - 获取资源并运行命令：`yhalloc --nodes=2 --cpus-per-task=4 --job-name=my_job`  
+   - 查询作业记账数据：`yhacct --jobid=<job_id> --format=jobid,ncpus,elapsed,state`  
+   - 查看所有作业信息：`yhacct --allusers`  
+   - 查看特定用户的作业：`yhacct --user=<username>`  
+   - 查看详细资源使用情况：`yhacct --dump --jobid=<job_id>`  
+5. 注意事项：确保在使用 yhalloc 和 yhacct 时，权限足够（如 root 用户可查看所有作业），并根据实际需求调整参数。如果作业状态为 failed 或 timed out，需检查作业脚本或资源分配是否合理。同时，若系统支持，可通过 --cluster 选项指定集群，或使用 --partition 过滤分区信息，以更精准地定位问题。
+

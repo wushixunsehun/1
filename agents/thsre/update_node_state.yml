@@ -1,0 +1,13 @@
+- hosts: 89.72.100.1
+  user: root
+  gather_facts: False
+  tasks:
+    - name: update_node_state
+      shell: |
+        scontrol update nodename="{{ nodelist }}" state="{{ state }}" reason="{{ reason }}"
+        echo "节点状态已调整"
+        echo
+        sinfo -n "{{ nodelist }}"
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

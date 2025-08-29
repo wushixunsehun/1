@@ -1,0 +1,2 @@
+在HPC4公共目录下部署ParaFold 2.0需要按照以下步骤进行1.克隆代码和创建环境：首先使用git clone命令从GitHub克隆ParallelFold仓库，然后创建一个conda环境并激活，推荐使用Python 3.8版本，避免使用更高版本。2.安装依赖包：安装必要的Python包，如py3dmol、openmm和pdbfixer，并手动安装cudatoolkit和cudnn以确保版本兼容性。此外，还需要安装多序列比对工具如hmmer、hhsuite和kalign2。3.配置和测试：修改运行脚本，设置下载目录、输出目录、输入文件等参数，并根据需要调整线程数和计算模式（CPU或GPU）。最后，提交作业进行测试，确保部署成功。
+

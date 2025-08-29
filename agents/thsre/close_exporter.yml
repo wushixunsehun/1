@@ -1,0 +1,11 @@
+---
+- hosts: "{{ target_node }}"
+  remote_user: root
+  gather_facts: F
+  tasks:
+    # t1 关闭服务
+    - name: stop service
+      service: 
+        name: "{{ exporter_name }}"
+        state: stopped
+        enabled: no

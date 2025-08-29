@@ -1,0 +1,2 @@
+1. 配置Spack环境，加载所需的依赖模块，包括g++、cmake、libhdf5-dev、doxygen和graphviz，其中doxygen需要手动配置。通过执行相应的source命令加载这些模块。2. 下载Medusa的源代码，使用git命令克隆仓库并指定分支。3. 在源代码目录下创建build目录，并进入该目录，使用cmake进行编译，指定安装路径为上层目录。执行make命令进行编译，完成后生成的二进制文件和头文件分别位于medusa/bin和medusa/include目录下。最后设置环境变量PATH、LD_LIBRARY_PATH、C_INCLUDE_PATH和CPLUS_INCLUDE_PATH以使Medusa可用。
+

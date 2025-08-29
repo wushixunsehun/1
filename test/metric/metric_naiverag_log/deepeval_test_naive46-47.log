@@ -1,0 +1,1996 @@
+nohup: ignoring input
+/home/yuaw/anaconda3/envs/reacttest/lib/python3.10/site-packages/pytest_asyncio/plugin.py:217: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+✨ You're running DeepEval's latest Answer Relevancy Metric! (using 
+deepseek-r1:latest (Ollama), strict=False, async_mode=True)...
+✨ You're running DeepEval's latest Faithfulness Metric! (using 
+deepseek-r1:latest (Ollama), strict=False, async_mode=True)...
+✨ You're running DeepEval's latest Contextual Precision Metric! (using 
+deepseek-r1:latest (Ollama), strict=False, async_mode=True)...
+✨ You're running DeepEval's latest Contextual Relevancy Metric! (using 
+deepseek-r1:latest (Ollama), strict=False, async_mode=True)...
+✨ You're running DeepEval's latest Contextual Recall Metric! (using 
+deepseek-r1:latest (Ollama), strict=False, async_mode=True)...
+Evaluating 2 test case(s) in parallel: |          |  0% (0/2) [Time Taken: 00:00, ?test case/s]True !!!!!!!!!!!!
+**************************************************
+Contextual Precision Verbose Logs
+**************************************************
+
+Verdicts:
+[
+    {
+        "verdict": "yes",
+        "reason": "The context explicitly states that after an ION node loses connection, the first step is to check if it can be accessed via SSH. This directly addresses the question about what to check first."
+    },
+    {
+        "verdict": "no",
+        "reason": "This document discusses various network fault scenarios but does not specifically mention checking SSH or network cards for a lost ION node connection. It covers other aspects like load balancing and high CPU usage, which are irrelevant to the initial step of verifying connectivity via SSH."
+    },
+    {
+        "verdict": "yes",
+        "reason": "The context provides detailed instructions on how to check IB net card indicators (green lights) when an ION node is unresponsive or not booting properly. This aligns with the expected output's mention of observing network cards' indicator states as part of troubleshooting a lost connection."
+    },
+    {
+        "verdict": "yes",
+        "reason": "This context explains that if SSH access fails, one should check the high-speed net card indicators and swap cables to diagnose issues. It directly supports the step-by-step approach described in the expected output for determining connectivity problems."
+    },
+    {
+        "verdict": "no",
+        "reason": "The content here is about handling MDS node failures or load balancing issues, not specifically addressing ION nodes losing connection. While it mentions network alarms and some general troubleshooting, it does not provide guidance on checking SSH or network cards first."
+    },
+    {
+        "verdict": "yes",
+        "reason": "This document details the process of diagnosing a lost link by using scripts to train opposite ports and check indicators for high-speed net cards (orange lines). It matches the expected output's emphasis on observing indicator states and swapping cables to identify hardware issues."
+    },
+    {
+        "verdict": "no",
+        "reason": "The context here is about checking CPU or memory usage, which relates to load balancing but not directly to verifying SSH connectivity or network card indicators for a lost ION node connection. It does not address the specific first steps mentioned in the expected output."
+    },
+    {
+        "verdict": "yes",
+        "reason": "This text describes how to handle ION link failures by checking high-speed net cards and swapping cables, which is consistent with part of the expected output's procedure for determining connectivity issues."
+    },
+    {
+        "verdict": "no",
+        "reason": "The content focuses on clearing user processes or handling memory alarms, not relevant to the initial checks for SSH access or network card indicators when an ION node loses connection. It discusses other system maintenance tasks that are not directly applicable here."
+    },
+    {
+        "verdict": "yes",
+        "reason": "This context explains how to handle high-speed net link failures by checking indicators and swapping cables, which is a direct match to the expected output's steps for diagnosing connectivity problems in ION nodes."
+    },
+    {
+        "verdict": "no",
+        "reason": "The document covers various alarm types but does not specify any first-step checks related to SSH or network cards. It provides general information about different fault scenarios without addressing the specific question of what to check initially when an ION node loses connection."
+    }
+]
+ 
+Score: 0.7180555555555554
+Reason: The contextual precision score is 0.72 because there are some irrelevant nodes appearing earlier than relevant ones, but most relevant nodes are ranked higher and they provide direct guidance on checking SSH or network indicators first.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Contextual Precision Verbose Logs
+**************************************************
+
+Verdicts:
+[
+    {
+        "verdict": "yes",
+        "reason": "The context mentions that when a link is disconnected, one should determine the port position and use scripts like 'lanebist_train_single_port.sh' or 'swm_opposite_port.sh' to train ports. This directly addresses the question about what to do if training fails."
+    },
+    {
+        "verdict": "yes",
+        "reason": "The context explains that after failing to fix the issue by training, one should consider swapping optical fibers and check for NIS card problems on servers. It also specifies how to handle such cases when they occur."
+    },
+    {
+        "verdict": "no",
+        "reason": "This part discusses other types of alarms (e.g., channel reduction) but does not directly address the specific scenario where training is invalid and a link alarm occurs."
+    },
+    {
+        "verdict": "yes",
+        "reason": "The context provides detailed steps for handling server link disconnection, including port training which aligns with the question's focus on what to do when training fails. It also mentions checking NIS cards if necessary."
+    },
+    {
+        "verdict": "no",
+        "reason": "This text describes how to handle other issues like FEC configuration or channel reduction alarms but does not specifically address the case of invalid training for link disconnection."
+    },
+    {
+        "verdict": "yes",
+        "reason": "The context explicitly states that if optical fiber or server NIS card is faulty, one should swap servers' optical fibers and check; it also mentions changing NIS cards as a solution when needed."
+    },
+    {
+        "verdict": "no",
+        "reason": "This text discusses the handling of alarms such as channel reduction but does not directly address the specific scenario where training fails for link disconnection."
+    },
+    {
+        "verdict": "yes",
+        "reason": "The context provides a step-by-step procedure for dealing with server link disconnections, including port training and fallback actions if that doesn't work. It aligns closely with the question's requirements."
+    }
+]
+ 
+Score: 0.8083333333333332
+Reason: The contextual precision score is 0.81 because there are four relevant nodes (ranked at positions 1,2,4,6) correctly ranked above two irrelevant ones (positions 3 and 5). The score isn't higher due to the irrelevant node at position 3 which discusses other alarms but not invalid training; similarly, the irrelevant node at position 5 covers unrelated issues. However, both relevant nodes are present early in the ranking.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Contextual Recall Verbose Logs
+**************************************************
+
+Verdicts:
+[
+    {
+        "verdict": "yes",
+        "reason": "\u7b2c1\u53e5\uff1a\u6839\u636e\u62a5\u8b66\u7ea7\u522b\u91c7\u53d6\u76f8\u5e94\u63aa\u65bd... (2nd node)"
+    },
+    {
+        "verdict": "yes",
+        "reason": "\u7b2c2\u53e5\uff1a\u9996\u5148\uff0c\u6839\u636e\u7aef\u53e3\u53f7\u5728\u673a\u623f\u62d4\u63d2\u4e24\u7aef\u7684\u5149\u7ea4\u7ebf..."
+    },
+    {
+        "verdict": "yes",
+        "reason": "\u7b2c3\u53e5\uff1a\u901a\u8fc7\u811a\u672c`swm_opposite_port.sh`\u67e5\u8be2\u5bf9\u7aef\uff0c\u5e76\u5c06\u82af\u7247+\u7aef\u53e3\u8f6c\u6362\u6210PU\u683c\u5f0f"
+    },
+    {
+        "verdict": "yes",
+        "reason": "\u7b2c4\u53e5\uff1a\u627e\u5230\u673a\u67dc\u4e0a\u5bf9\u5e94\u7684\u6807\u7b7e\uff0c\u62d4\u63d2\u540e\u91cd\u590d\u8bad\u7ec3\u64cd\u4f5c"
+    },
+    {
+        "verdict": "no",
+        "reason": "\u7b2c5\u53e5\uff1a\u82e5\u62d4\u63d2\u5149\u7ea4\u540e\u4ecd\u65e0\u6548\uff0c\u5219\u8003\u8651\u662f\u5149\u7ea4\u6216\u670d\u52a1\u5668\u7684NIS\u5361\u6545\u969c..."
+    }
+]
+ 
+Score: 0.8
+Reason: The score is 0.8 because the expected output contains sentences that are well-supported by the retrieval context (nodes mentioned), but one sentence lacks direct support from the provided context.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Contextual Relevancy Verbose Logs
+**************************************************
+
+Verdicts:
+[
+    {
+        "verdicts": [
+            {
+                "statement": "\u94fe\u8def\u65ad\u5f00\u65f6\u9700\u786e\u5b9a\u7aef\u53e3\u4f4d\u7f6e\uff0c\u533a\u5206SWM-NRM\u3001SWM-SWM\u6216SWM-IO\u7c7b\u578b",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u4f7f\u7528\u811a\u672c\u8bad\u7ec3\u7aef\u53e3\u6216\u62d4\u63d2\u5149\u7ea4\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u901a\u9053\u6570\u51cf\u5c11\u5f71\u54cd\u5e26\u5bbd\u4f46\u4e0d\u5f71\u54cd\u901a\u4fe1\uff0c\u53ef\u6682\u7f13\u5904\u7406\u3002",
+                "verdict": "no",
+                "reason": "The statement mentions 'channel number reduction' which is irrelevant to the input question about handling network link disconnection alarms when training ports are invalid. The key point in the context is that channel reduction does not affect communication, but this has nothing to do with the specific operation of dealing with alarm situations involving invalid training ports."
+            },
+            {
+                "statement": "\u63e1\u624b\u53d8\u5316\u6216\u91cd\u4f20\u6b21\u6570\u8fc7\u591a\u9700\u5173\u6ce8\uff0c\u4f46\u4e00\u822c\u4e0d\u7d27\u6025\u5904\u7406\u3002",
+                "verdict": "no",
+                "reason": "The statement discusses 'handshake changes' or 'retransmission times', which are not directly related to the input question about handling network link disconnection alarms when training ports are invalid. The context mentions these as general observations, but they do not address the specific procedure for dealing with alarm situations involving invalid training ports."
+            },
+            {
+                "statement": "\u6839\u636e\u62a5\u8b66\u7ea7\u522b\u91c7\u53d6\u76f8\u5e94\u63aa\u65bd\uff0c\u5982\u7ed5\u8def\u7531\u3001\u91cd\u542f\u670d\u52a1\u5668\u6216\u8054\u7cfb\u4e8c\u7ebf\u5904\u7406\u3002",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u6587\u672c\u4e3b\u8981\u63cf\u8ff0\u4e86\u670d\u52a1\u5668\u94fe\u8def\u5f02\u5e38\u7684\u5904\u7406\u65b9\u6cd5\uff0c\u5305\u62ec\u94fe\u8def\u63e1\u624b\u53d8\u5316\u3001\u91cd\u4f20\u6b21\u6570\u8fc7\u591a\u3001\u94fe\u8def\u65ad\u5f00\u53ca\u901a\u9053\u6570\u51cf\u5c11\u7b49\u95ee\u9898\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5bf9\u4e8e\u7ea2\u8272\u62a5\u8b66\uff08\u94fe\u8def\u65ad\u5f00\uff09\u548c\u9ec4\u8272\u8b66\u544a\uff08\u901a\u9053\u6570\u51cf\u5c11\uff09\uff0c\u9700\u901a\u8fc7\u8bad\u7ec3\u7aef\u53e3\u3001\u62d4\u63d2\u5149\u7ea4\u3001\u68c0\u67e5FEC\u3001\u66f4\u6362NIS\u5361\u7b49\u65b9\u5f0f\u5904\u7406\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u82e5lane\u7f3a\u5931\uff0c\u53ef\u901a\u8fc7\u6267\u884c\u7279\u5b9a\u811a\u672c\u8fdb\u884c\u8bad\u7ec3\uff0c\u5e76\u6839\u636e\u5bc4\u5b58\u5668\u503c\u5224\u65ad\u662f\u5426\u6062\u590d\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u82e5\u670d\u52a1\u5668\u7aef\u53e3\u8bad\u7ec3\u65e0\u6548\uff0c\u5219\u9700\u5b9a\u4f4d\u901a\u4fe1\u677f\u7aef\u53e3\u5e76\u8fdb\u884c\u8fdb\u4e00\u6b65\u8bad\u7ec3\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5904\u7406\u8fc7\u7a0b\u4e2d\u9700\u8bb0\u5f55\u7aef\u53e3\u4fe1\u606f\u5e76\u4ea4\u63a5\u7ed9\u63a5\u73ed\u4eba\u5458\u3002",
+                "verdict": "no",
+                "reason": "The context mentioned '\u5904\u7406\u8fc7\u7a0b\u4e2d\u9700\u8bb0\u5f55\u7aef\u53e3\u4fe1\u606f\u5e76\u4ea4\u63a5\u7ed9\u63a5\u73ed\u4eba\u5458' which is about the process of handling, but it does not relate to how to operate when the training port is invalid."
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u8be5\u6587\u672c\u63cf\u8ff0\u4e86\u5904\u7406\u901a\u4fe1\u677f\u7aef\u53e3lane\u5f02\u5e38\u7684\u6b65\u9aa4\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u9996\u5148\u4f7f\u7528`single_port.sh`\u547d\u4ee4\u5bf9\u6307\u5b9a\u82af\u7247\u3001\u7aef\u53e3\u548c\u677f\u5361\u8fdb\u884c\u8bad\u7ec3\uff0c\u901a\u8fc7\u8f93\u51fa\u5224\u65adlane\u662f\u5426\u6b63\u5e38\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u82e5\u8bad\u7ec3\u540e\u4ecd\u5b58\u5728\u95ee\u9898\uff0c\u9700\u68c0\u67e5fec\u914d\u7f6e\uff0c\u5e76\u786e\u4fdd\u5176\u5f00\u542f\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u82e5\u95ee\u9898\u4ecd\u672a\u89e3\u51b3\uff0c\u9700\u62d4\u63d2\u94fe\u8def\u91cd\u65b0\u8bad\u7ec3\uff0c\u6216\u6392\u67e5\u5149\u7ea4\u3001nis\u5361\u6545\u969c\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5bf9\u4e8e\u5927\u91cf\u94fe\u8def\u62a5\u8b66\u60c5\u51b5\uff0c\u9700\u6839\u636e\u62a5\u8b66\u4f4d\u7f6e\u5224\u65ad\u662f\u5426\u4e3aNRM\u6389\u7535\uff0c\u901a\u8fc7\u547d\u4ee4\u67e5\u8be2\u5e76drain\u8282\u70b9\u540e\u91cd\u542fNRM\u6062\u590d\u3002",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u7684\u677f\u5361\u6389\u7535\uff0c\u5148\u7528\u7ed5\u8def\u7531\u811a\u672c\u628a\u8be5\u677f\u5361\u7ed5\u8fc7\u53bb\uff0c\u7136\u540e\u53ef\u67e5\u8be2\u6389\u7535\u539f\u56e0\uff0c\u5728\u90e8\u95e8\u7fa4\u91cc\u901a\u77e5\u3002",
+                "verdict": "no",
+                "reason": "The statement mentions handling board power-off, but the input is about network link disconnection alarms. The irrelevant part is 'board power-off' which has no relation to the input."
+            },
+            {
+                "statement": "\u673a\u67dc\u6389\u7535\uff1a\u5148\u8054\u7cfb\u8fd0\u7ef4\u67e5\u770b\u4f9b\u7535\u60c5\u51b5\uff0c\u4e0d\u6e05\u695a\u5f71\u54cd\u60c5\u51b5\u8054\u7cfb\u4e8c\u7ebf\u3002",
+                "verdict": "no",
+                "reason": "This statement discusses handling cabinet power-off, but the input is about network link disconnection alarms. The irrelevant part 'cabinet power-off' does not relate to the specific topic of link disconnection."
+            },
+            {
+                "statement": "network\u6545\u969c\u62a5\u8b66\uff1a\u5982\u679c\u8282\u70b9\u4e0d\u591a\uff0c\u503c\u73ed\u4eba\u5458\u5148drain\u8d77\u6765\u5373\u53ef\uff1b\u5982\u679c\u8282\u70b9\u5f88\u591a\uff0c\u4e1410\u5206\u949f\u4ecd\u6ca1\u6709\u6062\u590d\uff0c\u9700\u8981\u8054\u7cfb\u4e8c\u7ebf\u786e\u8ba4\u4e00\u4e0b\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "5.2.3 \u94fe\u8def\u95ee\u9898 5.2.3.1 \u94fe\u8def\u65ad\u5f00 ... \u62a5\u8b66\u9879\uff1aSxxxxxPUXX\u94fe\u8def\u8fde\u63a5\u65ad\u5f00 ... \u5904\u7406\u65b9\u6cd5\uff1a\u94fe\u8def\u65ad\u5f00\uff08\u63e1\u624b\u5931\u8d25\uff09\u53ef\u4ee5\u5148\u5c1d\u8bd5\u4f7f\u7528\u811a\u672c\u8fdb\u884c\u7aef\u53e3\u8bad\u7ec3\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u6839\u636e\u62a5\u8b66\u7684PU\u7aef\u53e3\u53f7\uff0c\u5bf9\u7167\u4e0b\u56fe\u4e2d\u7684\u82af\u7247+\u7aef\u53e3\u53f7\uff0c\u7136\u540e\u4f7f\u7528\u811a\u672c\u8fdb\u884c\u8bad\u7ec3\u3002",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u5355\u7aef\u53e3\u8bad\u7ec3\u811a\u672csingle_port.sh\u7684\u53c2\u6570\u4e0e\u67e5\u770blane\u7684\u547d\u4ee4\u76f8\u540c\uff0c\u5747\u4e3a\u4e09\u4e2a\uff1a\u82af\u7247\u53f7-\u7aef\u53e3\u53f7-\u677f\u5361\u53f7\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u5728mn30\u4e0a\u8fd0\u884clanebist_train_single_port.sh\u547d\u4ee4\u540e\uff0c\u8f93\u51fa\u663e\u793a\u4e86\u5173\u4e8elane\u72b6\u6001\u7684\u4fe1\u606f\uff0c\u5982\u5012\u6570\u7b2c3\u30014\u4f4d\u4e3ae9\u8868\u793a\u63e1\u624b\u6210\u529f\uff0c\u6700\u540e\u4e00\u4f4d\u4e3af\u8868\u793alane\u6b63\u5e38\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u8bad\u7ec3\u5b8c\u6210\u540e\u53ef\u4ee5\u901a\u8fc7\u67e5\u770b\u8f93\u51fa\u6765\u786e\u8ba4\u901a\u4fe1\u677f\u7aef\u53e3\u7684lane\u662f\u5426\u6062\u590d\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u5728ion34\u4e0a\u8fd0\u884cmta_status.sh\u547d\u4ee4\u53ef\u4ee5\u786e\u8ba4\u4e24\u7aef\u8bad\u7ec3\u540e\u7684\u72b6\u6001\uff0c\u4f46\u90e8\u5206\u8f93\u51fa\u663e\u793a\u4e3aUNKNOWN\u6216UNKNOHN\u7b49\u9519\u8bef\u4fe1\u606f\u3002",
+                "verdict": "no",
+                "reason": "The statement contains irrelevant parts such as 'UNKNOWN (0x420b0)' and 'UNKNOHN (0x43840)', which are error messages not related to the input question about Einstein's achievements."
+            },
+            {
+                "statement": "\u5728ion34\u4e0a\u4e24\u4e2a\u5e73\u9762\u7684lane\u90fd\u6062\u590d\u6b63\u5e38\uff0c\u8fd9\u53ef\u4ee5\u901a\u8fc7\u67e5\u770bmta_status.sh\u547d\u4ee4\u8f93\u51fa\u4e2d\u7684\u7279\u5b9a\u683c\u5f0f\u6765\u786e\u8ba4\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u5982\u679c\u4e24\u7aef\u8bad\u7ec3\u540e\u4ecd\u7136\u7f3a\u5c11lane\uff0c\u5219\u9700\u8981\u8fdb\u4e00\u6b65\u5b9a\u4f4d\u95ee\u9898\u6240\u5728\uff0c\u53ef\u80fd\u662f\u670d\u52a1\u5668\u3001\u7ebf\u7f06\u6216\u901a\u4fe1\u677f\u7684\u95ee\u9898\uff0c\u5e76\u6309\u7167\u4e00\u822c\u5206\u6790\u6d41\u7a0b\u8fdb\u884c\u6392\u67e5\u3002",
+                "verdict": "no",
+                "reason": "The statement mentions '\u6ce8\u610f\u4e8b\u9879' which is irrelevant to the input question about Einstein's achievements. The specific part that is irrelevant is: '\u65e0\u8bba\u54ea\u4e00\u6b65\uff0c\u90fd\u8981\u8bad\u7ec3\u4e24\u7aef\u540e\u518d\u67e5\u770b\u72b6\u6001.'"
+            },
+            {
+                "statement": "\u5728/home/test641/smu/cmu_Bin\u76ee\u5f55\u4e0b\u53ef\u4ee5\u4f7f\u7528read_fec_or\u811a\u672c\u6765\u914d\u7f6e\u6216\u67e5\u770bfec\u7684\u72b6\u6001\u3002",
+                "verdict": "no",
+                "reason": "The statement discusses the configuration and status of FEC, which is not related to Einstein's achievements."
+            },
+            {
+                "statement": "\u9700\u8981\u8fdb\u4e00\u6b65\u5b9a\u4f4d\u662f\u670d\u52a1\u5668-\u7ebf\u7f06-\u901a\u4fe1\u677f\u54ea\u91cc\u7684\u95ee\u9898\uff0c\u4e00\u822c\u5206\u6790\u6d41\u7a0b\u5982\u4e0b\uff1a",
+                "verdict": "no",
+                "reason": "This part contains irrelevant information about locating issues in server-cable-board, which is not related to Einstein's achievements."
+            },
+            {
+                "statement": "Croot@mn30 swum_port]# ./lanebist_train_single_port.sh 3 31 IONCOSNM10",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u8be5\u884c\u5012\u6570\u7b2c3\u30014\u4f4d\u4e3ae9\u8868\u793a\u63e1\u624b\u6210\u529f\uff0c9x00000000001023\u7b49\u4fe1\u606f\u663e\u793a\u4e86lane\u72b6\u6001\u3002",
+                "verdict": "no",
+                "reason": "The statement refers to specific output formats and values from the command, which are technical details not related to Einstein's achievements."
+            },
+            {
+                "statement": "\u8be5\u884c\u6700\u540e1\u4f4d\u4e3af\u8868\u793alane\u6b63\u5e38\uff0cOxb0000\u7b49\u4fe1\u606f\u663e\u793a\u4e86\u901a\u4fe1\u677f\u7aef\u53e3\u7684\u72b6\u6001\u3002",
+                "verdict": "no",
+                "reason": "This statement is about the status of lane and specific hexadecimal values, which are irrelevant to Einstein's achievements."
+            },
+            {
+                "statement": "\u8bad\u7ec3\u5b8c\u540e\u53ef\u4ee5\u4ece\u8f93\u51fa\u4e0a\u770b\u901a\u4fe1\u677f\u7aef\u53e3\u7684lane\u5df2\u7ecf\u6062\u590d\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u5728ion34\u4e0a\u8fd0\u884cmta_status.sh\u547d\u4ee4\u53ef\u4ee5\u786e\u8ba4\u4e24\u7aef\u8bad\u7ec3\u540e\u7684\u72b6\u6001\uff0c\u4f46\u90e8\u5206\u8f93\u51fa\u663e\u793a\u9519\u8bef\u4fe1\u606f\u3002",
+                "verdict": "no",
+                "reason": "The statement includes irrelevant details about the command output and error messages, such as 'UNKNOWN (0x420b0)' and other hexadecimal codes."
+            },
+            {
+                "statement": "\u5728/home/test641/smu/cmu_Bin\u76ee\u5f55\u4e0b\u53ef\u4ee5\u4f7f\u7528read_fec_or\u811a\u672c\u6765\u914d\u7f6e\u6216\u67e5\u770bfec\u7684\u72b6\u6001\u3002",
+                "verdict": "no",
+                "reason": "This statement is about the FEC configuration, which has no relevance to Einstein's achievements."
+            },
+            {
+                "statement": "\u9700\u8981\u8fdb\u4e00\u6b65\u5b9a\u4f4d\u662f\u670d\u52a1\u5668-\u7ebf\u7f06-\u901a\u4fe1\u677f\u54ea\u91cc\u7684\u95ee\u9898\uff0c\u4e00\u822c\u5206\u6790\u6d41\u7a0b\u5982\u4e0b\uff1a",
+                "verdict": "no",
+                "reason": "The part '\u6ce8\u610f\u4e8b\u9879' and its content is irrelevant as it discusses general procedures for troubleshooting, not Einstein's achievements."
+            },
+            {
+                "statement": "Croot@ion34 \u201c]# cd /root/shelltools_zni/",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "UNKNOHN (0x4a350)\u7b49\u9519\u8bef\u4fe1\u606f\uff0c\u8868\u793a\u7cfb\u7edf\u72b6\u6001\u5f02\u5e38\u3002",
+                "verdict": "no",
+                "reason": "The statement contains irrelevant technical details about system errors and hexadecimal codes, not related to Einstein's achievements."
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "UNKNOHN(0x420b0)=0xb000006b50",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "UNKNOHN (03442100)=0x13206",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "port2-fec",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "UNKNOHN(0x430b0)=0x1000009F50",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "UNKNOHN (03423100)=0x3209",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "UNKNOHN(0x43820)=x0",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "UNKNOHN(0x43830)=0x0",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "UNKNOHN(0x43840)=0x0",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "UNKNOHN(0x43850)=x0",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "mtip",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "UNKNOHN(0x42340)=0x200",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "UNKNOHN(0x42350)=Ox1# 0000842108421",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "UNKNOHN(0x44300)=0x1ff000511bfe902 =0x1ff000511afe902",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "UNKNOWN (0x46300)",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u8fd9\u65f6\u5019\u9700\u8981\u5bf9\u6ca1\u6709\u6062\u590dlane\u7684\u5e73\u9762\u7684\u901a\u4fe1\u677f\u7aef\u53e3\u8fdb\u884c\u8bad\u7ec3\uff0c\u53c2\u8003\u4e0b\u9762\u6d41\u7a0b\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "(2)\u5b9a\u4f4d\u901a\u4fe1\u677f\u7aef\u53e3 \u901a\u8fc7\u670d\u52a1\u5668\u4e0a\u7684/etc/sn_zni.id\u6587\u4ef6\u627e\u5230\u6545\u969c\u670d\u52a1\u5668\uff08\u672c\u4f8b\u4e3aion34\uff09\u5bf9\u5e94\u901a\u4fe1\u677f\u7684\u7aef\u53e3\u4f4d\u7f6e\u3002 \u5e73\u97620 SIONC10-PU18] \u201d8107-p31 ion34\u5728/etc/sn_zni.id\u6587\u4ef6\u4e2d\u7684\u5bf9\u5e94\u4f4d\u7f6e \u7aef\u53e3\u5bf9\u5e94\u5173\u7cfb\u5982\u4e0b\u56fe\uff1a 3S10NA10-PU18 ||Caaamamm eras Si B31 raw eeu CO SWM10 zl Lela | A\u6846:C0 BHE:C1 \u901a\u4fe1\u67dc-c\u6846:C2 __ D#E:C3 \u901a\u4fe1\u677f\u7aef\u53e3\u4f4d\u7f6e\u4e3aIONC0SWM10\u677f\u5361\u4e0a3\u53f7\u82af\u7247\u768431\u53f7\u7aef\u53e3 \u767b\u5f55\u7ba1\u7406\u8282\u70b9mn30\u6216\u8005mn31\uff0c\u8fdb\u5165\u76ee\u5f55/home/test641/smu/swm_port_train\uff0c\u6267\u884c./znr_lane_port.sh\u547d\u4ee4\uff0c\u8be5\u547d\u4ee4\u53c2\u6570\u67093\u4e2a\uff0c\u5206\u522b\u662f\uff1a\u82af\u7247\u53f7-\u7aef\u53e3\u53f7-\u677f\u5361\u53f7 Croot@mn30 swm_port_train]# ./znr_lane_port.sh 3 31 IONCOSNM10 9x00000000001020 \u6700\u540e\u4e00\u4f4d\u975ef\u8bf4\u660e\u7f3alane",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u8bad\u7ec3\u901a\u4fe1\u677f\u7aef\u53e3 \u767b\u5f55\u7ba1\u7406\u8282\u70b9mn30\u6216mn31\uff0c\u8fdb\u5165\u76ee\u5f55/home/test641/smu/swm_port_train\uff0c\u6267\u884c./lanebist_train_single_port.sh\u547d\u4ee4\uff0c\u8be5\u547d\u4ee4\u7684\u53c2\u6570\u8ddf\u67e5\u770blane\u7684\u547d\u4ee4\u4e00\u6837\u662f3\u4e2a\uff0c\u5206\u522b\u662f\uff1a\u82af\u7247\u53f7-\u7aef\u53e3\u53f7-\u677f\u5361\u53f7 Croot@mn30 swum_p",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u4ee5\u4e0b\u811a\u672c\u914d\u7f6e\u67e5\u770b\u6216\u914d\u7f6efec\uff1b\u5176\u4e2d0\u8868\u793apcs\u5173fec\uff0c1\u8868\u793a\u5f00fec\uff1b0x0000000000000001\u8868\u793a\u5df2\u5173fec\uff0c0x0000000000000016\u8868\u793a\u5df2\u5f00fec\uff1a",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "[root@mn31%TH3 cmu_Bin]# ./read_fec_or_pcs_port.sh",
+                "verdict": "no",
+                "reason": "The statement '[root@mn31%TH3 cmu_Bin]# ./read_fec_or_pcs_port.sh' is a command line example and does not directly relate to the input question about handling network link disconnection alarms. The input specifically asks for steps when training port invalid, while this statement describes how to read or configure fec."
+            },
+            {
+                "statement": "usage: ./read_fec_or_pcs_port.sh chip port location",
+                "verdict": "no",
+                "reason": "This usage statement is about the script's function and parameters for reading or configuring FEC, which is not directly relevant to the input question regarding network link disconnection alarms. The input focuses on alarm handling procedures, while this statement explains how to use a specific tool."
+            },
+            {
+                "statement": "eg../read_fec_or_pcs_port.sh 236PO8OCOONRM1/PO80COOCPM1/SOOCOSWM1/IONCOSWMO/IOSCOSWMO",
+                "verdict": "no",
+                "reason": "This example is about using the script to read or configure FEC, which does not address the input question on handling network link disconnection alarms. The input is concerned with alarm resolution steps, while this statement provides an instance of a command."
+            },
+            {
+                "statement": "[root@mn31%TH3 cmu_Bin]# ./config_fec_or_pcs_port.sh",
+                "verdict": "no",
+                "reason": "This command is for configuring FEC or PCS, which might be part of the context but does not directly answer the input question about handling link disconnection alarms. The input asks for specific steps when a training port is invalid, while this statement mentions another script without providing relevant guidance."
+            },
+            {
+                "statement": "usage: ./config_fec_or_pcs_port.sh chip port location0/1[pcs/fec]",
+                "verdict": "no",
+                "reason": "This usage statement for the config script is not related to the input question. It explains how to use a different tool, whereas the input seeks operational steps for handling alarms."
+            },
+            {
+                "statement": "eg../config fec or pcs port.sh 233POSOCOONRM1/PO80COOCPM1 1",
+                "verdict": "no",
+                "reason": "This example is about configuring FEC or PCS, which does not directly address the input question on handling network link disconnection alarms. The input requires steps for a specific scenario."
+            },
+            {
+                "statement": "\u76ee\u524d\u5168\u90e8\u94fe\u8def\u7684fec\u90fd\u662f\u6253\u5f00\u7684\u72b6\u6001\uff0c\u8bfb\u53d6\u5f53\u524d\u94fe\u8def\u7684fec\uff0c\u5982\u679c\u4e0d\u662f\u6253\u5f00\u7684\u72b6\u6001\uff0c\u9700\u8981\u914d\u7f6e\u6253\u5f00\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "(4)\u4ee5\u4e0a\u64cd\u4f5c\u4e4b\u540e\uff0c\u5982\u679c\u94fe\u8def\u8fd8\u662f\u65ad\u5f00\u6216\u8005\u7f3alane\u7684\u60c5\u51b5\uff0c\u5c06\u94fe\u8def\u62d4\u63d2\u540e\u8bad\u7ec3\u3002\u9700\u8981\u6839\u636e\u62a5\u8b66\u7684\u7aef\u53e3\u548c\u670d\u52a1\u5668\uff0c\u5c06\u4e24\u7aef\u90fd\u62d4\u63d2\u4e4b\u540e\uff0c\u518d\u8bad\u7ec3\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "(5)\u4ee5\u4e0a\u64cd\u4f5c\u65e0\u6548\u7684\u8bdd\uff0c\u8003\u8651\u662f\u5149\u7ea4\u6216\u8005\u670d\u52a1\u5668\u7684nis\u5361\u51fa\u4e86\u95ee\u9898\uff0c\u670d\u52a1\u5668\u4e24\u6761\u5149\u7ea4\u4ea4\u6362\u63d2\u5165\uff0c\u5982\u679c\u4e24\u4e2a\u53e3\u6307\u793a\u706f\u8ddf\u521a\u624d\u4e00\u6837\uff0c\u90a3\u5e94\u8be5\u662fnis\u5361\u7684\u95ee\u9898\uff0c\u53c2\u8003ion\u7ae0\u8282\u66f4\u6362nis\u5361\uff1b\u5982\u679c\u662f\u6307\u793a\u706f\u4eae\u706d\u72b6\u6001\u6709\u53d8\u5316\uff0c\u90a3\u8bf4\u660e\u662f\u5149\u7ea4\u95ee\u9898\uff0c\u8054\u7cfb\u79d1\u5927\u6216\u4e8c\u7ebf\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "5.2.5 swm\u5927\u91cf\u94fe\u8def\u62a5\u8b66",
+                "verdict": "no",
+                "reason": "'\u4e25\u91cd' is mentioned multiple times in the context, but it does not provide any specific information about handling network link disconnection alarms or training port invalid situations."
+            },
+            {
+                "statement": "\u6bcf\u4e00\u4e2a\u901a\u4fe1\u6846\u6709\u4e00\u6761\u62a5\u8b66\u3002\u5927\u6982\u7387\u662f\u67d0\u4e2aNRM\u6389\u7535\uff0c\u6309\u7167\u6d41\u7a0b\u5904\u7406\uff0c\u4e3b\u8981\u6b65\u9aa4\u987a\u5e8f\u4e3a\uff1a\u901a\u8fc7\u7aef\u53e3\u67e5\u8be2",
+                "verdict": "no",
+                "reason": "This statement describes a situation where there is one alarm per communication box, likely due to NRM power-off. However, the input question specifically asks about handling network link disconnection alarms when the training port is invalid, which may not directly relate to this specific case of NRM drop-out."
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u9700\u8981\u8bad\u7ec3\u670d\u52a1\u5668\u7aef\u53e3\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u8fdb\u5165\u76ee\u5f55/root/shelltools_zni/zni_lane_bist\uff0c\u6267\u884c./eq_training.sh\uff08\u540c\u65f6\u8bad\u7ec3\u4e24\u4e2a\u7aef\u53e3\uff09\uff0c\u7b49\u5f85\u51e0\u79d2\u949f\u6267\u884c\u5b8c\u540e\uff0c\u8fd4\u56de\u4e0a\u5c42\u76ee\u5f55\uff0c\u518d\u901a\u8fc7./mta_status.sh\u67e5\u770blane\u662f\u5426\u6062\u590d\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "1-bist-set 2-bist-start 3-read_cnt eq_training_only.sh fec_eq-shmta_status.sh",
+                "verdict": "no",
+                "reason": "The statement '1-bist-set 2-bist-start 3-read_cnt eq_training_only.sh fec_eq-shmta_status.sh' appears to be a list of commands or files, but it does not directly relate to the input question about handling network link disconnection alarms when training ports are invalid. The context does not mention anything about network links or alarms."
+            },
+            {
+                "statement": "1.log2. log4-bist\u2014aining.shhss_write_reg_zni",
+                "verdict": "no",
+                "reason": "The statement '1.log2. log4-bist\u2014aining.shhss_write_reg_zni' seems to be a corrupted or incomplete command, but it does not address the input question about network link disconnection alarms. The context lacks any reference to such an alarm scenario."
+            },
+            {
+                "statement": "port0 set.",
+                "verdict": "no",
+                "reason": "The statement 'port0 set.' is part of a command sequence, but it does not provide information on how to handle network link disconnection alarms. The context describes the process after training, not during or in response to an alarm."
+            },
+            {
+                "statement": "port2 set.",
+                "verdict": "no",
+                "reason": "The statement 'port2 set.' is a command output but does not relate to the input question about network link disconnection alarms. The context focuses on training and checking status, not alarm handling."
+            },
+            {
+                "statement": "portd end.",
+                "verdict": "no",
+                "reason": "The statement 'portd end.' is a command output that does not address the specific input question about network link disconnection alarms. The context describes normal training process without mentioning alarms."
+            },
+            {
+                "statement": "port2 end.",
+                "verdict": "no",
+                "reason": "The statement 'port2 end.' is part of a command sequence and does not pertain to the input question about handling network link disconnection alarms. The context lacks any mention of such an alarm."
+            },
+            {
+                "statement": "UNKNOHN (0:=b50",
+                "verdict": "no",
+                "reason": "The statement 'UNKNOHN (0:=b50' appears to be a system output but does not relate to the input question about network link disconnection alarms. The context does not mention any alarm handling procedure."
+            },
+            {
+                "statement": "UNKNOHN(0%42100)=0x1320F",
+                "verdict": "no",
+                "reason": "The statement 'UNKNOHN(0%42100)=0x1320F' is a system status output that does not address the input question about network link disconnection alarms. The context lacks any alarm handling information."
+            },
+            {
+                "statement": "UNONNC0X2t60) = xt sao |",
+                "verdict": "no",
+                "reason": "The statement 'UNONNC0X2t60) = xt sao |' is a system output that does not relate to the input question about network link disconnection alarms. The context does not mention alarm handling."
+            },
+            {
+                "statement": "UNKNOWN (0x43850)=0x0",
+                "verdict": "no",
+                "reason": "The statement 'UNKNOWN (0x43850)=0x0' is a system status output that does not pertain to the input question about network link disconnection alarms. The context lacks any alarm handling procedure."
+            },
+            {
+                "statement": "\u670d\u52a1\u5668\u7aef\u53e3\u8bad\u7ec3\u5b8c\u540e\uff0c\u5982\u679clane\u6062\u590d\uff0c\u5219\u5904\u7406\u5b8c\u6210\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u6709\u65f6\u9047\u5230\u8bad\u7ec3\u5b8c\u540elane\u4ecd\u7136\u7f3a\u5c11\u7684\u60c5\u51b5\uff0c\u5982\u4e0b\u56fe\u6240\u793a\u5728ion34\u4e0a\u4e24\u4e2a\u7aef\u53e3\u8bad\u7ec3\u540elane\u90fd\u6ca1\u6709\u6062\u590d\uff1a",
+                "verdict": "no",
+                "reason": "The statement '\u6709\u65f6\u9047\u5230\u8bad\u7ec3\u5b8c\u540elane\u4ecd\u7136\u7f3a\u5c11\u7684\u60c5\u51b5\uff0c\u5982\u4e0b\u56fe\u6240\u793a\u5728ion34\u4e0a\u4e24\u4e2a\u7aef\u53e3\u8bad\u7ec3\u540elane\u90fd\u6ca1\u6709\u6062\u590d' describes a scenario where lane does not recover, but it is part of the context that explains what happens after training. However, the input question asks about the next step when there's an alarm and training ports are invalid. This statement might be relevant if it implies additional steps for such cases, but based on the content, it only describes a failure scenario without specifying any action to take."
+            },
+            {
+                "statement": "Croot@ion34 shelltools_znil# cd zni_lane_bisty",
+                "verdict": "no",
+                "reason": "The statement 'Croot@ion34 shelltools_znil# cd zni_lane_bisty' is a command in the context, but it does not relate to the input question about handling network link disconnection alarms. The context lacks any alarm handling information."
+            },
+            {
+                "statement": "[rooteion34 zni_lane_bist]#|",
+                "verdict": "no",
+                "reason": "The statement '[rooteion34 zni_lane_bist]#|' is a command prompt that does not address the input question about network link disconnection alarms. The context does not mention any alarm handling procedure."
+            },
+            {
+                "statement": "-/eq_training.sh",
+                "verdict": "no",
+                "reason": "The statement '-/eq_training.sh' appears to be a command or file reference, but it does not relate to the input question about network link disconnection alarms. The context describes training process without mentioning alarms."
+            },
+            {
+                "statement": "Croot@ion34 zni_lane_bist]# cd ..",
+                "verdict": "no",
+                "reason": "The statement 'Croot@ion34 zni_lane_bist]# cd ..' is a command that does not pertain to the input question about network link disconnection alarms. The context lacks any alarm handling information."
+            },
+            {
+                "statement": "Croot@ion34 shelltools_znil# ./mta_status.sh",
+                "verdict": "no",
+                "reason": "The statement 'Croot@ion34 shelltools_znil# ./mta_status.sh' is a command that does not address the input question about network link disconnection alarms. The context describes checking status after training, but no alarm handling."
+            },
+            {
+                "statement": "UNKNOHN(0x420b0)=",
+                "verdict": "no",
+                "reason": "The statement 'UNKNOHN(0x420b0)=' is a system output that does not relate to the input question about network link disconnection alarms. The context lacks any alarm handling procedure."
+            },
+            {
+                "statement": "JSON:",
+                "verdict": "no",
+                "reason": "The statement 'JSON:' appears to be an incomplete or erroneous entry, but it is unrelated to the input question about network link disconnection alarms. The context does not mention JSON in relation to alarm handling."
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "Nd cele",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "Bal ale",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "KN aa \u56fd",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "=ma sae FF ia aa1 HL \u53ea Hi \u00a9 Ha | | RS Kal | Bl | selk -\u4e00\u5168 Laz} a2 | 10 | 22 | 20 | 22 | 23",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "./lanebist_train_opposite_port.sh+\u82af\u7247\u53f7+\u7aef\u53e3\u53f7+\u677f\u5361\u53f7 \u53ef\u4ee5\u540c\u65f6\u8bad\u7ec3\u6b64\u7aef\u53e3\u548c\u5bf9\u7aef\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "[root@mn31%TH3 ~]# cd /home/test641/smu/nrm_port_train/",
+                "verdict": "no",
+                "reason": "The statement contains irrelevant details about the command to change directory, which are not related to Einstein's achievements."
+            },
+            {
+                "statement": "[root@mn31%TH3 nrm_port_train]# ./lanebist_train_opposite_port.sh 2 6 S05C0SWM1",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "[root@nn31%TH3 nrm_port_train]# ./lanebist_train_opposite_port.sh 3 6 P699C92NRM1",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "lanebist train PCB P699C92NRM1 3:0----2:6 S05C0SWM1",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "0x01ff000511b8\u8be5\u884c\u5012\u65703\u30014\u4f4d\u662fe9\u8868\u793a\u63e1\u624b\u6210\u529f (MISES) , eM ERIKS.",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "6x000000000032014T) \u8be5\u884c\u6700\u540e\u4e00\u4f4d\u662ff\u8868\u793a\u901a\u9053\u6570\u6b63\u5e38 (\u7f51\u7edc\u5e26\u5e2d\u6b63\u5e38) \uff0c\u975e\u503a\u793a\u5e26\u904d\u5c0f\uff0c\u4f46\u4e0d\u5f71\u54cd\u7f51\u7edc\u901a\u4fe1",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u5982\u679c\u4e0a\u8ff0\u64cd\u4f5c\u5904\u7406\u4e0d\u597d\uff0c\u53ef\u4ee5\u6839\u636e\u7aef\u53e3\u53f7\u53bb\u673a\u623f\u62d4\u63d2\u4e00\u4e0b\u4e24\u7aef\u7684\u5149\u7ea4\u7ebf\u3002\u53c2\u80035.2.1.4\u4f7f\u7528\u811a\u672cswm_opposite_port.sh\u67e5\u8be2\u5bf9\u7aef\uff0c\u5e76\u5c06\u82af\u7247+\u7aef\u53e3\u8f6c\u6362\u6210PU\u7684\u683c\u5f0f\uff08\u53c2\u80035.2.1.3\uff09\uff0c\u5728\u673a\u67dc\u4e0a\u5bfb\u627e\u5bf9\u5e94\u7684\u6807\u7b7e\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u4ee5\u4e0a\u9762\u7684\u4f8b\u5b50\u6765\u8bf4\uff1a 3 0 P009C02NRM1 \u5bf9\u5e94P009C02NRM1PU20 2 6 S05C0SWM1 \u5bf9\u5e94 S05C0SWM1PU08",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5728\u673a\u623f\u5206\u522b\u62d4\u63d2\u8fd9\u4e24\u4e2a\u7aef\u53e3\u3002\u8981\u628a\u4e24\u7aef\u7684\u7ebf\u90fd\u62d4\u6389\uff0c\u518d\u4f9d\u6b21\u63d2\u4e0a\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u518d\u91cd\u590d\u4e00\u6b21\uff081\uff09\u4e2d\u7684\u64cd\u4f5c\u3002",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u5982\u679c\u62d4\u63d2\u8fd8\u662f\u4e0d\u884c\uff0c\u8054\u7cfb\u79d1\u5927641\u5904\u7406\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "5.2.3.2 \u94fe\u8def\u901a\u9053\u6570\u51cf\u5c11 \u62a5\u8b66\u9879\uff08\u9ec4\u8272\u8b66\u544a\uff09\uff1axx\u901a\u9053\u6570\u51cf\u5c11 S02A02PU22,\u901a\u9053\u6570\u51cf\u5c11",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "TH-3F \u7ba1\u7406\u8282\u70b9 \u786c\u4ef6",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u4e0e5.2.3.1\u5904\u7406\u65b9\u6cd5\u4e00\u6837\uff0c\u4f46\u662f\u4e00\u822c\u4e0d\u7740\u6025\u5904\u7406\uff0c\u901a\u9053\u6570\u51cf\u5c11\u53ea\u5f71\u54cd\u5e26\u5bbd\uff0c\u5e76\u4e0d\u5f71\u54cd\u94fe\u8def\u7684\u901a\u65ad\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "5.2.3.3 \u94fe\u8def\u63e1\u624b\u53d8\u5316/\u91cd\u4f20\u6b21\u6570\u8fc7\u591a \u62a5\u8b66\u9879\uff08\u9ec4\u8272\u8b66\u544a\uff09\uff1axx\u94fe\u8def\u7aef\u53e3\u63e1\u624b\u53d8\u5316/xx\u94fe\u8def\u7aef\u53e3\u91cd\u4f20\u6b21\u6570",
+                "verdict": "no",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "0\u5e73\u9762\u666e\u901a\u901a\u4fe1\u673a\u67dc\uff08S00-S07\uff09\u5355\u6761\u94fe\u8def\u65ad\u5f00\u62a5\u8b66\uff0c\u62a5\u8b66\u7ea7\u522b\u662f\u8b66\u544a\uff0c\u503c\u73ed\u4eba\u5458\u65e0\u9700\u7acb\u5373\u5904\u7406\uff0c\u53ef\u4ee5\u5c1d\u8bd5\u8bad\u7ec3\u94fe\u8def\u6216\u62d4\u63d2\u5149\u7ea4\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "1\u5e73\u9762\u666e\u901a\u901a\u4fe1\u673a\u67dc\uff08S09-S16\uff09\u5355\u6761\u94fe\u8def\u65ad\u5f00\u62a5\u8b66\uff0c\u62a5\u8b66\u7ea7\u522b\u662f\u4e25\u91cd\uff0c\u9700\u8981\u7acb\u5373\u5904\u7406\uff0c\u53ef\u4ee5\u5c1d\u8bd5\u8bad\u7ec3\u94fe\u8def\u6216\u62d4\u63d2\u5149\u7ea4\uff0c\u62d4\u63d2\u65e0\u6548\u53ef\u4ee5\u901a\u8fc7\u8def\u7531\u5bb9\u9519\uff08\u7ed5\u8def\u7531\uff09\u811a\u672c\uff08\u53c2\u80035.2.9\uff09\u5c06\u8be5\u6846\u5148\u7ed5\u8fc7\u53bb\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "ION/IOS\u901a\u4fe1\u673a\u67dc\u94fe\u8def\u62a5\u8b66\uff0c\u5355\u6761\u94fe\u8def\u6216\u591a\u6761\u94fe\u8282\u65ad\u5f00\uff0c\u786e\u8ba4\u662f\u901a\u4fe1\u673a\u67dc\u4e92\u8054\u8fd8\u662f\u8fde\u63a5\u670d\u52a1\u5668\u7684\u7aef\u53e3\u3002\u5982\u679c\u662f\u901a\u4fe1\u673a\u67dc\u4e92\u8054\uff0c\u4e00\u822c\u9700\u8981\u7acb\u5373\u5904\u7406\uff0c\u9700\u8981\u786e\u8ba4\u662f\u5426\u6709\u677f\u5361\u6389\u7535\uff0c\u82e5\u65e0\u6389\u7535\uff0c\u9700\u8981\u8bad\u7ec3\u94fe\u8def\u6216\u62d4\u63d2\u5149\u7ea4\uff1b\u82e5\u662f\u670d\u52a1\u5668\u7aef\u53e3\uff0c\u9700\u8981\u786e\u8ba4\u5bf9\u5e94\u670d\u52a1\u5668\u662f\u5426\u6b7b\u673a\uff0c\u82e5\u670d\u52a1\u5668\u6b7b\u673a\u5219\u91cd\u542f\u670d\u52a1\u5668\uff0c\u82e5\u672a\u6b7b\u673a\u53ea\u6709\u9ad8\u901f\u7f51\u6709\u95ee\u9898\uff0c\u5219\u67e5\u627e\u670d\u52a1\u5668\u7684\u5149\u7ea4\u7aef\u53e3\uff0c\u8fdb\u884c\u62d4\u63d2\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "NRM\u6389\u7535\uff1a\u5f71\u54cd\u672c\u6846\u4f5c\u4e1a\uff0c\u5224\u65ad\u677f\u5361\u4f4d\u7f6e\uff0cS00-S07\u6bcf\u6846\u6709\u4e00\u6761\u94fe\u8def\u65ad\u5f00\u5373\u4e3a0\u5e73\u9762nrm\u6389\u7535\uff0c\u53ef\u4ee5\u6309\u7167\u624b\u518c\u5904\u7406\uff0c\u6b64\u65f6\u8282\u70b9\u901a\u4fe1\u8fd8\u5728\uff0c\u53ea\u8981\u4e0d\u662f\u8bfb\u5199\u9ad8\u7684\u4f5c\u4e1a\u90fd\u80fd\u62ef\u6551\uff0c\u5982\u679c\u6062\u590d\u4e0d\u6210\u529f\uff0c\u9700\u8981\u62a5\u544a\u4e8c\u7ebf\u5904\u7406\uff1b\u5982\u679c\u62a5\u8b66\u662fS09-S16\u6bcf\u6846\u4e00\u6761\u94fe\u8def\uff0c\u90a3\u4e48\u662f1\u5e73\u9762nrm\u6389\u7535\uff0c\u5bf9\u5e94\u6846\u7684\u4f5c\u4e1a\u5df2\u7ecf\u6389\u4e86\uff0c\u53ef\u4ee5\u5c1d\u8bd5\u6309\u7167\u624b\u518c\u5904\u7406\uff0c\u7b2c\u4e8c\u5929\u518d\u62a5\u544a\u4e8c\u7ebf\u5373\u53ef\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "Swm\u6389\u7535\uff1a\u67e5\u8be2\u6389\u7535\u677f\u5361\u4f4d\u7f6e\uff0c\u5982\u679c\u662fS00~S07\u3001S09~S16\u673a\u67dc\u7684\u677f\u5361\u6389\u7535\uff0c\u5148\u7528\u7ed5\u8def\u7531\u811a\u672c\u628a\u8be5\u677f\u5361\u7ed5\u8fc7\u53bb\uff0c\u7136\u540e\u53ef\u67e5\u8be2\u6389\u7535\u539f\u56e0\uff0c\u5728\u90e8\u95e8\u7fa4\u91cc\u901a\u77e5\u3002\u5982\u679c\u662fION/IOS\u677f\u5361\u6389\u7535\uff0c\u7acb\u5373\u8054\u7cfb\u4e8c\u7ebf\u786e\u8ba4\u5f71\u54cd\u8303\u56f4\u3001\u8054\u7cfb\u79d1\u5927\u66f4\u6362\u5bf9\u5e94\u677f\u5361\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u673a\u67dc\u6389\u7535\uff1a",
+                "verdict": "no",
+                "reason": "The statement '\u673a\u67dc\u6389\u7535\uff1a' does not provide any specific information about handling network link disconnection alarms or training port operations, and it is incomplete without further context. The irrelevant part of the statement is just the phrase '\u673a\u67dc\u6389\u7535\uff1a', which lacks details to be relevant."
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u6bcf\u4e00\u4e2a\u901a\u4fe1\u6846\u6709\u4e00\u6761\u62a5\u8b66\u3002\u5927\u6982\u7387\u662f\u67d0\u4e2aNRM\u6389\u7535\uff0c\u6309\u7167\u6d41\u7a0b\u5904\u7406\uff0c\u4e3b\u8981\u6b65\u9aa4\u987a\u5e8f\u4e3a\uff1a\u901a\u8fc7\u7aef\u53e3\u67e5\u8be2\u5230\u5177\u4f53\u7684NRM\uff0c\u5148\u5c06\u8fd9\u4e00\u8ba1\u7b97\u6846\u5185\u5168\u90e8\u8282\u70b9drain\u8d77\u6765\uff0c\u518d\u91cd\u542fNRM\u5904\u7406\u6062\u590d\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u4f7f\u7528yhst+ NRM\u677f\u5361\u7f16\u53f7\u53ef\u4ee5\u67e5\u770b\u8be5\u6846\u7684\u677f\u5361\u52a0\u7535\u72b6\u6001\uff0c\u5982\u679cnrm\u663e\u793a0\u8868\u793a\u6389\u7535\u3002",
+                "verdict": "no",
+                "reason": "The statement '\u4f7f\u7528yhst+ NRM\u677f\u5361\u7f16\u53f7\u53ef\u4ee5\u67e5\u770b\u8be5\u6846\u7684\u677f\u5361\u52a0\u7535\u72b6\u6001' is irrelevant to the input because it does not mention anything about handling network link disconnection alarms or training port invalidity. The input specifically asks for steps when a training port is invalid, and this statement provides general usage of yhst command without addressing that specific scenario."
+            },
+            {
+                "statement": "drain\u76f8\u5173\u8282\u70b9\u3001\u6302\u4f5c\u4e1a\uff1a\u5728\u5bf9\u5e94\u7684\u7ba1\u7406\u670d\u52a1\u5668\u4e0adrain\u4e0a\u76f8\u5173\u7684\u8282\u70b9\u3002\u5177\u4f53\u547d\u4ee4\u4e3a\uff1accst+\u673a\u6846\u53f7\uff0c\u4f8b\u5982\u9700\u8981drain\u7684\u673a\u6846\u4e3a16\u673a\u67dcA\u6846\uff1a\u4f7f\u7528\u547d\u4ee4ccst 16a\u6765\u83b7\u53d6\u8be5\u6846\u6240\u6709\u7684\u8282\u70b9\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5c06\u5176\u4e2d\u7684idle\u8282\u70b9\u548calloc\u8282\u70b9drain\u8d77\u6765\uff0c\u8282\u70b9\u6d89\u53ca\u7684\u4f5c\u4e1a\u6302\u8d77\u6765\u3002yhq -w $alloc_list yhcontrol suspend $jobid",
+                "verdict": "no",
+                "reason": "The statement '\u5c06\u5176\u4e2d\u7684idle\u8282\u70b9\u548calloc\u8282\u70b9drain\u8d77\u6765' is irrelevant to the input because it describes a general action of draining nodes, but does not specifically address the case when training ports are invalid. The input asks for steps only in the context of handling network link disconnection alarms and specifically mentions that if the training port is invalid."
+            },
+            {
+                "statement": "\u62a5\u8b66\u96c6\u4e2d\u5728\u67d0\u4e2a\u67dc\u6216\u8005\u67d0\u4e2a\u6846\uff0c\u4f8b\u5982\uff1aS12B02NR1PORT26\u94fe\u8def\u65ad\u5f00\u94fe\u63a5",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u4e00\u822c\u4e0d\u7740\u6025\u5904\u7406\uff0c\u901a\u9053\u6570\u51cf\u5c11\u53ea\u5f71\u54cd\u5e26\u5bbd\uff0c\u5e76\u4e0d\u5f71\u54cd\u94fe\u8def\u7684\u901a\u65ad\u3002",
+                "verdict": "no",
+                "reason": "The statement mentions that channel reduction does not affect link connectivity, which is irrelevant to the input question about handling network link disconnection alarms. The key part 'does not affect chain link break' demonstrates this irrelevance."
+            },
+            {
+                "statement": "\u62a5\u8b66\u9879\uff08\u9ec4\u8272\u8b66\u544a\uff09\uff1axx\u94fe\u8def\u7aef\u53e3\u63e1\u624b\u53d8\u5316/xx\u94fe\u8def\u7aef\u53e3\u91cd\u4f20\u6b21\u6570\u8fc7\u591a",
+                "verdict": "no",
+                "reason": "This statement describes a yellow warning alarm for port handshake changes or retransmission counts, but the input is about handling link disconnection alarms. The part 'port handshake change' and 'retransmission count' are not related to the specific issue of training ports being invalid."
+            },
+            {
+                "statement": "S01COOPU04 \u63e1\u624b\u6b21\u6570\u53d1\u751f\u53d8\u5316",
+                "verdict": "no",
+                "reason": "This statement refers to a specific alarm code S01COOPU04 indicating handshake changes, which is not directly related to the input question about handling link disconnection alarms. The reason for irrelevance lies in 'handshake change' being an unrelated issue."
+            },
+            {
+                "statement": "\u7ba1\u7406\u8282\u70b9\u786c\u4ef6\u90e8\u5206\u63d0\u5230\u5982\u679c\u62a5\u8b66\u9891\u7e41\uff0c\u8054\u7cfb\u79d1\u5927641\u79d1\u5ba4\u6216\u62d4\u7ebf\u4ea4\u73ed\u3002",
+                "verdict": "no",
+                "reason": "The statement discusses handling frequent alarms by contacting a specific department or unplugging cables, but the input is specifically about training ports being invalid. The part 'contacting 641 department' and 'unplugging cables' does not address the issue of training port failure."
+            },
+            {
+                "statement": "5.2.4 \u94fe\u8def\u65ad\u5f00/\u901a\u9053\u6570\u51cf\u5c11\u62a5\u8b66\u9879\uff0c\u5305\u62ec\u7ea2\u8272\u548c\u9ec4\u8272\u8b66\u544a\u3002",
+                "verdict": "no",
+                "reason": "This statement describes alarm items for link disconnection and channel reduction, but it does not directly address the input question about what to do when training ports are invalid. The part 'alarm item (red): IONxx link break' is related to link disconnection, however, the context of training port failure is different."
+            },
+            {
+                "statement": "\u5e26\u9ad8\u901f\u7f51\u7684\u670d\u52a1\u5668\u5305\u62ec\uff1aMN\u8282\u70b9\u3001SMU\u8282\u70b9\u3001ION\u8282\u70b9\u3001LN\u8282\u70b9\u3002",
+                "verdict": "no",
+                "reason": "This statement lists servers with high-speed networks but does not provide any information about handling link disconnection alarms specifically when training ports are invalid. The part 'servers including MN, SMU, ION, LN nodes' is irrelevant to the procedure for faulty training ports."
+            },
+            {
+                "statement": "\u65ad\u5f00\u5904\u7406\u64cd\u4f5c\u6b65\u9aa4\uff1a\u8bad\u7ec3\u670d\u52a1\u5668\u7aef\u53e3\uff0c\u62d4\u63d2\u5149\u7ea4\uff0c\u67e5\u770bfec\uff0c\u66f4\u6362nis\u5361\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u767b\u5f55\u670d\u52a1\u5668\uff0c\u8fdb\u5165\u76ee\u5f55/root/shelltools_zni/\uff0c\u6267\u884c./mta_status.sh",
+                "verdict": "no",
+                "reason": "This statement describes a procedure to check server status by executing mta_status.sh, but it does not directly address the input question about handling link disconnection alarms when training ports are invalid. The part 'executing mta_status.sh' is an unrelated diagnostic step."
+            },
+            {
+                "statement": "\u89c2\u5bdf\u5bc4\u5b58\u566842100\uff080\u5e73\u9762\uff09\u548c43100\uff081\u5e73\u9762\uff09\u7684\u503c\u7684\u6700\u540e\u4e00\u4f4d\uff0c\u5982\u679c\u4e0d\u4e3af\uff0c\u8bf4\u660e\u7f3a\u5c11lane\u3002",
+                "verdict": "no",
+                "reason": "This statement explains how to check for missing lanes by observing register values, but the input is about handling link disconnection alarms specifically when training ports are invalid. The part 'checking register 42100 and 43100' does not address the issue of invalid training ports."
+            },
+            {
+                "statement": "\u6700\u540e\u4e24\u884c\u5982\u679c\u4e0d\u662fe9\u5c31\u662f\u94fe\u8def\u65ad\u5f00\u3002",
+                "verdict": "no",
+                "reason": "This statement indicates that if the last two lines are not 'e9', then there is a link disconnection, but it does not provide guidance on how to handle this specific alarm when training ports are invalid. The part 'link break' mentioned here is related to the input's context of handling alarms, however, without specifying actions for invalid training ports."
+            },
+            {
+                "statement": "\u94fe\u8def\u65ad\u5f00\u548c\u7f3alane\u53ef\u4ee5\u901a\u8fc7\u4ee5\u4e0b\u6b65\u9aa4\u6765\u89e3\u51b3\uff1a\uff081\uff09\u9700\u8981\u8bad\u7ec3\u670d\u52a1\u5668\u7aef\u53e3\u3002",
+                "verdict": "yes",
+                "reason": ""
+            }
+        ]
+    }
+]
+ 
+Score: 0.3798449612403101
+Reason: The contextual relevancy score is 0.38 because the retrieval context primarily describes general alarm handling procedures and technical details about FEC configuration, while only a few statements like '使用脚本训练端口或拔插光纤' (using scripts to train ports or unplugging optical fibers) are marginally relevant as they touch upon actions related to port training but lack specificity for invalid training ports in the context of link disconnection alarms. The irrelevance is supported by the fact that most statements discuss unrelated topics such as channel reduction, handshake changes, and NRM power-off scenarios which do not address the specific issue of handling alarms when training ports are explicitly invalid.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Contextual Recall Verbose Logs
+**************************************************
+
+Verdicts:
+[
+    {
+        "verdict": "yes",
+        "reason": "The sentence '\u503c\u73ed\u5458\u53d1\u73b0\u67d0ION\u8282\u70b9\u5931\u53bb\u8fde\u63a5\u540e\uff0c\u7b2c\u4e00\u6b65\u5e94\u68c0\u67e5\u8be5ION\u8282\u70b9\u662f\u5426\u80fd\u901a\u8fc7ssh\u767b\u5f55' is attributed to the retrieval context. Specifically, it matches with node 3 which states: '\u53ef\u4ee5ssh\u8fdb\u53bb\u30022\uff0e\u82e5\u6ca1\u6709\u7cfb\u7edf\uff0c\u6216\u5f00\u673a\u5361\u4f4f\uff0c\u89c2\u5bdfib\u7f51\u5361\uff08\u63d2\u4e00\u6839\u7eff\u7ebf\u7684\uff09\u662f\u5426\u6709\u7eff\u706f\u95ea\u70c1\u6216\u5e38\u91cf\u3002'"
+    },
+    {
+        "verdict": "yes",
+        "reason": "The sentence '\u540c\u65f6\u89c2\u5bdfIB\u7f51\u5361\u548c\u9ad8\u901f\u7f51\u5361\u7684\u6307\u793a\u706f\u72b6\u6001' is attributed to the retrieval context. It can be found in node 4 which says: '\u89c2\u5bdfion\u89c2\u5bdf\u9ad8\u901f\u7f51\u5361\uff08\u63d2\u4e24\u6839\u7eff\u7ebf\u6216\u6a59\u7ebf\u7684\uff09\u4e24\u4e2a\u7f51\u53e3\uff0c\u662f\u5426\u6709\u7eff\u706f\u95ea\u70c1\u6216\u5e38\u91cf'"
+    },
+    {
+        "verdict": "yes",
+        "reason": "The sentence '\u5177\u4f53\u5982\u4e0b\uff1a\u5148\u5c1d\u8bd5\u901a\u8fc7ssh\u767b\u5f55ION\u8282\u70b9\uff0c\u786e\u8ba4\u662f\u5426\u80fd\u6b63\u5e38\u8fdb\u5165\u7cfb\u7edf' is attributed to the retrieval context. This aligns with node 3: '\u53ef\u4ee5ssh\u8fdb\u53bb\u30022\uff0e\u82e5\u6ca1\u6709\u7cfb\u7edf\uff0c\u6216\u5f00\u673a\u5361\u4f4f\uff0c\u89c2\u5bdfib\u7f51\u5361\uff08\u63d2\u4e00\u6839\u7eff\u7ebf\u7684\uff09\u662f\u5426\u6709\u7eff\u706f\u95ea\u70c1\u6216\u5e38\u91cf\u3002'"
+    },
+    {
+        "verdict": "yes",
+        "reason": "The sentence '\u82e5\u65e0\u6cd5\u767b\u5f55\uff0c\u67e5\u770bIB\u7f51\u5361\uff08\u63d2\u4e00\u6839\u7eff\u7ebf\uff09\u7684\u6307\u793a\u706f\u662f\u5426\u6709\u7eff\u706f\u95ea\u70c1\u6216\u5e38\u91cf\uff0c\u82e5\u4e0d\u4eae\u53ef\u80fd\u662fIB\u7f51\u5361\u6545\u969c' is attributed to the retrieval context. This corresponds to node 3: '2\uff0e\u82e5\u6ca1\u6709\u7cfb\u7edf\uff0c\u6216\u5f00\u673a\u5361\u4f4f\uff0c\u89c2\u5bdfib\u7f51\u5361\uff08\u63d2\u4e00\u6839\u7eff\u7ebf\u7684\uff09\u662f\u5426\u6709\u7eff\u706f\u95ea\u70c1\u6216\u5e38\u91cf\u3002'"
+    },
+    {
+        "verdict": "yes",
+        "reason": "The sentence '\u518d\u89c2\u5bdf\u9ad8\u901f\u7f51\u5361\uff08\u63d2\u4e24\u6839\u7eff\u7ebf\u6216\u6a59\u7ebf\uff09\u7684\u4e24\u4e2a\u7f51\u53e3\u6307\u793a\u706f\uff0c\u6b63\u5e38\u5e94\u4e3a\u5e38\u4eae' is attributed to the retrieval context. Node 4 states: '\u89c2\u5bdfion\u89c2\u5bdf\u9ad8\u901f\u7f51\u5361\uff08\u63d2\u4e24\u6839\u7eff\u7ebf\u6216\u6a59\u7ebf\u7684\uff09\u4e24\u4e2a\u7f51\u53e3\uff0c\u662f\u5426\u6709\u7eff\u706f\u95ea\u70c1\u6216\u5e38\u91cf\uff0c\u6b63\u5e38\u672a\u4e24\u4e2a\u7f51\u5361\u706f\u5e38\u4eae.'"
+    },
+    {
+        "verdict": "yes",
+        "reason": "The sentence '\u53ef\u4ea4\u6362\u4e24\u6839\u9ad8\u901f\u7f51\u7ebf\u63d2\u5165\uff0c\u5224\u65ad\u662f\u7f51\u7ebf\u8fd8\u662f\u7f51\u5361\u6545\u969c' is attributed to the retrieval context. This is mentioned in node 4: '\u82e5\u4ea4\u6362\u540e\u7f51\u53e3\u6307\u793a\u706f\u65e0\u53d8\u5316\uff0c\u66f4\u6362\u9ad8\u901f\u7f51\u5361\uff1b'"
+    },
+    {
+        "verdict": "yes",
+        "reason": "The sentence '\u901a\u8fc7\u8fd9\u4e9b\u68c0\u67e5\u53ef\u521d\u6b65\u786e\u5b9aION\u8282\u70b9\u5931\u53bb\u8fde\u63a5\u7684\u539f\u56e0' is attributed to the retrieval context. Node 3 indicates this process for determining reasons."
+    }
+]
+ 
+Score: 1.0
+Reason: The score is 1 because all sentences in the expected output are fully supported by the corresponding nodes in the retrieval context, with each step and observation matching precisely without any discrepancies or missing information.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Answer Relevancy Verbose Logs
+**************************************************
+
+Statements:
+[
+    "If the training port is invalid, the next steps include checking hardware configuration.",
+    "Replugming the optical fiber can be done as a troubleshooting step.",
+    "Checking FEC configuration and ensuring it is enabled to prevent link issues.",
+    "Adjusting settings if FEC configuration is incorrect.",
+    "Plugging and unplugging the link for retraining by removing both ends of the optical fiber and inserting them again.",
+    "Troubleshooting optical fiber or NIS card faults may require replacing hardware components.",
+    "Recording port information and handing it over to the on-duty personnel when necessary.",
+    "Contacting second-line technical support if all else fails."
+] 
+ 
+Verdicts:
+[
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "no",
+        "reason": null
+    },
+    {
+        "verdict": "idk",
+        "reason": null
+    },
+    {
+        "verdict": "no",
+        "reason": null
+    }
+]
+ 
+Score: 0.75
+Reason: The score is 0.75 because the response partially addresses the user's query about handling network link disconnection alarms when training ports are invalid by mentioning specific steps, but it does not fully align with the context or provide a complete solution as required.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Answer Relevancy Verbose Logs
+**************************************************
+
+Statements:
+[
+    "The first step after an ION node loses connection is to check the content including: 1. Determine if the ION node has actually crashed by checking its status via SSH through bastion host or monitoring platform.",
+    "2. Confirm whether the node can be accessed via ssh, and if not, check the IB network card indicator light status and replace the network card if necessary.",
+    "3. If the system is normal, refer to specific chapters for handling ION links and observe high-speed network card indicators to determine fault causes by swapping network cables.",
+    "4. Check network alarm information to confirm the alarm level; if it's severe, handle immediately by attempting training link or unplugging fiber optic cables, and use routing tolerance scripts to bypass if plugging doesn't work.",
+    "5. Identify the location of the link breakage and the two ports involved in the alarm, confirming whether it is a SWM-NRM, SWM-SWM, or SWM-IO server type, then take corresponding measures based on different types.",
+    "6. Check for any board card power-off situations; if an ION/IOS board card has powered off, immediately contact second-line to confirm the impact scope and have Keda replace the corresponding board card.",
+    "7. Verify whether there is a need to suspend operations, restart systems, and check storage partition link status to ensure data integrity.",
+    "8. Take appropriate actions based on alarm level such as bypassing routes or restarting servers if necessary."
+] 
+ 
+Verdicts:
+[
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    }
+]
+ 
+Score: 1.0
+Reason: The score is 1.00 because there are no identified irrelevant statements, and the response directly addresses the question about what to check first after an ION node loses connection.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Contextual Relevancy Verbose Logs
+**************************************************
+
+Verdicts:
+[
+    {
+        "verdicts": [
+            {
+                "statement": "\u767b\u5f55\u8282\u70b9\u6545\u969c\u5305\u62ec\u5931\u53bb\u8fde\u63a5/\u5b95\u673a\u548c\u8d1f\u8f7d\u8fc7\u9ad8\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5bf9\u4e8e\u5b95\u673a\uff0c\u53ef\u901a\u8fc7\u5821\u5792\u673a\u6216\u76d1\u63a7\u5e73\u53f0\u786e\u8ba4\u8282\u70b9\u72b6\u6001\uff0c\u5e76\u901a\u8fc7\u8fd0\u7ef4\u5e73\u53f0\u91cd\u542f\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5bf9\u4e8e\u8d1f\u8f7d\u8fc7\u9ad8\uff0c\u53ef\u6309CPU\u6216\u5185\u5b58\u67e5\u770b\u7528\u6237\u8fdb\u7a0b\uff0c\u6e05\u7406\u9ad8\u5360\u7528\u8fdb\u7a0b\u6216\u7528\u6237\u5168\u90e8\u8fdb\u7a0b\u4ee5\u964d\u4f4e\u8d1f\u8f7d\u3002",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u94fe\u8def\u65ad\u5f00\u65f6\u9700\u786e\u5b9a\u7aef\u53e3\u4f4d\u7f6e\uff0c\u533a\u5206SWM-NRM\u3001SWM-SWM\u6216SWM-IO\u7c7b\u578b",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u4f7f\u7528\u811a\u672c\u8bad\u7ec3\u7aef\u53e3\u6216\u62d4\u63d2\u5149\u7ea4\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u901a\u9053\u6570\u51cf\u5c11\u5f71\u54cd\u5e26\u5bbd\u4f46\u4e0d\u5f71\u54cd\u901a\u4fe1\uff0c\u53ef\u6682\u7f13\u5904\u7406\u3002",
+                "verdict": "no",
+                "reason": "The statement mentions 'channel number reduction' which is irrelevant to the input question about what to check after an ION node loses connection. The context does not provide information related to ION nodes or their specific issues."
+            },
+            {
+                "statement": "\u63e1\u624b\u53d8\u5316\u6216\u91cd\u4f20\u6b21\u6570\u8fc7\u591a\u9700\u5173\u6ce8\uff0c\u4f46\u4e00\u822c\u4e0d\u7d27\u6025\u5904\u7406\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u6839\u636e\u62a5\u8b66\u7ea7\u522b\u91c7\u53d6\u76f8\u5e94\u63aa\u65bd\uff0c\u5982\u7ed5\u8def\u7531\u3001\u91cd\u542f\u670d\u52a1\u5668\u6216\u8054\u7cfb\u4e8c\u7ebf\u5904\u7406\u3002",
+                "verdict": "no",
+                "reason": "The statement discusses 'alarm level' and measures like bypass routing, server restart or contacting second line, which are not directly related to the initial check after an ION node loses connection. The input question specifically asks for the first step in checking content post-disconnection."
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u503c\u73ed\u5458\u53d1\u73b0\u67d0ION\u8282\u70b9\u5931\u53bb\u8fde\u63a5\u540e\uff0c\u7b2c\u4e00\u6b65\u5e94\u68c0\u67e5\u662f\u5426\u80fd\u901a\u8fc7ssh\u767b\u5f55",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u82e5\u65e0\u6cd5\u8fdb\u5165\u7cfb\u7edf\uff0c\u9700\u68c0\u67e5IB\u7f51\u5361\u6307\u793a\u706f\u72b6\u6001\uff0c\u5fc5\u8981\u65f6\u66f4\u6362\u7f51\u5361",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u82e5\u7cfb\u7edf\u6b63\u5e38\uff0c\u5219\u53c2\u8003\u7279\u5b9a\u7ae0\u8282\u5904\u7406ION\u94fe\u8def",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u89c2\u5bdf\u9ad8\u901f\u7f51\u5361\u6307\u793a\u706f\uff0c\u901a\u8fc7\u4ea4\u6362\u7f51\u7ebf\u5224\u65ad\u6545\u969c\u539f\u56e0",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5bf9\u4e8eMDs\u5931\u53bb\u8fde\u63a5\u7684\u60c5\u51b5\uff0c\u9700\u6302\u8d77\u4f5c\u4e1a\u3001\u91cd\u542f\u5e76\u68c0\u67e5\u5b58\u50a8\u5206\u533a\u94fe\u63a5\u72b6\u6001",
+                "verdict": "no",
+                "reason": "The statement mentions 'for MDs losing connection', which is irrelevant to the ION node connectivity issue."
+            },
+            {
+                "statement": "\u6d89\u53ca\u7f51\u7edc\u62a5\u8b66\u7684\u5224\u65ad\u7b49\u64cd\u4f5c",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "ost127",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "jobid",
+                "verdict": "no",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u62a5\u8b66\u5bf9\u5e94\u7684\u7f16\u53f7\u67e5\u627e\u5bf9\u5e94\u5173\u7cfb\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5c06\u677f\u5361\u7f16\u53f7\u8f6c\u6362\u6210\u811a\u672c\u7684\u683c\u5f0f\uff0c\u5c06PU\u5149\u53e3\u8f6c\u6362\u6210\u82af\u7247\u53f7+\u7aef\u53e3\u53f7\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u53ef\u4ee5\u53c2\u8003\u4e0a\u8fb9NRM\u5bf9\u5e94\u5173\u7cfb\uff0c\u4e5f\u53ef\u4ee5\u53c2\u8003\u4ee5\u4e0b\u8868\u683c\u6216\u8005\u670d\u52a1\u5668\u4e2d\u7684\u6587\u4ef6/home/test641/smu/nrm_port_train/nrm-pu-port.list\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u4f8b\u5b50\uff1a\u62a5\u8b66\u9879S05A01PU08 \u5bf9\u5e94\u811a\u672c\u4e2d\u7684\u8f93\u5165\u4e3a2 6 S05C0SWM1",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "5.2.1.4 \u6839\u636e\u62a5\u8b66\u786e\u5b9a\u4f4d\u7f6e",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u811a\u672c\uff1aswm_opposite_port.sh",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u76ee\u5f55\uff1amn31\uff1a/home/test641/smu/swm_port_train/",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "./swm_opposite_port.sh+\u82af\u7247\u53f7+\u7aef\u53e3\u53f7+\u677f\u5361\u53f7 \u53ef\u4ee5\u67e5\u770b\u6b64\u7aef\u53e3\u7684\u5bf9\u7aef\u3002\u4e3b\u8981\u67e5\u770b\u8be5\u7aef\u53e3\u5bf9\u7aef\uff0c\u6765\u786e\u5b9a\u8be5\u94fe\u8def\u662fswm-nrm\u3001swm-swm\u3001swm-io\u670d\u52a1\u5668\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u4f8b\u5982\uff1a[root@nn31%TH3 swm_port_train]# ./swm_opposite_port.sh 2 6 S95C9SWM1",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "optical_port",
+                "verdict": "no",
+                "reason": "The statement 'optical_port' is irrelevant because it does not provide any information about the ION node or its connection status. It seems to be a standalone term without context related to the problem."
+            },
+            {
+                "statement": "PT6 S020SWM-SWM",
+                "verdict": "no",
+                "reason": "The statement 'PT6 S020SWM-SWM' appears to be an example of port configuration, but it does not directly address the issue of checking ION node connectivity. It might be related to a different system or component."
+            },
+            {
+                "statement": "2 16 S@2COSWM3 (4366.16)",
+                "verdict": "no",
+                "reason": "This statement seems to provide an example of port numbers and configurations, but it does not explain what steps should be taken when ION node loses connection."
+            },
+            {
+                "statement": "[root@nn31%TH3 swm_port_train]# ./swm_opposite _port.sh 3 6 IONC9SWM8",
+                "verdict": "no",
+                "reason": "This command example does not directly answer the question about what to check first when an ION node loses connection."
+            },
+            {
+                "statement": "optical_portSWM-io\u670d\u52a1\u5668",
+                "verdict": "no",
+                "reason": "The term 'optical_port' and mention of 'SWM-io server' are not directly relevant to the steps for checking connectivity after an ION node disconnects. They might be part of a broader system but do not address the immediate issue."
+            },
+            {
+                "statement": "Link to Service: ions\u2019",
+                "verdict": "no",
+                "reason": "This statement is about linking services and does not provide specific steps for checking connectivity when an ION node loses connection."
+            },
+            {
+                "statement": "5.2.1.5 \u67e5\u770b\u677f\u5361\u7684\u7f51\u7edc\u94fe\u8def",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u67e5\u8be2NRM\uff1a/home/test641/smu/nrm_port_train/nrm_train_read.sh",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "[root@mn31%TH3 nrm_port_train]# ./nrm_train_read.sh P911CO1NRM1",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "se PO11COINRMI FH back=====",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "----chip 3----",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "3-31-P18:14 0",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "PU18: 3 32 S@4C2SWM1 (4999.32)",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u503c\u73ed\u5458\u53d1\u73b0\u67d0ION\u8282\u70b9\u5931\u53bb\u8fde\u63a5\u540e\uff0c\u7b2c\u4e00\u6b65\u5e94\u68c0\u67e5\u54ea\u4e9b\u5185\u5bb9\uff1f",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u7684\u677f\u5361\u6389\u7535\uff0c\u5148\u7528\u7ed5\u8def\u7531\u811a\u672c\u628a\u8be5\u677f\u5361\u7ed5\u8fc7\u53bb\uff0c\u7136\u540e\u53ef\u67e5\u8be2\u6389\u7535\u539f\u56e0\uff0c\u5728\u90e8\u95e8\u7fa4\u91cc\u901a\u77e5\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5982\u679c\u662fION/IOS\u677f\u5361\u6389\u7535\uff0c\u7acb\u5373\u8054\u7cfb\u4e8c\u7ebf\u786e\u8ba4\u5f71\u54cd\u8303\u56f4\u3001\u8054\u7cfb\u79d1\u5927\u66f4\u6362\u5bf9\u5e94\u677f\u5361\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u673a\u67dc\u6389\u7535\uff1a\u5148\u8054\u7cfb\u8fd0\u7ef4\u67e5\u770b\u4f9b\u7535\u60c5\u51b5\uff0c\u4e0d\u6e05\u695a\u5f71\u54cd\u60c5\u51b5\u8054\u7cfb\u4e8c\u7ebf\u3002",
+                "verdict": "no",
+                "reason": "The statement '\u673a\u67dc\u6389\u7535' is irrelevant to the input because it does not mention anything about ION nodes or their connection loss."
+            },
+            {
+                "statement": "network\u6545\u969c\u62a5\u8b66\uff1a\u5982\u679c\u8282\u70b9\u4e0d\u591a\uff0c\u503c\u73ed\u4eba\u5458\u5148drain\u8d77\u6765\u5373\u53ef\uff1b\u5982\u679c\u8282\u70b9\u5f88\u591a\uff0c\u4e1410\u5206\u949f\u4ecd\u6ca1\u6709\u6062\u590d\uff0c\u9700\u8981\u8054\u7cfb\u4e8c\u7ebf\u786e\u8ba4\u4e00\u4e0b\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "5.2.3 \u94fe\u8def\u95ee\u9898",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "5.2.3.1 \u94fe\u8def\u65ad\u5f00",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u8bf4\u660e\uff1a\u94fe\u8def\u65ad\u5f00\u5148\u786e\u5b9a\u4f4d\u7f6e\u4ee5\u53ca\u62a5\u8b66\u7684\u4e24\u4e2a\u7aef\u53e3\uff0c\u5373\u786e\u8ba4\u662fSWM-NRM\u3001SWM-SWM\u6216\u8005\u662fSWM-IO\u670d\u52a1\u5668\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u4e00\u822c\u6765\u8bb2\uff0cSxxxxxPUxx\u94fe\u8def\u65ad\u5f00\u662fSWM-NRM\uff1b\u540c\u65f6SxxxxxPUxx\u548cIOxxxxPU16\u6216\u8005IOxxxxPUxx\u548cIOxxxxPUxx\u65ad\u5f00\uff0c\u662fSWM-SWM\uff1bIOxxxxPUxx\u65ad\u5f00\u662fSWM-IO\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5982\u679c\u662fSWM-IO\u53c2\u80035.2.2\u670d\u52a1\u5668\u94fe\u8def\u3002",
+                "verdict": "no",
+                "reason": "The statement '\u5982\u679c\u662fSWM-IO\u53c2\u80035.2.2\u670d\u52a1\u5668\u94fe\u8def' is irrelevant to the input because it does not directly address the question of what to check when an ION node loses connection."
+            },
+            {
+                "statement": "\u62a5\u8b66\u9879\uff1aSxxxxxPUXX\u94fe\u8def\u8fde\u63a5\u65ad\u5f00",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "S16B02PU13\u94fe\u8def\u65ad\u5f00\u94fe\u63a5",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "S16A02PU16\u94fe\u8def\u65ad\u5f00\u94fe\u63a5",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "TH-3F TH-3F TH-3F \u7ba1\u7406\u8282\u70b9\u7ba1\u7406\u8282\u70b9\u7ba1\u7406\u8282\u70b9\u786c\u4ef6\u786c\u4ef6\u786c\u4ef6Pe\u00b0 PH\u00b0 PH\u5904\u7406\u65b9\u6cd5\uff1a",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u94fe\u8def\u65ad\u5f00\uff08\u63e1\u624b\u5931\u8d25\uff09\u53ef\u4ee5\u5148\u5c1d\u8bd5\u4f7f\u7528\u811a\u672c\u8fdb\u884c\u7aef\u53e3\u8bad\u7ec3\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u6839\u636e\u62a5\u8b66\u7684PU\u7aef\u53e3\u53f7\uff0c\u5bf9\u7167\u4e0b\u56fe\u4e2d\u7684\u82af\u7247+\u7aef\u53e3\u53f7\uff0c\u7136\u540e\u4f7f\u7528\u811a\u672c\u8fdb\u884c\u8bad\u7ec3\u3002",
+                "verdict": "no",
+                "reason": "The statement '\u6839\u636e\u62a5\u8b66\u7684PU\u7aef\u53e3\u53f7\uff0c\u5bf9\u7167\u4e0b\u56fe\u4e2d\u7684\u82af\u7247+\u7aef\u53e3\u53f7' is irrelevant to the input because it does not provide specific information about checking ION nodes."
+            },
+            {
+                "statement": "| COCORCOSS | 2 OO etc.",
+                "verdict": "no",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u53ef\u4ee5ssh\u8fdb\u53bb\u3002",
+                "verdict": "no",
+                "reason": "The statement 'can ssh in' is irrelevant to the input question about what steps to take when an ION node loses connection. The context does not mention any achievements related to Einstein, but rather describes a procedure for network troubleshooting."
+            },
+            {
+                "statement": "\u82e5\u6ca1\u6709\u7cfb\u7edf\uff0c\u6216\u5f00\u673a\u5361\u4f4f\uff0c\u89c2\u5bdfib\u7f51\u5361\uff08\u63d2\u4e00\u6839\u7eff\u7ebf\u7684\uff09\u662f\u5426\u6709\u7eff\u706f\u95ea\u70c1\u6216\u5e38\u91cf\u3002\u82e5\u4e0d\u4eae\uff0c\u66f4\u6362ib\u7f51\u5361\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u82e5\u8fdb\u7cfb\u7edf\u6b63\u5e38\uff0c\u53c2\u80035.2.2\uff0c\u5904\u7406ion\u94fe\u8def\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u89c2\u5bdfion\u89c2\u5bdf\u9ad8\u901f\u7f51\u5361\uff08\u63d2\u4e24\u6839\u7eff\u7ebf\u6216\u6a59\u7ebf\u7684\uff09\u4e24\u4e2a\u7f51\u53e3\uff0c\u662f\u5426\u6709\u7eff\u706f\u95ea\u70c1\u6216\u5e38\u91cf\uff0c\u6b63\u5e38\u672a\u4e24\u4e2a\u7f51\u5361\u706f\u5e38\u4eae\u3002\u53ef\u4ea4\u6362\u4e24\u6839\u9ad8\u901f\u7f51\u7ebf\u518d\u63d2\u5165\uff0c\u5224\u65ad\u662f\u5426\u4e3a\u9ad8\u901f\u7f51\u5361\u6545\u969c\uff1a\u82e5\u4ea4\u6362\u540e\u7f51\u53e3\u6307\u793a\u706f\u65e0\u53d8\u5316\uff0c\u66f4\u6362\u9ad8\u901f\u7f51\u5361\uff1b\u82e5\u4ea4\u6362\u63a5\u53e3\u540e\u6307\u793a\u706f\u72b6\u6001\u6709\u53d8\u5316\uff0c\u8054\u7cfb\u79d1\u5927\u503c\u73ed\u4eba\u5458\u66f4\u6362\u9ad8\u901f\u7f51\u7ebf\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "5.1.6 mds\u5931\u53bb\u8fde\u63a5 1)\u6302\u8d77\u5bf9\u5e94\u5206\u533a\u4f5c\u4e1a\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u5267\u672c\u7f16\u6392 \u5267\u672c\u6267\u884c \u5176\u4ed6\u64cd\u4f5c \u8282\u70b9\u64cd\u4f5c TH-HPC4 TH-HPC TH-eX \u00a9 TH-3F BO \u5b58\u50a8\u5206\u533a\u64cd\u4f5c \u00a9 thfst TH-eX = TH-3F \u5168 TH-3F > thfs1 \u5206\u533a\u4f5c\u4e1a\u6062\u590dAR EE",
+                "verdict": "no",
+                "reason": ""
+            },
+            {
+                "statement": "2)\u91cd\u542f THeX = TH-3F \u5176\u4ed6\u64cd\u4f5c \u8282\u70b9\u64cd\u4f5c\u4e00 \u603b\u89c8TH-HPC4DPTH-3F :TH-HPC \u5267\u672c\u7f16\u6392>TH-eX 1903\u7f51\u7edc\u62a5\u8b66ION RABE...SRT RESP in.MDS RBBSP...OST RABEEP...",
+                "verdict": "no",
+                "reason": ""
+            },
+            {
+                "statement": "RIMSDBRS ME O \u8d44\u6e90\u64cd\u4f5c 0 \u7528\u6237\u64cd\u4f5c Of \u4f5c\u4e1a\u64cd\u4f5c \u00a9 \u670d\u52a1\u64cd\u4f5c O \u6570\u636e\u62f7\u8d1d \u5c40 \u5e94\u6025\u64cd\u4f5c =) \u67e5\u8bb0ipmi\u65e5\u5fd7AAS \u60a8\u786e\u5b9a\u8981\u6267\u884c\u7535\u6e90\u7ba1\u7406\u64cd\u4f5c\u5417? * \u8282\u70b9\u540d \u201dmds0 +\u52a8\u4f5c | \u91cd\u542f",
+                "verdict": "no",
+                "reason": ""
+            },
+            {
+                "statement": "3\uff09\u7b49\u5f85\u62a5\u8b66\u6d88\u5931\u3002\u67e5\u8be2\u5b58\u50a8\u5206\u533a\u7684\u94fe\u63a5\u6570\u662f\u5426\u6b63\u5e38\uff08healthy\u5373\u6b63\u5e38\uff09\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "4\uff09\u6062\u590d\u4f5c\u4e1a\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u5267\u672c\u7f16\u6392 \u5267\u672c\u6267\u884c \u5176\u4ed6\u64cd\u4f5c \u8282\u70b9\u64cd\u4f5c TH-HPC4 TH-HPC TH-eX \u00a9 TH-3F BO \u5b58\u50a8\u5206\u533a\u64cd\u4f5c \u00a9 thfst TH-eX = TH-3F \u5168 TH-3F > thfs1 \u5206\u533a\u4f5c\u4e1a\u6062\u590dAR EE",
+                "verdict": "no",
+                "reason": ""
+            },
+            {
+                "statement": "5.2 \u7f51\u7edc\u6545\u969c \u51fa\u73b0\u7f51\u7edc\u62a5\u8b66\uff0c\u5e94\u9996\u5148\u5224\u65ad\u5f71\u54cd\u8303\u56f4\uff0c\u662f\u94fe\u8def\u65ad\u5f00\u3001\u677f\u5361\u6389\u7535\u3001\u6574\u4e2a\u673a\u67dc\u6389\u7535\u3001\u8fde\u63a5\u9ad8\u901f\u7f51\u7684\u670d\u52a1\u5668\u6b7b\u673a\u6216\u91cd\u542f\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "5.2.1\u7f51\u7edc\u811a\u672c\u8f93\u5165\u8bf4\u660e JSON:",
+                "verdict": "no",
+                "reason": ""
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u5417? 3.4.2 \u8d1f\u8f7d\u8fc7\u9ad8 \uff081\uff09\u9009\u62e9\u6309CPU\u6216\u5185\u5b58\u67e5\u770b\u5bfc\u81f4\u7cfb\u7edf\u8d1f\u8f7d\u8fc7\u9ad8\u7684\u7528\u6237\u8fdb\u7a0b\u3002",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "\u7edf\u4e00\u76d1\u63a7\u8fd0\u7ef4\u5e73\u53f0= \u8fd0\u7ef4\u7ba1\u7406axa @ \u5b9a\u5236\u5927\u5c4f\u673a\u623f\u8fd0\u7ef4\u603b\u89c8\u5267\u672c\u6267\u884c TH-HPC \u5176\u4ed6\u64cd\u4f5c th-hpct-IndQ 5cq \u8282\u70b9\u7f16\u53f7: th-hpc1-Ind \u65e5| s TH-HPC FRE: 2523\u6240\u5c5e\u96c6\u7fa4 TH-HPC \u5267\u672c\u7f16\u6392~\u52a0 HPC1-127 \u65e5 login\u8282\u70b9\u540d\u79f0: th-hpc1-In0\u6240\u5c5e\u5206\u533a:_null a\u8282\u70b9\u7c7b\u578b: \u767b\u5f55\u8282\u70b9\u5b58\u50a8\u4f4d\u7f6e: \u8001\u673a\u623f-TH-HPC-HPC1-127-12.0 \u6267\u884c\u5ba1\u8ba1 \u67e5\u8be2\u65e5\u5fd7\u67e5\u8be2\u5185\u5b58\u6e05\u9664\u8fdb\u7a0b\u6e05\u9664\u7528\u6237\u8fdb\u7a0b th-hpc1-In0:cpu\u8fdb\u7a0b\u6392\u5e8f X \u5929\u5bf9\u6267\u884c \u547d\u4ee4\u8f93\u51fa:",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "changed: [121.16.3.1] SPU/\u5185\u5b58\u7684\u4f7f\u7528\u6392\u5e8f ok: [121.16.3.1] => (item) { VSZ RSS TTYSTAT STARTTame [command\u2122,] angyq 5735@.2 308900 148640 pts/101 Rt 09:04 10:28 ncl 16.ncl\u201d , root33364 12.6 12.6 0.0 124128 6408 ?S69:15 \u201c6:63 /bin/sh /usr/local/bin/rkhunter -c -i",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "nslcd2398 3.2 \u00a9.0 442336 1432 ?Ssl 4\u670816 1429:26 /usr/sbin/nslcd, linxubo 22342 2.0 @.@ 59000 2240 ?Ss 09:15 @:0@ /usr/libexec/openssh/",
+                "verdict": "yes",
+                "reason": ""
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u503c\u73ed\u5458\u53d1\u73b0\u67d0ION\u8282\u70b9\u5931\u53bb\u8fde\u63a5\u540e\uff0c\u7b2c\u4e00\u6b65\u5e94\u68c0\u67e5\u54ea\u4e9b\u5185\u5bb9\uff1f",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": ":11 /usr/lib/systemd/systemd-journald",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "linxubo 22342 2.0 @.@ 59000 2240 ?Ss 09:15 @:0@ /usr/libexec/openssh/sftp-server",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "root2264 1.4 @.1 5182264 106456 ?SLsl 4\u670816 644:38 /opt/thsre/exporters/telegraf/telegr",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u201croot21684 1.0 0.0 159956 5688 ?Ss 9:15 0:0 sshd: linxubo [priv]\u201d",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "linxubo 22501 1.0 6.9 119748 2028 ?Ss 69:15 @:0@ bash -c while true; do sleep 1;head",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u56fe\uff1a\u6309CPU\u4f7f\u7528\u7387\u67e5\u770b\u7528\u6237\u8fdb\u7a0b",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\uff082\uff09\u6e05\u7406\u7528\u6237\u7684\u67d0\u4e2a\u8fdb\u7a0b\u3002\u901a\u8fc7\u7b2c\u4e00\u6b65\u5f97\u5230\u4f7f\u7528\u7387\u9ad8\u7684\u8fdb\u7a0bID\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u7edf\u4e00\u76d1\u63a7\u8fd0\u7ef4\u5e73\u53f0\u8fd0\u7ef4\u7ba1\u7406 \u3001SAR \u3002 \u673a\u623f \u8fd0\u7ef4\u603b\u89c8",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "TH-HPC \u5176\u4ed6\u64cd\u4f5c \u8282\u70b9\u64cd\u4f5c th-hpct-IndQ on?",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u65e5 @ THHPC \u5267\u672c\u7f16\u6392\u65e5 HPC1-127 \u5267\u672c\u6267\u884c\u00a9 th-hpct-Ind",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u8282\u70b9\u7f16\u53f7: th-hpc1-In0 \u5e8f\u53f7: 2523 \u8282\u70b9\u540d\u79f0: th-hpc1-In0 \u8282\u70b9\u7c7b\u578b: \u767b\u5f55\u8282\u70b9 \u67e5\u8be2\u5185\u5b58 \u6240\u5c5e\u96c6\u7fa4 TH-HPC \u6240\u5c5e\u5206\u533a:_null \u5b58\u50a8\u4f4d\u7f6e: \u8001\u673a\u623f-TH-HPC-HPC1-127-12.0",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "vo \u6e05\u9664\u5355\u4e2a\u8fdb\u7a0b \u6e05\u9664\u7528\u6237\u8fdb\u7a0b \u786c\u76d8\u5927\u5c0f: \u65e0\u786c\u76d8 \u786c\u76d8\u7c7b\u578b; \u65e0\u786c\u76d8 \u8282\u70b9\u72b6\u6001: sea cpu\u8fdb\u7a0b\u6392\u5e8f \uff083\uff09\u6e05\u9664\u7528\u6237\u5168\u90e8\u8fdb\u7a0b\u3002\u901a\u8fc7\u7b2c\u4e00\u6b65\u5f97\u5230\u4f7f\u7528\u7387\u9ad8\u7684\u7528\u6237\u540d",
+                "verdict": "no",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u5206\u533a\u4f5c\u4e1a\u6062\u590dAR EE",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u51fa\u73b0\u7f51\u7edc\u62a5\u8b66\uff0c\u5e94\u9996\u5148\u5224\u65ad\u5f71\u54cd\u8303\u56f4\uff0c\u662f\u94fe\u8def\u65ad\u5f00\u3001\u677f\u5361\u6389\u7535\u3001\u6574\u4e2a\u673a\u67dc\u638910\u3001\u8fde\u63a5\u9ad8\u901f\u7f51\u7684\u670d\u52a1\u5668\u6b7b\u673a\u6216\u91cd\u542f\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u4e0d\u540c\u811a\u672c\u5bf9\u677f\u5361\u7684\u7f16\u53f7\u4e0d\u4e00\u6837\uff0c\u6709\u7684\u662f\u7528ABCD\u8868\u793a4\u4e2a\u6846\uff0c\u6709\u7684\u7528C0\u3001C1\u3001C2\u3001C3\u8868\u793a\uff0c\u6709\u7684\u7528C00\u3001C01\u3001C02\u3001C03\u8868\u793a\u3002\u53ef\u4ee5\u811a\u672c\u5148\u56de\u8f66\u770b\u770b\u793a\u4f8b\u3002",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u6839\u636eyhst+\u62a5\u8b66\u677f\u5361 \u53ef\u4ee5\u67e5\u8be2\u5230\u5bf9\u5e94\u7684cmu\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "| yhst S14C3SWM2|",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "smu_transfer_cmd| r3.pi5d.m |yhst|",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "| SwM69 SWMO1 SWM@2 SWMO3 SWMO4 SWMO5 SWMO6 SWMO7 SWMO8 SWMO9 SWM10 SWM@12 SWM13 SWM14 SWM15 |",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "|1111111111111111|",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "NetWork ERROR",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5982\u56fe\u4e2d yhst S14C3SWM2\u67e5\u8be2\u51facmu\u7f16\u53f7r3.p15d.m\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "r3. p15d. m",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "f4NN",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "HS \u673a\u67dc\u53f7 \u6846\u53f7 EM| 0-2:\u8ba1\u7b97\u67dc | 00-19\uff1a \u201c|A\u6846:a |\u4e3b:m = 3 :\u901a\u4fe1\u67dc_| BHE:bMes | 4-6: \u8ba1\u7b97\u67dcC\u6846:c | LD\u6846:d",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "| 0-2:\u8ba1\u7b97\u67dc | 00-19\uff1a \u201c|A\u6846:a |\u4e3b:m = 3 :\u901a\u4fe1\u67dc_| BHE:bMes | 4-6: \u8ba1\u7b97\u67dcC\u6846:c | LD\u6846:d",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "| NRM\uff08SWM\u4e00\u6837\uff09\u5404\u7aef\u53e3\u5bf9\u5e94\uff1a| it coee GOGO | POO? 9 ] | it |\u7f51\u7edc\u76f8\u5173\u811a\u672c\u4e00\u822c\u7684\u8f93\u5165\u662f\u677f\u5361+\u82af\u7247+\u82af\u7247\u7aef\u53e3\uff0c\u62a5\u8b66\u4e00\u822c\u662f\u677f\u5361+PU\u53f7\uff0c\u4f7f\u7528\u811a\u672c\u7684\u65f6\u5019\u9700\u8981\u8fdb\u884c\u8f6c\u6362\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "| S14A02PU13\u94fe\u8def\u65ad\u5f00\u94fe\u63a5|",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "| S13D02PU16\u94fe\u8def\u65ad\u5f00\u94fe\u63a5|",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "| S09B02PU12\u94fe\u8def\u65ad\u5f00\u94fe\u63a5|",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "| S05AO1PU08|\u67dc\u6846\u677f\u53f7 \u5149\u53e3 2 6 SOSCOSWM1|",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u503c\u73ed\u5458\u53d1\u73b0\u67d0ION\u8282\u70b9\u5931\u53bb\u8fde\u63a5\u540e\uff0c\u7b2c\u4e00\u6b65\u5e94\u68c0\u67e5\u54ea\u4e9b\u5185\u5bb9\uff1f",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "Nd cele Bal ale KN aa \u56fd =ma sae FF ia aa1 HL \u53ea Hi \u00a9 Ha | | RS Kal | Bl | selk -\u4e00\u5168 Laz} a2 | 10 | 22 | 20 | 22 | 23",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "./lanebist_train_opposite_port.sh+\u82af\u7247\u53f7+\u7aef\u53e3\u53f7+\u677f\u5361\u53f7 \u53ef\u4ee5\u540c\u65f6\u8bad\u7ec3\u6b64\u7aef\u53e3\u548c\u5bf9\u7aef\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "[root@mn31%TH3 ~]# cd /home/test641/smu/nrm_port_train/ [root@mn31%TH3 nrm_port_train]# ./lanebist_train_opposite_port.sh 2 6 S05C0SWM1",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "[root@nn31%TH3 nrm_port_train]# ./lanebist_train_opposite_port.sh 3 6 P699C92NRM1",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "lanebist train PCB P699C92NRM1 3:0----2:6 S95C9SWM1",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "0x01ff000511b8\u8be5\u884c\u5012\u65703\u30014\u4f4d\u662fe9\u8868\u793a\u63e1\u624b\u6210\u529f (MISES) , eM ERIKS.",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "6x000000000032014T) \u8be5\u884c\u6700\u540e\u4e00\u4f4d\u662ff\u8868\u793a\u901a\u9053\u6570\u6b63\u5e38 (\u7f51\u7edc\u5e26\u5e2d\u6b63\u5e38) \uff0c\u975e\u503a\u793a\u5e26\u904d\u5c0f\uff0c\u4f46\u4e0d\u5f71\u54cd\u7f51\u7edc\u901a\u4fe1",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5982\u679c\u4e0a\u8ff0\u64cd\u4f5c\u5904\u7406\u4e0d\u597d\uff0c\u53ef\u4ee5\u6839\u636e\u7aef\u53e3\u53f7\u53bb\u673a\u623f\u62d4\u63d2\u4e00\u4e0b\u4e24\u7aef\u7684\u5149\u7ea4\u7ebf\u3002\u53c2\u80035.2.1.4\u4f7f\u7528\u811a\u672cswm_opposite_port.sh\u67e5\u8be2\u5bf9\u7aef\uff0c\u5e76\u5c06\u82af\u7247+\u7aef\u53e3\u8f6c\u6362\u6210PU\u7684\u683c\u5f0f\uff08\u53c2\u80035.2.1.3\uff09\uff0c\u5728\u673a\u67dc\u4e0a\u5bfb\u627e\u5bf9\u5e94\u7684\u6807\u7b7e\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5728\u673a\u623f\u5206\u522b\u62d4\u63d2\u8fd9\u4e24\u4e2a\u7aef\u53e3\u3002\u8981\u628a\u4e24\u7aef\u7684\u7ebf\u90fd\u62d4\u6389\uff0c\u518d\u4f9d\u6b21\u63d2\u4e0a\u3002\u518d\u91cd\u590d\u4e00\u6b21\uff081\uff09\u4e2d\u7684\u64cd\u4f5c\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5982\u679c\u62d4\u63d2\u8fd8\u662f\u4e0d\u884c\uff0c\u8054\u7cfb\u79d1\u5927641\u5904\u7406\u3002",
+                "verdict": "no",
+                "reason": "The statement 'If pulling the plugs doesn't work, contact KeDa 641.' is irrelevant to the input because it does not provide information about what to check first after an ION node loses connection. The input asks for the initial checks, and this statement only describes a later step if other methods fail."
+            },
+            {
+                "statement": "5.2.3.2 \u94fe\u8def\u901a\u9053\u6570\u51cf\u5c11 \u62a5\u8b66\u9879\uff08\u9ec4\u8272\u8b66\u544a\uff09\uff1axx\u901a\u9053\u6570\u51cf\u5c11 S02A02PU22,\u901a\u9053\u6570\u51cf\u5c11",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "TH-3F \u7ba1\u7406\u8282\u70b9 \u786c\u4ef6 \u4e0e5.2.3.1\u5904\u7406\u65b9\u6cd5\u4e00\u6837\uff0c\u4f46\u662f\u4e00\u822c\u4e0d\u7740\u6025\u5904\u7406\uff0c\u901a\u9053\u6570\u51cf\u5c11\u53ea\u5f71\u54cd\u5e26\u5bbd\uff0c\u5e76\u4e0d\u5f71\u54cd\u94fe\u8def\u7684\u901a\u65ad\u3002",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "- S94C2SwM1-9 =",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "- Se4C2SWM1-1 -",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "P@11CO1NRM1",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "P@13COONRM1",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "P@13CO1NRM1",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "P@13CO2NRM1",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "P@13CO3NRM1",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "P@14COONRM1",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "P@14CO1NRM1",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "P@14CO2NRM1",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "P@14CO3NRM1",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "<=port no used.",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u4ee5\u4e0a\u201c14 0\u201d\u3001\u201c14 f\u201d\u8868\u793a\u94fe\u8def\u65ad\u5f00\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "5.2.2 \u7f51\u7edc\u62a5\u8b66\u4e00\u4e9b\u8bf4\u660e",
+                "verdict": "no",
+                "reason": "The statement '5.2.2 \u7f51\u7edc\u62a5\u8b66\u4e00\u4e9b\u8bf4\u660e' is a section title and does not contain specific information about the ION node or what to check."
+            },
+            {
+                "statement": "0\u5e73\u9762\u666e\u901a\u901a\u4fe1\u673a\u67dc\uff08S09-S16\uff09\u5355\u6761\u94fe\u8def\u65ad\u5f00\u62a5\u8b66\uff0c\u62a5\u8b66\u7ea7\u522b\u662f\u4e25\u91cd\uff0c\u9700\u8981\u7acb\u5373\u5904\u7406\uff0c\u53ef\u4ee5\u5c1d\u8bd5\u8bad\u7ec3\u94fe\u8def\u6216\u62d4\u63d2\u5149\u7ea4\uff0c\u62d4\u63d2\u65e0\u6548\u53ef\u4ee5\u901a\u8fc7\u8def\u7531\u5bb9\u9519\uff08\u7ed5\u8def\u7531\uff09\u811a\u672c\uff08\u53c2\u80035.2.9\uff09\u5c06\u8be5\u6846\u5148\u7ed5\u8fc7\u53bb\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "1\u5e73\u9762\u666e\u901a\u901a\u4fe1\u673a\u67dc\uff08S09-S16\uff09\u5355\u6761\u94fe\u8def\u65ad\u5f00\u62a5\u8b66\uff0c\u62a5\u8b66\u7ea7\u522b\u662f\u4e25\u91cd\uff0c\u9700\u8981\u7acb\u5373\u5904\u7406\uff0c\u53ef\u4ee5\u5c1d\u8bd5\u8bad\u7ec3\u94fe\u8def\u6216\u62d4\u63d2\u5149\u7ea4\uff0c\u62d4\u63d2\u65e0\u6548\u53ef\u4ee5\u901a\u8fc7\u8def\u7531\u5bb9\u9519\uff08\u7ed5\u8def\u7531\uff09\u811a\u672c\uff08\u53c2\u80035.2.9\uff09\u5c06\u8be5\u6846\u5148\u7ed5\u8fc7\u53bb\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "ION/IOS\u901a\u4fe1\u673a\u67dc\u94fe\u8def\u62a5\u8b66\uff0c\u5355\u6761\u94fe\u8def\u6216\u591a\u6761\u94fe\u8def\u65ad\u5f00\uff0c\u786e\u8ba4\u662f\u901a\u4fe1\u673a\u67dc\u4e92\u8054\u8fd8\u662f\u8fde\u63a5\u670d\u52a1\u5668\u7684\u7aef\u53e3\u3002\u5982\u679c\u662f\u901a\u4fe1\u673a\u67dc\u4e92\u8054\uff0c\u4e00\u822c\u9700\u8981\u7acb\u5373\u5904\u7406\uff0c\u9700\u8981\u786e\u8ba4\u662f\u5426\u6709\u677f\u5361\u6389\u7535\uff0c\u82e5\u65e0\u6389\u7535\uff0c\u9700\u8981\u8bad\u7ec3\u94fe\u8def\u6216\u62d4\u63d2\u5149\u7ea4\uff1b\u82e5\u662f\u670d\u52a1\u5668\u7aef\u53e3\uff0c\u9700\u8981\u786e\u8ba4\u5bf9\u5e94\u670d\u52a1\u5668\u662f\u5426\u6b7b\u673a\uff0c\u82e5\u670d\u52a1\u5668\u6b7b\u673a\u5219\u91cd\u542f\u670d\u52a1\u5668\uff0c\u82e5\u672a\u6b7b\u673a\u53ea\u6709\u9ad8\u901f\u7f51\u6709\u95ee\u9898\uff0c\u5219\u67e5\u627e\u670d\u52a1\u5668\u7684\u5149\u7ea4\u7aef\u53e3\uff0c\u8fdb\u884c\u62d4\u63d2\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "NRM\u6389\u7535\uff1a\u5f71\u54cd\u672c\u6846\u4f5c\u4e1a\uff0c\u5224\u65ad\u677f\u5361\u4f4d\u7f6e\uff0cS00-S07\u6bcf\u6846\u6709\u4e00\u6761\u94fe\u8def\u65ad\u5f00\u5373\u4e3a0\u5e73\u9762nrm\u6389\u7535\uff0c\u53ef\u4ee5\u6309\u7167\u624b\u518c\u5904\u7406\uff0c\u6b64\u65f6\u8282\u70b9\u901a\u4fe1\u8fd8\u5728\uff0c\u53ea\u8981\u4e0d\u662f\u8bfb\u5199\u9ad8\u7684\u4f5c\u4e1a\u90fd\u80fd\u62ef\u6551\uff0c\u5982\u679c\u6062\u590d\u4e0d\u6210\u529f\uff0c\u9700\u8981\u62a5\u544a\u4e8c\u7ebf\u5904\u7406\uff1b\u5982\u679c\u62a5\u8b66\u662fS09-S16\u6bcf\u6846\u4e00\u6761\u94fe\u8def\uff0c\u90a3\u4e48\u662f1\u5e73\u9762nrm\u6389\u7535\uff0c\u5bf9\u5e94\u6846\u7684\u4f5c\u4e1a\u5df2\u7ecf\u6389\u4e86\uff0c\u53ef\u4ee5\u5c1d\u8bd5\u6309\u7167\u624b\u518c\u5904\u7406\uff0c\u7b2c\u4e8c\u5929\u518d\u62a5\u544a\u4e8c\u7ebf\u5373\u53ef\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "Swm\u6389\u7535\uff1a\u67e5\u8be2\u6389\u7535\u677f\u5361\u4f4d\u7f6e\uff0c\u5982\u679c\u662fS00~S07\u3001S09~S16\u673a\u67dc\u7684\u677f\u5361\u6389\u7535\uff0c\u5148\u7528\u7ed5\u8def\u7531\u811a\u672c\u628a\u8be5\u677f\u5361\u7ed5\u8fc7\u53bb\uff0c\u7136\u540e\u53ef\u67e5\u8be2\u6389\u7535\u539f\u56e0\uff0c\u5728\u90e8\u95e8\u7fa4\u91cc\u901a\u77e5\u3002\u5982\u679c\u662fION/IOS\u677f\u5361\u6389\u7535\uff0c\u7acb\u5373\u8054\u7cfb\u4e8c\u7ebf\u786e\u8ba4\u5f71\u54cd\u8303\u56f4\u3001\u8054\u7cfb\u79d1\u5927\u66f4\u6362\u5bf9\u5e94\u677f\u5361\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u673a\u67dc\u6389\u7535\uff1a",
+                "verdict": "no",
+                "reason": "The statement '\u673a\u67dc\u6389\u7535' is a section title and does not contain specific information about the ION node or what to check."
+            }
+        ]
+    }
+]
+ 
+Score: 0.5434782608695652
+Reason: The contextual relevancy score is 0.54 because the retrieval context provided information about checking ION nodes (e.g., '值班员发现某ION节点失去连接后，第一步应检查是否能通过ssh登录' and other steps) but also included many irrelevant statements like those mentioning 'channel number reduction', alarm levels, or specific port configurations unrelated to the initial check after disconnection. The relevant parts confirm that checking SSH connectivity is part of the process, while the irrelevancy reasons highlight several disconnected topics.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Faithfulness Verbose Logs
+**************************************************
+
+Truths (limit=None):
+[
+    "链路断开时需确定端口位置。",
+    "区分SWM-NRM、SWM-SWM或SWM-IO类型。",
+    "使用脚本训练端口或拔插光纤作为处理方法。",
+    "通道数减少影响带宽但不影响通信，可暂缓处理。",
+    "握手变化或重传次数过多需关注，但一般不紧急处理。",
+    "根据报警级别采取相应措施：如绕路由、重启服务器或联系二线处理。",
+    "红色报警是链路断开。",
+    "黄色警告是通道数减少和握手变化/重传次数过多。",
+    "SxxxxxPUxx链路断开对应SWM-NRM类型。",
+    "同时SxxxxxPUxx和IOxxxxPUxx链路断开或者IOxxxxxx和IOxxxxxx断开，对应SWM-SWM类型。",
+    "IOxxxxPUxx断开对应SWM-IO类型。",
+    "如果是SWM-IO参考5.2.2服务器链路处理方法。",
+    "红色报警项是SxxxxxPUXX链路连接断开。",
+    "黄色警告项是通道数减少和握手变化/重传次数过多。",
+    "对于NRM掉电，可以使用绕路由脚本将该板卡绕过去。",
+    "如果lane缺失，可以通过执行特定脚本进行训练，并根据寄存器值判断是否恢复。",
+    "服务器端口训练无效时需定位通信板端口并进行进一步训练。",
+    "处理过程中需记录端口信息并交接给接班人员。",
+    "使用single_port.sh命令对指定芯片、端口和板卡进行训练，参数为3个：芯片号-端口号-板卡号。",
+    "通过输出判断lane是否正常，例如该行倒数第3、4位为e9表示握手成功，最后一位为f表示lane正常。",
+    "若训练后仍存在问题，需检查fec配置，并确保其开启。",
+    "0表示pcs关fec，1表示开fec；0x0000000000000001表示已关fec，0x0000000000000016表示已开fec。",
+    "对于大量链路报警情况，需根据报警位置判断是否为NRM掉电。",
+    "通过命令查询并drain节点后重启NRM恢复。",
+    "如果是ION/IOS板卡掉电，立即联系二线确认影响范围、联系科大更换对应板卡。",
+    "机柜掉电：先联系运维查看供电情况，不清楚影响情况联系二线。",
+    "network故障报警如果节点不多，值班人员drain起来即可；如果节点很多且10分钟未恢复，需要联系二线确认一下。",
+    "对于每个通信框只有一条链路报警的情况，大概率是某个NRM掉电，处理步骤为通过端口查询到具体的NRM。",
+    "将计算框内全部节点drain起来再重启NRM恢复。",
+    "使用yhst+ NRM板卡编号可以查看该框的板卡加电状态，nrm显示0表示掉电。",
+    "truths"
+] 
+ 
+Claims:
+[
+    "If the training port is invalid, the next steps include checking hardware configuration.",
+    "Reinserting the optical fiber can be used to restore the link connection.",
+    "The photoelectric effect laid the foundation for quantum mechanics.",
+    "Einstein was honored with a Nobel Prize in Physics in 1968."
+] 
+ 
+Verdicts:
+[
+    {
+        "verdict": "idk",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "no",
+        "reason": null
+    },
+    {
+        "verdict": "no",
+        "reason": "The claim states that the photoelectric effect laid the foundation for quantum mechanics, but this is not mentioned in the retrieval context. The retrieval context does not provide any information about the photoelectric effect or its relation to quantum mechanics."
+    }
+]
+ 
+Score: 0.5
+Reason: The score is 0.50 because while there are no contradictions between the actual output and the retrieval context regarding other topics, one key point mentioned in the claim (the photoelectric effect laying foundation for quantum mechanics) is not present in the retrieval context.
+
+======================================================================
+Evaluating 2 test case(s) in parallel: |█████     | 50% (1/2) [Time Taken: 05:53, 353.34s/test case]True !!!!!!!!!!!!
+**************************************************
+Faithfulness Verbose Logs
+**************************************************
+
+Truths (limit=None):
+[
+    "登录节点故障包括失去连接和负载过高。",
+    "对于宕机，可以通过堡垒机或监控平台确认节点状态，并通过运维平台重启。",
+    "对于负载过高，可以按CPU或内存查看用户进程并清理高占用进程。",
+    "链路断开时需确定端口位置以区分SWM-NRM、SWM-SWM或SWM-IO类型。",
+    "通道数减少只影响带宽不影响通信，可暂缓处理。",
+    "握手变化或重传次数过多是黄色警告，一般不紧急处理。",
+    "根据报警级别采取相应措施：绕路由脚本、重启服务器或联系二线。",
+    "可以通过堡垒机ssh登录节点来判断是否宕机。",
+    "确认节点宕机后，可通过运维平台直接重启。",
+    "对于MDs失去连接的情况，需挂起作业并等待恢复。",
+    "可以使用监控平台的资源操作功能处理网络故障。",
+    "脚本swm_opposite_port.sh用于查询端口对端信息以确定链路类型。",
+    "板卡编号需要转换成芯片号+端口号格式以便于脚本输入。",
+    "报警项SxxxxxPUxx表示链路断开，属于硬件问题。",
+    "可以通过绕路由脚本来处理通信机柜互联的链路断开问题。",
+    "对于服务器死机导致的网络故障，应重启服务器。",
+    "NRM掉电时，如果是在0平面（S00-S07），每框一条链路断开则触发红报警；如果是1平面（S09-S16）则是黄色警告。",
+    "Swm掉电处理方法是使用绕路由脚本将该板卡绕过去，并查询原因。",
+    "机柜掉电时，应联系运维查看供电情况或二线确认影响范围。",
+    "网络故障报警需要首先判断影响范围：链路断开、板卡掉电等。",
+    "可以使用nrm_train_read.sh和swm_train_read.sh脚本查询板卡信息和端口状态。",
+    "通过观察高速网卡指示灯来判断是否为高速网卡故障，若交换高速网线后指示灯无变化则更换高速网卡。",
+    "当登录节点无法进入系统时，应检查IB网卡指示灯状态，必要时更换网卡。",
+    "如果登录节点进系统正常，则参考5.2.2处理ION链路。",
+    "对于负载过高的情况，可以查看CPU或内存使用率排序的用户进程并清理高占用进程。",
+    "在负载过高情况下，可以通过交换高速网线判断是否为高速网卡故障。",
+    "脚本lanebist_train_opposite_port.sh用于训练端口和对端以解决链路问题。",
+    "板卡掉电时，应先用绕路由脚本处理该板卡再查询原因。",
+    "如果NRM掉电且恢复不成功，则需要报告二线处理。",
+    "对于SWM-NRM、SWM-SWM或SWM-IO类型的服务器故障，可以使用相应的脚本来确定位置并进行操作。"
+] 
+ 
+Claims:
+[
+    "值班员发现某ION节点失去连接后，第一步应检查的内容包括：1. 首先判断ION节点是否真的宕机。",
+    "可以通过堡垒机ssh到该节点查看状态，或者通过监控平台的节点操作里查看节点状态。",
+    "2. 确认节点是否能够通过ssh登录，若无法进入系统，需检查IB网卡指示灯状态，必要时更换网卡。",
+    "3. 若系统正常，则参考特定章节处理ION链路，同时观察高速网卡指示,",
+    "判断故障原因。",
+    "4. 检查网络报警信息，确定报警级别，如是严重级别需要立即处理，可以尝试训练链路或拔插光纤，拔插无效可通过路由容错脚本将该框绕过去。",
+    "5. 确定链路断开的位置以及报警的两个端口，即确认是SWM-NRM、SWM-SWM或者是SWM-IO服务器类型，根据不同的类型采取相应的处理措施。",
+    "6. 查看是否有板卡掉电情况，如果是ION/IOS板卡掉电，立即联系二线确认影响范围并联系科大更换对应板卡。",
+    "7. 情况，确保数据完整性。",
+    "8. 根据报警级别采取相应措施，如绕路由、重启服务器或联系二线处理。"
+] 
+ 
+Verdicts:
+[
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "no",
+        "reason": "The claim states that in the case of ION nodes losing connection, one should check network alarm information to determine the alarm level. However, the retrieval context does not mention anything about checking network alarms for ION nodes specifically when they lose connection."
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "idk",
+        "reason": null
+    },
+    {
+        "verdict": "no",
+        "reason": "The claim says to check if the system is normal and then observe high-speed network card indicators. The retrieval context states that when a login node cannot enter the system, one should check IB network card indicator lights. This does not directly contradict because the claim refers to checking high-speed network cards which are different from IB network cards."
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    }
+]
+ 
+Score: 0.7777777777777778
+Reason: The score is 0.78 because there was a contradiction regarding ION nodes losing connection and another about checking system status versus IB network card indicators.
+
+======================================================================
+Evaluating 2 test case(s) in parallel: |██████████|100% (2/2) [Time Taken: 05:53, 145.84s/test case]Evaluating 2 test case(s) in parallel: |██████████|100% (2/2) [Time Taken: 05:53, 176.97s/test case]
+
+======================================================================
+
+Metrics Summary
+
+  - ✅ Answer Relevancy (score: 0.75, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 0.75 because the response partially addresses the user's query about handling network link disconnection alarms when training ports are invalid by mentioning specific steps, but it does not fully align with the context or provide a complete solution as required., error: None)
+  - ✅ Faithfulness (score: 0.5, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 0.50 because while there are no contradictions between the actual output and the retrieval context regarding other topics, one key point mentioned in the claim (the photoelectric effect laying foundation for quantum mechanics) is not present in the retrieval context., error: None)
+  - ✅ Contextual Precision (score: 0.8083333333333332, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The contextual precision score is 0.81 because there are four relevant nodes (ranked at positions 1,2,4,6) correctly ranked above two irrelevant ones (positions 3 and 5). The score isn't higher due to the irrelevant node at position 3 which discusses other alarms but not invalid training; similarly, the irrelevant node at position 5 covers unrelated issues. However, both relevant nodes are present early in the ranking., error: None)
+  - ❌ Contextual Relevancy (score: 0.3798449612403101, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The contextual relevancy score is 0.38 because the retrieval context primarily describes general alarm handling procedures and technical details about FEC configuration, while only a few statements like '使用脚本训练端口或拔插光纤' (using scripts to train ports or unplugging optical fibers) are marginally relevant as they touch upon actions related to port training but lack specificity for invalid training ports in the context of link disconnection alarms. The irrelevance is supported by the fact that most statements discuss unrelated topics such as channel reduction, handshake changes, and NRM power-off scenarios which do not address the specific issue of handling alarms when training ports are explicitly invalid., error: None)
+  - ✅ Contextual Recall (score: 0.8, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 0.8 because the expected output contains sentences that are well-supported by the retrieval context (nodes mentioned), but one sentence lacks direct support from the provided context., error: None)
+
+For test case:
+
+  - input: 处理网络链路断开报警时，若训练端口无效，下一步应如何操作？
+  - actual output: 若训练端口无效，下一步操作包括检查硬件配置、重新拔插光纤、排查光纤和NIS卡故障以及联系二线处理。1. 检查FEC配置并确保其开启，如果FEC配置不正确可能导致链路问题，需要调整设置。2. 拔插链路重新训练，如果训练端口无效，可以尝试拔掉两端的光纤并重新插入，以恢复链路连接。3. 排查光纤和NIS卡故障，如果光纤损坏或NIS卡出现问题，可能需要更换相关硬件。4. 如果以上步骤无法解决问题，需记录端口信息并交接给接班人员，同时联系二线技术支持进行进一步处理。
+  - expected output: 处理网络链路断开报警时，若训练端口无效，可按以下步骤操作：首先，根据端口号在机房拔插两端的光纤线，通过脚本`swm_opposite_port.sh`查询对端，并将芯片+端口转换成PU格式，找到机柜上对应的标签，拔插后重复训练操作。若拔插光纤后仍无效，则考虑是光纤或服务器的NIS卡故障，可交换服务器两条光纤插入，若指示灯状态不变，可能是NIS卡问题，需更换NIS卡；若指示灯状态变化，则可能是光纤问题，联系科大或二线处理。
+  - context: None
+  - retrieval context: ['链路断开时需确定端口位置，区分SWM-NRM、SWM-SWM或SWM-IO类型，使用脚本训练端口或拔插光纤。通道数减少影响带宽但不影响通信，可暂缓处理。握手变化或重传次数过多需关注，但一般不紧急处理。根据报警级别采取相应措施，如绕路由、重启服务器或联系二线处理。', '文本主要描述了服务器链路异常的处理方法，包括链路握手变化、重传次数过多、链路断开及通道数减少等问题。对于红色报警（链路断开）和黄色警告（通道数减少），需通过训练端口、拔插光纤、检查FEC、更换NIS卡等方式处理。若lane缺失，可通过执行特定脚本进行训练，并根据寄存器值判断是否恢复。若服务器端口训练无效，则需定位通信板端口并进行进一步训练。处理过程中需记录端口信息并交接给接班人员。', '该文本描述了处理通信板端口lane异常的步骤。首先使用`single_port.sh`命令对指定芯片、端口和板卡进行训练，通过输出判断lane是否正常。若训练后仍存在问题，需检查fec配置，并确保其开启。若问题仍未解决，需拔插链路重新训练，或排查光纤、nis卡故障。对于大量链路报警情况，需根据报警位置判断是否为NRM掉电，通过命令查询并drain节点后重启NRM恢复。', '的板卡掉电，先用绕路由脚本把该板卡绕过去，然后可查询掉电原因，在部门群里通知。如果是ION/IOS板卡掉电，立即联系二线确认影响范围、联系科大更换对应板卡。\n机柜掉电：先联系运维查看供电情况，不清楚影响情况联系二线。\nnetwork故障报警：如果节点不多，值班人员先drain起来即可；如果节点很多，且10分钟仍没有恢复，需要联系二线确认一下。\n5.2.3 链路问题\n5.2.3.1 链路断开\n说明：链路断开先确定位置以及报警的两个端口，即确认是SWM-NRM、SWM-SWM或者是SWM-IO服务器。一般来讲，SxxxxxPUxx链路断开是SWM-NRM；同时SxxxxxPUxx和IOxxxxPUxx链路断开或者IOxxxxPUxx和IOxxxxPUxx断开，是SWM-SWM；IOxxxxPUxx断开是SWM-IO。如果是SWM-IO参考5.2.2服务器链路。\n报警项：SxxxxxPUXX链路连接断开\nS16B02PU13链路断开链接\n\nS16B02PU12链路断开链接\n\nS16A02PU16链路断开链接\n\nTH-3F\n\nTH-3F\n\nTH-3F\n\n管理节点\n\n管理节点\n\n管理节点\n\n硬件\n\n硬件\n\n硬件\n\nPe\n\n° PH\n\n° PH\n处理方法：\n链路断开（握手失败）可以先尝试使用脚本进行端口训练。\n根据报警的PU端口号，对照下图中的芯片+端口号，然后使用脚本进行训练。\n|\n\nCOCORCOSS\n\n| |\n\n2 OO\n\nCOGOTOGOS\n\nCOCORCOOS\n\n2 3Ee\n\nLs]\n\nNI\n\n‘3aEe!\n\nNalBs\n\n25 | 13 | 35 | 36\n[ORR] OCH] TAY\non | os | a5\n\n30H |\n7\npry\n\n[Rer ae SCH] IC\n\nalgloele|\n\nORR] OO] SE\n\n片\n\nR50_0\n\n站\n‘1G [elelslals ss]\n\nR50[2]芯\n\nLas\n\nNT\nKNee\nNE ae\nNd cele\nBal ale\nKN aa 国\n=ma\nsae FF\nia\naa1\nHL 只\nHi ©\nHa\n|\n| RS\nKal\n| Bl\n|', '_single_port.sh命令，该命令的参数跟查看lane的命令一样是3个，分别是：芯片号-端口号-板卡号\nCroot@mn30 swum_p\n\nort_train]# ./lanebist_train_single_port.sh\n\n3 31 IONCOSNM10\n\nist set of swm=\nss rs rst (eq_rst) of sum\nist end of swm=\npes soft rst of su\n\nOx01f £00051 1bf{e9|\n\nLb该行倒数第3、4位为e9表示握手成功\n\n9x00000000001023\n\n该行最后1位为f表示lane正常\n训练完后可以从输出上看通信板端口的lane已经恢复。\nion34对应1平面的通信板端口用同样方法训练，然后用（1）中提到的mta_status.sh命令在ion34上进行确认。\nCroot@ion34 “]# cd /root/shelltools_zni/\nCroot@ion34 shelltools_. znilt./mta_status.sh\n\nUNKNOWN (0x420b0)\nUNKNOWN (0x42100)\nport2-fec\nUNKNOHN (0x430b0)\nUNKNOWN (0x43100)\nUNKNOWN (0x43820)\nUNKNOHN (0x43830)\nUNKNOHN (0x43840)\nUNKNOWN (0x43850)\nmtip\n\nUNKNOWN (0x4a340)\nUNKNOHN (0x4a350)\nUNKNOWN (0x44300)\nUNKNOWN (0x46300)\n\nOxb0000\n0x13264]\n\n0x10010\n0x132¢f]\n0x0\n0x0\n0x0\n0x0\n\n0x200\n\n0x1ff00\n0x1ff00\nOx1 fF F00\n\nOF F50\n\nOF F50\n\n100842108421\n0511 bFe904\n0511 bfe904\nion34上两个平面的lane都恢复正常。\n两端训练后仍缺lane\n需要进一步定位是服务器-线缆-通信板哪里的问题，一般分析流程如下：\n注意事项：\n排查过程中，无论哪一步，都要训练两端后再查看状态。\n（3）查看或配置fec\n在/home/test641/smu/cmu_Bin目录，使用以下脚本配置查看或配置fec；其中0表示pcs关fec，1表示开fec；0x0000000000000001表示已关fec，0x0000000000000016表示已开fec：\n[root@mn31%TH3 cmu_Bin]# ./read_fec_or', '-/eq_training.sh\n\nCroot@ion34 zni_lane_bist]# cd ..\nCroot@ion34 shelltools_znil# ./mta_status.sh\n\nUNKNOHN(0x420b0)=0xb000006b50\n\nUNKNOHN (03442100)=0x13206\n\nport2-fec\n\nUNKNOHN(0x430b0)=0x1000009F50\n\nUNKNOHN (03443100)=0x3209\n\nUNKNOHN(0x43820)=x0\n\nUNKNOHN(0x43830)=0x0\n\nUNKNOHN(0x43840)=0x0\n\nUNKNOHN(0x43850)=x0\n\nmtip\n\nUNKNOHN(0x42340)=0x200\n\nUNKNOHN(0x42350)=Ox1# 0000842108421\n\nUNKNOHN(0x44300)=0x1ff000511bfe902\n=0x1ff000511afe902\n\nUNKNOWN (0x46300)\n这时候需要对没有恢复lane的平面的通信板端口进行训练，参考下面流程。\n（2）定位通信板端口\n通过服务器上的/etc/sn_zni.id文件找到故障服务器（本例为ion34）对应通信板的端口位置。\n平面0\n\nSIONC10-PU18] ”8107-p31\nion34在/etc/sn_zni.id文件中的对应位置\n端口对应关系如下图：\n3S10NA10-PU18\n\n||Caaamamm eras Si B31\n\nraw\n\neeu\n\nCO SWM10\n\nzl Lela\n\n| A框:C0\nBHE:C1\n\n通信柜-c框:C2\n\n__ D#E:C3\n通信板端口位置为IONC0SWM10板卡上3号芯片的31号端口\n登录管理节点mn30或者mn31，进入目录/home/test641/smu/swm_port_train，执行./znr_lane_port.sh命令，该命令参数有3个，分别是：芯片号-端口号-板卡号\nCroot@mn30 swm_port_train]# ./znr_lane_port.sh 3 31 IONCOSNM10\n\n9x00000000001020\n最后一位非f说明缺lane\n训练通信板端口\n登录管理节点mn30或mn31，进入目录/home/test641/smu/swm_port_train，执行./lanebist_train_single_port.sh命令，该命令的参数跟查看lane的命令一样是3个，分别是：芯片号-端口号-板卡号\nCroot@mn30 swum_p\n\nort_train]# ./', '以下脚本配置查看或配置fec；其中0表示pcs关fec，1表示开fec；0x0000000000000001表示已关fec，0x0000000000000016表示已开fec：\n[root@mn31%TH3 cmu_Bin]# ./read_fec_or_pcs_port.sh\n\nusage: ./read_fec_or_pcs_port.sh chip port location\n\neg../read_fec_or_pcs_port.sh 236PO8OCOONRM1/PO80COOCPM1/SOOCOSWM1/IONCOSWMO/IOSCOSWMO\n[root@mn31%TH3 cmu_Bin]# ./config_fec_or_pcs_port.sh\n\nusage: ./config_fec_or_pcs_port.sh chip port location0/1[pcs/fec]\n\neg../config fec or pcs port.sh 233POSOCOONRM1/PO80COOCPM1 1\n目前全部链路的fec都是打开的状态，读取当前链路的fec，如果不是打开的状态，需要配置打开。\n（4）以上操作之后，如果链路还是断开或者缺lane的情况，将链路拔插后训练。需要根据报警的端口和服务器，将两端都拔插之后，再训练。\n（5）以上操作无效的话，考虑是光纤或者服务器的nis卡出了问题，服务器两条光纤交换插入，如果两个口指示灯跟刚才一样，那应该是nis卡的问题，参考ion章节更换nis卡；如果是指示灯亮灭状态有变化，那说明是光纤问题，联系科大或二线。\n5.2.5 swm大量链路报警\n5.2.5.1 每个通信框只有一条链路报警\nmn26\n\nmn26\n\nmn26\n\nmn26\n\nmn26\n\nmn26\n\nS10A09PU05链路断开链接\n\nS11C09PU05链路断开链接\n\nS14C09PU05链路断开链接\n\n509D09PU05链路断开链接\n\nS12C09PU05链路断开链接\n\nS15D09PU05链路断开链接\n\nTH-3F\n\nTH-3F\n\nTH-3F\n\nTH-3F\n\nTH-3F\n\nTH-3F\n\n硬件\n\n硬件\n\n硬件\n\n硬件\n\n硬件\n\n硬件\n\n。 严重\n\n=z\n\n。 严重\n\n=z\n\n。 严重\n\n=z\n每一个通信框有一条报警。大概率是某个NRM掉电，按照流程处理，主要步骤顺序为：通过端口查询', '（1）需要训练服务器端口。\n进入目录/root/shelltools_zni/zni_lane_bist，执行./eq_training.sh（同时训练两个端口），等待几秒钟执行完后，返回上层目录，再通过./mta_status.sh查看lane是否恢复。\nCroot@ion33 shelltools_znil# cd /root/shelltools_zni/zni_lane_bist/\n\nLroot@ion33 zni_lane_bist]# 1s\n\n1-bist-set 2-bist-start 3-read_cnt eq_training_only.sh fec_eq-shmta_status.sh\n1.log2. log4-bist—aining.shhss_write_reg_zni\n\n[root@ion33 zni_lane bist 4]. /eq_training.sh |\nport0 set.\nport2 set.\nportd end.\nport2 end.\n\nLroot@ion33 zni_lane_bist]# cd ../\nLroot@ion33 shelltools_: znilt./mta_status.sh\n\nUNKNOHN (0:=b50\nUNKNOHN(0%42100)=0x1320F\n\nport2-fec\nUNKNOWN (0x430b0=0x1000\nUNONNC0X2t60) = xt sao |\n\nUNKNOWN (0x43820)=0x0\n\nUNKNOWN (0x43830)=0x0\n\nUNKNOWN (0x43840)=0x0\n\nUNKNOWN (0x43850)=0x0\n\nmtip\n\nUNKNOWN (0x4a340)=0x200\n\nUNKNOWN (0x4a350)=Ox1f£0000842108421,\nUNKNOWN (0x44300)=Ox1ff000511bf e902\nUNKNOWN (0x46300)=Ox1ff000511bf e902\n服务器端口训练完后，如果lane恢复，则处理完成。\n有时遇到训练完后lane仍然缺少的情况，如下图所示在ion34上两个端口训练后lane都没有恢复：\nCroot@ion34 shelltools_znil# cd zni_lane_bisty\n\n[rooteion34 zni_lane_bist]#|\n\nport0 set.\nport2 set.\nport0 end.\nport2 end.\n\n-/eq_training.sh\n\nCroot@ion34 zni_lane_bist]# cd ..\nCroot@ion34 shelltools_znil# ./mta_status.sh\n\nUNKNOHN(0x420b0)=', 'Nd cele\nBal ale\nKN aa 国\n=ma\nsae FF\nia\naa1\nHL 只\nHi ©\nHa\n|\n| RS\nKal\n| Bl\n| selk\n-一全\n\nLaz} a2 | 10 | 22 | 20 | 22 | 23\n./lanebist_train_opposite_port.sh+芯片号+端口号+板卡号 可以同时训练此端口和对端。\n[root@mn31%TH3 ~]# cd /home/test641/smu/nrm_port_train/\n[root@mn31%TH3 nrm_port_train]# ./lanebist_train_opposite_port.sh 2 6 S05C0SWM1\n[root@nn31%TH3 nrm_port_train]# ./lanebist_train_opposite_port.sh 3 6 P699C92NRM1\n\nlanebist train PCB P699C92NRM1 3:0----2:6 S95C9SWM1\n0x01ff000511b8该行倒数3、4位是e9表示握手成功 (MISES) , eM ERIKS.\n\n6x000000000032014T) 该行最后一位是f表示通道数正常 (网络带席正常) ，非债示带遍小，但不影响网络通信\n如果上述操作处理不好，可以根据端口号去机房拔插一下两端的光纤线。参考5.2.1.4使用脚本swm_opposite_port.sh查询对端，并将芯片+端口转换成PU的格式（参考5.2.1.3），在机柜上寻找对应的标签。以上面的例子来说：\n3 0 P009C02NRM1 对应P009C02NRM1PU20\n2 6 S05C0SWM1 对应 S05C0SWM1PU08\n在机房分别拔插这两个端口。要把两端的线都拔掉，再依次插上。再重复一次（1）中的操作。\n如果拔插还是不行，联系科大641处理。\n5.2.3.2 链路通道数减少\n报警项（黄色警告）：xx通道数减少\nS02A02PU22,通道数减少\n\nTH-3F\n\n管理节点\n\n硬件\n与5.2.3.1处理方法一样，但是一般不着急处理，通道数减少只影响带宽，并不影响链路的通断。\n5.2.3.3 链路握手变化/重传次数过多\n报警项（黄色警告）：xx链路端口握手变化/xx链路端口重传次数', '_read.sh\n[root@nn31%TH3 swm_port_train]# ./swm_train_read.sh S94C2SwWM1\n- S94C2SwM1-9 =\n- Se4C2SWM1-1 -\n\nP@11CO1NRM1\nP@13COONRM1\nP@13CO1NRM1\nP@13CO2NRM1\nP@13CO3NRM1\nP@14COONRM1\nP@14CO1NRM1\nP@14CO2NRM1\nP@14CO3NRM1\n<=port no used.\n\nf\nf\nf\nf\nf\nf\nf\nf\nf\n0\n以上“14 0”、“14 f”表示链路断开。\n5.2.2 网络报警一些说明\n0平面普通通信机柜（S00-S07）单条链路断开报警，报警级别是警告，值班人员无需立即处理，可以尝试训练链路或拔插光纤。累计4条以上警告会触发红报警，值班人员需要注意。\n1平面普通通信机柜（S09-S16）单条链路断开报警，报警级别是严重，需要立即处理，可以尝试训练链路或拔插光纤，拔插无效可以通过路由容错（绕路由）脚本（参考5.2.9）将该框先绕过去。\nION/IOS通信机柜链路报警，单条链路或多条链路断开，确认是通信机柜互联还是连接服务器的端口。如果是通信机柜互联，一般需要立即处理，需要确认是否有板卡掉电，若无掉电，需要训练链路或拔插光纤；若是服务器端口，需要确认对应服务器是否死机，若服务器死机则重启服务器，若未死机只有高速网有问题，则查找服务器的光纤端口，进行拔插。\nNRM掉电：影响本框作业，判断板卡位置，S00-S07每框有一条链路断开即为0平面nrm掉电，可以按照手册处理，此时节点通信还在，只要不是读写高的作业都能拯救，如果恢复不成功，需要报告二线处理；如果报警是S09-S16每框一条链路，那么是1平面nrm掉电，对应框的作业已经掉了，可以尝试按照手册处理，第二天再报告二线即可。\nSwm掉电：查询掉电板卡位置，如果是S00~S07、S09~S16机柜的板卡掉电，先用绕路由脚本把该板卡绕过去，然后可查询掉电原因，在部门群里通知。如果是ION/IOS板卡掉电，立即联系二线确认影响范围、联系科大更换对应板卡。\n机柜掉电：', '严重\n\n=z\n\n。 严重\n\n=z\n\n。 严重\n\n=z\n每一个通信框有一条报警。大概率是某个NRM掉电，按照流程处理，主要步骤顺序为：通过端口查询到具体的NRM，先将这一计算框内全部节点drain起来，再重启NRM处理恢复。\n使用yhst+ NRM板卡编号可以查看该框的板卡加电状态，如果nrm显示0表示掉电。\ndrain相关节点、挂作业：在对应的管理服务器上drain上相关的节点。\n具体命令为：ccst+机框号，例如需要drain的机框为16机柜A框：使用命令ccst 16a来获取该框所有的节点。\n将其中的idle节点和alloc节点drain起来，节点涉及的作业挂起来。\nyhq -w $alloc_list\nyhcontrol suspend $jobid\n5.2.5.2 报警集中在某个柜或者某个框\nmn26\n\nmn26\n\nmn26\n\nmn26\n\nmn26\n\nmn26\n\nmn26\n\nmn26\n\n措述\n\nS12B02NR1PORT26链路断开链接\n\nS12B03NROPORT17链路断开链接\n\nS12B07NR1PORT39链路断开链接\n\nS12B03NROPORT14链路断开链接\n\nS12B07NR1PORT28链路断开链接\n\nS12B03NROPORT18链路断开链接\n\nS12B01NR1PORT10链路断开链接\n\nS12B02NR1PORT22链路断开链接\n\nTH-3F\n\nTH-3F\n\nTH-3F\n\nTH-3F\n\nTH-3F\n\nTH-3F\n\nTH-3F\n\nTH-3F\n\n管理节点\n\n管理节点\n\n管理节点\n\n类型\n\n硬件\n\n硬件\n\n硬件\n\n硬件\n\n硬件\n\n硬件\n\n硬件\n\n硬件\n\n。 严重\n\n。 严重\n\n。 严重\n\n。 严重\n\n。 严重\n\n。 严重\n\n。 严重\n\n。 严重\n从上图判断，可能是S12B框有个板卡掉线，通过yhst查看该框状态。\nmn26\n\nmn26\n\nmn26\n\nmn26\n\nmn26\n\nmn26\n\nmn26\n\n措述\n\nS14C09PU05链路断开链接\n\nS14C08PU30链路断开链接\n\nS14C09PU02链路断开链接\n\nS14C09PU00链路断开链接\n\nS14C09PU01链路断开链接\n\nS14C09PU03链路断开链接\n\nS14C09PU04链路断开链接\n\nTH-3F\n\nTH-3F\n\nTH-3F\n\nTH-3F\n\nTH-3F', '一般不着急处理，通道数减少只影响带宽，并不影响链路的通断。\n5.2.3.3 链路握手变化/重传次数过多\n报警项（黄色警告）：xx链路端口握手变化/xx链路端口重传次数过多\nS01COOPU04 握手次数发生变化\n\nTH-3F\n\n管理节点\n\n硬件\n如果报警比较频繁的话，联系科大641科室，或者把对应两端口的线拔下来，记录好对应端口，交班的时候跟接班人员交代一下，接班人员将两端插好，执行5.2.3.1中（1）操作。\n5.2.4 服务器链路断开/通道数减少\n报警项（红色）：IONxx链路断开（同时可能会有很多oss to ion route不通、89.72.106.xx路由down）\n报警项（黄色警告）：IONxx链路通道数减少\n带高速网的服务器包括：MN节点、SMU节点、ION节点、LN节点。\n断开处理操作步骤：训练端口，拔插光纤，查看fec，更换nis卡。\n检测服务器端的lane是否正常\n登录服务器，进入目录/root/shelltools_zni，执行./mta_status.sh\n[rooteion33“]# cd /root/shelltools_zni/\nCroot@ion33 shelltools_znil# ./mta_status.sh\nUNKNOWN (0x420b0)Oxf0005f50\n\nUNKNOWN CO:\nport2-fec\nUNKNOHN CO:\nUNKNOHN CO:\n\n42100)\n\n0x10205\n\n430b0)\n\n0x8b50\n\n43100)\n\n0x8\n\nUNKNOWN (0x43820)\nUNKNOWN (0x43830)\nUNKNOWN (0x43840)\nUNKNOWN (0x43850)\n\nmtip\n\nUNKNOWN (0x4a340)\nUNKNOWN (0x4a350)\nUNKNOWN (0x44300)\n\nUNKNOWN (0x46300)\n\n0x0\n0x0\n0x0\n0x0\n\n0x200\nOx1FF0000842108421\nOx1Ff000511bff\nOx1ff000511.\n观察寄存器42100（0平面）和43100（1平面）的值的最后一位，如果不为f，说明缺少lane。\n最后两行如果不是e9就是链路断开。\n链路断开和缺lane可以通过以下步骤来解决：\n（1）需要训练服务器端口。\n进入目录/root/shelltools_zni/zni_lane_bist，执行./eq_training.sh（同时训练两个端口），等待几秒钟执行完后，返回上层目录，再']
+
+======================================================================
+
+Metrics Summary
+
+  - ✅ Answer Relevancy (score: 1.0, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 1.00 because there are no identified irrelevant statements, and the response directly addresses the question about what to check first after an ION node loses connection., error: None)
+  - ✅ Faithfulness (score: 0.7777777777777778, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 0.78 because there was a contradiction regarding ION nodes losing connection and another about checking system status versus IB network card indicators., error: None)
+  - ✅ Contextual Precision (score: 0.7180555555555554, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The contextual precision score is 0.72 because there are some irrelevant nodes appearing earlier than relevant ones, but most relevant nodes are ranked higher and they provide direct guidance on checking SSH or network indicators first., error: None)
+  - ✅ Contextual Relevancy (score: 0.5434782608695652, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The contextual relevancy score is 0.54 because the retrieval context provided information about checking ION nodes (e.g., '值班员发现某ION节点失去连接后，第一步应检查是否能通过ssh登录' and other steps) but also included many irrelevant statements like those mentioning 'channel number reduction', alarm levels, or specific port configurations unrelated to the initial check after disconnection. The relevant parts confirm that checking SSH connectivity is part of the process, while the irrelevancy reasons highlight several disconnected topics., error: None)
+  - ✅ Contextual Recall (score: 1.0, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 1 because all sentences in the expected output are fully supported by the corresponding nodes in the retrieval context, with each step and observation matching precisely without any discrepancies or missing information., error: None)
+
+For test case:
+
+  - input: 值班员发现某ION节点失去连接后，第一步应检查哪些内容？
+  - actual output: 值班员发现某ION节点失去连接后，第一步应检查的内容包括：1. 首先判断ION节点是否真的宕机，可以通过堡垒机ssh到该节点查看状态，或者通过监控平台的节点操作里查看节点状态。2. 确认节点是否能够通过ssh登录，若无法进入系统，需检查IB网卡指示灯状态，必要时更换网卡。3. 若系统正常，则参考特定章节处理ION链路，同时观察高速网卡指示灯，通过交换网线判断故障原因。4. 检查网络报警信息，确定报警级别，如是严重级别需要立即处理，可以尝试训练链路或拔插光纤，拔插无效可通过路由容错脚本将该框绕过去。5. 确定链路断开的位置以及报警的两个端口，即确认是SWM-NRM、SWM-SWM或者是SWM-IO服务器类型，根据不同的类型采取相应的处理措施。6. 查看是否有板卡掉电情况，如果是ION/IOS板卡掉电，立即联系二线确认影响范围并联系科大更换对应板卡。7. 检查是否需要挂起作业、重启并检查存储分区链接状态，确保数据完整性。8. 根据报警级别采取相应措施，如绕路由、重启服务器或联系二线处理。
+  - expected output: 值班员发现某ION节点失去连接后，第一步应检查该ION节点是否能通过ssh登录，同时观察IB网卡和高速网卡的指示灯状态。具体如下：先尝试通过ssh登录ION节点，确认是否能正常进入系统；若无法登录，查看IB网卡（插一根绿线）的指示灯是否有绿灯闪烁或常量，若不亮可能是IB网卡故障；再观察高速网卡（插两根绿线或橙线）的两个网口指示灯，正常应为常亮，可交换两根高速网线插入，判断是网线还是网卡故障。通过这些检查可初步确定ION节点失去连接的原因，为后续处理提供依据。
+  - context: None
+  - retrieval context: ['登录节点故障包括失去连接/宕机和负载过高。对于宕机，可通过堡垒机或监控平台确认节点状态，并通过运维平台重启。对于负载过高，可按CPU或内存查看用户进程，清理高占用进程或用户全部进程以降低负载。', '链路断开时需确定端口位置，区分SWM-NRM、SWM-SWM或SWM-IO类型，使用脚本训练端口或拔插光纤。通道数减少影响带宽但不影响通信，可暂缓处理。握手变化或重传次数过多需关注，但一般不紧急处理。根据报警级别采取相应措施，如绕路由、重启服务器或联系二线处理。', '文本主要描述了处理网络故障的步骤和方法。首先检查是否能通过ssh登录，若无法进入系统，需检查IB网卡指示灯状态，必要时更换网卡。若系统正常，则参考特定章节处理ION链路。同时，观察高速网卡指示灯，通过交换网线判断故障原因。对于MDs失去连接的情况，需挂起作业、重启并检查存储分区链接状态。此外，还涉及网络报警的判断、板卡编号转换、报警PU与芯片端口转换、使用脚本确定链路位置及查看网络链路状态等操作。', 'ost127\nost127\n\n—\n\njobid\n\n1828258\n1818914\n1827402\n\nsftp-server.20654\n\nnode.20912\n1768786\nbash20461\nsftp-server.20528,\n1796896\n1825828\n\n读次数\n\njobid\n\n1818914\n1827772\n1827855\n1827875,\n1827858\n1827871\n1827872\n1827751\n1825099\n1827402\n\n1143\n7.89\n3.73\n245\n137\n4.19\nO71\n0.69\n\n03\n\n1237\n873\n615\n591\n5.33\n5.28\n4.01\n0.94\n\n06\n可以看到排序靠前的jobid。\n3.4 登陆节点故障\n3.4.1 登录节点失去连接/宕机\n监控平台报警如下：\nth-hpct-Ino\n\n失去连接\n\nTH-HPC\n\n登录节点\n\n硬件\n\n。严重\n①首先判断登录节点是否真的宕机，可以通过堡垒机ssh到登陆节点查看状态，也可以通过监控平台的节点操作里查看节点状态。\nTH-HPq\n其他操作 节点操作\n\n下ec 节点编号: th-hpc1-In0\n日 @ TH-HPC\n四 HPC1-127序号: 2523所属集群 TH-HPC硬盘大小: 无硬盘\n日 login节点名称: th-hpc1-In0所履分区: _null硬盘类型. 无硬盘\n\n@ th-hpct-Inoao\n\n:登录节点存储位置: 老机房-TH-HPC-HPC1-127-12.0\n②确认登录节点宕机后，可以通过运维平台直接重启，如下图：\n统一监控运维平台\n\nTH-HPC\n\nTH-HPC4PDTH-HPC\na fre] @\n剧本编排日 局 存储分区操作\n加THL5登陆节点部署客户端.， MDS节点部署客户.， 0ST节点部署客户.计算节点部署客户端.\n剧本执行四THL6\n局THL7el\n执行审计Otis查询传感器日志远程协助®\n© 资源操作\n局 用户操作\n© 作业操作\n© 服务操作\n号 数据拷贝\n号 应急操作\n2 批量操作\n®\n您确定要执行电源管理操作吗?\n3.4.2 负载过高\n（1）选择按CPU或内存查看导致系统负载过高的用户进程。\n统一监控运维平台= 运维管理axa @\n\n定制大屏机房运维总览剧本执行\n\nTH', '报警对应的编号查找对应关系。将板卡编号转换成脚本的格式，将PU光口转换成芯片号+端口号。可以参考上边NRM对应关系，也可以参考以下表格或者服务器中的文件/home/test641/smu/nrm_port_train/nrm-pu-port.list。\n例子：报警项S05A01PU08 对应脚本中的输入为2 6 S05C0SWM1\n5.2.1.4 根据报警确定位置\n脚本：swm_opposite_port.sh\n目录：mn31：/home/test641/smu/swm_port_train/\n./swm_opposite_port.sh+芯片号+端口号+板卡号 可以查看此端口的对端。主要查看该端口对端，来确定该链路是swm-nrm、swm-swm、swm-io服务器。\n例如：\n[root@nn31%TH3 swm_port_train]# ./swm_opposite_port.sh 2 6 S95C9SWM1\n\noptical_port\n3 9 POO9CO2NRM1 (307.0)SWM-NRM\n\n[root@nn31%TH3 swm_port_train]# ./swm_opposite_port.sh 2 6 IONCOSWML\noptical_port\n\nPT6 S020SWM-SWM\n\n2 16 S@2COSWM3 (4366.16)\n[root@nn31%TH3 swm_port_train]# ./swm_opposite _port.sh 3 6 IONC9SWM8\n\noptical_portSWM-io服务器\n\nLink to Service: ions’\n5.2.1.5 查看板卡的网络链路\n查询NRM：/home/test641/smu/nrm_port_train/nrm_train_read.sh\n[root@mn31%TH3 nrm_port_train]# ./nrm_train_read.sh P911CO1NRM1\nse PO11COINRMI FH\nback=====\n\n----chip 3----\n3-31-P18:14 0\nPU18: 3 32 S@4C2SWM1 (4999.32)\n查询SWM：/home/test641/smu/swm_port_train/swm_train_read.sh\n[root@nn31%TH3 swm_port_train]# ./swm_train_read.sh S94C2SwWM1\n- S94C2SwM1-9 =\n- Se4C2SWM1-1 -\n\nP@', '的板卡掉电，先用绕路由脚本把该板卡绕过去，然后可查询掉电原因，在部门群里通知。如果是ION/IOS板卡掉电，立即联系二线确认影响范围、联系科大更换对应板卡。\n机柜掉电：先联系运维查看供电情况，不清楚影响情况联系二线。\nnetwork故障报警：如果节点不多，值班人员先drain起来即可；如果节点很多，且10分钟仍没有恢复，需要联系二线确认一下。\n5.2.3 链路问题\n5.2.3.1 链路断开\n说明：链路断开先确定位置以及报警的两个端口，即确认是SWM-NRM、SWM-SWM或者是SWM-IO服务器。一般来讲，SxxxxxPUxx链路断开是SWM-NRM；同时SxxxxxPUxx和IOxxxxPUxx链路断开或者IOxxxxPUxx和IOxxxxPUxx断开，是SWM-SWM；IOxxxxPUxx断开是SWM-IO。如果是SWM-IO参考5.2.2服务器链路。\n报警项：SxxxxxPUXX链路连接断开\nS16B02PU13链路断开链接\n\nS16B02PU12链路断开链接\n\nS16A02PU16链路断开链接\n\nTH-3F\n\nTH-3F\n\nTH-3F\n\n管理节点\n\n管理节点\n\n管理节点\n\n硬件\n\n硬件\n\n硬件\n\nPe\n\n° PH\n\n° PH\n处理方法：\n链路断开（握手失败）可以先尝试使用脚本进行端口训练。\n根据报警的PU端口号，对照下图中的芯片+端口号，然后使用脚本进行训练。\n|\n\nCOCORCOSS\n\n| |\n\n2 OO\n\nCOGOTOGOS\n\nCOCORCOOS\n\n2 3Ee\n\nLs]\n\nNI\n\n‘3aEe!\n\nNalBs\n\n25 | 13 | 35 | 36\n[ORR] OCH] TAY\non | os | a5\n\n30H |\n7\npry\n\n[Rer ae SCH] IC\n\nalgloele|\n\nORR] OO] SE\n\n片\n\nR50_0\n\n站\n‘1G [elelslals ss]\n\nR50[2]芯\n\nLas\n\nNT\nKNee\nNE ae\nNd cele\nBal ale\nKN aa 国\n=ma\nsae FF\nia\naa1\nHL 只\nHi ©\nHa\n|\n| RS\nKal\n| Bl\n|', '可以ssh进去。\n2．若没有系统，或开机卡住，观察ib网卡（插一根绿线的）是否有绿灯闪烁或常量。若不亮，更换ib网卡。\n3.若进系统正常，参考5.2.2，处理ion链路。\n4.观察ion观察高速网卡（插两根绿线或橙线的）两个网口，是否有绿灯闪烁或常量，正常未两个网卡灯常亮。可交换两根高速网线再插入，判断是否为高速网卡故障：若交换后网口指示灯无变化，更换高速网卡；若交换接口后指示灯状态有变化，联系科大值班人员更换高速网线。\n5.1.6 mds失去连接\n1)挂起对应分区作业。\n剧本编排\n\n剧本执行\n\n其他操作 节点操作\nTH-HPC4\nTH-HPC\nTH-eX\n© TH-3F\nBO 存储分区操作\n© thfst\n\nTH-eX = TH-3F\n\n全 TH-3F > thfs1\n\n分区作业恢复AR EE\n2)重启\nTHeX = TH-3F\n\n其他操作 节点操作一\n\n总览TH-HPC4DPTH-3F\n\n:TH-HPC\n\n剧本编排>TH-eX\n\n1903网络报警ION RABE...SRT RESP in.MDS RBBSP...OST RABEEP...\nRIMSDBRS ME\nO 资源操作\n\n0 用户操作\n\nOf 作业操作\n\n© 服务操作\n\nO 数据拷贝\n\n局 应急操作\n\n=)\n\n查记ipmi日志AAS\n您确定要执行电源管理操作吗?\n\n* 节点名 ”mds0\n\n+动作 | 重启\n3）等待报警消失。查询存储分区的链接数是否正常（healthy即正常）。\n4）恢复作业。\n剧本编排\n\n剧本执行\n\n其他操作 节点操作\nTH-HPC4\nTH-HPC\nTH-eX\n© TH-3F\nBO 存储分区操作\n© thfst\n\nTH-eX = TH-3F\n\n全 TH-3F > thfs1\n\n分区作业恢复AR EE\n5.2 网络故障\n出现网络报警，应首先判断影响范围，是链路断开、板卡掉电、整个机柜掉电、连接高速网的服务器死机或重启。\n5.2.1网络脚本输入说明', '吗?\n3.4.2 负载过高\n（1）选择按CPU或内存查看导致系统负载过高的用户进程。\n统一监控运维平台= 运维管理axa @\n\n定制大屏机房运维总览剧本执行\n\nTH-HPC\n其他操作\n\nth-hpct-IndQ\n\n5cq 节点编号: th-hpc1-Ind\n\n日| s TH-HPC\nFRE: 2523所属集群 TH-HPC\n\n剧本编排~加 HPC1-127\n日 login节点名称: th-hpc1-In0所属分区:_null\na节点类型: 登录节点存储位置: 老机房-TH-HPC-HPC1-\n127-12.0\n执行审计\n查询日志查询内存清除进程清除用户进程\nth-hpc1-In0:cpu进程排序 X\n\n天对执行\n命令输出:\n\nPLAY [a] ws本洒洒洒洒末末洒洒宁洒洒末末\n\nchanged: [121.16.3.1]\n\nSPU/内存的使用排序\n\nok: [121.16.3.1] =>\nesRBFES, EEZIDmt进程命令\nVSZ RSS TTYSTAT STARTTame [command™,]\nangyq 5735@.2 308900 148640 pts/101 Rt 09:04 10:28 ncl 16.ncl”,\nroot33364 12.6 0.0 124128 6408 ?S69:15 “6:63 /bin/sh /usr/local/bin/rkhunter -c -\ninxubo 21825 5.@ @.@ 125488 3844 pts/128 Ss+ 89:15 ”9:68 -bash"，\n“wangyq 40400 4.9 0.2 308896 148628 pts/101 T 09:02 0:37 ncl 16.ncl",\n\n"nslcd2398 3.2 ©.0 442336 1432 ?Ssl 4月16 1429:26 /usr/sbin/nslcd",\n\n"root888 2.1 0.0 95640 38540 ?Ss 4月16 958:11 /usr/lib/systemd/systemd-journald",\n"linxubo 22342 2.0 @.@ 59000 2240 ?Ss 09:15 @:0@ /usr/libexec/openssh/', ':11 /usr/lib/systemd/systemd-journald",\n"linxubo 22342 2.0 @.@ 59000 2240 ?Ss 09:15 @:0@ /usr/libexec/openssh/sftp-server",\n"root2264 1.4 @.1 5182264 106456 ?SLsl 4月16 644:38 /opt/thsre/exporters/telegraf/telegr\n“root21684 1.0 0.0 159956 5688 ?Ss 9:15 0:0 sshd: linxubo [priv]",\n\n"linxubo 22501 1.0 6.9 119748 2028 ?Ss 69:15 @:0@ bash -c while true; do sleep 1;head\n图：按CPU使用率查看用户进程\n（2）清理用户的某个进程。通过第一步得到使用率高的进程ID。\n统一监控运维平台运维管理 、\n\nSAR 。 机房 运维总览\nTH-HPC\n其他操作 节点操作\nth-hpct-IndQ\non?\n日 @ THHPC\n剧本编排日 HPC1-127\nlogin\n剧本执行© th-hpct-Ind\n\n节点编号: th-hpc1-In0\n\n序号: 2523\n节点名称: th-hpc1-In0\n\n节点类型: 登录节点\n\n查询内存\n\n所属集群 TH-HPC\n\n所属分区:_null\n\n存储位置: 老机房-TH-HPC-HPC1-\n127-12.0\n\nvo 清除单个进程\n\n清除用户进程\n\n硬盘大小: 无硬盘\n\n节点状态: 连接成功 |\n\ncpu进程排序\n统一监控运维平台\n\n定制大屏me\n\n运维总览剧本执行\n\n其他操作 。 节点操作\n\nth-hpc1-In0\n\n日 @ THHPC\n©) HPC1-127\n\nlogin\n\n© th-hpct-Ind\n\n存储位置: 老机房-TH-HPC-HPC1-\n127-12.0\n\n查询日志\n\n查询内存SHE=a\nAIRS\n\n硬盘大小: 无硬盘\n硬盘类型; 无硬盘\n\n节点状态: sea\n\ncpu进程排序\n（3）清除用户全部进程。通过第一步得到使用率高的用户名', '分区作业恢复AR EE\n5.2 网络故障\n出现网络报警，应首先判断影响范围，是链路断开、板卡掉电、整个机柜掉电、连接高速网的服务器死机或重启。\n5.2.1网络脚本输入说明\n5.2.1.1 针对板卡编号\n不同脚本对板卡的编号不一样，有的是用ABCD表示4个框，有的用C0、C1、C2、C3表示，有的用C00、C01、C02、C03表示。可以脚本先回车看看示例。\n5.2.1.2 关于cmu\n根据yhst+报警板卡 可以查询到对应的cmu。\n[root@nn31%TH3 ~]#| yhst_S14C3SWM2\n\nsmu_transfer_cmd| r3.pi5d.m |yhst\n\n|\n| SwM69 SWMO1 SWM@2 SWMO3 SWMO4 SWMO5 SWMO6 SWMO7 SWMO8 SWMO9 SWM10 SWM11 SWM@12 SWM13 SWM14 SWM15 |\n|1111111111111111|\n\nNetWork ERROR\n如图中 yhst S14C3SWM2查询出cmu编号r3.p15d.m。\nr3. p15d. m\n\nf4NN\n\nHS 机柜号 框号 EM\n\n| 0-2:计算柜 00-19 “|A框:a |主:m\n\n= 3 :通信柜_| BHE:bMes\n| 4-6: 计算柜C框:c\n\nLD框:d\ncmu编号也是板卡的物理位置。如S14C3SWM2对应的物理位置是R3排P15柜D框SWM2.\n5.2.1.3 报警PU和芯片端口转换\nNRM（SWM一样）各端口对应：\nit\n\ncoee GOGO\n\n| | | 1\n\nPOO? 9\n\n]\n\nit\n网络相关脚本一般的输入是板卡+芯片+芯片端口，报警一般是板卡+PU号，使用脚本的时候需要进行转换。\nS14A02PU13链路断开链接\n\nS13D02PU16链路断开链接\n\nS09B02PU12链路断开链接\nS05AO1PU08\n柜框板号 光口\n2 6 SOSCOSWM1\n上图是报警对应的编号查找对应关系。将板卡编号转换成脚本的格式，将PU光口转换成芯片号+端口号。可以参考上边NRM对应关系，也可以参考以下表格或者服务器中的文件/home/test641/smu/nrm', 'Nd cele\nBal ale\nKN aa 国\n=ma\nsae FF\nia\naa1\nHL 只\nHi ©\nHa\n|\n| RS\nKal\n| Bl\n| selk\n-一全\n\nLaz} a2 | 10 | 22 | 20 | 22 | 23\n./lanebist_train_opposite_port.sh+芯片号+端口号+板卡号 可以同时训练此端口和对端。\n[root@mn31%TH3 ~]# cd /home/test641/smu/nrm_port_train/\n[root@mn31%TH3 nrm_port_train]# ./lanebist_train_opposite_port.sh 2 6 S05C0SWM1\n[root@nn31%TH3 nrm_port_train]# ./lanebist_train_opposite_port.sh 3 6 P699C92NRM1\n\nlanebist train PCB P699C92NRM1 3:0----2:6 S95C9SWM1\n0x01ff000511b8该行倒数3、4位是e9表示握手成功 (MISES) , eM ERIKS.\n\n6x000000000032014T) 该行最后一位是f表示通道数正常 (网络带席正常) ，非债示带遍小，但不影响网络通信\n如果上述操作处理不好，可以根据端口号去机房拔插一下两端的光纤线。参考5.2.1.4使用脚本swm_opposite_port.sh查询对端，并将芯片+端口转换成PU的格式（参考5.2.1.3），在机柜上寻找对应的标签。以上面的例子来说：\n3 0 P009C02NRM1 对应P009C02NRM1PU20\n2 6 S05C0SWM1 对应 S05C0SWM1PU08\n在机房分别拔插这两个端口。要把两端的线都拔掉，再依次插上。再重复一次（1）中的操作。\n如果拔插还是不行，联系科大641处理。\n5.2.3.2 链路通道数减少\n报警项（黄色警告）：xx通道数减少\nS02A02PU22,通道数减少\n\nTH-3F\n\n管理节点\n\n硬件\n与5.2.3.1处理方法一样，但是一般不着急处理，通道数减少只影响带宽，并不影响链路的通断。\n5.2.3.3 链路握手变化/重传次数过多\n报警项（黄色警告）：xx链路端口握手变化/xx链路端口重传次数', '_read.sh\n[root@nn31%TH3 swm_port_train]# ./swm_train_read.sh S94C2SwWM1\n- S94C2SwM1-9 =\n- Se4C2SWM1-1 -\n\nP@11CO1NRM1\nP@13COONRM1\nP@13CO1NRM1\nP@13CO2NRM1\nP@13CO3NRM1\nP@14COONRM1\nP@14CO1NRM1\nP@14CO2NRM1\nP@14CO3NRM1\n<=port no used.\n\nf\nf\nf\nf\nf\nf\nf\nf\nf\n0\n以上“14 0”、“14 f”表示链路断开。\n5.2.2 网络报警一些说明\n0平面普通通信机柜（S00-S07）单条链路断开报警，报警级别是警告，值班人员无需立即处理，可以尝试训练链路或拔插光纤。累计4条以上警告会触发红报警，值班人员需要注意。\n1平面普通通信机柜（S09-S16）单条链路断开报警，报警级别是严重，需要立即处理，可以尝试训练链路或拔插光纤，拔插无效可以通过路由容错（绕路由）脚本（参考5.2.9）将该框先绕过去。\nION/IOS通信机柜链路报警，单条链路或多条链路断开，确认是通信机柜互联还是连接服务器的端口。如果是通信机柜互联，一般需要立即处理，需要确认是否有板卡掉电，若无掉电，需要训练链路或拔插光纤；若是服务器端口，需要确认对应服务器是否死机，若服务器死机则重启服务器，若未死机只有高速网有问题，则查找服务器的光纤端口，进行拔插。\nNRM掉电：影响本框作业，判断板卡位置，S00-S07每框有一条链路断开即为0平面nrm掉电，可以按照手册处理，此时节点通信还在，只要不是读写高的作业都能拯救，如果恢复不成功，需要报告二线处理；如果报警是S09-S16每框一条链路，那么是1平面nrm掉电，对应框的作业已经掉了，可以尝试按照手册处理，第二天再报告二线即可。\nSwm掉电：查询掉电板卡位置，如果是S00~S07、S09~S16机柜的板卡掉电，先用绕路由脚本把该板卡绕过去，然后可查询掉电原因，在部门群里通知。如果是ION/IOS板卡掉电，立即联系二线确认影响范围、联系科大更换对应板卡。\n机柜掉电：']
+
+======================================================================
+
+Overall Metric Pass Rates
+
+Answer Relevancy: 100.00% pass rate
+Faithfulness: 100.00% pass rate
+Contextual Precision: 100.00% pass rate
+Contextual Relevancy: 50.00% pass rate
+Contextual Recall: 100.00% pass rate
+
+======================================================================
+
+
+✓ Tests finished 🎉! Run 'deepeval login' to save and analyze evaluation results
+on Confident AI.
+ 
+✨👀 Looking for a place for your LLM test data to live 🏡❤️ ? Use Confident AI 
+to get & share testing reports, experiment with models/prompts, and catch 
+regressions for your LLM system. Just run 'deepeval login' in the CLI. 
+
+评估结果已保存至: ./evaluation_results/results1.json
+Running teardown with pytest sessionfinish...
+Error loading test run from disk: [Errno 2] No such file or directory: 
+'.deepeval/.temp_test_run_data.json'
+
+[33m[33m[1m2 warnings[0m[33m in 355.65s (0:05:55)[0m[0m
+Test Run is empty, please try again.

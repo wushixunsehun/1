@@ -1,0 +1,13 @@
+- hosts: 89.72.100.1
+  user: root
+  gather_facts: False
+  tasks:
+    - name: resume_job
+      shell: |
+        scontrol resume "{{ jobid }}"
+        echo "作业已恢复"
+        echo
+        scontrol show jobid "{{ jobid }}"
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

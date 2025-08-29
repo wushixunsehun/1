@@ -1,0 +1,2 @@
+根据提供的文件内容，总结和问题相关的信息如下：在TH-eX上关闭VNC服务可以通过以下步骤实现。首先，用户需要使用vncserver -kill命令来终止当前运行的VNC服务实例，这通常需要指定具体的显示编号，例如:vncserver -kill :1。其次，如果用户之前通过模块加载了VNC服务，可以使用module unload vnc/3.0.3命令来卸载模块。此外，如果用户是通过图形化界面启动的VNC服务，可以在图形界面中找到相应的退出选项来关闭服务。最后，确保所有相关的VNC进程都已终止，可以通过ps aux | grep vnc命令检查是否有残留进程，并使用kill命令结束这些进程。1. 使用vncserver -kill命令终止VNC服务实例，例如:vncserver -kill :1。2. 如果使用模块加载VNC服务，可以使用module unload vnc/3.0.3命令卸载模块。3. 通过图形界面退出VNC服务。4. 检查并终止所有残留的VNC进程，使用ps aux | grep vnc命令查找进程，并使用kill命令结束它们。以上步骤可以确保在TH-eX上彻底关闭VNC服务。
+

@@ -1,0 +1,13 @@
+- hosts: 89.72.100.1
+  user: root
+  gather_facts: False
+  tasks:
+    - name: create_reservation
+      shell: |
+        scontrol create reservation="{{ reservation }}" user=root,"{{ users }}" starttime=now duration=infinite flags=maint nodes="{{ nodelist }}"
+        echo "预约已创建"
+        echo
+        scontrol show reservarion "{{ reservation }}"
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

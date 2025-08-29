@@ -1,0 +1,2 @@
+综述：在Lustre文件系统中，处理OST降级状态以避免影响整体性能主要涉及标记OST为降级状态、配置相关参数以及确保MDS不再分配新对象。具体操作步骤和参数配置如下：1. 标记OST降级的操作步骤包括使用`lctl set_param`命令将OST的degraded参数设置为1，该命令格式为`lctl set_param obdfilter.{OST name}.degraded=1`。此操作会通知MDS该OST处于降级状态，从而不再为其分配新对象，防止性能下降。2. 恢复OST正常模式的操作步骤是运行`lctl set_param obdfilter.{OST name}.degraded=0`，将OST的degraded参数设置为0，表示其已恢复正常。3. 相关参数配置包括通过`--param="failover.mode=failout"`选项指定故障切换模式为failout，这样客户端在超时后会立即收到错误消息而不是等待OST恢复，减少对整体性能的影响。此外，还可以通过`lctl get_param obdfilter.*.degraded`命令检查当前处于降级模式的OST。这些操作和配置能够有效管理OST的降级状态，保障Lustre文件系统的稳定性和性能。
+

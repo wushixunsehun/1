@@ -1,0 +1,16 @@
+# 测试playbook参数
+- name: 'resource operation test'
+  hosts: all
+  gather_facts: False
+  tasks:
+    # task 1
+    - name: echo node
+      shell: echo "{{ node }} 资源操作测试 " 
+    # test param
+    - name: echo stat
+      debug:
+        msg: "storage {{ stat }} 资源操作测试"
+    # test param2
+    - name: echo stat2
+      debug:
+        msg: "storage2 {{ stat2 }} 资源操作测试" 

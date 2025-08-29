@@ -1,0 +1,64 @@
+---
+- hosts: "{{ from_node }}"
+  remote_user: root
+  gather_facts: F
+  serial: 32
+  tasks:
+    # t1 拷贝到ansible所在服务器
+    - name: fetch file
+      fetch:
+        src: "{{ src_path }}"
+        dest: /usr/local/ars/ansible-runner-service/samples/exporters/
+        flat: yes
+
+- hosts: "{{ target_node }}"
+  remote_user: root
+  gather_facts: F
+  serial: 32
+  tasks:
+    # t1 再被控节点创建目录
+    - name: create dir
+      file:
+        path: /opt/thsre/exporters
+        state: directory
+        owner: root
+        group: root
+        mode: u=rwX,g=rwX,o=rX
+
+    # 删除要部署客户端文件夹下所有文件
+    #- name: delete directory
+    #  shell: rm -rf /opt/thsre/exporters/{{ exporter_name }}/
+
+    # t2 把压缩包拷贝到远程主机并解压
+    - name: copy tar file
+      unarchive:
+        src: /usr/local/ars/ansible-runner-service/samples/exporters/{{ exporter_tar_name }}
+        dest: /opt/thsre/exporters
+        mode: u=rwX,g=rX,o=rX
+        #backup: yes
+        remote_src: no
+
+    # t3 部署服务
+    - name: copy service file
+      copy:
+        src: /opt/thsre/exporters/{{ exporter_name }}/{{ exporter_name }}.service
+        dest: /usr/lib/systemd/system/{{ exporter_name }}.service
+        remote_src: yes
+    
+    # t4 relaod 服务
+    - name: systemctl daemon-reload
+      command: systemctl daemon-reload
+      
+    # t4 启动服务
+    - name: start service
+      service:
+        name: "{{ exporter_name }}"
+        state: started
+        enabled: yes
+    
+    # t5 重启服务
+    - name: restart service
+      service: 
+        name: "{{ exporter_name }}"
+        state: restarted
+        enabled: yes

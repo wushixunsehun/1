@@ -1,0 +1,8 @@
+- name: self dealing pb
+  hosts: localhost
+  gather_facts: False
+  tasks:
+    # test params
+    - name: echo params
+      debug:
+        msg: "{{ alertname }} - {{ cluster }} - {{ group }} - {{ instance }} - {{ job }} - {{ rack }} - {{ severity }}- {{ source }} - {{ type }}"

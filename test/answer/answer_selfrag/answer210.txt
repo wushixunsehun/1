@@ -1,0 +1,1 @@
+针对VASP运行报错“internal error in SETUP_DEG_CLUSTERS: NB_TOT exceeds NMAX_DEG”的解决方法，可以按照以下步骤进行操作：1. 修改源码中的NMAX_DEG参数以适应计算需求，具体是将NMAX_DEG的值从默认的48增加到82或更高，这可以通过使用sed命令在subrot_cluster.F文件中进行修改实现；2. 在修改完源码后需要重新编译VASP程序，这包括加载必要的编译器和库环境，如Intel编译器、MPI、MKL和FFTW等，并根据当前环境调整makefile.include配置文件，确保编译过程顺利进行；3. 完成上述步骤后，执行make命令进行编译，生成新的可执行文件，从而解决该报错问题。此外，确保在编译过程中遵循正确的环境配置和依赖项设置，避免因环境不兼容导致的其他错误。

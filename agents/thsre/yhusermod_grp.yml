@@ -1,0 +1,12 @@
+- hosts: 25.8.100.1
+  gather_facts: false
+  tasks:
+  - name: null
+    shell: 'yhusermod -g "{{ gid }}" "{{ user }}"
+
+      yhuserlist | grep -w "{{ user }}"
+
+      '
+    register: result
+  - debug:
+      msg: '{{ result.stdout_lines }}'

@@ -1,0 +1,11 @@
+- hosts: 89.72.100.1
+  user: root
+  gather_facts: false
+  tasks:
+    - name: cancel_job
+      shell: |
+        scancel "{{ jobid }}"
+        echo "作业已取消"
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

@@ -1,0 +1,12 @@
+- hosts: 25.8.100.1
+  gather_facts: false
+  tasks:
+  - name: null
+    shell: 'yhusermod -p "{{ passwd }}" "{{ user }}"
+
+      echo "{{ user }}" "的密码已修改成功"
+
+      '
+    register: result
+  - debug:
+      msg: '{{ result.stdout_lines }}'

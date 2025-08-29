@@ -1,0 +1,19 @@
+- hosts: localhost
+  gather_facts: false
+  tasks:
+  - name: test
+    add_host: 
+      hostname: 89.72.103.16
+      ansible_host: 89.72.103.16
+      groups: test
+
+
+- hosts: test
+  user: root
+  gather_facts: False
+  tasks:
+    - name: free
+      shell: free -h
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

@@ -1,0 +1,1 @@
+目录statahead用于提高系统命令如ls -l、du和find在遍历目录时的性能，而statahead_max参数的作用是控制由statahead线程预取的最大文件属性数量。1. statahead_max参数的作用是限制statahead线程可以预取的文件属性数量，从而优化目录遍历的效率。2. 启用目录statahead可以通过设置statahead_max参数来实现，默认情况下statahead是启用的，其默认值为32个文件。3. 要启用或调整statahead_max参数，可以在客户端上使用命令lctl set Param llite.*.statahead_max=n，其中n为需要设置的最大文件属性数量，最大值为8192个文件。

@@ -1,0 +1,2 @@
+TomoDD 成像软件在 tomoFDD.inc 头文件中定义了处理量上限，当增大网格等参数时可能出现链接错误，该问题发生在使用 eX 系统默认 GCC/8.5.0 编译器时，错误信息为“relocation truncated to fit: R_X86_64_PC32 against symbol `contrl`”。解决方法包括在 Makefile 的 Flag 中添加 `-mcmodel=medium` 或 `-mcmodel=large`，或升级至 GCC/11.3.0。修改后的 Makefile 显示两种选项效果相似。1. 在 Makefile 的 Flag 中添加 `-mcmodel=medium` 或 `-mcmodel=large` 可以解决链接错误，这两种选项在修改后的 Makefile 中似乎没有明显区别。2. 升级 GCC 编译器版本到 GCC/11.3.0 也可以有效解决该问题。3. 修改后的 Makefile 内容显示，调整 `-mcmodel` 参数后，编译过程能够正常进行，未再出现之前的链接错误。
+

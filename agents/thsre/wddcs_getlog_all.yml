@@ -1,0 +1,23 @@
+- hosts: all
+  user: root
+  gather_facts: false
+  tasks:
+    - name:
+      shell: |
+        echo "y" | wddcs getlog all
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"
+
+- hosts: mn31
+  user: root
+  gather_facts: false
+  tasks:
+    - name:
+      shell: |
+        date=`date +%Y%m%d`
+        nodename="{{ node }}"
+        scp ${nodename}:/tmp/wddcs_${nodename}_${date}_*.tgz /tmp
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

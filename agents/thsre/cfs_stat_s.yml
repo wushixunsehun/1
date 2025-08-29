@@ -1,0 +1,16 @@
+# 测试playbook参数
+- name: 'cfs_stat'
+  hosts: compute
+  gather_facts: False
+  tasks:
+    # task 1
+    - name: echo node
+      shell: echo "{{ node }}"
+    # test param
+    - name: echo stat
+      debug:
+        msg: "storage {{ stat }}"
+    # test param2
+    - name: echo stat
+      debug:
+        msg: "storage {{ stat }}"

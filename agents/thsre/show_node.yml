@@ -1,0 +1,10 @@
+- hosts: 89.72.100.1
+  user: root
+  gather_facts: False
+  tasks:
+    # 查询节点信息
+    - name: show_node
+      shell: scontrol show node {{ nodelist }}
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

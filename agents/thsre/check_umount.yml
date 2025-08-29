@@ -1,0 +1,10 @@
+- hosts: 89.72.101.1
+  user: root
+  gather_facts: false
+  tasks:
+    - name:
+      shell: |
+        ssh 192.103.5.220 /root/datacopy/get_dev_list.py -u
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

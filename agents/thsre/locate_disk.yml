@@ -1,0 +1,10 @@
+- hosts: all
+  user: root
+  gather_facts: False
+  tasks:
+    # 定位硬盘
+    - name: locate_disk
+      shell: storcli /call/eall/s{{disk}} {{ active }} locate
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

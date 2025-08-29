@@ -1,0 +1,10 @@
+- hosts: all
+  user: root
+  gather_facts: false
+  tasks:
+    - name:
+      shell: |
+        readlink /dev/disk/by-vdev/{{ jbod }} | xargs basename
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

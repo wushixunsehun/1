@@ -1,0 +1,10 @@
+- hosts: all
+  user: root
+  gather_facts: False
+  tasks:
+    # 获取raid卡日志
+    - name: get_raid_log
+      shell: storcli /call show termlog
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

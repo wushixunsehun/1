@@ -1,0 +1,13 @@
+- hosts: 89.72.100.1
+  user: root
+  gather_facts: False
+  tasks:
+    - name: update_job_timelimit
+      shell: |
+        scontrol update jobid="{{ jobid }}" timelimit="{{ timelimit }}"
+        echo "作业时限已调整"
+        echo
+        scontrol show jobid "{{ jobid }}"
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

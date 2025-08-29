@@ -1,0 +1,14 @@
+- hosts: 25.16.106.209
+  user: root
+  gather_facts: False
+  tasks:
+    - name: update_partition_oversubscribe
+      shell: |
+        scontrol show partition {{ partitionname }}
+        scontrol update partitionname="{{ partitionname }}" OverSubscribe="{{ oversubscribe }}"
+        echo "队列独占模式已调整"
+        echo
+        scontrol show partition {{ partitionname }}
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

@@ -1,0 +1,49 @@
+- hosts: 89.72.100.1
+  user: root
+  gather_facts: false
+  tasks:
+    - name: cancel_job
+      shell: |
+        job_info=`sacct -j "{{ jobid }}" -o User,Partition,nodelist,start,end,state,work -p   -X  -n`
+        user=`echo "$job_info" | awk -F\| '{print $1}'`
+        partition=`echo "$job_info" | awk -F\| '{print $2}'`
+        nodelist=`echo "$job_info" | awk -F\| '{print $3}'`
+        starttime=`echo "$job_info" | awk -F\| '{print $4}'`
+        endtime=`echo "$job_info" | awk -F\| '{print $5}'`
+        state=`echo "$job_info" | awk -F\| '{print $6}'`
+        work=`echo "$job_info" | awk -F\| '{print $7}'`
+
+        echo $starttime |grep "T" >/dev/null
+        if [ $? -eq 0 ]
+        then
+            starttime=`echo $starttime |sed 's/T/ /g'`
+        else
+            echo "start time Unknown $startime"
+            exit
+        fi
+
+        echo $endtime |grep "T" >/dev/null
+        if [ $? -eq 0 ];then
+          endtime=`echo $endtime |sed 's/T/ /g'`
+        else
+          endtime=`date  +"%Y-%m-%d %H:%M:%S"`
+        fi
+
+
+        echo "user:"$user
+        echo "jobid:"$1
+        echo "partition:"$partition
+        echo "nodelist:"$nodelist
+        echo "start:"$starttime
+        echo "end:"$endtime
+        echo "state:"$state
+        echo "work:"$work
+        echo "Please check demsg node's log:"
+        for x in `sinfo -n $nodelist -o %n -h`
+        do
+            echo "########################"$x"############################"
+            ssh $x " journalctl -k -S \"$starttime\" -U \"$endtime\" "    
+        done
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

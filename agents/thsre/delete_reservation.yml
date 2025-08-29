@@ -1,0 +1,11 @@
+- hosts: 89.72.100.1
+  user: root
+  gather_facts: False
+  tasks:
+    - name: delete_reservation
+      shell: |
+        scontrol delete reservation="{{ reservation }}"
+        echo "预约已删除"
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

@@ -1,0 +1,14 @@
+- hosts: 25.16.106.209
+  user: root
+  gather_facts: False
+  tasks:
+    - name: update_partition_node
+      shell: |
+        scontrol show partition {{ partitionname }}
+        scontrol update partitionname={{ partitionname }} nodes={{ nodelist }}
+        echo "队列节点已调整"
+        echo 
+        scontrol show partition {{ partitionname }}
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

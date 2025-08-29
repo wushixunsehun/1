@@ -1,0 +1,10 @@
+- hosts: localhost
+  user: root
+  gather_facts: False
+
+  tasks:
+  - name: power
+    command: ipmitool -I lan -H {{ node }}-ipmi -U 'ADMIN' -P  jfzd_xrmj9 power {{ status }}
+    register: result
+  - debug: 
+      msg: "{{ result.stdout_lines }}"

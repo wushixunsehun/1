@@ -1,0 +1,21 @@
+- hosts: 89.72.100.1
+  user: root
+  gather_facts: false
+  tasks:
+    - name: resume_job_all
+      shell: |
+        jobid=`squeue -h -t S | awk '{print $1}'`
+        for j in $jobid
+        do 
+        scontrol resume $j
+        echo $j
+        done
+        sleep 1
+        partitionname=`scontrol show partition| grep "PartitionName" | grep -v ALL |awk -F '=' '{print $2}'`
+        for i in $partitionname
+        do
+        scontrol update partition=$i state=up
+        done
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

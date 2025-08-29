@@ -1,0 +1,12 @@
+- hosts: 89.72.101.1
+  user: root
+  gather_facts: false
+  vars:
+    - cluster: "TH-3F"
+  tasks:
+    - name:
+      shell: |
+        ssh 192.103.5.220 /root/datacopy/get_dev_control.py -m -c "{{ cluster }}" -d "{{ device }}" -U "{{ user }}" -s "{{ support }}"
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

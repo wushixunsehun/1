@@ -1,0 +1,13 @@
+查询问题: 如何使用yhacctmgr命令进行文件的导入与导出？请给出对应指令。
+
+Sorry, I'm not able to provide an answer to that question.[no-context]
+
+总耗时: 2.60 秒
+生成图谱时间: 0.00 秒
+查询时间: 2.52 秒
+
+各阶段Token使用统计:
+1. 构建图谱阶段token数: 6049
+2. 查询提示词token数: 126
+3. 查询响应内容token数: 17
+总token数: 6192

@@ -1,0 +1,249 @@
+🎯 请输入任务：mn21服务器，把slurm作业20250315的时间延长10天
+
+**剧本选择中...**
+
+### Host: mn21
+
+**剧本 1**
+- **名称**: 调整作业时限
+- **描述**: 修改指定作业的时限并展示调整结果
+- **文件**: update_job_timelimit.yml
+- **参数**:
+  - `jobid` (string): 20250315
+  - `timelimit` (string): 10-00:00:00
+---
+
+🎯 请输入任务：服务器mn21，slurm作业23849291报错，检查一下
+### 命令生成完成
+
+【mn21】: scontrol show job 23849291, sinfo -n mn21 -l, squeue -j 23849291, grep '23849291' /var/log/slurm/slurmd.log, ps -ef | grep slurmd, df -h /var/spool/slurm
+
+**剧本选择中...**
+
+### Host: mn21
+
+无合适剧本可执行
+
+---
+
+🎯 请输入任务：mn21服务器，用户tanxh提交作业时报 Communication connection failure 错误
+### 命令生成完成
+
+【mn21】: ss -tulnp | grep 'LISTEN', dmesg -H | tail -20, iptables -L -n -v, ip a show, journalctl -b 0 -n 50 --since '1 hour ago'
+
+**剧本选择中...**
+
+### Host: mn21
+
+无合适剧本可执行
+
+---
+
+🎯 请输入任务：用户想了解作业排队等待时间过长的问题
+**思考中...**
+## 作业排队等待时间过长问题分析与解决方案
+
+🎯 请输入任务：服务器mn21上的slurm作业20157499报错，检查一下节点内存作业所使用的节点内存是否正常
+### 命令生成完成
+
+【mn21】: free -h, scontrol show job 20157499
+
+**剧本选择中...**
+
+### Host: mn21
+
+**剧本 1**
+- **名称**: 查询作业信息
+- **描述**: 通过scontrol命令查询指定作业ID的详细信息
+- **文件**: show_job.yml
+- **参数**:
+  - `jobid` (string): 20157499
+---
+
+🎯 请输入任务：用户作业已经计算完毕，但是使用yhq命令仍然显示作业在运行，查看情况
+### 命令生成完成
+
+【th-hpc4-ln1】: yhcontrol show job 44358, yhstat --format=JobID,State,ExitCode,EndTime -j 44358, yhinfo --partition=cp1 --states=all, sinfo -Nel
+
+【cn1640】: yhinfo --node=cn1640 --long, yhstat --format=JobID,State,ExitCode,EndTime -j 44358
+
+🎯 请输入任务：如何为服务器增加开机自启license的任务？
+* *思考中...**
+## 为服务器配置开机自启License任务
+
+### 1. 确认License服务启动方式
+
+根据上下文信息，License服务核心组件为`lmgrd`，需通过以下命令启动：
+```bash
+idl83installdir/idl/bin/lmgrd
+```
+
+> 注意：该进程若直接前台运行会"卡死"，需通过后台化处理实现长期运行
+---
+
+### 2. 推荐方案：Systemd服务管理
+
+#### 2.1 创建Systemd服务单元文件
+
+🎯 请输入任务：用户反馈slurm跑作业有时候很快，有时候很慢，是什么原因？
+### 命令生成完成
+
+【mn9】: squeue, sinfo, df -h, ps aux | grep slurm, journalctl -u slurmd
+
+【mn[11-21,24-29]】: sinfo, df -h, ps aux | grep slurm, iostat -x 1 5, netstat -an | grep ESTABLISHED
+
+【cn[0-117759]】: df -h, quota -s, sar -u 1 5, iostat -x 1 5, ps aux | grep slurm
+
+🎯 请输入任务：查mn21服务器上查看作业2504512目前运行过程中所用的最大运行内存
+### 命令生成完成
+
+【mn21】: ps -p 2504512 -o %mem,comm --no-headers
+
+🎯 请输入任务：slurm作业空转的原因可能有哪些？
+**思考中...**
+## Slurm作业空转的可能原因分析  
+
+Slurm作业空转（即作业处于等待状态或无法正常启动）通常与资源分配、配置限制、作业脚本问题或系统策略相关。结合上下文信息及常见场景，以下是具体原因及技术解析：
+
+🎯 请输入任务：mn21服务器，查看1209750作业是否存在内存溢出
+### 命令生成完成
+
+【mn21】: free -h, dmesg | grep -i 'oom', scontrol show job 1209750
+
+**剧本选择中...**
+
+### Host: mn21
+
+**剧本 1**
+- **名称**: 查询作业信息
+- **描述**: 通过scontrol命令查询指定作业ID的详细信息
+- **文件**: show_job.yml
+- **参数**:
+  - `jobid` (str): 1209750
+**剧本 2**
+- **名称**: 作业日志检查与状态确认
+- **描述**: 该剧本用于查询指定作业ID的详细信息，并在关联节点上检查日志以进行状态验证
+- **文件**: check_job.yml
+- **参数**:
+  - `jobid` (str): 1209750
+---
+
+🎯 请输入任务：mn21服务器，作业号604354，603380 麻烦管理员检查报错是否是系统导致，如内存不足
+### 命令生成完成
+
+【mn21】: free -m, dmesg | grep -i 'oom'
+
+**剧本选择中...**
+
+### Host: mn21
+
+**剧本 1**
+- **名称**: 查看Top Mem进程
+- **描述**: 收集并显示目标主机上内存使用率最高的前30个进程的信息
+- **文件**: top_mem.yml
+- **参数**:
+  - `hosts` (list): ['mn21']
+---
+
+🎯 请输入任务：系统运行cp2k pstack 检查报错 Cannot access memory at address 0x20，可能是什么原因？
+### 命令生成完成
+
+【cp2k_server】: gdb -ex 'thread apply all bt' -ex 'quit' /path/to/cp2k <pid>, cat /proc/<pid>/maps, free -m, top -b -n 1, dmesg | grep -i 'oom\|kill', valgrind --tool=memcheck --leak-check=full /path/to/cp2k <args>
+
+**剧本选择中...**
+
+### Host: cp2k_server
+
+**剧本 1**
+- **名称**: 系统内存使用情况检查
+- **描述**: 执行free -h命令以查看系统的内存使用情况，并输出结果
+- **文件**: free.yml
+- **参数**: 无需参数
+**剧本 2**
+- **名称**: 系统日志收集剧本
+- **描述**: 收集目标主机的系统日志信息，通过执行dmesg -T命令并输出结果
+- **文件**: dmesg.yml
+- **参数**: 无需参数
+**剧本 3**
+- **名称**: 查看Top Mem进程
+- **描述**: 收集并显示目标主机上内存使用率最高的前30个进程的信息
+- **文件**: top_mem.yml
+- **参数**: 无需参数
+---
+
+🎯 请输入任务：mn21服务器，麻烦管理员查下2571046这个作业有没有报错
+### 命令生成完成
+
+【mn21】: sacct -j 2571046 --format=State,Reason, scontrol show job 2571046, grep '2571046' /var/log/slurm/*.log, dmesg | grep -i '2571046', journalctl _PID=$(pgrep -f 'srun.*2571046') --since '1 hour ago'
+
+**剧本选择中...**
+
+### Host: mn21
+
+**剧本 1**
+- **名称**: 查询作业信息
+- **描述**: 通过scontrol命令查询指定作业ID的详细信息
+- **文件**: show_job.yml
+- **参数**:
+  - `jobid` (str): 2571046
+**剧本 2**
+- **名称**: 作业恢复与状态查看
+- **描述**: 用于恢复指定作业ID并显示其状态信息
+- **文件**: resume_job.yml
+- **参数**:
+  - `jobid` (str): 2571046
+---
+
+🎯 请输入任务：mn21系统，作业2050124卡死在MPI_Init，检查作业情况
+### 命令生成完成
+
+【mn21】: scontrol show job 2050124, hostname, uptime, grep 'MPI_Init' /var/log/messages*, lsmod | grep ib_ucm, env | grep I_MPI, mpiexec --version
+
+**剧本选择中...**
+
+### Host: mn21
+
+**剧本 1**
+- **名称**: 作业日志检查与状态确认
+- **描述**: 该剧本用于查询指定作业ID的详细信息，并在关联节点上检查日志以进行状态验证
+- **文件**: check_job.yml
+- **参数**:
+  - `jobid` (string): 2050124
+**剧本 2**
+- **名称**: 查看Slurm分区信息
+- **描述**: 用于查询指定主机上的Slurm分区状态信息
+- **文件**: sinfo_partition.yml
+- **参数**:
+  - `partition` (string): default
+**剧本 3**
+- **名称**: 节点健康检查剧本
+- **描述**: 通过ICMP协议检查指定节点的连通性，并输出健康状态
+- **文件**: ping.yml
+- **参数**:
+  - `node` (string): mn21
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

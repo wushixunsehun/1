@@ -1,0 +1,2 @@
+在TH-eX的/fs2/home/wangrong/software/ABCluster/testfiles/isomer路径下提交脚本sub.sh，可以参考以下步骤：1.确保脚本具有可执行权限，使用chmod +x sub.sh命令添加执行权限。2.直接在终端中运行脚本，输入./sub.sh即可执行。3.如果脚本需要特定的环境变量或模块加载，可以在脚本开头添加相应的设置，例如加载所需的库和模块，确保脚本在正确的环境中运行。
+

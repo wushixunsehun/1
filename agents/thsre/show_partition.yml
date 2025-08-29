@@ -1,0 +1,9 @@
+- hosts: 89.72.100.1
+  user: root
+  gather_facts: False
+  tasks:
+    - name: show_partition
+      shell: scontrol show partition {{ partitionname }}
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

@@ -1,0 +1,2 @@
+根据提供的内容，调整TH-eX chenx账号预约的保留资源为200个节点的具体命令需要结合yhcontrol命令的使用方法和相关参数。以下是具体步骤和命令：  1. 使用yhcontrol命令更新预约的节点数量：需要使用update子命令，并指定Reservation名称和新的节点数量。例如，如果当前预约名称为chenx_reservation，则命令为yhcontrol update Reservation=chenx_reservation NodeCnt=200。  2. 确保在更新预约时指定了正确的账户和用户信息：创建预约时必须指定Users和/或Accounts，因此在更新时也需要确保这些参数正确。例如，可以添加Accounts=chenx来指定账户。  3. 调整资源可能需要联系管理员：根据文档中的信息，资源调整通常需要联系管理员进行操作，因此在执行命令前应确认是否需要管理员协助。
+

@@ -1,0 +1,11 @@
+---
+- hosts: "{{ from_node }}"
+  remote_user: root
+  gather_facts: F
+  tasks:
+    - name: fetch file
+      fetch:
+        src: "{{ src_path }}"
+        dest: /usr/local/ars/ansible-runner-service/samples/project/
+        flat: yes
+

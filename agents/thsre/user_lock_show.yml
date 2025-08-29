@@ -1,0 +1,10 @@
+- hosts:  89.72.100.1
+  gather_facts: false
+  tasks:
+    # 查询用户是否封禁
+    - name:
+      shell: |
+        ssh "{{ node }}" pam_tally2  -u {{ user }} 
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

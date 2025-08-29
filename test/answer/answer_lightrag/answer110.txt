@@ -1,0 +1,1 @@
+ost_tbf_rule_change_rank和mdt_tbf_rule_change_rank的参数作用有以下区别：1. ost_tbf_rule_change_rank用于在OST上更改TBF规则的优先级，通过指定rank参数来调整规则的顺序，确保新规则优先于旧规则。2. mdt_tbf_rule_change_rank用于在MDT上更改TBF规则的优先级，同样通过rank参数来调整规则的顺序，但适用于MDT组件。3. 两者都支持使用"change"命令来修改规则的排序，但适用的组件不同，前者针对OST，后者针对MDT。

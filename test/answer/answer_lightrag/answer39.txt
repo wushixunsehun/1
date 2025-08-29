@@ -1,0 +1,13 @@
+查询问题: 使用 yhbatch 提交批处理脚本时，如何指定作业名？
+
+Sorry, I'm not able to provide an answer to that question.[no-context]
+
+总耗时: 2.52 秒
+生成图谱时间: 0.00 秒
+查询时间: 2.44 秒
+
+各阶段Token使用统计:
+1. 构建图谱阶段token数: 6051
+2. 查询提示词token数: 122
+3. 查询响应内容token数: 17
+总token数: 6190

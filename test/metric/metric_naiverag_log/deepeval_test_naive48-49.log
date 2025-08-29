@@ -1,0 +1,1372 @@
+nohup: ignoring input
+/home/yuaw/anaconda3/envs/reacttest/lib/python3.10/site-packages/pytest_asyncio/plugin.py:217: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+✨ You're running DeepEval's latest Answer Relevancy Metric! (using 
+deepseek-r1:latest (Ollama), strict=False, async_mode=True)...
+✨ You're running DeepEval's latest Faithfulness Metric! (using 
+deepseek-r1:latest (Ollama), strict=False, async_mode=True)...
+✨ You're running DeepEval's latest Contextual Precision Metric! (using 
+deepseek-r1:latest (Ollama), strict=False, async_mode=True)...
+✨ You're running DeepEval's latest Contextual Relevancy Metric! (using 
+deepseek-r1:latest (Ollama), strict=False, async_mode=True)...
+✨ You're running DeepEval's latest Contextual Recall Metric! (using 
+deepseek-r1:latest (Ollama), strict=False, async_mode=True)...
+Evaluating 2 test case(s) in parallel: |          |  0% (0/2) [Time Taken: 00:00, ?test case/s]True !!!!!!!!!!!!
+**************************************************
+Contextual Precision Verbose Logs
+**************************************************
+
+Verdicts:
+[
+    {
+        "verdict": "yes",
+        "reason": "The context describes the system's ability to handle situations where boards are not operational due to online status, which is directly relevant to the cause of board card drop-out (unusable) in this scenario."
+    },
+    {
+        "verdict": "no",
+        "reason": "This document does not mention anything about temperature-related issues or handling overheating conditions. It only talks about general operations and statuses without addressing the specific problem of high temperatures causing boards to fail."
+    }
+]
+ 
+Score: 1.0
+Reason: The contextual precision score is 1.00 because there are no irrelevant nodes that should be ranked higher than relevant ones, as evidenced by the first node being 'yes' with a reason about handling unoperational boards due to online status, and the second node being 'no' for not addressing temperature-related issues.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Contextual Precision Verbose Logs
+**************************************************
+
+Verdicts:
+[
+    {
+        "verdict": "yes",
+        "reason": "The context mentions that support specialists can view user job error reasons through the operation platform, which directly addresses the query."
+    },
+    {
+        "verdict": "no",
+        "reason": "This document discusses disk quota issues and storage errors but does not provide information on how to check job error logs specifically for troubleshooting purposes."
+    },
+    {
+        "verdict": "yes",
+        "reason": "The context explains that by querying the job log, one can analyze the reason for job interruption. This is directly relevant as it describes a method to view job errors."
+    },
+    {
+        "verdict": "no",
+        "reason": "This document talks about system alarms and cluster status but does not specify how to check user job error logs or provide steps related to viewing job logs."
+    },
+    {
+        "verdict": "yes",
+        "reason": "The context provides detailed instructions on using the operation platform's 'query job log' feature to analyze reasons for job interruption, which aligns with the expected output."
+    },
+    {
+        "verdict": "no",
+        "reason": "This document discusses storage partition operations and resource management but does not mention querying job logs or analyzing error causes in user jobs."
+    },
+    {
+        "verdict": "yes",
+        "reason": "The context includes examples of errors encountered during job execution, such as 'Out of memory' or 'Lustre error', which are relevant to understanding possible reasons for job failures."
+    },
+    {
+        "verdict": "no",
+        "reason": "This document describes the login process and general functions but does not provide specific steps on how to view user job error logs, so it is indirectly useful at best or irrelevant here."
+    },
+    {
+        "verdict": "yes",
+        "reason": "The context gives examples of errors like 'forrtl: Input/output error' and suggests that storage issues might be the cause. This helps in identifying possible reasons for job failures by relating to specific errors mentioned elsewhere."
+    },
+    {
+        "verdict": "no",
+        "reason": "This document discusses GPU usage problems but does not provide information on how to check user job error logs or analyze their causes, so it is unrelated to the query."
+    }
+]
+ 
+Score: 0.6787301587301586
+Reason: The contextual precision score of 0.68 indicates that there are both relevant and irrelevant nodes in the retrieval contexts, with some yes nodes appearing early but others later.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Contextual Recall Verbose Logs
+**************************************************
+
+Verdicts:
+[
+    {
+        "verdict": "yes",
+        "reason": "The sentence is about viewing user job error reasons, which matches the retrieval context node at index 5 (6.5 \u67e5\u770b\u7528\u6237\u4f5c\u4e1a\u62a5\u9519\u539f\u56e0). The specific part in the retrieval context that describes this is: '\u652f\u6301\u4e13\u5458\u8be2\u95ee\u67d0\u4e2a\u4f5c\u4e1a\u7684\u4e2d\u65ad\u539f\u56e0\uff0c\u4e00\u7ebf\u503c\u73ed\u5458\u901a\u8fc7\u8fd0\u7ef4\u5e73\u53f0\u7684\u201c\u5176\u4ed6\u64cd\u4f5c-\u67e5\u770b\u7528\u6237\u4f5c\u4e1a\u201d\u529f\u80fd\u5bf9\u7528\u6237\u4f5c\u4e1a\u4e2d\u65ad\u524d\u7684\u8282\u70b9\u65e5\u5fd7\u4fe1\u606f\u8fdb\u884c\u67e5\u770b'."
+    },
+    {
+        "verdict": "yes",
+        "reason": "The sentence mentions logging into the operation platform, which is covered in node 2 (3.1 \u8fd0\u7ef4\u5e73\u53f0\u767b\u5f55). The retrieval context states: '\u503c\u73ed\u5ba4\u8c03\u8bd5\u673a\u7684chrome\u6d4f\u89c8\u5668\u4e0a\u6709\u767b\u5f55\u8fd0\u7ef4\u5e73\u53f0\u7684\u4e66\u7b7e\uff0c\u503c\u73ed\u4eba\u5458\u70b9\u51fb\u4e66\u7b7e\uff0c\u8f93\u5165\u7528\u6237\u540d\u548c\u5bc6\u7801\uff0c\u518d\u70b9\u51fb\u767b\u5f55\uff0c\u53ef\u767b\u5f55\u5230\u8fd0\u7ef4\u5e73\u53f0.'"
+    },
+    {
+        "verdict": "yes",
+        "reason": "The sentence refers to connecting the corresponding cluster, which is mentioned in node 2 (3.1 \u8fd0\u7ef4\u5e73\u53f0\u767b\u5f55) and also in other nodes like node 5 (6.5 \u67e5\u770b\u7528\u6237\u4f5c\u4e1a\u62a5\u9519\u539f\u56e0). The specific part: '\u8fde\u63a5\u5bf9\u5e94\u96c6\u7fa4\uff0c\u70b9\u51fb\u201c\u5176\u4ed6\u64cd\u4f5c\u201d\u4e2d\u7684\u201c\u67e5\u8be2\u4f5c\u4e1a\u65e5\u5fd7\u201d\uff0c\u8f93\u5165\u9700\u8981\u67e5\u8be2\u7684\u4f5c\u4e1aID'."
+    },
+    {
+        "verdict": "yes",
+        "reason": "The sentence talks about viewing the job log to analyze error causes, which is directly from node 5 (6.5 \u67e5\u770b\u7528\u6237\u4f5c\u4e1a\u62a5\u9519\u539f\u56e0). The retrieval context says: '\u67e5\u770b\u8be5\u4f5c\u4e1a\u4e2d\u65ad\u524d\u7684\u8282\u70b9\u65e5\u5fd7\u4fe1\u606f\uff0c\u4ece\u4e2d\u5206\u6790\u62a5\u9519\u539f\u56e0.'"
+    },
+    {
+        "verdict": "yes",
+        "reason": "The sentence mentions that the log will display the type of error, such as 'Out of memory', which is covered in node 6 (3.3 Lustre\u5b58\u50a8\u6545\u969c) and node 7 (Lustre file system explanation). The specific part: '\u65e5\u5fd7\u4f1a\u663e\u793a\u4f5c\u4e1a\u4e2d\u65ad\u524d\u7684\u9519\u8bef\u7c7b\u578b\uff0c\u4f8b\u5982\u201cOut of memory\u201d\u9700\u5efa\u8bae\u7528\u6237\u51cf\u5c11\u5185\u5b58\u5360\u7528'."
+    },
+    {
+        "verdict": "yes",
+        "reason": "The sentence refers to analyzing the error cause by combining with node load, storage status, etc., which is mentioned in node 5 (6.5 \u67e5\u770b\u7528\u6237\u4f5c\u4e1a\u62a5\u9519\u539f\u56e0). The retrieval context states: '\u7ed3\u5408\u8282\u70b9\u8d1f\u8f7d\u3001\u5b58\u50a8\u72b6\u6001\u7b49\u7efc\u5408\u5224\u65ad\u4f5c\u4e1a\u62a5\u9519\u7684\u53ef\u80fd\u56e0\u7d20'."
+    },
+    {
+        "verdict": "yes",
+        "reason": "The sentence lists possible factors for job errors, such as hardware failure, resource shortage, program compilation issues. These are covered in node 6 (3.3 Lustre\u5b58\u50a8\u6545\u969c) and other parts like the explanation of AVX error. The specific part: '\u5982\u786c\u4ef6\u6545\u969c\u3001\u8d44\u6e90\u4e0d\u8db3\u3001\u7a0b\u5e8f\u7f16\u8bd1\u95ee\u9898\u7b49'."
+    },
+    {
+        "verdict": "yes",
+        "reason": "The sentence is about obtaining a comprehensive understanding of job errors, which aligns with node 5 (6.5 \u67e5\u770b\u7528\u6237\u4f5c\u4e1a\u62a5\u9519\u539f\u56e0). The retrieval context says: '\u901a\u8fc7\u8fd9\u4e9b\u64cd\u4f5c\uff0c\u80fd\u591f\u8f83\u4e3a\u5168\u9762\u5730\u83b7\u53d6\u7528\u6237\u4f5c\u4e1a\u7684\u62a5\u9519\u539f\u56e0'."
+    }
+]
+ 
+Score: 1.0
+Reason: The score is 1 because all sentences in the expected output are fully supported by relevant nodes in the retrieval context, ensuring a complete match for user job error analysis.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Contextual Recall Verbose Logs
+**************************************************
+
+Verdicts:
+[
+    {
+        "verdict": "yes",
+        "reason": "\u7b2c5\u6761\u9875v (\u539f\u6587) - \u8be5\u53e5\u5b50\u63cf\u8ff0\u4e86\u5728\u5de1\u68c0\u65f6\u53d1\u73b0\u6e29\u5ea6\u8fc7\u9ad8\u5bfc\u81f4\u677f\u5361\u6389\u7535\uff0c\u8fd9\u4e0e\u68c0\u7d22\u4e0a\u4e0b\u6587\u4e2d\u7684\u786c\u4ef6\u76d1\u63a7\u548c\u72b6\u6001\u663e\u793a\u76f8\u5173\u3002\u4f8b\u5982\uff0c\u5728\u8282\u70b94\u4e2d\u63d0\u5230\u673a\u67dc\u72b6\u6001\u56fe\u6807\u5305\u62ec\u706b\u82d7\u8868\u793a\u8d85\u6e29\u62a5\u8b66\uff0c\u6c34\u6ef4\u8868\u793a\u6f0f\u6c34\u62a5\u8b66\u7b49\uff0c\u4ee5\u53ca\u8282\u70b96\u4e2d\u5173\u4e8e\u4e0d\u53ef\u64cd\u4f5c\u677f\u5361\u7684\u6807\u8bc6\uff08\u5982\u7070\u8272\u56fe\u6807\uff09\u53ef\u80fd\u4e0e\u6b64\u6709\u5173\u8054\u3002"
+    },
+    {
+        "verdict": "yes",
+        "reason": "\u7b2c5\u6761\u9875v (\u539f\u6587) - \u8be5\u53e5\u5b50\u63cf\u8ff0\u4e86\u901a\u8fc7\u8fd0\u7ef4\u5e73\u53f0\u67e5\u770b\u673a\u67dc\u72b6\u6001\u548c\u6389\u7535\u677f\u5361\u4f4d\u7f6e\u7684\u64cd\u4f5c\u6d41\u7a0b\uff0c\u8fd9\u4e0e\u68c0\u7d22\u4e0a\u4e0b\u6587\u4e2d\u7684\u7cfb\u7edf\u7ea7\u76d1\u63a7\u529f\u80fd\u76f8\u7b26\u3002\u4f8b\u5982\uff0c\u5728\u8282\u70b93\u4e2d\u63d0\u5230\u53ef\u4ee5\u901a\u8fc7\u754c\u9762\u8fdb\u884c\u673a\u67dc\u72b6\u6001\u76d1\u63a7\u3001\u62a5\u8b66\u7c7b\u578b\u8bbe\u7f6e\u53ca\u8bbe\u5907\u64cd\u4f5c\uff0c\u5e76\u4e14\u5728\u8282\u70b94\u4e2d\u6709\u63d0\u53ca\u6279\u91cf\u52a0\u5207\u7535\u7b49\u64cd\u4f5c\u65b9\u6cd5\u3002"
+    },
+    {
+        "verdict": "yes",
+        "reason": "\u7b2c5\u6761\u9875v (\u539f\u6587) - \u8be5\u53e5\u5b50\u6d89\u53ca\u68c0\u67e5\u7a7a\u8c03\u5236\u51b7\u60c5\u51b5\u5e76\u5904\u7406\u5f02\u5e38\uff0c\u8fd9\u4e0e\u68c0\u7d22\u4e0a\u4e0b\u6587\u4e2d\u7684\u786c\u4ef6\u7ef4\u62a4\u548c\u6545\u969c\u6392\u67e5\u76f8\u5173\u3002\u4f8b\u5982\uff0c\u5728\u8282\u70b92\u4e2d\u63d0\u5230\u673a\u67dc\u67e5\u8be2\u529f\u80fd\u652f\u6301\u901a\u8fc7\u6761\u4ef6\u67e5\u8be2\u673a\u6846\u8be6\u60c5\uff0c\u5e76\u4e14\u5728\u8282\u70b94\u4e2d\u6709\u63d0\u53ca\u4e0d\u53ef\u64cd\u4f5c\u677f\u5361\u7684\u63d0\u793a\u673a\u5236\u53ef\u80fd\u7528\u4e8e\u8bc6\u522b\u6b64\u7c7b\u95ee\u9898\u3002"
+    },
+    {
+        "verdict": "yes",
+        "reason": "\u7b2c5\u6761\u9875v (\u539f\u6587) - \u8be5\u53e5\u5b50\u63cf\u8ff0\u4e86\u6e05\u7406\u98ce\u6247\u7070\u5c18\u6216\u66f4\u6362\u6545\u969c\u98ce\u6247\u7684\u64cd\u4f5c\uff0c\u8fd9\u4e0e\u68c0\u7d22\u4e0a\u4e0b\u6587\u4e2d\u7684\u6563\u70ed\u7ba1\u7406\u76f8\u5173\u3002\u4f8b\u5982\uff0c\u5728\u8282\u70b93\u4e2d\u63d0\u5230\u53ef\u4ee5\u901a\u8fc7\u754c\u9762\u8fdb\u884c\u8bbe\u5907\u64cd\u4f5c\uff0c\u5e76\u4e14\u5728\u8282\u70b94\u4e2d\u6709\u63d0\u53ca\u590d\u4f4d\u64cd\u4f5c\u5931\u8d25\u65f6\u8054\u7cfb\u786c\u4ef6\u5de5\u7a0b\u5e08\u7684\u5904\u7406\u6d41\u7a0b\u53ef\u80fd\u4e0e\u6b64\u7c7b\u4f3c\u3002"
+    },
+    {
+        "verdict": "yes",
+        "reason": "\u7b2c5\u6761\u9875v (\u539f\u6587) - \u8be5\u53e5\u5b50\u6d89\u53ca\u5bf9\u6389\u7535\u677f\u5361\u8fdb\u884c\u590d\u4f4d\u64cd\u4f5c\uff0c\u8fd9\u4e0e\u68c0\u7d22\u4e0a\u4e0b\u6587\u4e2d\u7684\u52a0\u5207\u7535\u529f\u80fd\u76f4\u63a5\u76f8\u5173\u3002\u4f8b\u5982\uff0c\u5728\u8282\u70b94\u4e2d\u660e\u786e\u63d0\u5230\u5728\u5355\u4e2a\u673a\u67dc\u540e\u9762\u63d0\u4f9b\u4e86\u52a0\u7535\u3001\u5207\u7535\u3001\u590d\u4f4d\u529f\u80fd\uff0c\u5e76\u4e14\u4f1a\u63d0\u793a\u4e0d\u53ef\u64cd\u4f5c\u7684\u677f\u5361\u3002"
+    },
+    {
+        "verdict": "yes",
+        "reason": "\u7b2c5\u6761\u9875v (\u539f\u6587) - \u8be5\u53e5\u5b50\u63cf\u8ff0\u4e86\u5904\u7406\u8fc7\u7a0b\u4e2d\u5b9e\u65f6\u76d1\u63a7\u6e29\u5ea6\uff0c\u786e\u4fdd\u964d\u81f3\u6b63\u5e38\u8303\u56f4\u7684\u64cd\u4f5c\uff0c\u8fd9\u4e0e\u68c0\u7d22\u4e0a\u4e0b\u6587\u4e2d\u7684\u8d85\u6e29\u62a5\u8b66\u663e\u793a\u76f8\u7b26\u3002\u4f8b\u5982\uff0c\u5728\u8282\u70b94\u4e2d\u63d0\u5230\u673a\u67dc\u72b6\u6001\u56fe\u6807\u5305\u62ec\u706b\u82d7\u8868\u793a\u8d85\u6e29\u62a5\u8b66\uff0c\u5e76\u4e14\u5728\u8282\u70b93\u4e2d\u6709\u63d0\u53ca\u7cfb\u7edf\u7ea7\u76d1\u63a7\u529f\u80fd\u7528\u4e8e\u72b6\u6001\u76d1\u6d4b\u3002"
+    },
+    {
+        "verdict": "yes",
+        "reason": "\u7b2c5\u6761\u9875v (\u539f\u6587) - \u8be5\u53e5\u5b50\u6d89\u53ca\u8bb0\u5f55\u4e8b\u4ef6\u5904\u7406\u8fc7\u7a0b\u53ca\u7ed3\u679c\uff0c\u8fd9\u4e0e\u68c0\u7d22\u4e0a\u4e0b\u6587\u4e2d\u7684\u64cd\u4f5c\u65e5\u5fd7\u548c\u8ffd\u8e2a\u76f8\u5173\u3002\u4f8b\u5982\uff0c\u5728\u8282\u70b92\u4e2d\u63d0\u5230\u652f\u6301\u6279\u91cf\u52a0\u7535\u7b49\u64cd\u4f5c\uff0c\u5e76\u4e14\u5728\u8282\u70b94\u4e2d\u6709\u63d0\u53ca\u590d\u4f4d\u5931\u8d25\u65f6\u7684\u5904\u7406\u6d41\u7a0b\u53ef\u80fd\u5305\u542b\u6b64\u7c7b\u4fe1\u606f\u8bb0\u5f55\u8981\u6c42\u3002"
+    }
+]
+ 
+Score: 1.0
+Reason: The score is 1.00 because all sentences in the expected output are fully supported by relevant nodes in the retrieval context, with each step having clear alignment and no unsupportive reasons present.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Contextual Relevancy Verbose Logs
+**************************************************
+
+Verdicts:
+[
+    {
+        "verdicts": [
+            {
+                "statement": "\u672c\u6587\u6863\u4e3a\u652f\u6301\u4e13\u5458\u63d0\u4f9b\u5e38\u89c1\u64cd\u4f5c\u6307\u5357\uff0c\u5305\u62ec\u67e5\u770b\u7528\u6237\u8ba1\u7b97\u8d44\u6e90\u548c\u78c1\u76d8\u914d\u989d\u3001\u63d0\u9ad8\u4f5c\u4e1a\u4f18\u5148\u7ea7\u3001\u5ef6\u957f\u4f5c\u4e1a\u65f6\u9650\u4ee5\u53ca\u67e5\u770b\u7528\u6237\u4f5c\u4e1a\u62a5\u9519\u539f\u56e0\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u7528\u6237\u53ef\u901a\u8fc7\u8fd0\u7ef4\u5e73\u53f0\u8fdb\u884c\u76f8\u5173\u64cd\u4f5c\uff0c\u5982\u201c\u8d44\u6e90\u64cd\u4f5c\u201d\u67e5\u770b\u8d26\u6237\u53ca\u7528\u6237\u8d44\u6e90\u4fe1\u606f\uff0c\u6216\u901a\u8fc7\u201c\u67e5\u770b\u7528\u6237\u914d\u989d\u201d\u4e86\u89e3\u5b58\u50a8\u4f7f\u7528\u60c5\u51b5\u3002",
+                "verdict": "no",
+                "reason": "The statement mentions 'resource operation' and 'viewing user quota', which are unrelated to the specific query about viewing error reasons for user jobs. The input asks how to view the cause of errors in user operations, while this part discusses resource information and storage usage."
+            },
+            {
+                "statement": "\u63d0\u9ad8\u4f5c\u4e1a\u4f18\u5148\u7ea7\u548c\u5ef6\u957f\u4f5c\u4e1a\u65f6\u9650\u9700\u7ecf\u5ba1\u6279\uff0c\u800c\u67e5\u770b\u4f5c\u4e1a\u65e5\u5fd7\u53ef\u7528\u4e8e\u5206\u6790\u4f5c\u4e1a\u4e2d\u65ad\u539f\u56e0\u3002",
+                "verdict": "yes",
+                "reason": ""
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u7cfb\u7edf\u51fa\u73b0\u591a\u4e2a\u6545\u969c\uff0c\u5305\u62ecTH-3F\u7684\u63e1\u624b\u6b21\u6570\u53d8\u5316\u3001TH-HPC\u7684raid1\u548craid2\u8d85\u65f6\u6545\u969c\u3002",
+                "verdict": "no",
+                "reason": "The statement mentions specific system faults but does not relate to how to view error reasons for user jobs on the operation platform. It is irrelevant as it focuses on different aspects of system failures."
+            },
+            {
+                "statement": "\u96c6\u7fa4\u603b\u89c8\u9875\u9762\u6574\u5408\u4e86\u8282\u70b9\u3001\u4f5c\u4e1a\u548c\u5b58\u50a8\u4fe1\u606f\u3002",
+                "verdict": "no",
+                "reason": "The statement describes a feature of the cluster overview page but does not provide information about viewing error reasons for user jobs. It is irrelevant to the input."
+            },
+            {
+                "statement": "\u8fd0\u7ef4\u5e73\u53f0\u7528\u4e8e\u5904\u7406\u6545\u969c\uff0c\u503c\u73ed\u4eba\u5458\u53ef\u901a\u8fc7\u767b\u5f55\u5e73\u53f0\u67e5\u770b\u62a5\u8b66\u4fe1\u606f\u5e76\u6267\u884c\u64cd\u4f5c\u3002",
+                "verdict": "no",
+                "reason": "The statement explains that the operation platform is used for handling faults and viewing alarm information, but it does not address how to view error reasons specifically for user jobs. It is irrelevant."
+            },
+            {
+                "statement": "Lustre\u5b58\u50a8\u6545\u969c\u5904\u7406\u5305\u62ec\u6302\u8d77\u4f5c\u4e1a\u3001\u67e5\u8be2\u65e5\u5fd7\u3001\u91cd\u542f\u8282\u70b9\u7b49\u6b65\u9aa4\u3002",
+                "verdict": "no",
+                "reason": "The statement describes steps for handling Lustre storage faults, including querying logs which might be related to error reasons. However, it does not specify how user jobs' error causes can be viewed and is focused on storage fault handling rather than general user job errors."
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u7cfb\u7edf\u51fa\u73b0\u8fdb\u7a0b\u5f15\u64ce\u6545\u969c\uff0c\u4f5c\u4e1a\u88ab\u4fe1\u53f79\u7ec8\u6b62\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "MPI\u7248\u672c\u95ee\u9898\u53ef\u80fd\u5bfc\u81f4\u9519\u8bef\uff0c\u5efa\u8bae\u66ff\u6362.bashrc\u4e2d\u7684\u7f16\u8bd1\u5668\u548cMPI\u8def\u5f84\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u4f5c\u4e1a\u8fd0\u884c\u4e2d\u53ef\u80fd\u56e0\u7cfb\u7edf\u7ef4\u62a4\u88ab\u6302\u8d77\uff0c\u9700\u624b\u52a8\u7ec8\u6b62\u5e76\u7eed\u7b97\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u7a0b\u5e8f\u56e0\u7f16\u8bd1\u4e0e\u8fd0\u884c\u73af\u5883\u4e0d\u4e00\u81f4\u5bfc\u81f4AVX\u652f\u6301\u9519\u8bef\uff0c\u5e94\u79fb\u9664-xHOST/-xAVX\u9009\u9879\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5b58\u50a8\u914d\u989d\u9ed8\u8ba4\u4e3a500G\u8f6f\u9650\u5236\u30011T\u786c\u9650\u5236\uff0c\u8d85\u9650\u5c06\u65e0\u6cd5\u5199\u5165\u3002",
+                "verdict": "no",
+                "reason": "The statement mentions 'storage quota default is 500G soft limit, 1T hard limit', which has nothing to do with the user's job error cause."
+            },
+            {
+                "statement": "IO\u9519\u8bef\u53ef\u80fd\u7531\u5b58\u50a8\u538b\u529b\u6216OST\u6ee1\u8f7d\u5f15\u8d77\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "ls\u547d\u4ee4\u5361\u987f\u53ef\u80fd\u56e0\u8282\u70b9\u8d1f\u8f7d\u9ad8\u3001\u7f51\u7edc\u5ef6\u8fdf\u6216\u5b58\u50a8\u6062\u590d\u3002",
+                "verdict": "no",
+                "reason": "The statement discusses 'ls command lag' which is unrelated to the user's job error cause."
+            },
+            {
+                "statement": "GPU\u65e0\u6cd5\u8bc6\u522b\u53ef\u80fd\u56e0PCIe\u8fde\u63a5\u677e\u52a8\u3002",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "@mno ~]# \u516d\u3001\u652f\u6301\u4e13\u5458\u5e38\u89c1\u95ee\u9898 6.1 \u67e5\u770b\u7528\u6237\u8ba1\u7b97\u8d44\u6e90 \u8fde\u63a5\u5bf9\u5e94\u96c6\u7fa4\uff0c\u70b9\u51fb\u201c\u8d44\u6e90\u64cd\u4f5c\u201d\uff0c\u8fdb\u5165\u201c\u67e5\u770b\u7528\u6237\u8d44\u6e90\u201d",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u7edf\u4e00\u76d1\u63a7\u8fd0\u7ef4\u5e73\u53f0= \u8fd0\u7ef4\u7ba1\u7406 \u5b9a\u5236\u5927\u5c4f\u673a\u623f\u8fd0\u7ef4\u603b\u89c8\u5267\u672c\u6267\u884c TH-HPC TH-HPC4PDTH-HPC \u65e5 \u00ae \u00a9 \u5b58\u50a8\u5206\u533a\u64cd\u4f5c \u00a9 \u8d44\u6e90\u64cd\u4f5c\u4fee\u6539\u7528\u6237\u7ec4\u914d\u989d \u5267\u672c\u6267\u884cOnset | \u00a9 \u00a9 \u4f5c\u4e1a\u64cd\u4f5c \u00a9 \u670d\u52a1\u64cd\u4f5c \u00a9 \u6570\u636e\u62f7\u8d1d \u7528\u6237\u767b\u5f55\u89e3\u9501 \u6267\u884c\u5ba1\u8ba1 \u4fee\u6539\u7528\u6237\u914d\u989d \u7528\u6237\u9501\u5b9a\u67e5\u8be2 \u67e5\u8be2\u8d26\u6237\u8d44\u6e90 \u67e5\u8be2\u7528\u6237\u7ec4\u914d\u989d \u67e5\u8be2\u7528\u6237\u8d44\u6e90 X \u5929\u5bf9\u6267\u884c",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u547d\u4ee4\u8f93\u51fa: PLAY [121 .16 \u3002 225 .1] 2800 bb OBOE BASSO IDOI IA II IIIa Ia I IA Ia Ia a aa Aa I TR changed: [121.16.225.1] ok: [121.16.225.1] => { \u201cmsg\u201d: [ ",
+                "verdict": "no",
+                "reason": "The statement contains irrelevant parts such as 'changed' and 'ok', which are not related to the user's query about viewing error reasons for user jobs."
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u63e1\u624b\u6b21\u6570\u53d1\u751f\u53d8\u5316",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "TH-HPC: ost64 : raid1\u51fa\u73b0 timeout\u6545\u969c",
+                "verdict": "no",
+                "reason": "The statement mentions 'timeout fault' but does not provide any information about user job error causes."
+            },
+            {
+                "statement": "\u7528\u6237\u767b\u5f55",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u652f\u6301\u4e13\u5458\u8be2\u95ee\u67d0\u4e2a\u4f5c\u4e1a\u7684\u4e2d\u65ad\u539f\u56e0\uff0c\u4e00\u7ebf\u503c\u73ed\u5458\u901a\u8fc7\u8fd0\u7ef4\u5e73\u53f0\u7684\u201c\u5176\u4ed6\u64cd\u4f5c-\u67e5\u770b\u7528\u6237\u4f5c\u4e1a\u201d\u529f\u80fd\u5bf9\u7528\u6237\u4f5c\u4e1a\u4e2d\u65ad\u524d\u7684\u8282\u70b9\u65e5\u5fd7\u4fe1\u606f\u8fdb\u884c\u67e5\u770b",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u60a8\u786e\u5b9a\u8981\u6267\u884c\u4fee\u6539\u4f5c\u4e1a\u65f6\u9650\u64cd\u4f5c\u5417?",
+                "verdict": "no",
+                "reason": "The statement contains irrelevant parts such as '\u4fee\u6539\u4f5c\u4e1a\u65f6\u9650' (modify job time limit) which is unrelated to the input about viewing error reasons for user jobs."
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "GrpNodes | \u53ef\u7528\u8282\u70b9\u6570",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "GrpCPUs | \u53ef\u7528\u6838\u6570",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "GrpSubmit | \u53ef\u63d0\u4ea4\u4f5c\u4e1a\u6570",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u8fde\u63a5\u5bf9\u5e94\u96c6\u7fa4\uff0c\u70b9\u51fb\u201c\u8d44\u6e90\u64cd\u4f5c\u201d\uff0c\u8fdb\u5165\u201c\u67e5\u770b\u7528\u6237\u914d\u989d\u201d",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u7edf\u4e00\u76d1\u63a7\u8fd0\u7ef4\u5e73\u53f0 = \u8fd0\u7ef4\u7ba1\u7406 \u3001\u5b9a\u5236\u5927\u5c4f\u673a\u623f\u8fd0\u7ef4\u603b\u89c8\u5267\u672c\u6267\u884c\u5176\u4ed6\u64cd\u4f5c \u8282\u70b9\u64cd\u4f5c TH-HPC4\u65e5 ee TH-HPC OD \u5b58\u50a8\u5206\u533a\u64cd\u4f5c2 eeTH-HPC\u5168 TH-HPC\u4fee\u6539\u7528\u6237\u7ec4\u914d\u989d\u4fee\u6539\u7528\u6237\u7ec4\u914d\u989d\u7528\u6237\u767b\u5f55\u89e3\u9501\u7528\u6237\u9501\u5b9a\u67e5\u8be2\u67e5\u8be2\u8d26\u6237\u8d44\u6e90\u67e5\u8be2\u7528\u6237\u8d44\u6e90\u60a8\u786e\u5b9a\u8981\u6267\u884c\u67e5\u8be2\u7528\u6237\u914d\u989d\u64cd\u4f5c\u5417?",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "+\u7528\u6237\u540d|ER+\u5b58\u50a8\u4eba\u533a |SRR\u53d6\u6d88\u786e\u8ba4",
+                "verdict": "no",
+                "reason": "The statement contains irrelevant parts such as '\u53d6\u6d88\u786e\u8ba4' which is not related to the input question about viewing user job error causes."
+            },
+            {
+                "statement": "\u67e5\u8be2\u7528\u6237\u7ec4\u914d\u989d\u4f1a\u663e\u793a\u8fd9\u4e2a\u7ec4\u7684\u6240\u6709\u8d44\u6e90\uff0c\u67e5\u8be2\u7528\u6237\u8d44\u6e90\u53ea\u663e\u793a\u7ec4\u5185\u8fd9\u4e2a\u7528\u6237\u7684\u8d44\u6e90\u3002",
+                "verdict": "no",
+                "reason": "This statement does not mention anything about job errors, so it is irrelevant to the input question."
+            },
+            {
+                "statement": "\u4ee5\u67e5\u8be2\u7528\u6237\u7ec4\u914d\u989d\u4e3a\u4f8b\uff0c\u67e5\u8be2\u7ed3\u679c\u5982\u4e0b\u56fe\u6240\u793a\uff1a\u67e5\u8be2\u7528\u6237\u7ec4\u914d\u989d X\u5929\u5bf9\u6267\u884c\u547d\u4ee4\u8f93\u51fa:PLAY \u301021 .16 .21 \u30021] 82000000020 Ia Ia Ia IIa Ia I TT IA I Ichanged: [121.16.21.1]ok: [121.16.21.1] => {\u201cmsg\u201d: [{msg\u201cDisk quotas for grp sunfx (gid 5000):Filesystem used quota limit grace files quota limit grace",
+                "verdict": "no",
+                "reason": "The statement contains the irrelevant part 'Disk quotas' which is about storage usage, not job error causes."
+            },
+            {
+                "statement": "\u67e5\u8be2\u7ed3\u679c\u7684\u4e3b\u8981\u5b57\u6bb5\u542b\u4e49\u5982\u4e0b\uff1a\u5b57\u6bb5\u540d | \u542b\u4e49Filesystem | \u7528\u6237\u6240\u5728\u5b58\u50a8\u5206\u533akbytes | \u5df2\u7528\u5b58\u50a8quota | \u78c1\u76d8\u8f6f\u9650\u5236limit | \u78c1\u76d8\u786c\u9650\u5236grace | \u78c1\u76d8\u5b58\u50a8\u914d\u989d\u72b6\u6001fields | \u5df2\u7528\u6587\u4ef6\u6570quota | \u6587\u4ef6\u6570\u8f6f\u9650\u5236limit | \u6587\u4ef6\u6570\u786c\u9650\u5236grace | \u6587\u4ef6\u6570\u914d\u989d\u72b6\u6001",
+                "verdict": "no",
+                "reason": "This statement explains the meaning of fields in query results, but all these fields are related to disk quotas and file usage, not job error causes."
+            },
+            {
+                "statement": "6.3 \u63d0\u9ad8\u4f5c\u4e1a\u4f18\u5148\u7ea7\u4f5c\u4e1a\u63d0\u9ad8\u4f18\u5148\u7ea7\u662f\u6307\u5c06\u67d0\u4e2a\u6392\u961f\u4f18\u5148\u7ea7\u8f83\u4f4e\u7684\u7528\u6237\u4f5c\u4e1a\u63d0\u9ad8\u4f5c\u4e1a\u4f18\u5148\u7ea7\uff0c\u4f7f\u5f97\u8be5\u4f5c\u4e1a\u53ef\u4ee5\u5c3d\u5feb\u8fd0\u7b97\u3002\u8be5\u529f\u80fd\u9488\u5bf9\u4e00\u4e9b",
+                "verdict": "no",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "MPIDI_CH3I_Progress(176): progress engine failure",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "slurmd[cn1368]: *** STEP 2796179.0 KILLED AT 2015-10.com:example@domain.orgT 11:27:12 WITH SIGNAL 9 ***",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "A\uff1a\u8be5\u9519\u8bef\u63d0\u793a\u4e00\u822c\u662f\u7531mpi\u7248\u672c\u5bfc\u81f4\u3002\u89e3\u51b3\u65b9\u6cd5\uff1a\u4f7f\u7528/vol6/source.sh\u4e2d\u7684\u5185\u5bb9\u66ff\u6362\u539f~/.bashrc\u4e2d\u5173\u4e8eintel\u7f16\u8bd1\u5668\u3001mpi\u7684\u8def\u5f84\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "Q:\u4efb\u52a1\u63d0\u4ea4\u8fd0\u884c\u540e\uff0c\u6709\u65f6\u5728\u8fd8\u672a\u8fbe\u5230\u961f\u5217\u7684\u65f6\u95f4\u5929\u6570\u671f\u9650\u65f6\uff0c\u8fd0\u884c\u7684\u7a0b\u5e8f\u5df2\u201c\u505c\u6b62\u5de5\u4f5c\u201d\uff08\u8f93\u51fa\u6587\u4ef6\u6ca1\u6709\u66f4\u65b0\uff09\uff0c\u4f46\u662f\u901a\u8fc7\u4f5c\u4e1a\u67e5\u8be2\u547d\u4ee4\uff08yhq\uff09\u67e5\u770b\uff0c\u4f5c\u4e1a\u770b\u8d77\u8fd8\u5728R\u8fd0\u884c\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "A:\u9047\u5230\u8fd9\u4e2a\u60c5\u51b5\uff0c\u8bf7\u60a8\u53ca\u65f6\u624b\u52a8\u6740\u6389\u60a8\u7684\u4f5c\u4e1a\uff0c\u4ece\u65ad\u6389\u7684\u5730\u65b9\u63a5\u7740\u7eed\u7b97\u5c31\u53ef\u4ee5\u4e86\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "Q:\u8f93\u51fa\u7684slurm\u6587\u4ef6\u4e2d\u662f\u5982\u4e0b\u6570\u636e\uff1ayhrun: got SIGCONT\u3002\u6211\u5728\u5929\u6cb3\u670d\u52a1\u5668\u7528\u6237\u624b\u518c\u4e0a\u6ca1\u627e\u5230\u8fd9\u6761\u6570\u636e\u7684\u89e3\u91ca\u3002\u8bf7\u95ee\u8fd9\u6761\u6570\u636e\u4ee3\u8868\u4ec0\u4e48\u610f\u601d?",
+                "verdict": "no",
+                "reason": "The statement 'yhrun: got SIGCONT' is mentioned, but it has nothing to do with the user's question about how to view error reasons on the operation and maintenance platform. The context discusses system administrator actions during maintenance, which are not relevant to the input."
+            },
+            {
+                "statement": "A:\u8fd9\u4e2a\u662f\u7cfb\u7edf\u7ba1\u7406\u5458\u4e34\u65f6\u7ef4\u62a4\u7cfb\u7edf\uff0c\u4e3a\u4e86\u907f\u514d\u5f71\u54cd\u7528\u6237\u7684\u4f5c\u4e1a\uff0c\u800c\u628a\u7528\u6237\u7684\u4f5c\u4e1a\u6302\u8d77\u4e86\u51fa\u73b0\u7684\u63d0\u793a\u4e86\u3002",
+                "verdict": "no",
+                "reason": "The statement talks about system administrator temporary maintenance causing job suspension, but it does not address the user's question on how to view error reasons via an operation and maintenance platform."
+            },
+            {
+                "statement": "Q\u7a0b\u5e8f\u8fd0\u884c\u62a5\u9519\uff1aFatal Error: This program was not built to run in your system. Please verify that both the operating system and the processor support Intel(R) AVX. yhrun: error: cn2375: task 0: Exited with exit code 1",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "A\uff1a\u8be5\u9519\u8bef\u8bf4\u660e\u7a0b\u5e8f\u7684\u7f16\u8bd1\u65f6\u73af\u5883\u548c\u8fd0\u884c\u65f6\u73af\u5883\u4e0d\u4e00\u81f4\uff0c\u5373\u7a0b\u5e8f\u7f16\u8bd1\u65f6\u4f7f\u7528\u4e86\u652f\u6301AVX\u7684\u9009\u9879\uff0c\u8fd0\u884c\u65f6\u7684\u786c\u4ef6\u73af\u5883\u4e0d\u652f\u6301\u8be5AVX\u4f18\u5316\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u4e00\u822c\u8fd9\u79cd\u60c5\u51b5\u53d1\u751f\u662f\u7531\u4e8e\u7528\u6237\u5728\u7f16\u8bd1\u7a0b\u5e8f\u65f6\u52a0\u5165-xHOST/-xAVX\u9009\u9879\uff08\u6216\u662f\u5728\u5b89\u88c5\u8f6f\u4ef6\u65f6\uff0c\u7cfb\u7edf\u81ea\u52a8\u8bfb\u53d6\u5230\u767b\u9646\u8282\u70b9\u4e0aCPU\u7684flag\u652f\u6301avx\uff0c\u6545\u5728\u7f16\u8bd1\u8f6f\u4ef6\u65f6\u52a0\u5165\u4e86-xHOST\uff09\uff0c\u90a3\u7a0b\u5e8f\u5c31\u4f1a\u6839\u636e\u767b\u9646\u8282\u70b9\u7684CPU\u914d\u7f6e\u4fe1\u606f\u8fdb\u884c\u4f18\u5316\u7f16\u8bd1\uff0c\u7136\u800c\u7a0b\u5e8f\u7684\u8fd0\u884c\u662f\u5728\u8ba1\u7b97\u8282\u70b9\u4e0a\uff0c\u8ba1\u7b97\u8282\u70b9\u7684CPU\u914d\u7f6e\u4fe1\u606f\u53ef\u80fd\u4e0d\u652f\u6301AVX\uff0c\u5c31\u4e0e\u767b\u9646\u8282\u70b9\u4e0d\u540c\uff0c\u5c31\u4f1a\u62a5",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u8fd0\u7ef4\u64cd\u4f5c\u9875\u9762\u5185\uff0c\u5728\u4e0d\u540c\u96c6\u7fa4\u4e4b\u95f4\u5207\u6362\uff0c\u6807\u7b7e\u4fdd\u7559\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5982\u679c\u8fd0\u7ef4\u64cd\u4f5c\u5207\u6362\u5230\u8fd0\u7ef4\u603b\u89c8\u6216\u76d1\u63a7\u9875\u9762\uff0c\u8fd0\u7ef4\u64cd\u4f5c\u5185\u7684\u6807\u7b7e\u5168\u90e8\u4f1a\u5173\u6389\u3002",
+                "verdict": "no",
+                "reason": "The statement mentions 'if the operation switches to the overall view or monitoring page, the tags in the operation will be turned off.' This is irrelevant because it talks about a general feature of the platform and does not relate to how to check error reasons for user jobs."
+            },
+            {
+                "statement": "\u67e5\u8be2\u62a5\u8b66\u7684mds/ost\u5c5e\u4e8e\u54ea\u4e2a\u5206\u533a\uff0c\u53c2\u7167\u4e0b\u8868\uff1a",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "HPC-ES",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "mds1 | ost8-39 | THL6 | HPC1",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "mds2 | ost48-79 | THL7 | HPC2",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "mds3 | ost80-111 | THL8 | HPC3",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "mds4 | ost112-143 | fs1 | HPC4",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u4f8b\u5982mds1\u5b95\u673a\uff0c\u5373\u9700\u8981\u6302\u8d77THL6\u7684\u5206\u533a\u4f5c\u4e1a\uff0c\u5982\u4e0b\u56fe\u6240\u793a\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u7edf\u4e00\u76d1\u63a7\u8fd0\u7ef4\u5e73\u53f0= \u8fd0\u7ef4\u7ba1\u7406\u3001",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u5b9a\u5236\u5927\u5c4f\u5267\u672c\u6267\u884c",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "TH-HPC \u5176\u4ed6\u64cd\u4f5c \u8282\u70b9\u64cd\u4f5c",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": " TH-HPCA\u00a9 TH-HPC > THL6 \u00a9  TH-HPC \u65e5 \u4e2d \u5b58\u50a8\u5206\u533a\u64cd\u4f5c gris 2EL\u5206\u533a\u4f5c\u4e1a\u6062\u590d QTH7 OTH O AiReE O \u7528\u6237\u64cd\u4f5c \u00a9 \u4f5c\u707f\u64cd\u4f5c \u56db \u80a5\u5404\u4e8c\u4eba\u77ff",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u5982\u4e0b\u56fe\u67e5\u770b\u65e5\u5fd7\uff0c\u5982\u679c\u6709-30\u6216scsi cmnd\u9519\u8bef\uff0c\u8054\u7cfb\u4e8c\u7ebf\u503c\u73ed\u4eba\u5458\u5904\u7406\uff1b\u5982\u679c\u6ca1\u6709\u62a5-30\u6216scsi cmnd\u9519\u8bef\uff0c\u8fdb\u884c\u4e0b\u4e00\u6b65\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u7edf\u4e00\u76d1\u63a7\u8fd0\u7ef4\u5e73\u53f0= \u8fd0\u7ef4\u7ba1\u7406\u3001 \u5b9a\u5236\u5927\u5c4f\u5267\u672c\u6267\u884c",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "TH-HPCTH-HPC4 \u5176\u4ed6\u64cd\u4f5c of \u8282\u70b9\u7f16\u53f7: mds1 \u65e5 ce TH-HPC \u5e8f\u53f7: 2488 \u00a9) HPC1-127 \u65e5 storage\u8282\u70b9\u540d\u79f0: mds1 TH-3F \u67e5\u8be2\u5185\u5b58 \u6e05\u9664\u8fdb\u7a0b\u6807\u8bb0\u786c\u76d8 \u6240\u5c5e\u96c6\u7fa4 TH-HPC \u6240\u5c5e\u5206\u533a:_null \u5b58\u50a8\u4f4d\u7f6e: \u8001\u673a\u623f-TH-HPC-HPC1-127-21.0",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u67e5\u8be2\u786c\u76d8\u4fe1\u606fAiraid (SB cpu\u8fdb\u7a0b\u6392\u5e8fmem\u8fdb\u7a0b\u6392\u5e8f \u786c\u76d8\u5927\u5c0f. \u65e0\u786c\u76d8 \u8282\u70b9\u72b6\u6001: \u8fde\u63a5\u6210\u529f | \u67e5\u8be2rsf\u4fe1\u606f BRIE \u91cd\u542fmds\u3002",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u9009\u62e9\u201c\u5176\u4ed6\u64cd\u4f5c\u201d\u2014\u5bf9\u5e94\u96c6\u7fa4\u2014\u201c\u5176\u4ed6\u64cd\u4f5c\u201d\u2014\u201c\u7535\u6e90\u7ba1\u7406\u201d\u3002 \u8f93\u5165\u201c\u8282\u70b9\u540d\u201d\u548c\u201c\u52a8\u4f5c\uff08\u91cd\u542f\uff09\u201d\u540e\u786e\u8ba4\u3002 TH-HPC TH-HPC4 \u8282\u70b9\u64cd\u4f5c",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5267\u672c\u7f16\u6392BO \u5b58\u50a8\u5206\u533a\u64cd\u4f5c OTHLS\u767b\u9646\u8282\u70b9\u90e8\u7f72\u5ba2\u6237\u7aef-\uff0c MDS\u8282\u70b9\u90e8\u7f72\u5ba2\u6237.\uff0c OSTHRBBEP...\u8ba1\u7b97\u8282\u70b9\u90e8\u7f72\u5ba2\u6237\u7aef.\uff0c \u8fdc\u7a0b\u5728\u7ebf\u7528\u6237 \u5267\u672c\u6267\u884c\u56dbTHL6",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u4e8cemsiveenee wm\u2014 \u00a9 \u8d44\u6e90\u64cd\u4f5c 0 \u7528\u6237\u64cd\u4f5c \u00a9 \u4f5c\u4e1a\u64cd\u4f5cmds1:\u67e5\u8be2\u65e5\u5fd7 \u4e45",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u201clfs quota \u2013g username /vol-th\u201d\u67e5\u770b\u8d26\u53f7\u914d\u989d\u4f1a\u770b\u5230\u5df2\u4f7f\u7528\u5b58\u50a8\u7684\u6570\u5b57\u65c1\u8fb9\u6709\u4e00\u4e2a\u201c*\u201d\u53f7\uff0c\u72b6\u6001\u201c4w1d23h59m57s\u201d\u8868\u793a\u4e00\u4e2a\u6708\u7684\u5012\u8ba1\u65f6\uff0c\u5982\u679c\u7528\u6237\u5728\u5012\u8ba1\u65f6\u7ed3\u675f\u524d\u5c06\u4f7f\u7528\u5b58\u50a8\u6e05\u7406\u5230500G\u4ee5\u4e0b\uff0c\u5219\u5b58\u50a8\u72b6\u6001\u6062\u590d\u6b63\u5e38\uff0c\u5426\u5219\uff0c\u7528\u6237\u5b58\u50a8\u65e0\u6cd5\u5199\u5165\uff1b\u5982\u679c\u7528\u6237\u4f7f\u7528\u5b58\u50a8\u5927\u4e8e1T\uff0c\u7528\u6237\u4f1a\u65e0\u6cd5\u5199\u5165\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "Q\uff1a\u78c1\u76d8\u65e0\u6cd5\u5199\u5165\uff0c\u62a5\u201cquota error\u201d\u9519\u8bef",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "A\uff1a\u8fd9\u662f\u7531\u4e8e\u7528\u6237\u4f7f\u7528\u5b58\u50a8\u6216\u6587\u4ef6\u6570\u8d85\u8fc7\u914d\u989d\u8bbe\u5b9a\uff0c\u9700\u8981\u7528\u6237\u5bf9\u6570\u636e\u8fdb\u884c\u6e05\u7406\u5230\u78c1\u76d8\u914d\u989d\u8f6f\u9650\u5236\u4ee5\u4e0b\u65b9\u53ef\u7ee7\u7eed\u4f7f\u7528\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "Q\uff1a\u4f5c\u4e1a\u8fd0\u884c\u63d0\u793a\u201cforrtl: Input/output error\u201d",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "A\uff1a\u53ef\u80fd\u662f\u5b58\u50a8\u67d0\u4e00\u65f6\u523b\u538b\u529b\u8f83\u5927\uff0c\u9020\u6210IO\u9519\u8bef\uff0c\u8bf7\u60a8\u91cd\u65b0\u63d0\u4ea4\u4f5c\u4e1a\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "Q\uff1a\u4f5c\u4e1a\u8fd0\u884c\u65f6\u62a5\u9519\uff1aforrtl: No space left on device\uff0cforrtl: severe (38): error during write, unit 12\uff0c\u4f46\u662f\u540c\u6837\u7684\u4f5c\u4e1a\u518d\u6b21\u63d0\u4ea4\u65f6\u53ef\u80fd\u5c31\u6b63\u5e38\u8fd0\u884c\u5b8c\u6210\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "A\uff1a\u8be5\u95ee\u9898\u4e3b\u8981\u7531\u6587\u4ef6\u7cfb\u7edf\u4e2d\u67d0\u4e00OST\u5b58\u50a8\u5df2\u6ee1\u5bfc\u81f4\uff0c\u8bf7\u8054\u7cfb\u4e0e\u60a8\u5bf9\u63a5\u7684\u5de5\u7a0b\u5e08\u6216\u7cfb\u7edf\u7ba1\u7406\u5458\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "Lustre\u6587\u4ef6\u7cfb\u7edf\u7531\u82e5\u5e72IO\u670d\u52a1\u5668\uff08Object Storage Services\uff09\u548cObject Storage Targets(OST)\u7ec4\u6210\u3002\u5f53\u5bf9\u4e00\u4e2a\u6587\u4ef6\u8fdb\u884c\u8bfb\u5199\u64cd\u4f5c\u65f6\uff0c\u4e3a\u4e86\u63d0\u9ad8IO\u6548\u7387\uff0c\u6587\u4ef6\u7cfb\u7edf\u4f1a\u81ea\u52a8\u5c06\u8be5\u6587\u4ef6\u7684\u8bfb\u5199\u64cd\u4f5c\u5206\u5272\u6210\u591a\u4e2a\uff0c\u5728\u591a\u4e2aOST\u4e0a\u5e76\u53d1\u5b9e\u73b0\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5982\u679c\u5728\u8be5\u8fc7\u7a0b\u4e2d\uff0c\u4f7f\u7528\u5230\u7684\u67d0\u4e00OST\u51fa\u73b0\u95ee\u9898\uff0c\u5c31\u4f1a\u53d1\u751f\u8bfb\u5199\u9519\u8bef\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "Q:\u6211\u4f7f\u7528ls\u547d\u4ee4\u67e5\u770b\u76ee\u5f55\u4e0b\u7684\u6587\u4ef6\uff0c\u53ef\u662f\u4e00\u76f4\u505c\u7559\u4e0b\u90a3\u91cc\uff0c\u6ca1\u6709\u663e\u793a\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "A:\u9047\u5230\u8fd9\u4e2a\u95ee\u9898\uff0c\u60a8\u53ef\u4ee5\u7b49\u5f85\u4e00\u4f1a\uff0c\u518d\u91cd\u65b0\u4f7f\u7528ls\u547d\u4ee4\u67e5\u770b\u76ee\u5f55\u6587\u4ef6\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u539f\u56e0\u4e4b\u4e8c\u53ef\u80fd\u662f\u7528\u6237\u5ba2\u6237\u7aef\u7684\u7f51\u7edc\u8d1f\u8f7d\u6bd4\u8f83\u91cd\uff0c\u51fa\u73b0\u6bd4\u8f83\u4e25\u91cd\u7684\u7f51\u7edc\u5ef6\u8fdf\uff1b",
+                "verdict": "no",
+                "reason": "The statement mentions 'user client's network load is heavy' which has nothing to do with the input question about viewing user job error reasons on an operation and maintenance platform."
+            },
+            {
+                "statement": "\u539f\u56e0\u4e4b\u4e09\u53ef\u80fd\u662fTH-HPC\u7cfb\u7edf\u7684\u5b58\u50a8\u6b63\u5728\u8fdb\u884c\u6062\u590d\u8c03\u6574\u3002",
+                "verdict": "no",
+                "reason": "The statement mentions 'storage recovery adjustment' which is unrelated to the specific issue of checking job errors via the operation and maintenance platform."
+            },
+            {
+                "statement": "6.6 GPU\u4f7f\u7528\u95ee\u9898",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "Q\uff1a\u4f7f\u7528CUDA toolkit\u7f16\u8bd1\u7a0b\u5e8f\u540e\uff0c\u5728gpu_test\u5206\u533a\u63d0\u4ea4\u4f5c\u4e1a\uff0c\u8fd0\u884c\u65f6\u63d0\u793a\u9519\u8bef\uff1ano CUDA-capable device is detected",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "A\uff1a\u53ef\u80fd\u539f\u56e0\u6709\u4e8c\u79cd\u60c5\u51b5\uff1a",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u539f\u56e0\u4e4b\u4e00\u53ef\u80fd\u662f\u5206\u914d\u5230\u7684\u8be5\u8ba1\u7b97\u7ed3\u70b9\u4e0a\u7528\u4e8e\u8fde\u63a5CPU\u4e0eGPU\u7684PCIe\u603b\u7ebf\u677e\u52a8\uff0c\u5bfc\u81f4\u65e0\u6cd5\u627e\u5230device\u3002",
+                "verdict": "no",
+                "reason": "The statement discusses a PCIe bus issue which is unrelated to the user's query about viewing job error reasons on an operation and maintenance platform."
+            },
+            {
+                "statement": "\u89e3\u51b3\u65b9\u6cd5\uff1a\u5728\u63d0\u4ea4\u4f5c\u4e1a\u65f6",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u65f6\u52a0\u5165\u4e86-xHOST\uff09\uff0c\u90a3\u7a0b\u5e8f\u5c31\u4f1a\u6839\u636e\u767b\u9646\u8282\u70b9\u7684CPU\u914d\u7f6e\u4fe1\u606f\u8fdb\u884c\u4f18\u5316\u7f16\u8bd1\uff0c\u7136\u800c\u7a0b\u5e8f\u7684\u8fd0\u884c\u662f\u5728\u8ba1\u7b97\u8282\u70b9\u4e0a\uff0c\u8ba1\u7b97\u8282\u70b9\u7684CPU\u914d\u7f6e\u4fe1\u606f\u53ef\u80fd\u4e0d\u652f\u6301AVX\uff0c\u5c31\u4e0e\u767b\u9646\u8282\u70b9\u4e0d\u540c\uff0c\u5c31\u4f1a\u62a5\u4e0a\u9762\u7684\u63d0\u793a\u9519\u8bef\u3002",
+                "verdict": "no",
+                "reason": "The statement discusses CPU configuration and optimization issues related to program compilation, but the input is about viewing user job error reasons on an operation platform. The irrelevant part is 'CPU\u914d\u7f6e\u4fe1\u606fflag\u5747\u65e0avx' which refers to AVX support in CPU flags."
+            },
+            {
+                "statement": "\u89e3\u51b3\u65b9\u6cd5\uff1a\u7f16\u8bd1\u65f6\u53bb\u6389-xHOST/-xAVX\u9009\u9879\uff0c\u4f7f\u7528\u5176\u4ed6\u4f18\u5316\u9009\u9879\u3002",
+                "verdict": "no",
+                "reason": "The statement provides a solution for compilation errors related to -xHOST and -xAVX, but the input is about viewing user job error reasons on an operation platform. The irrelevant part is '\u7f16\u8bd1\u65f6\u53bb\u6389-xHOST/-xAVX\u9009\u9879' which pertains to compilation issues."
+            },
+            {
+                "statement": "\u5907\u6ce8\uff1a-xHost will cause icc/icpc or icl to check the cpu information and find the highest level of extended instructions support to use.",
+                "verdict": "no",
+                "reason": "The statement explains the function of -xHOST in compiler optimization, but it is unrelated to viewing user job error reasons on an operation platform. The irrelevant part is 'icc/icpc or icl' which refers to specific compilers."
+            },
+            {
+                "statement": "\u5929\u6cb3\u767b\u9646\u8282\u70b9ln1\u3001ln2\u3001ln3\u4e0a\u7684CPU\u914d\u7f6e\u4fe1\u606fflag\u5747\u65e0avx\uff0cln8\u3001ln9\u4e0a\u5747\u6709avx\u3002",
+                "verdict": "no",
+                "reason": "The statement details CPU configuration differences between login nodes, but the input is about viewing user job error reasons on an operation platform. The irrelevant part is 'CPU\u914d\u7f6e\u4fe1\u606f' which discusses hardware specifications."
+            },
+            {
+                "statement": "\u5982\u679c\u5728ln8\u6216ln9\u4e0a\u5b89\u88c5\u8f6f\u4ef6\u65f6\uff0cconfigure\u540e\u4e00\u5b9a\u8981\u68c0\u67e5\u4e0b\u7f16\u8bd1flag\u662f\u5426\u52a0\u5165\u4e86-xHOST\uff0c\u5982\u679c\u52a0\u5165\uff0c\u8bf7\u4fee\u6539\u5bf9\u5e94\u7684configure\u6587\u4ef6\uff0c\u5c06-xHOST\u5220\u9664",
+                "verdict": "no",
+                "reason": "The statement gives instructions for checking and modifying compilation flags, but it is not related to the input which asks about viewing user job error reasons. The irrelevant part is '\u7f16\u8bd1flag' which refers to compilation issues."
+            },
+            {
+                "statement": "Q\uff1a\u767b\u9646\u7cfb\u7edf\u65f6\u63d0\u793a\u201cSome errors happened when getting quota info\u201d",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "A\uff1a\u8fd9\u662f\u7531\u4e8e\u5728\u5bf9\u7cfb\u7edf\u8fdb\u884c\u8c03\u6574\u65f6\u767b\u9646\u7ed3\u70b9quota\u670d\u52a1\u6ca1\u6709\u542f\u7528\u5bfc\u81f4\uff0c\u5bf9\u7528\u6237\u672c\u8eab\u7684\u64cd\u4f5c\u548c\u4f5c\u4e1a\u4e0d\u4f1a\u6709\u5f71\u54cd\uff0c\u7ba1\u7406\u5458\u4f1a\u5b9a\u65f6\u5bf9\u6b64\u8fdb\u884c\u8c03\u6574\uff0c\u8bf7\u653e\u5fc3\u4f7f\u7528\u3002",
+                "verdict": "no",
+                "reason": "The statement explains that the error is due to quota service not being enabled on login nodes, but it does not directly address how to view user job error reasons. The irrelevant part is '\u5bf9\u7528\u6237\u672c\u8eab\u7684\u64cd\u4f5c\u548c\u4f5c\u4e1a\u4e0d\u4f1a\u6709\u5f71\u54cd' which states that this issue does not affect user operations or jobs."
+            },
+            {
+                "statement": "\u89e3\u51b3\u65b9\u6cd5\uff1a\u8fd9\u662f\u56e0\u4e3a\u767b\u9646\u8282\u70b9quota\u670d\u52a1\u6ca1\u6709\u542f\u7528\uff0c\u5bf9\u7528\u6237\u672c\u8eab\u7684\u64cd\u4f5c\u548c\u4f5c\u4e1a\u4e0d\u4f1a\u6709\u5f71\u54cd\u3002",
+                "verdict": "no",
+                "reason": "The statement provides a solution for quota service errors, but it is unrelated to the input about viewing user job error reasons. The irrelevant part is '\u5bf9\u7528\u6237\u672c\u8eab\u7684\u64cd\u4f5c\u548c\u4f5c\u4e1a\u4e0d\u4f1a\u6709\u5f71\u54cd' which discusses the impact on user operations."
+            },
+            {
+                "statement": "\u503c\u73ed\u4eba\u5458\u6bcf\u5929\u5b9a\u65f6\u5bf9vol-th\u3001WORK\u3001vol6\u7684quota\u8fdb\u884c\u68c0\u67e5\uff0c\u5c24\u5176\u662f\u5b58\u50a8\u51fa\u73b0\u95ee\u9898\u540e\uff08\u5982ost\u91cd\u542f\uff09\uff0cquota\u4f1a\u5f02\u5e38\u5173\u95ed\uff0c\u4ee5vol-th\u4e3a\u4f8b\u91cd\u542f\u65b9\u5f0f\u5982\u4e0b\uff1a",
+                "verdict": "no",
+                "reason": "The statement describes the process of checking quotas, but it does not relate to viewing user job error reasons. The irrelevant part is '\u5bf9vol-th\u3001WORK\u3001vol6\u7684quota\u8fdb\u884c\u68c0\u67e5' which refers to quota checks on specific storage volumes."
+            },
+            {
+                "statement": "lfsquotaoff -ug /vol-th",
+                "verdict": "no",
+                "reason": ""
+            },
+            {
+                "statement": "lfsquotaon -ug /vol-th",
+                "verdict": "no",
+                "reason": ""
+            },
+            {
+                "statement": "Q\uff1a\u9ed8\u8ba4\u7684\u78c1\u76d8\u914d\u989d\u662f\u591a\u5c11\uff1f\u78c1\u76d8\u914d\u989d\u7684\u542b\u4e49\u662f\u4ec0\u4e48\uff1f",
+                "verdict": "yes",
+                "reason": ""
+            },
+            {
+                "statement": "A\uff1a\u4e3a\u4e86\u5408\u7406\u5229\u7528\u6709\u9650\u7684\u5b58\u50a8\u8d44\u6e90\uff0c\u76ee\u524d\u4e2d\u5fc3\u5bf9\u7528\u6237\u9ed8\u8ba4\u8fdb\u884c\u5b58\u50a8\u8f6f\u9650\u5236500G\uff0c\u5b58\u50a8\u786c\u9650\u52361T\uff0c\u6587\u4ef6\u6570\u8f6f\u9650\u5236100\u4e07\uff0c\u6587\u4ef6\u6570\u786c\u9650\u5236200\u4e07\u7684\u78c1\u76d8\u914d\u989d\u9650\u5236\u3002",
+                "verdict": "no",
+                "reason": "The statement explains the default disk quota limits, but it does not directly address how to view user job error reasons. The irrelevant part is '\u76ee\u524d\u4e2d\u5fc3\u5bf9\u7528\u6237\u9ed8\u8ba4\u8fdb\u884c\u5b58\u50a8\u8f6f\u9650\u5236500G\uff0c\u5b58\u50a8\u786c\u9650\u52361T' which discusses storage resource allocation."
+            },
+            {
+                "statement": "\u4ee5\u78c1\u76d8\u5b58\u50a8\u4e3a\u4f8b\u8bf4\u660e\u8f6f\u3001\u786c\u9650\u5236\u7684\u542b\u4e49\uff0c\u6587\u4ef6\u6570\u8f6f\u3001\u786c\u9650\u5236\u7684\u542b\u4e49\u4e0e\u5176\u4e00\u6837\u3002",
+                "verdict": "no",
+                "reason": "The statement explains the meaning of soft and hard limits for disk storage, but it is not relevant to viewing user job error reasons. The irrelevant part is '\u4ee5\u78c1\u76d8\u5b58\u50a8\u4e3a\u4f8b' which refers to disk storage."
+            },
+            {
+                "statement": "\u7528\u6237\u4f7f\u7528\u5b58\u50a8\u4f4e\u4e8e500G\u65f6\uff0c\u5b58\u50a8\u72b6\u6001\u6b63\u5e38\uff1b\u5f53\u7528\u6237\u4f7f\u7528\u5b58\u50a8\u4ecb\u4e8e500G\u548c1T\u4e4b\u95f4\u65f6\uff0c\u7528\u6237\u914d\u989d\u5f02\u5e38\uff0c\u901a\u8fc7\u201clfs quota \u2013g username /vol-th\u201d\u67e5\u770b\u8d26\u53f7\u914d\u989d\u4f1a\u770b\u5230\u5df2\u4f7f\u7528\u5b58\u50a8\u7684\u6570\u5b57\u65c1\u8fb9\u6709\u4e00\u4e2a\u201c*\u201d\u53f7\uff0c\u72b6\u6001\u201c4w1d23h59m57s\u201d\u8868\u793a\u4e00\u4e2a\u6708\u7684\u5012\u8ba1\u65f6\uff0c\u5982\u679c\u7528\u6237\u5728\u5012\u8ba1\u65f6\u7ed3\u675f\u524d\u5c06\u4f7f\u7528",
+                "verdict": "no",
+                "reason": "The statement describes the user's storage usage and quota status, but it does not directly address how to view user job error reasons. The irrelevant part is '\u67e5\u770b\u8d26\u53f7\u914d\u989d' which refers to checking account quotas."
+            }
+        ]
+    }
+]
+ 
+Score: 0.46875
+Reason: The score is 0.47 because the retrieval context contains some relevant statements, such as one that mentions checking node logs for job interruption errors and another about IO errors caused by storage pressure, but these are only a small fraction of the total statements (out of at least 35), most of which discuss unrelated topics like user quotas, system maintenance, or specific hardware issues. The input specifically asks how to view error reasons on the operation platform for user jobs, and while there is one relevant statement out of many, it does not provide a clear step-by-step method as requested.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Answer Relevancy Verbose Logs
+**************************************************
+
+Statements:
+[
+    "值班员在巡检机房时发现某机柜温度过高导致板卡掉电。",
+    "应按照以下步骤处理：1. 确认机柜状态。",
+    "通过系统界面查看机柜状态图标，若显示火苗图标则表示存在超温报警，需立即采取措施。",
+    "2. 检查不可操作板卡。",
+    "查看机柜中是否存在在线但不可操作的板卡（灰色图标，中间黑色横杠），这些板卡可能因温度过高而无法正常工作。",
+    "3. 进行加切电操作。",
+    "根据系统提供的批量定位及加切电功能，输入机柜编号（如RO-P00到RO-P14），点击定位按钮定位机柜位置，然后进行加电或切电操作，以尝试恢复板卡供电。",
+    "4. 配置报警推送。",
+    "点击机柜报警推送配置按钮，选择需要推送的报警类型，确保及时收到相关警报信息。",
+    "5. 监控板板卡状态。",
+    "打开机柜弹窗，查看板卡状态样式，确认是否存在超温报警或其他异常情况，并根据提示进行相应处理。",
+    "6. 记录和报告。",
+    "记录故障现象及处理过程，并向上级汇报，以便后续跟踪和处理。"
+] 
+ 
+Verdicts:
+[
+    {
+        "verdict": "idk",
+        "reason": ""
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    }
+]
+ 
+Score: 1.0
+Reason: The score is 1.00 because the answer directly addresses the query about handling a high-temperature issue causing board card shutdown in a server room, and there are no irrelevant statements present.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Contextual Relevancy Verbose Logs
+**************************************************
+
+Verdicts:
+[
+    {
+        "verdicts": [
+            {
+                "statement": "\u6587\u672c\u4e3b\u8981\u63cf\u8ff0\u4e86\u8ba1\u7b97\u673a\u67dc\u7684\u7ba1\u7406\u4fe1\u606f\uff0c\u5305\u62ec\u6240\u5c5e\u533a\u57df\uff08\u5982FT\u5206\u533a\u3001MT\u5206\u533a\uff09\u3001\u673a\u67dc\u4f4d\u7f6e\uff08\u5982\u7b5d0\u63920\u53f7\u673a\u67dc\uff09\u3001\u673a\u67dc\u7f16\u53f7\uff08\u5982RO-P00\u5230RO-P14\uff09\u4ee5\u53ca\u5bf9\u673a\u67dc\u8fdb\u884c\u52a0\u7535\u3001\u5207\u7535\u3001\u590d\u4f4d\u7b49\u64cd\u4f5c\u7684\u529f\u80fd\u3002",
+                "verdict": "no",
+                "reason": "The statement describes general computer cabinet management information, but the input is about handling a specific incident of high temperature causing board card power-off. The context does not mention anything related to that incident or its resolution."
+            },
+            {
+                "statement": "\u540c\u65f6\u63d0\u5230\u4e86\u673a\u67dc\u677f\u5361\u8282\u70b9\u7684\u52a0\u5207\u7535\u72b6\u6001\uff0c\u4ee5\u53ca\u901a\u8fc7\u7cfb\u7edf\u8fdb\u884c\u673a\u67dc\u67e5\u8be2\u548c\u786c\u4ef6\u76d1\u63a7\u7684\u76f8\u5173\u754c\u9762\u548c\u64cd\u4f5c\u8bf4\u660e\u3002",
+                "verdict": "no",
+                "reason": "The statement talks about the status of cabinet board card nodes and system operations for querying cabinets and hardware monitoring, but it does not address how to handle a high temperature incident or its consequences. It is irrelevant to the input."
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u672c\u6587\u6863\u4e3b\u8981\u63cf\u8ff0\u4e86\u673a\u67dc\u548c\u673a\u6846\u7684\u52a0\u7535\u3001\u5207\u7535\u3001\u590d\u4f4d\u53ca\u56fa\u4ef6\u5347\u7ea7\u7b49\u64cd\u4f5c\u529f\u80fd\u3002",
+                "verdict": "no",
+                "reason": "The statement mentions the document describing functions, but it does not relate to how to handle a situation where an officer finds a cabinet temperature too high causing card power-off. The irrelevant part is '\u52a0\u7535\u3001\u5207\u7535\u3001\u590d\u4f4d\u53ca\u56fa\u4ef6\u5347\u7ea7' (power-on/off/reset/firmware upgrade) which are operations unrelated to handling overheating issues."
+            },
+            {
+                "statement": "\u7528\u6237\u53ef\u5bf9\u5355\u4e2a\u6216\u591a\u4e2a\u673a\u67dc\u8fdb\u884c\u6279\u91cf\u52a0\u7535\u3001\u5207\u7535\u3001\u590d\u4f4d\u64cd\u4f5c\uff0c\u7cfb\u7edf\u4f1a\u63d0\u793a\u4e0d\u53ef\u64cd\u4f5c\u7684\u677f\u5361\u3002",
+                "verdict": "no",
+                "reason": "The statement describes user operations on cabinets, but it does not address the specific issue of handling a temperature too high causing card power-off. The irrelevant part is '\u6279\u91cf\u52a0\u7535\u3001\u5207\u7535\u3001\u590d\u4f4d' (batch power-on/off/reset) which are general operations and do not mention temperature-related problems."
+            },
+            {
+                "statement": "\u540c\u65f6\u652f\u6301\u5355\u4e2a\u673a\u67dc\u7684\u56fa\u4ef6\u5347\u7ea7\u53ca\u6279\u91cf\u56fa\u4ef6\u5347\u7ea7\uff0c\u5347\u7ea7\u524d\u9700\u9009\u62e9\u66f4\u65b0\u7c7b\u578b\u5e76\u786e\u8ba4\u53ef\u64cd\u4f5c\u7684\u677f\u5361\u3002",
+                "verdict": "no",
+                "reason": "The statement talks about firmware upgrade operations, but it does not provide information on handling a temperature too high causing card power-off. The irrelevant part is '\u56fa\u4ef6\u5347\u7ea7' (firmware upgrade) which is unrelated to the immediate issue of overheating."
+            },
+            {
+                "statement": "\u6b64\u5916\uff0c\u53ef\u901a\u8fc7\u673a\u67dc\u7f16\u53f7\u8df3\u8f6c\u81f3\u677f\u5361\u6570\u636e\u754c\u9762\u67e5\u8be2\u4fe1\u606f\uff0c\u4e5f\u53ef\u901a\u8fc7\u6240\u5c5e\u533a\u57df\u3001\u7c7b\u578b\u3001\u673a\u67dc\u7b49\u6761\u4ef6\u67e5\u8be2\u673a\u6846\u8be6\u60c5\u3002",
+                "verdict": "no",
+                "reason": "The statement describes querying methods for information, but it does not address the problem of handling a temperature too high causing card power-off. The irrelevant part is '\u67e5\u8be2\u4fe1\u606f' (querying information) which is about data retrieval and not troubleshooting."
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u672c\u6587\u6863\u63cf\u8ff0\u4e86\u786c\u4ef6\u76d1\u63a7\u7cfb\u7edf\u4e2d\u673a\u67dc\u548c\u677f\u5361\u7684\u72b6\u6001\u663e\u793a\u53ca\u64cd\u4f5c\u529f\u80fd\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5305\u62ec\u673a\u6846CMU\u72b6\u6001\u6307\u793a\uff08\u7eff\u8272\u3001\u9ec4\u8272\u3001\u7ea2\u8272\u3001\u706b\u82d7\u3001\u6c34\u6ef4\u3001\u7070\u8272\u56fe\u6807\u7b49\uff09\u3001\u4e0d\u53ef\u64cd\u4f5c\u677f\u5361\u7684\u6807\u8bc6\u3001\u673a\u67dc\u6279\u91cf\u5b9a\u4f4d\u4e0e\u52a0\u5207\u7535\u64cd\u4f5c\u65b9\u6cd5\u3001\u62a5\u8b66\u63a8\u9001\u914d\u7f6e\u4ee5\u53ca\u677f\u5361\u5f39\u7a97\u4e2d\u7684\u4f20\u611f\u5668\u4fe1\u606f\u548c\u62a5\u8b66\u72b6\u6001\u663e\u793a\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u7528\u6237\u53ef\u901a\u8fc7\u754c\u9762\u8fdb\u884c\u673a\u67dc\u72b6\u6001\u76d1\u63a7\u3001\u62a5\u8b66\u7c7b\u578b\u8bbe\u7f6e\u53ca\u8bbe\u5907\u64cd\u4f5c\u3002",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u5207\u7535| \u590d\u4f4d\u201c\u72b6\u6001",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "Ro-P02\u52a0\u7535| \u5207\u7535| \u590d\u4f4d \u72b6\u6001",
+                "verdict": "no",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u503c\u73ed\u5458\u5728\u5de1\u68c0\u673a\u623f\u65f6\u53d1\u73b0\u67d0\u673a\u67dc\u6e29\u5ea6\u8fc7\u9ad8\u5bfc\u81f4\u677f\u5361\u6389\u7535\uff0c\u5e94\u5982\u4f55\u5904\u7406\uff1f",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "| 25.8.99,100:8850/start/#/device/cabinet/list",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "RO-P00 to RO-P14 are various computer cabinets and their locations in the machine room.",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "The control system can perform operations such as power on/off, reset, etc. for these computer cabinets.",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "There are different partitions like FT and MT in the machine room.",
+                "verdict": "no",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u503c\u73ed\u5458\u5728\u5de1\u68c0\u673a\u623f\u65f6\u53d1\u73b0\u67d0\u673a\u67dc\u6e29\u5ea6\u8fc7\u9ad8\u5bfc\u81f4\u677f\u5361\u6389\u7535\uff0c\u5e94\u5982\u4f55\u5904\u7406\uff1f",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u8ba1\u7b97\u673a\u67dc",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "amv",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "iss",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u6240\u5c5e\u533a\u57df",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "FT\u5206\u533a",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "MT\u5206\u533a",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "fo = \u673a\u67dc\u4f4d\u7f6e\u7b5d0\u63920\u53f7\u673a\u67dc\u201808H SOE SOK2S0N8 ORS SUE OK S HE ORES SUE ORES IE \u2018OK OSIME S081 SHS \u2018SOK 25908 SOKEHSSONE OK 45908",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u52a0\u7535|\u5207\u7535|\u590d\u4f4d\u7b49\u64cd\u4f5c\u8bb0\u5f55",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u503c\u73ed\u5458\u5728\u5de1\u68c0\u673a\u623f\u65f6\u53d1\u73b0\u67d0\u673a\u67dc\u6e29\u5ea6\u8fc7\u9ad8\u5bfc\u81f4\u677f\u5361\u6389\u7535\uff0c\u5e94\u5982\u4f55\u5904\u7406\uff1f",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "mm10 om09 | we0 oe10 | ws von) on ws0 | weom mm108) oe woe vs as FX \u4e2d\u56fd\u901a\u4fe1\u670d\u52a1CHINA COMSERVICE\u56fd\u9632\u79d1\u5927\u7cfb\u7edf\u7ea7aaooommegei\u65e5ore2.=mmcoomi mom\u2014= |soinsoo|mounpoo newaemavenmoi ue=o=ameneome\u2014T[EYE\u672cannaranane oem",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u56fe6-104 \u56fa\u4ef6\u5347\u7ea7\u6279\u91cf\u56fa\u4ef6\u5347\u7ea7\uff1a\u52fe\u9009\u8981\u8fdb\u884c\u64cd\u4f5c\u7684\u673a\u67dc\uff0c\u8fdb\u884c\u6279\u91cf\u56fa\u4ef6\u5347\u7ea7\uff0c\u9009\u62e9\u66f4\u65b0\u7c7b\u578b\u540e\uff0c\u63d0\u793a\u4e0d\u53ef\u64cd\u4f5c\u7684\u677f\u5361\u3002\u53ef\u4ee5\u5728\u5f39\u7a97\u754c\u9762\u70b9\u51fb\u9009\u4e2d\u673a\u67dc\u4e0a\u7684\u7ea2\u53c9\u5220\u9664\u9009\u4e2d\u7684\u673a\u67dc\u3002",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "= SEES\u56fe6-105 \u6279\u91cf\u56fa\u4ef6 \u673a\u67dc\u5185\u8df3\u8f6c\u677f\u5361\u6570\u636e\u67e5\u8be2\uff1a\u70b9\u51fb\u67d0\u4e2a\u673a\u67dc\u7684\u677f\u5361\uff0c\u8df3\u8f6c\u81f3\u677f\u5361\u6570\u636e\u754c\u9762\u3002\u6240\u5c5e\u673a\u67dc\u9ed8\u8ba4\u4e3a\u9009\u62e9\u7684\u673a\u67dc\uff0c\u5e76\u7b5b\u9009\u67e5\u8be2\u8be5\u673a\u67dc\u4e0b\u6240\u6709\u677f\u5361\u3002",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "= SEES\u56fe6-106 \u6570\u636e\u67e5\u8be2",
+                "verdict": "no",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u503c\u73ed\u5458\u5728\u5de1\u68c0\u673a\u623f\u65f6\u53d1\u73b0\u67d0\u673a\u67dc\u6e29\u5ea6\u8fc7\u9ad8\u5bfc\u81f4\u677f\u5361\u6389\u7535\uff0c\u5e94\u5982\u4f55\u5904\u7406\uff1f",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u53ef\u4ee5\u8f93\u5165 r[0-6].p[00-19]\uff0c\u8fde\u7eed\u7684\u7528\u201c,\u201d\u94fe\u63a5\uff0c\u4e0d\u8fde\u7eed\u7684\u7528\u201c,\u201d\u9694\u5f00\u3002",
+                "verdict": "no",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u503c\u73ed\u5458\u5728\u5de1\u68c0\u673a\u623f\u65f6\u53d1\u73b0\u67d0\u673a\u67dc\u6e29\u5ea6\u8fc7\u9ad8\u5bfc\u81f4\u677f\u5361\u6389\u7535\uff0c\u5e94\u5982\u4f55\u5904\u7406\uff1f",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u901a\u8fc7\u6240\u5c5e\u533a\u57df\u3001\u673a\u6846\u7c7b\u578b\u3001\u6240\u5c5e\u673a\u67dc\u548c\u673a\u67dc\u7f16\u53f7\u67e5\u8be2\u60f3\u8981\u7684\u673a\u6846\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5728\u5355\u4e2a\u673a\u6846\u540e\u9762\u63d0\u4f9b\u4e86\u52a0\u7535\u3001\u5207\u7535\u3001\u590d\u4f4d\u529f\u80fd\uff0c\u9009\u62e9\u67d0\u4e2a\u673a\u6846\u7684\u52a0\u5207\u7535\u6309\u94ae\uff0c\u4f1a\u63d0\u793a\u4e0d\u53ef\u8fdb\u884c\u52a0\u5207\u7535\u64cd\u4f5c\u7684\u677f\u5361\u3002",
+                "verdict": "no",
+                "reason": "The statement mentions 'add power, cut off power, reset' functions for a frame but does not relate to handling high temperatures or card failures in the rack."
+            },
+            {
+                "statement": "\u901a\u8fc7\u673a\u6846\u7f16\u53f7\uff0c\u53ef\u67e5\u770b\u673a\u6846\u8be6\u60c5\u3002",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u70b9\u51fb\u673a\u67dc\u62a5\u8b66\u63a8\u9001\u914d\u7f6e\u6309\u94ae\uff0c\u53ef\u4ee5\u9009\u4e2d\u9700\u8981\u63a8\u9001\u7684\u62a5\u8b66\u7c7b\u578b\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u677f\u5361\u7070\u8272: \u5728\u7ebf\uff0c\u7f51\u7edc\u901a\uff0c\u4e0d\u53ef\u64cd\u4f5c\u3002 (256)",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u5728\u7ebf\uff0c\u7f51\u7edc\u4e0d\u901a\uff0c\u4e0d\u53ef\u64cd\u4f5c\u3002(257)",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u4e0d\u5728\u7ebf\u3002(258) ,\u7070\u8272\u989c\u8272\u6df1\u5ea6\u4f9d\u6b21\u9012\u589e\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u677f\u5361\u5f39\u7a97\uff1a\u677f\u5361\u4e0a\u7684\u4f20\u611f\u5668\u4f4d\u7f6e\u6807\u793a\u70b9\uff1a\u9f20\u6807\u7f6e\u4e8e\u6807\u793a\u70b9\u4e0a\uff0c\u4f1a\u5c55\u793a\u8be5\u4f4d\u7f6e\u4e0a\u7684\u4f20\u611f\u5668\u540d\u79f0\u53ca\u72b6\u6001\u503c\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u4e0b\u65b9\u95ea\u7535\u56fe\u6807\u8868\u793a\u8282\u70b9\u7684\u52a0\u5207\u7535\u72b6\u6001\uff0c\u7eff\u8272\u8868\u793a\u52a0\u7535\uff0c\u7070\u8272\u8868\u793a\u5207\u7535\u3002\u4f20\u611f\u5668\u4f4d\u7f6e\u7ea2\u8272\u611f\u53f9\u53f7\u56fe\u6807: \u8be5\u4f4d\u7f6e\u4f20\u611f\u5668\u3002",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u53f3\u4fa7\u62a5\u8b66\u4fe1\u606f\u5217\u8868\uff0c\u9f20\u6807\u7f6e\u4e8e\u62a5\u8b66\u6761\u76ee\u4e0a\u62a5\u8b66\u7684\u4f20\u611f\u5668\u4f4d\u7f6e\u7684\u62a5\u8b66\u56fe\u6807\u4f1a\u653e\u5927\u3002",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u5207\u7535",
+                "verdict": "yes",
+                "reason": null
+            },
+            {
+                "statement": "\u590d\u4f4d",
+                "verdict": "yes",
+                "reason": null
+            }
+        ]
+    },
+    {
+        "verdicts": [
+            {
+                "statement": "\u503c\u73ed\u5458\u5728\u5de1\u68c0\u673a\u623f\u65f6\u53d1\u73b0\u67d0\u673a\u67dc\u6e29\u5ea6\u8fc7\u9ad8\u5bfc\u81f4\u677f\u5361\u6389\u7535\uff0c\u5e94\u5982\u4f55\u5904\u7406\uff1f",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "A BRAS",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "Vv 28",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "o \u56fe6-80 \u673a\u67dc\u72b6\u6001\u56fe\u793a",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u673a\u67dc\u62a5\u8b66\u63a8\u9001\u914d\u7f6e\uff1a\u70b9\u51fb\u673a\u67dc\u62a5\u8b66\u63a8\u9001\u914d\u7f6e\u6309\u94ae\uff0c\u53ef\u4ee5\u9009\u4e2d\u9700\u8981\u63a8\u9001\u7684\u62a5\u8b66\u7c7b\u578b\u3002\u63a8\u9001\u914d\u7f6e\u53ea\u80fd\u63a7\u5236\u673a\u67dc\u4e0a\u7684\u63a8\u9001\u6837\u5f0f\uff08\u673a\u67dc\u62a5\u8b66\u6837\u5f0f\u4f1a\u4eae\u4e00\u4e0b\uff09\u53ca\u53f3\u4fa7\u7684\u62a5\u8b66\u63a8\u9001\u6761\u76ee\u3002",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "@ Reus aes xq) \u7cfb\u7edf\u7ea7\u76d1\u63a7\u524d\u5e76\u4e8c\u53f0x | \u5341",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u6587\u4ef6 | D;\u786c\u4ef6\u76d1\u63a7-\u7cfb\u7edf\u7ea7\u76d1\u63a7\u524d\u7aef\u8f6f\u4ef6-\u64cd\u4f5c\u624b\u518c.pdf",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "os ee = 7 4) (| @& al Bl \u89c6\u56fe",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "2.1.4.1.13 \u673a\u67dc\u5f39\u7a97\u677f\u5361\u72b6\u6001\u6837\u5f0f",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u673a\u67dc\uff0c\u6253\u5f00\u673a\u67dc\u5f39\u7a97 \u5e02 :\u6c34\u6ef4\u56fe\u6807: \u5b58\u5728\u6f0f\u6c34\u62a5\u8b66 \u677f\u5361\u7070\u8272: \u5728\u7ebf\uff0c\u7f51\u7edc\u901a\uff0c\u4e0d\u53ef\u64cd\u4f5c\u3002 (256) \u5728\u7ebf\uff0c\u7f51\u7edc\u4e0d\u901a\uff0c\u4e0d\u53ef\u64cd\u4f5c\u3002 (257) \u4e0d\u5728\u7ebf\u3002 (258) ,\u7070\u8272\u989c\u8272\u6df1\u5ea6\u4f9d\u6b21\u9012\u589e\u3002",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "A BRAS Vv 28 o \u56fe6-81\u62a5\u8b66\u63a8\u9001\u914d\u7f6e",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "\u673a\u67dc\u5f39\u7a97\u677f\u5361\u72b6\u6001\u6837\u5f0f\uff1a\u70b9\u51fb\u673a\u67dc\uff0c\u6253\u5f00\u673a\u67dc\u5f39\u7a97 \u677f\u5361\u7ea2\u8272\uff1a\u5b58\u5728\u62a5\u8b66 \u677f\u5361\u9ec4\u8272\uff1a\u53ea\u5b58\u5728\u9884\u8b66 \u677f\u5361\u4e0a\u706b\u82d7\u56fe\u6807\uff1a\u5b58\u5728\u8d85\u6e29\u62a5\u8b66 \u677f\u5361\u4e0a\u6c34\u6ef4\u56fe\u6807\uff1a\u5b58\u5728\u6f0f\u6c34\u62a5\u8b66 \u677f\u5361\u7070\u8272\uff1a\u5728\u7ebf\uff0c\u7f51\u7edc\u901a\uff0c\u4e0d\u53ef\u64cd\u4f5c\u3002\uff08256\uff09 \u5728\u7ebf\uff0c\u7f51\u7edc\u4e0d\u901a\uff0c\u4e0d\u53ef\u64cd\u4f5c\u3002\uff08257\uff09 \u4e0d\u5728\u7ebf\u3002\uff08258\uff09,\u7070\u8272\u989c\u8272\u6df1\u5ea6\u4f9d\u6b21\u9012\u589e\u3002",
+                "verdict": "no",
+                "reason": null
+            },
+            {
+                "statement": "@ Reus aes xq) \u7cfb\u7edf\u7ea7\u76d1\u63a7\u524d\u5e76\u4e8c\u53f0x | \u5341 \u6587\u4ef6 | D;\u786c\u4ef6\u76d1\u63a7-\u7cfb\u7edf\u7ea7\u76d1\u63a7\u524d\u7aef\u8f6f\u4ef6-\u64cd\u4f5c\u624b\u518c.pdf os ee = 7 4) (| @& al Bl \u89c6\u56fe",
+                "verdict": "no",
+                "reason": null
+            }
+        ]
+    }
+]
+ 
+Score: 0.3620689655172414
+Reason: The score is 0.36 because the retrieval context includes some relevant statements about hardware monitoring and operations, but most of it describes general functions like status display, querying methods, and batch power/reset operations which are not directly related to handling a temperature-related incident causing card failure.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Answer Relevancy Verbose Logs
+**************************************************
+
+Statements:
+[
+    "登录统一监控运维平台并进入运维管理模块，选择“其他操作-查看用户作业”功能，该功能允许值班人员查看用户作业中断前的节点日志信息。",
+    "在运维平台中，支持专员通过“查询作业日志”功能获取详细的作业运行日志，这些日志包含错误信息和异常情况。",
+    "如果作业因系统故障或存储问题而中断，运维人员可以通过平台的“集群故障点”页面查看相关的报警信息。",
+    "对于存储相关的报错，如IO错误或存储配额超限，运维平台提供了“查看用户配额”和“存储分区操作”等功能。",
+    "在处理Lustre存储故障时，运维人员可以挂起相关作业、查询日志，并根据具体情况重启节点。",
+    "如果作业因进程引擎故障或MPI版本问题而被信号9终止，运维平台的日志信息和系统状态报告也能提供关键线索。",
+    "运维平台还支持对作业进行恢复、挂起或取消等操作。"
+] 
+ 
+Verdicts:
+[
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": ""
+    },
+    {
+        "verdict": "yes",
+        "reason": ""
+    },
+    {
+        "verdict": "yes",
+        "reason": ""
+    }
+]
+ 
+Score: 1.0
+Reason: The score is 1.00 because there are no identified reasons for irrelevance, so it remains at its highest possible value.
+
+======================================================================
+True !!!!!!!!!!!!
+**************************************************
+Faithfulness Verbose Logs
+**************************************************
+
+Truths (limit=None):
+[
+    "The text describes management information for computer cabinets including their regions, locations, and numbering.",
+    "Operations such as powering on/off and resetting can be performed on the cabinets.",
+    "Users can perform batch operations on multiple cabinets simultaneously.",
+    "There are system interfaces for querying cabinet details and hardware monitoring.",
+    "Cabinet card node power-on/off status is displayed in the system.",
+    "Firmware upgrades can be done individually or in batches for each cabinet.",
+    "The user interface includes icons to represent different statuses of cabinets and cards, such as green for normal operation, yellow for offline, red for online but not enabled monitoring, etc.",
+    "Alarm push configuration allows users to select alarm types that should be pushed.",
+    "In the cabinet pop-up window, card status can be indicated by colors: gray with increasing depth indicates different states like network connectivity issues or being non-operational.",
+    "Sensor information on cards is displayed when hovering over specific points in the interface.",
+    "The system provides storage monitoring functionality to display quantities of various devices."
+] 
+ 
+Claims:
+[
+    "值班员在巡检机房时发现某机柜温度过高导致板卡掉电。",
+    "应按照以下步骤处理：1. 确认机柜状态：通过系统界面查看机柜状态图标，若显示火苗图标则表示存在超温报警，需立即采取措施。",
+    "2. 检查不可操作板卡：查看机柜中是否存在在线但不可操作的板卡（灰色图标，中间黑色横杠），这些板卡可能因温度过高而无法正常工作。",
+    "3. 进行加切电操作：根据系统提供的批量定位及加切电功能，输入机柜编号（如RO-P00到RO-P16），点击定位按钮定位机柜位置，然后进行加电或切电操作，以尝试恢复板卡供电。",
+    "4. 配置报警推送：点击机柜报警推送配置按钮，选择需要推送的报警类型，确保及时收到相关警报信息。",
+    "5. 监控板板卡状态：打开机柜弹窗，查看板卡状态样式，确认是否存在超温报警或其他异常情况，并根据提示进行相应处理。",
+    "6. 记录和报告：记录故障现象及处理过程，并向上级汇报，以便后续跟踪和处理。"
+] 
+ 
+Verdicts:
+[
+    {
+        "verdict": "idk",
+        "reason": null
+    },
+    {
+        "verdict": "no",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "no",
+        "reason": ""
+    }
+]
+ 
+Score: 0.6
+Reason: The score is 0.60 because there are no apparent contradictions between the retrieval context and the actual output.
+
+======================================================================
+Evaluating 2 test case(s) in parallel: |█████     | 50% (1/2) [Time Taken: 03:22, 202.28s/test case]True !!!!!!!!!!!!
+**************************************************
+Faithfulness Verbose Logs
+**************************************************
+
+Truths (limit=None):
+[
+    "The document provides common operation guides for support specialists.",
+    "Support specialists can view user computing resources and disk quotas through the运维 platform.",
+    "Increasing job priority requires approval from the High-Performance Computing Minister.",
+    "Extending job time limits also requires approval from the High-Performance Computing Minister.",
+    "Viewing user job error reasons is done by checking node log information via the运维 platform.",
+    "The system has multiple clusters including TH-HPC, TH-HPC4PDTH-HPC, and others.",
+    "There are common faults in the system such as handshake count changes on TH-3F, RAID1 timeout issues on TH-HPC's ost64, and RAID2 timeout issues on TH-HPC's ost64.",
+    "The cluster overview page integrates node status, job information, and storage usage.",
+    "Lustre storage faults can be handled by suspending jobs, querying logs, restarting nodes, or clearing processes from the运维 platform.",
+    "Jobs may be terminated due to signal 9 caused by MPI version issues. The solution is to replace the compiler and MPI paths in ~/.bashrc with those from /vol6/source.sh.",
+    "If a job stops running but appears as 'R' (running) via yh query, it should be manually killed and resumed.",
+    "The system admin's SIGCONT signal indicates that jobs were suspended temporarily for maintenance without affecting user operations.",
+    "AVX support errors occur when the compilation environment differs from the runtime environment. Remove -xHOST/-xAVX options during compilation if not supported by compute nodes.",
+    "Default disk quotas are 500GB soft limit and 1TB hard limit for storage, with file count soft limit of 1 million and hard limit of 2 million.",
+    "Exceeding disk quota may result in inability to write or errors like 'quota error'.",
+    "Lustre filesystem consists of MDS (Metadata Server) nodes and OSTs (Object Storage Targets).",
+    "When an MDS node fails, jobs on the corresponding storage partition should be suspended.",
+    "The运维 platform allows switching between clusters without losing tabs if no operation is performed for more than 5 minutes.",
+    "Lustre storage management includes operations like clearing quota services and restarting them when necessary."
+] 
+ 
+Claims:
+[
+    "登录统一监控运维平台并进入运维管理模块，选择“其他操作-查看用户作业”功能，该功能允许值班人员查看用户作业中断前的节点日志信息，从而分析作业失败的原因。",
+    "在运维平台中，支持专员可以通过“查询作业日志”功能获取详细的作业运行日志，这些日志通常包含作业执行过程中的错误信息和异常情况，有助于定位问题根源。",
+    "如果作业因系统故障或存储问题而中断，运维人员还可以通过平台的“集群故障点”页面查看相关的报警信息，例如TH-3F的握手次数变化、TH-HPC的raid1和raid2超时故障等，这些信息可能与作业报错有关联。",
+    "对于存储相关的报错，如IO错误或存储配额超限，运维平台提供了“查看用户配额”和“存储分区操作”等功能，帮助确认是否因存储资源不足导致作业失败。",
+    "在处理Lustre存储故障时，运维人员可以挂起相关作业，查询日志，并根据具体情况重启节点，这些操作也有助于排查作业报错的原因。",
+    "如果作业因进程引擎故障或MPI版本问题而被信号9终止，运维平台的日志信息和系统状态报告也能提供关键线索，帮助确定具体的错误原因。",
+    "运维平台还支持对作业进行恢复、挂起或取消等操作，这些功能在处理作业报错后可能需要进一步干预，以确保作业能够正常运行。"
+] 
+ 
+Verdicts:
+[
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "no",
+        "reason": "The claim states that the\u8fd0\u7ef4 platform allows switching between clusters without losing tabs, but the retrieval context does not mention this feature. The retrieval context only describes general functionalities and operations on the platform."
+    },
+    {
+        "verdict": "yes",
+        "reason": null
+    },
+    {
+        "verdict": "no",
+        "reason": "The claim states that jobs may be terminated due to signal 9 caused by processes engine failure or MPI version issues, but the retrieval context specifies it is due to 'MPI version issues' and mentions replacing compiler and MPI paths. The claim adds 'processes engine failure', which might not be directly supported by the context."
+    }
+]
+ 
+Score: 0.7142857142857143
+Reason: The score is 0.71 because there are two main contradictions: first, the retrieval context does not mention the feature of switching between clusters without losing tabs; second, while the context addresses termination due to MPI version issues and replacing compiler/MPI paths, it does not cover processes engine failure as a cause for signal 9 job termination.
+
+======================================================================
+Evaluating 2 test case(s) in parallel: |██████████|100% (2/2) [Time Taken: 03:22, 83.40s/test case] Evaluating 2 test case(s) in parallel: |██████████|100% (2/2) [Time Taken: 03:22, 101.23s/test case]
+
+======================================================================
+
+Metrics Summary
+
+  - ✅ Answer Relevancy (score: 1.0, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 1.00 because the answer directly addresses the query about handling a high-temperature issue causing board card shutdown in a server room, and there are no irrelevant statements present., error: None)
+  - ✅ Faithfulness (score: 0.6, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 0.60 because there are no apparent contradictions between the retrieval context and the actual output., error: None)
+  - ✅ Contextual Precision (score: 1.0, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The contextual precision score is 1.00 because there are no irrelevant nodes that should be ranked higher than relevant ones, as evidenced by the first node being 'yes' with a reason about handling unoperational boards due to online status, and the second node being 'no' for not addressing temperature-related issues., error: None)
+  - ❌ Contextual Relevancy (score: 0.3620689655172414, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 0.36 because the retrieval context includes some relevant statements about hardware monitoring and operations, but most of it describes general functions like status display, querying methods, and batch power/reset operations which are not directly related to handling a temperature-related incident causing card failure., error: None)
+  - ✅ Contextual Recall (score: 1.0, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 1.00 because all sentences in the expected output are fully supported by relevant nodes in the retrieval context, with each step having clear alignment and no unsupportive reasons present., error: None)
+
+For test case:
+
+  - input: 值班员在巡检机房时发现某机柜温度过高导致板卡掉电，应如何处理？
+  - actual output: 值班员在巡检机房时发现某机柜温度过高导致板卡掉电，应按照以下步骤处理：1. 确认机柜状态：通过系统界面查看机柜状态图标，若显示火苗图标则表示存在超温报警，需立即采取措施。2. 检查不可操作板卡：查看机柜中是否存在在线但不可操作的板卡（灰色图标，中间黑色横杠），这些板卡可能因温度过高而无法正常工作。3. 进行加切电操作：根据系统提供的批量定位及加切电功能，输入机柜编号（如RO-P00到RO-P14），点击定位按钮定位机柜位置，然后进行加电或切电操作，以尝试恢复板卡供电。4. 配置报警推送：点击机柜报警推送配置按钮，选择需要推送的报警类型，确保及时收到相关警报信息。5. 监控板卡状态：打开机柜弹窗，查看板卡状态样式，确认是否存在超温报警或其他异常情况，并根据提示进行相应处理。6. 记录和报告：记录故障现象及处理过程，并向上级汇报，以便后续跟踪和处理。
+  - expected output: 值班员在巡检机房时发现某机柜温度过高导致板卡掉电，首先应通过运维平台查看机柜状态，确认是否存在超温报警及掉电板卡位置。接着，检查机柜空调制冷情况，若空调异常，联系机房环境维护人员处理；若空调正常，查看机柜内风扇运行状态，清理风扇灰尘或更换故障风扇以改善散热。然后，在运维平台对掉电板卡进行复位操作，若复位失败，联系硬件工程师检查板卡硬件。处理过程中，需实时监控机柜温度，确保温度降至正常范围后，再逐步恢复板卡供电，避免再次因温度过高导致故障。同时，记录事件处理过程及结果，以便后续追溯。
+  - context: None
+  - retrieval context: ['文本主要描述了计算机柜的管理信息，包括所属区域（如FT分区、MT分区）、机柜位置（如筝0排0号机柜）、机柜编号（如RO-P00到RO-P14）以及对机柜进行加电、切电、复位等操作的功能。同时提到了机柜板卡节点的加切电状态，以及通过系统进行机柜查询和硬件监控的相关界面和操作说明。', '本文档主要描述了机柜和机框的加电、切电、复位及固件升级等操作功能。用户可对单个或多个机柜进行批量加电、切电、复位操作，系统会提示不可操作的板卡。同时支持单个机柜的固件升级及批量固件升级，升级前需选择更新类型并确认可操作的板卡。此外，可通过机柜编号跳转至板卡数据界面查询信息，也可通过所属区域、类型、机柜等条件查询机框详情。', '本文档描述了硬件监控系统中机柜和板卡的状态显示及操作功能。包括机框CMU状态指示（绿色、黄色、红色、火苗、水滴、灰色图标等）、不可操作板卡的标识、机柜批量定位与加切电操作方法、报警推送配置以及板卡弹窗中的传感器信息和报警状态显示。用户可通过界面进行机柜状态监控、报警类型设置及设备操作。', '切电| 复位“状态\nRo-P02加电| 切电| 复位 状态\nRo-P03加电| 切电| 复位 状态\nRo-P04加电| 切电| 复位 状态\nRo-P051 CPM22| CPN加电| 切电| 复位 状态\nRo-P06N1 1 tate加电| 切电| 复位 状态\nRo-PO7Nee加电| 切电| 复位 状态\nRO-Pos;a Oe加电| 切电| 复位 状态\nRO-PO9‘ee加电| 切电| 复位 状态\nRo-P10加电| 切电| 复位 状态\nRO-P11加电| 切电| 复位 状态\nRo-P12加电| 切电| 复位 状态\nRo-P13计算机柜MT分区第0排13号机柜加电| 切电| 复位 状态\nRo-P14计算机柜MT分区第0排14号机柜加电| 切电| 复位 状态\n\nMe 2 +55 7 8 9 0 > Hee 15条页v\n\n937|\n\n2022/6/1\n图6-102 机柜板卡节点加切电状态\n批量加电：勾选要进行操作的机柜，进行批量加切电，选择加切电类型后，提示不可操作的板卡。\npines x | BANEx |十- o xx\n\nDianne:\n\n区\nfa\n®\nPd\n*\n\n==x\n\nSee FS SHG ESE\n\n‘G86\n\n|oe\n\ncS区wnersn) | wee\n\ne658\n\nMr vsseresnws waneressRag comes\n图6-103 批量加电\n固件升级：在单个机柜后面提供了固件升级功能，点击某个机柜的固件升级，选择更新类型，根据更新类型选择需要更新的固件，点击下一步提示不可进行固件升级操作的板卡。\naa\n\nose\n\nsone\nsone\nfone\n\nserve\n\n0 |\n0 0) we\n198 |e\nome\nea mm\n10 om\n09 | we\n0 oe\n10 | ws\nvon) on ws\n0 | we\nom mm\n108) oe\nwoe\n\nvs', '“硬件监控-系统级监控前请软件主 X\n\n状态监测\n\n控制\n\nG A\n\n系统豚监控前诗二台x 十\n\n| 25.8.99,100:8850/start/#/device/cabinet/list\n\nC Q\n\nRO-P00\n\nRO-Po1\nRO-P02\nRO-PO3\nRO-P04\nRO-P05\nRO-P06\nRO-PO7\nRO-PO8\nRO-P09\nRO-P10\nRo-P11\nRO-P12\nRO-P13\n\nRO-P14\n\nB22 ts 6 7 2 8 w\n\n> 共138科\n\n计算机柜\n\n计算机柜\n\n计算机柜\n\n计算机柜\n\n计算机柜\n\n计算机柜\n\n计算机柜\n\n计算机柜\n\n计算机柜\n\n计算机柜\n\n计算机柜\n\n计算机柜\n\n计算机柜\n\n计算机柜\n\n计算机柜\n\namv\n\niss\n\n所属区域\n\nFT分区\n\nFT分区\n\nFT分区\n\nFT分区\n\nFT分区\n\nMT分区\n\nMT分区\n\nMT分区\n\nMT分区\n\nMT分区\n\nMT分区\n\nMT分区\n\nMT分区\n\nMT分区\n\nMT分区\n\nfo =\n\n机柜位置\n筝0排0号机柜\n‘08H SOE\nSOK2S0N8\nOHS SHE\nOK S HE\nORES SUE\nORE SIE\n0H SOE\nORES SHE\nORES IE\n‘OK OSIME\nS081 SHS\n‘SOK 25908\nSOKEHSSONE\n\n0K 45908\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\nDoe\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位', '计算机柜\n\n计算机柜\n\n计算机柜\n\namv\n\niss\n\n所属区域\n\nFT分区\n\nFT分区\n\nFT分区\n\nFT分区\n\nFT分区\n\nMT分区\n\nMT分区\n\nMT分区\n\nMT分区\n\nMT分区\n\nMT分区\n\nMT分区\n\nMT分区\n\nMT分区\n\nMT分区\n\nfo =\n\n机柜位置\n筝0排0号机柜\n‘08H SOE\nSOK2S0N8\nORS SUE\nOK S HE\nORES SUE\nORE SIE\n0H SOE\nORES SHE\nORES IE\n‘OK OSIME\nS081 SHS\n‘SOK 25908\nSOKEHSSONE\n\n0K 45908\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\n加电|\n\nDoe\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\nve 实\n> x\n\na\nF\nz\n\nty 国件升级\n\n回国国国国国国辐国国国国国民\nFH ABBA BBABBBBEE\n加图图图图图图图图图图图图上\nHHBBBBBEBEBBE EEE\n\nci\n\nHBHHBBBBBEBBBEEEE\n\nEsa\n\nci\n\nci\n\nci\n\nES\n\nES\n\nES\n\nES\n\nci\n\nES\n\nci\n\nci\n\nci\n\nroot ¥\n图6-99 机柜记录\n机柜查询：通过所属区域、机柜类型和机柜编号查询想要的机柜。\n| @ “硬件监控-系统级监控前请软件主 X\n\n状态监测\n\n控制\n\nG A\n\n系统豚监控前诗二台x 十\n\n| 25.8.99,100:8850/start/', 'mm\n10 om\n09 | we\n0 oe\n10 | ws\nvon) on ws\n0 | we\nom mm\n108) oe\nwoe\n\nvs\n\n二\n\nas\n\nFORGITRORE comere\n图6-104 固件升级\n批量固件升级：勾选要进行操作的机柜，进行批量固件升级，选择更新类型后，提示不可操作的板卡。可以在弹窗界面点击选中机柜上的红叉删除选中的机柜。\n[RE- o xx\nC文件 | Dy/硬件监近-系统般上近前庶软件-操作手册pdfsn @ 8\nem. mT\n\nFX\n\n中国通信服务\nCHINA COMSERVICE国防科大系统级\n\naaooommege\ni\n日ore2.=mmcoo\n.imom mm=o\n2oremoun=o\n=eemownroo\nsom veoo\n=moun we= 中\nEDmmooo\nED相思mm awo\nmouooo\nmoi oe=o\nmom—\n= |soinsoo\n|mounpoo\nnewaemavenmoi ue=o\n=ameneome—T\n[EYE本annaranane oem\n\n2.1.5.1.7 机柜内跳转板卡数据查询\n\nBE AS FF mptr7skc ee ET\n图6-105 批量固件升级\n机柜内跳转板卡数据查询：点击某个机柜的板卡，跳转至板卡数据界面。所\n属机柜默认为选择的机柜，并筛选查询该机柜下所有板卡。\n[RE\nG文件 | Dy/硬件监近-系统般上近前庶软件-操作手册pdfsn @ ®\n9 QQ 回 | Brew | A mms | Vem ~ aun. Ome | OoBi e*\n\n点击某个机柜的板卡，跳转至板卡数据界面。\n所属机柜默认为选择的机柜，并筛选查询该机柜下所有板卡。\n\n= SEES\n图6-106 数据查询\n6.8.3.5.2机框\n6 @ seen ammesmane: x\noe文件\n\n2 | /5 Q\n\nED\n\nRTSx | 十\n\nDy硬件监控-系统级监控前端软件-操作手册.pdf\n\nPe)\n0\n\nco a\n\n2.1.5.29L4E\n\n2.1.5.2', 'DanliD\ne B-WS BT AR\n\n1459\n2022/5/31\n图6-78 加切电\n机框监控状态开关及不可操作板卡状态开关：左边：机框 CMU 状态（四个点）展示开关。右边：机柜中存在在线，不可操作板卡（灰色图标，中间黑色横杠）图标展示开关。\n15:06\n2022/5/31\n图6-79 开关按钮\n机柜状态图标：四个点图标：表示机框 CMU 的状态\n绿色：正常监控\n黄色：不在线\n红色：在线,未启用监控\n火苗：机柜中板卡存在超温报警\n水滴：机柜中板卡存在漏水报警\n灰色图标黑色横杠图标：机柜中存在在线，不可操作（不可监控）板卡。\nB @ Bene anes: xc) asus rex | +\n\n文件 | D;硬件监控-系统级监控前端软件-操作手册.pdf\n\nos ee\n\n= 7 4) & 首页面视图\n\n在线，不可操作 CMU 数\n在线，不可操作 BMU 数\n\n=)四|\n0129\n\n2.1.4.1.3 机柜批量定位及加切电操作\n\n可以输入 r[0-6].p[00-19]，连续的用“,”链接，不连续的用“,”隔开。\n点击定位按钮，定位机柜位置，点击加切电按钮，进行加切电操作。\n\n2.1.4.1.4 机柜状态图标\n\n四个点图标: 表示机框 CMU 的状态\n绿色: 正常监控\n黄色: 不在线\n红色: 在线,未启用监控\n火苗: 机柜中板卡存在超温报警\n水滴: 机柜中板卡存在漏水报警\n机柜中存在在线，不可操作〈不可监控) HER.\n\n2.1.4.1.5 机框监控状态开关及不可操作板卡状态开关\n\n左边: 机框 CMU 状态〈四个点) 展示开关。\n右边: 机柜中存在在线，不可操作板卡〈灰色图标，中间黑色横杠 ) 图标展示开\nKe\n\nA BRAS\n\nVv 28\n\no\n图6-80 机柜状态图示\n机柜报警推送配置：点击机柜报警推送配置按钮', '5 Q\n\nED\n\nRTSx | 十\n\nDy硬件监控-系统级监控前端软件-操作手册.pdf\n\nPe)\n0\n\nco a\n\n2.1.5.29L4E\n\n2.1.5.2.1 机框详情\n\n\\了二、L_Ln_ucz en ot一 ee Le 、 > ka\n\n人\n\n归还此页内容\n\n出\nwee目目目目目\nCEE EEE EEE EEE\n图6-107 机框\n机框详情：通过机框编号查看机框详情。\n[ERx |十- 9 x\nSO 文人 | vanes meenremaeRe ARF R patson ee\n\n9 QQ 回 | 四 amam | 从\n\n通过机框编号，可查看机框详情。\n\nz=\n2.1.5.2.2 机框查询\n\n‘a DEES\n图6-108 机框详情\n机框查询：通过所属区域、机框类型、所属机柜和机柜编号查询想要的机框。\n[3x |十\nG文件 | Dy/硬件监近-系统般上近前庶软件-操作手册pdf\n\n|i\n2.1.5.2.2 机框查询\n通过所属区域、机框类型、所属机柜和机柜编号查询想要的机框。\nmamenenedwanesfa |=\n\n2.1.5.2.3 加切电\n\n在单个机框后面提供了加电、切电、复位功能，选择某个机框的加切电按钮，会\n提示不可进行加切电操作的板卡。\n\n21\n\n"7? DEES\n图6-109 机框查询\n加切电：在单个机框后面提供了加电、切电、复位功能，选择某个机框的加切电按钮，会提示不可进行加切电操作的板卡。\nB B Beut-xemasnmne x=Ax | 十- 3s\nCDv硬件监控-系统级监控前凋软件-摊作手册.pdfaa ~@ © & ©\n\n22 | /59 Q+ Qe mR | AS\n\n中国通信服务\n\nCHINA COMSERVIC\n\nBP aA hs\n\n=oenote\nao) me\nFEHeFEnamea=\n\nH\n上]\n\npoan=reeom am| ma tmeo oo\noreo|', 'al\nBl\n\n视图\n\n2.1.4.1.12 机柜报警推送配置\n\n点击机柜报警推送配置按钮，可以选中需要推送的报警类型。\n推送配置只能控制机柜上的推送样式(机柜报警样式会亮一下) 及右侧的报警推\n送条目。\n\n2.1.4.1.13 机柜弹窗板卡状态样式\n机柜，打开机柜弹窗\n\n市\n\n:水滴图标: 存在漏水报警\n板卡灰色: 在线，网络通，不可操作。 (256)\n在线，网络不通，不可操作。 (257)\n不在线。 (258) ,灰色颜色深度依次递增。\n\nA BRAS\n\nVv 28\n\no\n图6-82 机框板卡\n板卡弹窗：板卡上的传感器位置标示点：鼠标置于标示点上，会展示该位置上的传感器名称及状态值。\n下方闪电图标表示节点的加切电状态，绿色表示加电，灰色表示切电。传感器位置红色感叹号图标：该位置传感器。\n右侧报警信息列表，鼠标置于报警条目上报警的传感器位置的报警图标会放大。\n@ Beue eeu xCQ) sour Sx | 十一X\n) 文件 | D:/硬件监控-系统级监控前端软件-操作手册.pdfwe 实2\n\n1 75 Q- +9 @首页面视图和会”朗读此页内容Vase “局 RHE ~ O RRaB»\n2a CORSE\n\n板卡上的传感器位置标示点: 鼠标置于标示点上, 会展示该位置上的传感器名称\nBORA.\n\n下方内电图标表示节点的加切电状态，绿色表示加电，灰色表示切电。\n传感器位置红色感叹号图标: 该位置传感器。\n\n右侧报警信息列表，鼠标置于报警条目上报警的传感器位置的报警图标会放大\n\n6 1 am\n\n2.1.4.2.1 存储设备实例数据\n展示机柜、缓存服务器、存储服务器、存储阵列数量。\n\nos ee\n图6-83 板卡弹窗\n其他状态显示可在操作手册2.1.4.1中查看。\n6.8.3.3 存储监控\n@ “看伯监控-系统级监控前请软件 xCk Soeurx | 十=x\nGO 文件 | D:', "切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n切电|\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\n复位\n\nve 实\n> x\n\na\nF\nz\n\nty 国件升级\n\n回国国国国国国国国国国国国民\n加加加加图加加加加加加加园国\n加图图图图图图图图图图图图上\nHHBEBBBBEBEBBEB EEE\n\nci\n\nHBHHBBBBBEBBBEBEE\n\nEsa\n\nci\n\nci\n\nci\n\nES\n\nES\n\nES\n\nES\n\nci\n\nES\n\nci\n\nci\n\nci\n\nroot ¥\n图6-100 机柜查询接口\n加切电：在单个机柜后面提供了加电、切电、复位功能，选择某个机柜的加切电按钮，会提示不可进行加切电操作的板卡。\nx |十\n\nmas加 =\n\n—_pee\n\nrorarora\n\nwormnwea\n\nrootsmnso\nMeese ee» > ne ame\n\n0) | me\n| a)\n| | m2\na)\nan) a)\nea)\nwe) wal\n| | m2\n| oem\n| em\n\neens\n\na4\n\nwe\n\nue\n图6-101 加切电\n机柜板卡节点加切电状态：展示节点加切电状态，1 为加电，0 为切电，-为板卡不存在，*为板卡状态异常。\n| @ Meus semua: xORESx |十一x\n所@〇全 不安全 | 25.8.99.100:8850/device/cabinet/list5s 宇\nC所a>eoroot ¥\n\n所属区域\n\nRO-POSA\n\n加切电固件升级\nRo-Po0加电| 切电| 复位 tSit, BFS\nRO-PO1‘‘‘‘''''‘‘:加电| 切电| 复位“状态\nRo-P02加电| 切电| 复位 状态\nRo-P03加电| 切电| 复位 状态\nRo-P04加电| 切电| 复位 状态\nRo-P051", '板卡〈灰色图标，中间黑色横杠 ) 图标展示开\nKe\n\nA BRAS\n\nVv 28\n\no\n图6-80 机柜状态图示\n机柜报警推送配置：点击机柜报警推送配置按钮，可以选中需要推送的报警类型。推送配置只能控制机柜上的推送样式（机柜报警样式会亮一下）及右侧的报警推送条目。\n@ Reus aes xq) 系统级监控前并二台x | 十\n\n文件 | D;硬件监控-系统级监控前端软件-操作手册.pdf\n\nos ee\n\n= 7 4) (| @&\n\nal\nBl\n\n视图\n\n2.1.4.1.12 机柜报警推送配置\n\n点击机柜报警推送配置按钮，可以选中需要推送的报警类型。\n推送配置只能控制机柜上的推送样式(机柜报警样式会亮一下) 及右侧的报警推\n送条目。\n\n2.1.4.1.13 机柜弹窗板卡状态样式\n机柜，打开机柜弹窗\n\n市\n\n:水滴图标: 存在漏水报警\n板卡灰色: 在线，网络通，不可操作。 (256)\n在线，网络不通，不可操作。 (257)\n不在线。 (258) ,灰色颜色深度依次递增。\n\nA BRAS\n\nVv 28\n\no\n图6-81报警推送配置\n机柜弹窗板卡状态样式：点击机柜，打开机柜弹窗\n板卡红色：存在报警\n板卡黄色：只存在预警\n板卡上火苗图标：存在超温报警\n板卡上水滴图标：存在漏水报警\n板卡灰色：在线，网络通，不可操作。（256）\n在线，网络不通，不可操作。（257）\n不在线。（258）,灰色颜色深度依次递增。\n@ Reus aes xq) 系统级监控前并二台x | 十\n\n文件 | D;硬件监控-系统级监控前端软件-操作手册.pdf\n\nos ee\n\n= 7 4) (| @&\n\nal\nBl\n\n视图\n\n2.1.4.1.12 机柜报警推送配置\n\n点击机柜报警推送配置按钮，可以选中需要推送的报警类型。\n推送配置只能控制机柜上的推送样式(机柜报警']
+
+======================================================================
+
+Metrics Summary
+
+  - ✅ Answer Relevancy (score: 1.0, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 1.00 because there are no identified reasons for irrelevance, so it remains at its highest possible value., error: None)
+  - ✅ Faithfulness (score: 0.7142857142857143, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 0.71 because there are two main contradictions: first, the retrieval context does not mention the feature of switching between clusters without losing tabs; second, while the context addresses termination due to MPI version issues and replacing compiler/MPI paths, it does not cover processes engine failure as a cause for signal 9 job termination., error: None)
+  - ✅ Contextual Precision (score: 0.6787301587301586, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The contextual precision score of 0.68 indicates that there are both relevant and irrelevant nodes in the retrieval contexts, with some yes nodes appearing early but others later., error: None)
+  - ❌ Contextual Relevancy (score: 0.46875, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 0.47 because the retrieval context contains some relevant statements, such as one that mentions checking node logs for job interruption errors and another about IO errors caused by storage pressure, but these are only a small fraction of the total statements (out of at least 35), most of which discuss unrelated topics like user quotas, system maintenance, or specific hardware issues. The input specifically asks how to view error reasons on the operation platform for user jobs, and while there is one relevant statement out of many, it does not provide a clear step-by-step method as requested., error: None)
+  - ✅ Contextual Recall (score: 1.0, threshold: 0.5, strict: False, evaluation model: deepseek-r1:latest (Ollama), reason: The score is 1 because all sentences in the expected output are fully supported by relevant nodes in the retrieval context, ensuring a complete match for user job error analysis., error: None)
+
+For test case:
+
+  - input: 如何通过运维平台查看用户作业的报错原因？
+  - actual output: 通过运维平台查看用户作业的报错原因，主要涉及以下几个步骤和功能：1. 登录统一监控运维平台并进入运维管理模块，选择“其他操作-查看用户作业”功能，该功能允许值班人员查看用户作业中断前的节点日志信息，从而分析作业失败的原因。2. 在运维平台中，支持专员可以通过“查询作业日志”功能获取详细的作业运行日志，这些日志通常包含作业执行过程中的错误信息和异常情况，有助于定位问题根源。3. 如果作业因系统故障或存储问题而中断，运维人员还可以通过平台的“集群故障点”页面查看相关的报警信息，例如TH-3F的握手次数变化、TH-HPC的raid1和raid2超时故障等，这些信息可能与作业报错有关联。4. 对于存储相关的报错，如IO错误或存储配额超限，运维平台提供了“查看用户配额”和“存储分区操作”等功能，帮助确认是否因存储资源不足导致作业失败。5. 在处理Lustre存储故障时，运维人员可以挂起相关作业，查询日志，并根据具体情况重启节点，这些操作也有助于排查作业报错的原因。6. 此外，如果作业因进程引擎故障或MPI版本问题而被信号9终止，运维平台的日志信息和系统状态报告也能提供关键线索，帮助确定具体的错误原因。7. 最后，运维平台还支持对作业进行恢复、挂起或取消等操作，这些功能在处理作业报错后可能需要进一步干预，以确保作业能够正常运行。
+  - expected output: 若要通过运维平台查看用户作业的报错原因，值班员可按以下步骤操作：首先登录运维平台，连接对应集群，点击“其他操作”中的“查询作业日志”，输入需要查询的作业ID，即可查看该作业中断前的节点日志信息，从中分析报错原因。日志会显示作业中断前的错误类型，例如“Out of memory”需建议用户减少内存占用，“Lustre error”可能需检查存储状态。此外，也可在“集群总览”页面查看作业状态及相关报警信息，结合节点负载、存储状态等综合判断作业报错的可能因素，如硬件故障、资源不足、程序编译问题等。通过这些操作，能够较为全面地获取用户作业的报错原因，为解决问题提供依据。
+  - context: None
+  - retrieval context: ['本文档为支持专员提供常见操作指南，包括查看用户计算资源和磁盘配额、提高作业优先级、延长作业时限以及查看用户作业报错原因。用户可通过运维平台进行相关操作，如“资源操作”查看账户及用户资源信息，或通过“查看用户配额”了解存储使用情况。提高作业优先级和延长作业时限需经审批，而查看作业日志可用于分析作业中断原因。', '系统出现多个故障，包括TH-3F的握手次数变化、TH-HPC的raid1和raid2超时故障。集群总览页面整合了节点、作业和存储信息。运维平台用于处理故障，值班人员可通过登录平台查看报警信息并执行操作。Lustre存储故障处理包括挂起作业、查询日志、重启节点等步骤。', '系统出现进程引擎故障，作业被信号9终止。MPI版本问题可能导致错误，建议替换.bashrc中的编译器和MPI路径。作业运行中可能因系统维护被挂起，需手动终止并续算。程序因编译与运行环境不一致导致AVX支持错误，应移除-xHOST/-xAVX选项。存储配额默认为500G软限制、1T硬限制，超限将无法写入。IO错误可能由存储压力或OST满载引起。ls命令卡顿可能因节点负载高、网络延迟或存储恢复。GPU无法识别可能因PCIe连接松动。', '@mno ~]#\n六、支持专员常见问题\n6.1 查看用户计算资源\n连接对应集群，点击“资源操作”，进入“查看用户资源”，如下图：\n统一监控运维平台= 运维管理\n\n定制大屏机房运维总览剧本执行\n\nTH-HPC\n\nTH-HPC4PDTH-HPC\n日 ®\n\n© 存储分区操作\n\n© 资源操作修改用户组配额\n剧本执行Onset | ©\n© 作业操作\n© 服务操作\n© 数据拷贝\n\n用户登录解锁\n\n执行审计\n\n修改用户配额\n\n用户锁定查询\n\n查询账户资源\n\n查询用户组配额\n查询用户资源 X\n\n天对执行\n命令输出:\n\nPLAY [121 .16 。 225 .1] 2800 bb OBOE BASSO IDOI IA II IIIa Ia I IA Ia Ia a aa Aa I TR\n\nchanged: [121.16.225.1]\n\nok: [121.16.225.1] => {\n“msg”: [\n"Cluster | Account |User | Partition | Share| GrpJobs | GrpTRES | GrpSubmit | GrpWal1|GrpTRESMins |MaxJobs |MaxTRES |Max\n"tianhe| sunfx| sunfx|th_hpc1|1|30|cpu=512,node=16|30|||| ||| | [normal] ||"\n查询账户资源会显示这个组的所有资源，查询用户资源只显示组内这个用户的资源。\n查询结果如下图所示：\no Cluster [AccountUser Partition]Share|GrpJobs GrpNodes _Grpcpus| Grpitem|arpSubmit | — ¢\n\ntianhekanbukanbw th sr1383826020\ntianhekanbwkanbwdebug13822420\n\ntianhekanbwkanbw 。 gpu_test13856\n查询结果的主要字段含义如下：\n字段名 | 含义\nAccount | 账号名\nUser | 用户名\nPartition | 队列名\nGrpJobs | 可运行作业数\nGrpNodes | 可用节点数\nGrpCPUs | 可用核数\nGrpSubmit | 可提交作业数\n6.2 查看用户磁盘配额\n连接对应集群，点击“资源操作”，进入“查看用户配额”，', 'TH-3F: mn26 : S07C11PU06,，\n\n握手次数发生变化\n\nTH-HPC: ost64 : raid1出现\ntimeout故障\n\n” TH-HPC: ost64 : raid2出现\n\ntimeout故障\n（2）集群总览\nHPC、HPC4、1903都有自己的集群总览页面，将节点情况、作业情况、存储情况集中展示，以TH-HPC4总览页面为例，可以看出其实就是把原来分散的节点、作业、存储使用率监控数据整合到一个页面展示。\n© 2024年05月29日15.35 。 用户名-fengqiang 退出 |\n\nTH-HPCAEIE |\n\nnnil wasecere |)TeI] reuse7\n\neRss© pending 9 ne\n=omm\n\n服务节点o55%所 ee\n2Bs2s加\n\noR加15416127703(T)\n77\n\nseat=pn\n».6 6eo 0 0*\n\nJIL| |__ eee II\nost i7\n\nTT\n三 系统故障处理\n一线值班员通过运维平台处理系统故障，下面介绍运维平台的登录、使用方法。\n3.1 运维平台登录\n每个值班人员都有自己的运维平台账号，值班室调试机的chrome浏览器上有登录运维平台的书签，值班人员点击书签，输入用户名和密码，再点击登录，可登录到运维平台。\n© 新标签页x 十\n\n& > GC Q 在Google中拓索，或者输入一个网址\n\nB ses SO NSCCRERE @ SEEEXHET © EesueTe B 2ARER\n图3-1 浏览器书签\n一一\n\n河统一监控运维平台\n\n一一\n\n用户登录\n图3-2 登录页面\n3.2 功能概述\n登陆运维平台后，选择左侧边栏的 “运维总览”页面，该页面显示当前的系统报警情况，这样值班人员就可以直接在运维平台上获取需要处理的报警信息，不需要去显示系统报警的监控大屏去获取报警信息。\n右上角点击账号--个人信息，可以更改密码。\n统一监控运维平台iQxX * 2 ee\n\nOo RL报警开关\n04\n剧本编排\n剧本执行\n集群故障点故障级别发生时间状态操作\nTH-3F7. =e 警告2024-05-', '| 文件数硬限制\ngrace | 文件数配额状态\n6.3 提高作业优先级\n作业提高优先级是指将某个排队优先级较低的用户作业提高作业优先级，使得该作业可以尽快运算。该功能针对一些需要尽快得到作业运行结果的用户，经高性能计算部部长许可后，可对指定的作业进行提高优先级操作。操作流程如下：\n统一监控运维平台= 运维管理、\n\n定制大屏机房运维总览剧本执行\n\nTH-HPC\n其他操作 节点操作\n\n TH-HPC4PDTH-HPC\na\n\n 口 存储分区操作|\n\n2 BRE取消作业\n\n局 用户操作\n\n修改作业时限\n\n号 服务操作\nO 数据拷贝\n\n查询作业日志\n\n恢复作业\n\n查询作业信息\n\n挂起作业\n\nAGERE\n您确定要执行作业提权操作吗?\n\n* 作业bid\n请输入作ybid\n* 权重”最大\n6.4 延长作业时限\n作业可运行的时间受用户可用计算分区的限制，不同的计算分区有着不同的运行时间限制，一旦用户在该计算分区单次运行作业的时间达到该分区设置的运行时间限制，则slurm会把该作业终断。该操作可将指定作业号的作业设置为无运行时间限制，该操作经过高性能计算部部长同意后才能执行。\n统一监控运维平台= 运维管理\n\n定制大屏机房运维总览剧本执行\n\nTH-HPC\n其他操作 节点操作\n\nTH-HPC4PDTH-HPC\n\n5 SR]\n\n2 存储分区操作|\n口 ZR取消作业aiowet\n2 用户操作\n器 服务操作\n\n延长作业时限\n\n查询作业信息\n\n挂起作业\n\n作册提权\n您确定要执行修改作业时限操作吗?\n\n*作yid\n\n请输入作yid\n\n* 时限\n6.5 查看用户作业报错原因\n支持专员询问某个作业的中断原因，一线值班员通过运维平台的“其他操作-查看用户作业”功能对用户作业中断前的节点日志信息进行查看，具体操作步骤如下：\n统一监控运维平台= 运维管理\n\n定制大屏机房运维总览剧本执行\n\nTH-HPC4PDTH-HPC\n日 ce TH-HPC\n© 存储分区操作|\n©', '数\nGrpNodes | 可用节点数\nGrpCPUs | 可用核数\nGrpSubmit | 可提交作业数\n6.2 查看用户磁盘配额\n连接对应集群，点击“资源操作”，进入“查看用户配额”，如下图：\n统一监控运维平台\n\n= 运维管理 、\n\n定制大屏机房运维总览剧本执行\n\n其他操作 节点操作\n\n TH-HPC4\n\n日 ee TH-HPC\n OD 存储分区操作\n2 ee\n\n© 作业操作\n号 服务操作\n© 数据拷贝\n\nTH-HPC\n\n全 TH-HPC\n\n修改用户组配额修改用户配额\n\n用户登录解锁用户锁定查询\n\n查询账户资源\n\n查询用户资源\n您确定要执行查询用户配额操作吗?\n\n+用户名|\nER\n\n+存储人区 |\nSRR\n\n取消确认\n查询用户组配额会显示这个组的所有资源，查询用户资源只显示组内这个用户的资源。\n以查询用户组配额为例，查询结果如下图所示：\n查询用户组配额 X\n\n天对执行\n\n命令输出:\n\nPLAY 【21 .16 .21 。1] 82000000020 Ia Ia Ia IIa Ia I TT IA I I\n\nchanged: [121.16.21.1]\n\nok: [121.16.21.1] => {\n“msg”: [\n\nmsg\n“Disk quotas for grp sunfx (gid 5000):\n\nFilesystem used quota limit grace files quota limit grace",\n/THL6 = 239.7G600G1T一71948 1700000 2666666-"\n查询结果的主要字段含义如下：\n字段名 | 含义\nFilesystem | 用户所在存储分区\nkbytes | 已用存储\nquota | 磁盘软限制\nlimit | 磁盘硬限制\ngrace | 磁盘存储配额状态\nfiles | 已用文件数\nquota | 文件数软限制\nlimit | 文件数硬限制\ngrace | 文件数配额状态\n6.3 提高作业优先级\n作业提高优先级是指将某个排队优先级较低的用户作业提高作业优先级，使得该作业可以尽快运算。该功能针对一些', 'stack:\nMPIDI_CH3I_Progress(176): progress engine failure)\nslurmd[cn1368]: *** STEP 2796179.0 KILLED AT 2015-10-12T11:27:12 WITH SIGNAL 9 ***\nslurmd[cn1368]: *** STEP 2796179.0 KILLED AT 2015-10-12T11:27:12 WITH SIGNAL 9 ***\nA：该错误提示一般是由mpi版本导致。解决方法：使用/vol6/source.sh中的内容替换原~/.bashrc中关于intel编译器、mpi的路径。\nQ:任务提交运行后，有时在还未达到队列的时间天数期限时，运行的程序已“停止工作”（输出文件没有更新），但是通过作业查询命令（yhq）查看，作业看起还在R运行。\nA:遇到这个情况，请您及时手动杀掉您的作业，从断掉的地方接着续算就可以了。\nQ:输出的slurm文件中是如下数据：yhrun: got SIGCONT。我在天河服务器用户手册上没找到这条数据的解释。请问这条数据代表什么意思?\nA:这个是系统管理员临时维护系统，为了避免影响用户的作业，而把用户的作业挂起了出现的提示了。\nQ程序运行报错：Fatal Error: This program was not built to run in your system. Please verify that both the operating system and the processor support Intel(R) AVX. yhrun: error: cn2375: task 0: Exited with exit code 1\nA：该错误说明程序的编译时环境和运行时环境不一致，即程序编译时使用了支持AVX的选项，运行时的硬件环境不支持该AVX优化。\n一般这种情况发生是由于用户在编译程序时加入-xHOST/-xAVX选项（或是在安装软件时，系统自动读取到登陆节点上CPU的flag支持avx，故在编译软件时加入了-xHOST），那程序就会根据登陆节点的CPU配置信息进行优化编译，然而程序的运行是在计算节点上，计算节点的CPU配置信息可能不支持AVX，就与登陆节点不同，就会报', '统一监控运维平台iQxX * 2 ee\n\nOo RL报警开关\n04\n剧本编排\n剧本执行\n集群故障点故障级别发生时间状态操作\nTH-3F7. =e 警告2024-05-16T15:33:05未处理\nTH-HPC44e 警告2024-05-16T15:05:41未处理\nTH-3Feeee 通知2024-04-10T16:23:35未处理\nTH-3Mi7e 通知2024-04-04T08:22:06未处理\n\n共4条数据10条[页\n点击左侧边栏的“剧本执行”，可以切换到运维操作页面，点击TH-HPC、TH-3F等可以连接对应的集群，超过5分钟没有操作，将断开连接集群。\n运维操作的主要功能如下图所示：\n统一监控运维平台= 运维管理、\n\n定制大屏Bas 运维总揪\n\n其他操作 节点操作\n\nTH-HPC4\n\nTH-3F\nBIASTH-3M.\n\nTH-3K\n\n操作提示: 点击左侧树中集群名以连接集群 ~ 点击操作类型 ~ 点击操作按钮 ~ 填入参数，执行操作\n\n查看\n文档\n存情节点，怠 。重户、关机、开机、重启pdp、查看负载、查看日志.\n| ESR oO BEE, 查看dmesg、查看lustre active情况、关机、开机\n\n重启ntp\n本\n重启mysql\n\n| BRR © BSRR SHEARER HERRRACAE SRTBE SMa Bie.\n注意：运维操作页面内，在不同集群之间切换，标签保留。如果运维操作切换到运维总览或监控页面，运维操作内的标签全部会关掉。\n3.3 Lustre存储故障\n3.3.1 mds/ost报宕机或报unhealthy\n（1）挂起对应分区作业，并在微信群通知业务部门。\n查询报警的mds/ost属于哪个分区，参照下表：\nmds节点 | ost节点 | 存储分区 | 所属集群\nmds0 | ost0-7,ost40-47 | THL5 | HPC-ES\nmds1 | ost8-39 | THL6 | HPC1\nmds2 | ost48-79 | THL7 | HPC2\nmds3 | ost80-111 | THL8 |', 'HPC-ES\nmds1 | ost8-39 | THL6 | HPC1\nmds2 | ost48-79 | THL7 | HPC2\nmds3 | ost80-111 | THL8 | HPC3\nmds4 | ost112-143 | fs1 | HPC4\n例如mds1宕机，即需要挂起THL6的分区作业，如下图所示。\n统一监控运维平台= 运维管理、\n\n定制大屏剧本执行\n\nTH-HPC\n其他操作 节点操作\n\n TH-HPCA© TH-HPC > THL6\n© TH-HPC\n日 中 存储分区操作\ngris 2EL分区作业恢复\n\nQTH7\nOTH\nO AiReE\nO 用户操作\n© 作灿操作\n\n四 肥各二人矿\n如下图查看日志，如果有-30或scsi cmnd错误，联系二线值班人员处理；如果没有报-30或scsi cmnd错误，进行下一步。\n统一监控运维平台= 运维管理、\n\n定制大屏剧本执行\n\nTH-HPCTH-HPC4\n\n其他操作\n\nof 节点编号: mds1\n\n日 ce TH-HPC\n序号: 2488\n©) HPC1-127\n日 storage节点名称: mds1\n TH-3F\n\n查询内存\n\n清除进程标记硬盘\n\n所属集群 TH-HPC\n所属分区:_null\n\n存储位置: 老机房-TH-HPC-HPC1-\n127-21.0\n\n查询硬盘信息Airaid (SB\n\ncpu进程排序mem进程排序\n\n硬盘大小. 无硬盘\n节点状态: 连接成功 |\n\n查询rsf信息\n\nBRE\n重启mds。选择“其他操作”—对应集群—“其他操作”—“电源管理”。\n输入“节点名”和“动作（重启）”后确认。\nTH-HPC TH-HPC4\n节点操作\n\nTH-HPC4PDTH-HPC\n\nafer]\n\n剧本编排BO 存储分区操作\n\nOTHLS登陆节点部署客户端-， MDS节点部署客户.， OSTHRBBEP...计算节点部署客户端.， 远程在线用户\n剧本执行四THL6\n二emsiveenee wm—\n© 资源操作\n\n0 用户操作\n\n© 作业操作mds1:查询日志 久', '“lfs quota –g username /vol-th”查看账号配额会看到已使用存储的数字旁边有一个“*”号，状态“4w1d23h59m57s”表示一个月的倒计时，如果用户在倒计时结束前将使用存储清理到500G以下，则存储状态恢复正常，否则，用户存储无法写入；如果用户使用存储大于1T，用户会无法写入。\nQ：磁盘无法写入，报“quota error”错误\nA：这是由于用户使用存储或文件数超过配额设定，需要用户对数据进行清理到磁盘配额软限制以下方可继续使用。\nQ：作业运行提示“forrtl: Input/output error”\nA：可能是存储某一时刻压力较大，造成IO错误，请您重新提交作业。\nQ：作业运行时报错：forrtl: No space left on device，forrtl: severe (38): error during write, unit 12，但是同样的作业再次提交时可能就正常运行完成。\nA：该问题主要由文件系统中某一OST存储已满导致，请联系与您对接的工程师或系统管理员。\nLustre文件系统由若干IO服务器（Object Storage Services）和Object Storage Targets(OST)组成。当对一个文件进行读写操作时，为了提高IO效率，文件系统会自动将该文件的读写操作分割成多个，在多个OST上并发实现。如果在该过程中，使用到的某一OST出现问题，就会发生读写错误。\nQ:我使用ls命令查看目录下的文件，可是一直停留下那里，没有显示。\nA:遇到这个问题，您可以等待一会，再重新使用ls命令查看目录文件。\n原因之一可能是TH-HPC的登录节点负载比较重，造成使用终端命令受到影响；原因之二可能是用户客户端的网络负载比较重，出现比较严重的网络延迟；原因之三可能是TH-HPC系统的存储正在进行恢复调整。\n6.6 GPU使用问题\nQ：使用CUDA toolkit编译程序后，在gpu_test分区提交作业，运行时提示错误：no CUDA-capable device is detected\nA：可能原因有二种情况：\n原因之一可能是分配到的该计算结点上用于连接CPU与GPU的PCIe总线松动，导致无法找到device。解决方法：在提交作业时', '时加入了-xHOST），那程序就会根据登陆节点的CPU配置信息进行优化编译，然而程序的运行是在计算节点上，计算节点的CPU配置信息可能不支持AVX，就与登陆节点不同，就会报上面的提示错误。\n解决方法：编译时去掉-xHOST/-xAVX选项，使用其他优化选项。\n备注：-xHost will cause icc/icpc or icl to check the cpu information and find the highest level of extended instructions support to use.\n天河登陆节点ln1、ln2、ln3上的CPU配置信息flag均无avx，ln8、ln9上均有avx。\n如果在ln8或ln9上安装软件时，configure后一定要检查下编译flag是否加入了-xHOST，如果加入，请修改对应的configure文件，将-xHOST删除\n6.5 存储问题\nQ：登陆系统时提示“Some errors happened when getting quota info”\nA：这是由于在对系统进行调整时登陆结点quota服务没有启用导致，对用户本身的操作和作业不会有影响，管理员会定时对此进行调整，请放心使用。\n解决方法：这是因为登陆节点quota服务没有启用，对用户本身的操作和作业不会有影响。\n值班人员每天定时对vol-th、WORK、vol6的quota进行检查，尤其是存储出现问题后（如ost重启），quota会异常关闭，以vol-th为例重启方式如下：\nlfsquotaoff -ug /vol-th\nlfsquotaon -ug /vol-th\nQ：默认的磁盘配额是多少？磁盘配额的含义是什么？\nA：为了合理利用有限的存储资源，目前中心对用户默认进行存储软限制500G，存储硬限制1T，文件数软限制100万，文件数硬限制200万的磁盘配额限制。以磁盘存储为例说明软、硬限制的含义，文件数软、硬限制的含义与其一样。用户使用存储低于500G时，存储状态正常；当用户使用存储介于500G和1T之间时，用户配额异常，通过“lfs quota –g username /vol-th”查看账号配额会看到已使用存储的数字旁边有一个“*”号，状态“4w1d23h59m57s”表示一个月的倒计时，如果用户在倒计时结束前将使用']
+
+======================================================================
+
+Overall Metric Pass Rates
+
+Answer Relevancy: 100.00% pass rate
+Faithfulness: 100.00% pass rate
+Contextual Precision: 100.00% pass rate
+Contextual Relevancy: 0.00% pass rate
+Contextual Recall: 100.00% pass rate
+
+======================================================================
+
+
+✓ Tests finished 🎉! Run 'deepeval login' to save and analyze evaluation results
+on Confident AI.
+ 
+✨👀 Looking for a place for your LLM test data to live 🏡❤️ ? Use Confident AI 
+to get & share testing reports, experiment with models/prompts, and catch 
+regressions for your LLM system. Just run 'deepeval login' in the CLI. 
+
+评估结果已保存至: ./evaluation_results/results1.json
+Running teardown with pytest sessionfinish...
+Error loading test run from disk: [Errno 2] No such file or directory: 
+'.deepeval/.temp_test_run_data.json'
+
+[33m[33m[1m2 warnings[0m[33m in 204.09s (0:03:24)[0m[0m
+Test Run is empty, please try again.

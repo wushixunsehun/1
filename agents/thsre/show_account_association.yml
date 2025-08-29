@@ -1,0 +1,9 @@
+- hosts: 89.72.100.1
+  gather_facts: false
+  tasks:
+    - name: show_account_association
+      shell: |
+        sacctmgr show association account="{{ account }}" -p
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

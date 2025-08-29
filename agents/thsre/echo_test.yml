@@ -1,0 +1,16 @@
+- name: say 'test'
+  hosts: localhost
+  gather_facts: False
+  tasks:
+    # task 1
+    - name: test connection
+      shell: cat /opt/thsre/ansible-runner-service/samples/project/post_config.yml
+      register: cat_result
+    # show cat result
+    - name: show cat result
+      debug:
+        msg: "{{ cat_result.stdout }}"
+    # test param
+    - name: echo params
+      debug:
+        msg: "{{ node }}"

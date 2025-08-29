@@ -1,0 +1,37 @@
+用户需要在cp4分区提交一个MPI并行作业，要求使用112个进程。以下是完整的提交脚本和命令，以及资源分配逻辑的解释。1. 提交脚本内容如下：  
+```bash  
+#!/bin/bash  
+#SBATCH -J mpi_job  
+#SBATCH -n 112  
+#SBATCH -p cp4  
+#SBATCH -t 01:00:00  
+#SBATCH -o output.txt  
+#SBATCH -e error.txt  
+
+module load openmpi  
+mpirun -np 112 ./your_mpi_program  
+```  
+2. 提交命令为：  
+```bash  
+sbatch your_script.sh  
+```  
+3. 资源分配逻辑：  
+- `-J mpi_job`：指定作业名称为mpi_job。  
+- `-n 112`：请求112个进程。  
+- `-p cp4`：指定作业提交到cp4分区。  
+- `-t 01:00:00`：设置作业运行时间限制为1小时。  
+- `-o output.txt`：将标准输出重定向到output.txt文件。  
+- `-e error.txt`：将标准错误输出重定向到error.txt文件。  
+- `module load openmpi`：加载OpenMPI模块以支持MPI并行计算。  
+- `mpirun -np 112 ./your_mpi_program`：使用mpirun命令启动112个进程运行MPI程序。  
+4. 资源分配逻辑说明：  
+- 用户在cp4分区提交作业时，系统会根据分区的资源情况分配计算节点。  
+- `-n 112`参数确保作业请求112个进程，系统会根据可用的计算节点和每个节点的CPU核心数来分配资源。  
+- 如果每个计算节点有56个核心，则需要2个计算节点来满足112个进程的需求。  
+- 作业在分配到资源后，会在指定的计算节点上运行，并且在作业完成后释放资源。  
+5. 注意事项：  
+- 用户需要确保自己的MPI程序已经正确编译，并且在提交脚本中指定了正确的可执行文件路径。  
+- 如果作业在运行过程中遇到问题，用户可以通过查看output.txt和error.txt文件来诊断问题。  
+- 用户还可以通过SLURM命令（如`squeue`）来监控作业的状态。  
+
+

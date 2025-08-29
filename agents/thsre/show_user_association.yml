@@ -1,0 +1,10 @@
+- hosts: 89.72.100.1
+  gather_facts: False
+  tasks:
+    # 查询用户资源
+    - name: show_user_association
+      shell: |
+        sacctmgr show association user="{{ user }}" -p
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

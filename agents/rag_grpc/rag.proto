@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+service RagService {
+  rpc GetRagS2C (RagRequest) returns (RagReply);
+  rpc GetRagContent (RagRequest_v2) returns (RagReply);
+}
+
+message RagRequest {
+  string query = 1;
+  repeated string source = 2;
+}
+
+message RagRequest_v2 {
+  string query = 1;
+}
+
+message RagReply {
+  string context = 1;
+}

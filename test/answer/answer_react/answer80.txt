@@ -1,0 +1,11 @@
+根据提供的文件内容，可以总结出以下信息：yhreport命令用于从记账数据生成报表，支持多种报表类型和输出格式。有效的报表类型包括cluster、job、reservation和user。每种报表类型的report选项如下：对于cluster报表类型，有AccountUtilizationByUser、UserUtilizationByAccount、UserUtilizationByWckey、Utilization、WCKeyUtilizationByUser；对于job报表类型，有SizesByAccount、SizesByWckey；对于reservation报表类型，有Utilization；对于user报表类型，有TopUsage。这些选项可以根据需要进行选择和配置，以生成所需的报表。如果需要进一步的详细信息或具体操作步骤，可以参考资源管理系统手册中的相关部分。
+1. 有效的报表类型包括cluster、job、reservation和user，每种报表类型都有特定的report选项。
+2. cluster报表类型的report选项包括AccountUtilizationByUser、UserUtilizationByAccount、UserUtilizationByWckey、Utilization、WCKeyUtilizationByUser。
+3. job报表类型的report选项包括SizesByAccount、SizesByWckey。
+4. reservation报表类型的report选项包括Utilization。
+5. user报表类型的report选项包括TopUsage。
+6. 使用yhreport命令时，可以通过指定不同的report选项来生成相应的报表，例如使用--report选项后跟具体的报表类型和选项。
+7. 在生成报表时，还可以通过其他参数如--format来指定输出格式，例如使用AveCPU、AvePages等字段来展示具体的统计信息。
+8. 如果需要更详细的帮助信息，可以使用yhreport命令的--help选项来查看可用的选项和参数。
+9. 对于具体的报表生成需求，可以根据实际需要选择合适的报表类型和选项，并结合其他参数进行配置，以满足不同的分析和报告需求。
+

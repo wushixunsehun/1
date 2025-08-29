@@ -1,0 +1,1 @@
+Prometheus 支持多种数据类型，主要包括 Gauge、Counter、Histogram 和 Summary。Gauge 类型用于表示可以增加或减少的指标，例如温度或内存使用量。Counter 类型用于表示单调递增的计数器，例如请求总数。Histogram 和 Summary 用于统计分布情况，例如请求延迟或响应大小。1. Prometheus 支持的数据类型包括 Gauge、Counter、Histogram 和 Summary。2. Gauge 类型的指标可以通过 PromQL 查询，例如使用 `gauge_metric_name` 直接查询具体的指标值。3. 在 PromQL 中，可以使用聚合操作符如 `avg()`、`max()` 或 `min()` 来对 Gauge 类型的指标进行计算和分析。

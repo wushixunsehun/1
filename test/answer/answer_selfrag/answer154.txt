@@ -1,0 +1,21 @@
+{
+  "answer": "为TH-eX系统添加代理的步骤如下：1. 执行脚本`/THL5/software/env/proxy/copy-proxy.sh`以安装私有环境；2. 通过运行`source ~/.bashrc`加载私有环境配置；3. 最后使用`module add proxy/1.0`命令加载代理模块。这些步骤可以有效配置代理环境，确保用户能够顺利使用代理功能进行网络访问和资源下载。此外，在使用GPU时需要编写相应的脚本并提交作业，同时可以通过`nvidia-smi`命令查看GPU状态以确认配置是否成功。",
+  "token_data": {
+    "retrieval_evaluation": 266,
+    "rag_prompt": 1604,
+    "generation": 171,
+    "hallucination_evaluation": 1747,
+    "answer_evaluation": 282,
+    "rewrite": 0,
+    "total": 4070
+  },
+  "time_data": {
+    "retrieval_evaluation": 0.12249302864074707,
+    "rag_prompt": 0,
+    "generation": 6.21033501625061,
+    "hallucination_evaluation": 0.2598605155944824,
+    "answer_evaluation": 0.13376569747924805,
+    "rewrite": 0,
+    "total": 6.726454257965088
+  }
+}

@@ -1,0 +1,1 @@
+当前提供的知识库和文档片段中没有明确说明Lustre文件系统中活跃的MDS数量。根据知识库中的信息，Lustre文件系统可以配置多个MDT（Metadata Target）以实现主动/主动故障切换，并且每个文件系统可以有多个MDS（Metadata Server）来管理元数据。例如，文档中提到“可配置多个MDT的主动/主动故障切换”，并且“分布式命名空间环境（DNE）可支持多个MDT”。此外，还提到“每个MDS管理Lustre文件系统中的名称和目录，并为一个或多个本地MDT提供网络请求处理”。然而，这些信息仅说明了Lustre文件系统的灵活性和可扩展性，但并未具体指出当前活跃的MDS数量。因此，无法从提供的资料中得出确切的活跃MDS数量。[KG] unknown_source [DC] unknown_source

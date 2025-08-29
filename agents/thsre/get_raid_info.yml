@@ -1,0 +1,27 @@
+- hosts: all
+  user: root
+  gather_facts: False
+  tasks:
+    # 获取raid状态
+    - name: get_raid_info
+      shell: |
+        node=`hostname`
+        raid="{{ virtual }}"
+        if [ $node == "mds0" ];then
+          raid="238"
+        elif [ $node == "ost0" ];then
+          if [ $raid == "raid1" ];then raid="239";
+          elif [ $raid == "raid2" ];then raid="237";
+          else exit
+          fi
+        elif [ $node == "ost1" ] || [ $node == "ost2" ] || [ $node == "ost3" ];then
+          if [ $raid == "raid1" ];then raid="239";
+          elif [ $raid == "raid2" ];then raid="238";
+          else exit;
+          fi
+        else exit;
+        fi
+        storcli /call/v${raid} show all
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

@@ -1,0 +1,13 @@
+{
+    "query": "用户因VPN登录频繁失败提示“认证错误次数太多，您的账号已被锁定”，值班人员应如何指导用户解决？",
+    "summaries": [
+        "本文档主要针对VPN登录过程中常见的问题提供解决方案。包括浏览器设置、Linux系统登录需使用root账户、Mac系统SSL VPN登录时的安全设置、网络请求异常、掉线问题及认证错误等。同时，提供了外网登录节点信息，如HPCES和HPC1对应的登录节点名称。建议用户根据用户手册或诊断工具进行排查。",
+        "本文介绍了VPN登录报错的解决方法，包括检查是否已登录其他VPN、使用青索界面修复VPN、重启电脑、通过Easyconnect登录后再从青索登录以及排查用户网络问题。",
+        "用户需在配置网页获取用户名和密码，连接VPN后使用root用户通过SSH登录。问题源于缺少ca.crt文件，导致连接报错。解决方法是将ca.crt文件复制到指定路径：`C:\\Users\\honor\\OpenVPN\\config\\VPN-v6p3upw8_config`，并替换honor为实际用户名。"
+    ],
+    "contents": [
+        "隐藏\n用户名密码为在网页上配置的用户名密码。连接**vpn**后，即可用**ssh**进行连接使用,直接以**root**用户登录。\n(c) 解决的问题\n导入下载的配置文件->连接。会有以下的报错显示\n2022-03-14 09:06:52 DEPRECATED OPTION: cipher set to 'AES-256-CBC' but missing in data-ciphers (AES-256-GCM:AES-128-GCM). Future OpenVPN version will ignore cipher for cipher negotiations. Add 'AES-256-CBC' to data-ciphers or change cipher 'AES-256-CBC' to data-ciphers-fallback 'AES-256-CBC' to silence this warning.\nOptions error: ca fails with 'ca.crt': No such file or directory (errno=2)\nOptions error: Please correct these errors.\nUse help for more information.\n该问题为缺少ca.crt文件导致，将ca.crt文件拷贝到`C:\\Users\\honor\\OpenVPN\\config\\VPN-v6p3upw8_config`路径下即可解决，将honor换成自己电脑对应用户名即可。",
+        "页面。\nA：请用户依据用户手册对浏览器进行相关设置，如果每次都提示无法访问可能是系统安装的杀毒软件或者安全软件造成的，需调整软件的安全策略。\nQ：Linux系统登陆VPN不成功\nA：linux用户登录VPN需要使用root账户，且图形化客户端与命令行客户端不能同时安装在系统，图形化客户端目前只能在Ubantu和中标麒麟系统中使用，具体排查步骤请参考用户手册或者进入VPN客户端登陆右上角的“诊断工具”查看帮助中心。linux图形化客户端的登陆与windows大致相同，命令行登录方式请参照《VPN接入使用说明》安装使用。\nQ：在网页（http://www.nscc-tj.cn）下VPN登陆天河一号服务器， 提示“本地用户有效期已经过期”\nA：是由于VPN已经到期，请联系与您联系的相关工程师，申请开通VPN。\nQ：Mac系统如何登陆VPN？\nA：参照《VPN接入使用说明》进行配置。MAC10.13由于系统安全机制变化，登录SSL VPN时可能会提示\"Failed to read the SANGFOR SSL virtual NIC\"或者“未能正确打开SANGFOR SSL虚拟网卡”，需要在【系统偏好设置】-【安全性与隐私】-【允许从以下位置下载的应用】设置为【任何来源】。\nQ：客户端登录VPN提示“网络请求异常，请稍后重试”。\nA：出现此提示一般为终端网络环境导致，请确保终端能正常访问互联网，如果无法在浏览器中打开VPN页面，请尝试更改终端DNS地址。\nQ：VPN在使用过程中掉线。\nA：VPN登录后30分钟无操作会自动断开，如果在传输或者在调试程序时掉线断开，请确保防火墙和安全防护软件已经将VPN客户端加入信任，或者直接在使用过程中关闭防火墙及安全防护软件。\nQ：VPN登录提示“认证错误次数太多，您的账号已被锁定”。\nA：出现此提示后请确认账号密码，十分钟后尝试重新登录。如忘记密码，请联系相关工程师进行申请重置。\n6.2 系统登陆问题\nQ：外网登陆节点分配？\nA：\n集群 | 登陆节点1 | 登陆节点2\nHPCES | th_es_ln0 | th_es_ln1\nHPC1 | th_hpc1",
+        "【已解决】VPN登录报错解决方式\n**标签**: 无标签\n**创建时间**: 2022-07-11 16:25:53\n**更新时间**: 2022-07-11 16:25:53\n**作者**: 张天奇\n1. 是否存在已登录其他VPN的情况。\n2. 在青索界面-我要-修复vpn。\n3. 重启电脑。\n4. 直接从Easyconnect登录，成功后，再从青索登录。\n5. 用户网络问题。"
+    ]
+}

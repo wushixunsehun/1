@@ -1,0 +1,10 @@
+- hosts: all
+  user: root
+  gather_facts: false
+  tasks:
+    - name:
+      shell: |
+        echo 1 > /sys/block/{{ device }}/device/delete
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

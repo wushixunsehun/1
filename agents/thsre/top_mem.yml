@@ -1,0 +1,10 @@
+- hosts: all
+  user: root
+  gather_facts: False
+  tasks:
+    - name: top_mem
+      shell: |
+        ps aux --sort=-%mem | head -30
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

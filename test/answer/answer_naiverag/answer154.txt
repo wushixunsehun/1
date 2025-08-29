@@ -1,0 +1,2 @@
+为TH-eX系统添加代理的步骤如下：1. 执行脚本`/THL5/software/env/proxy/copy-proxy.sh`以设置代理环境，2. 运行`source ~/.bashrc`命令使环境配置生效，3. 加载代理模块`module add proxy/1.0`以完成代理配置。这些步骤适用于TH-ES系统，并且在使用proxy代理下载TensorFlow及调用GPU时也需进行相应配置。此外，对于GPU使用，需要编写包含`yhrun -N 1 -n 1 -p TH_GPU python3`的脚本并提交作业，同时可以通过`nvidia-smi`查看GPU状态。
+

@@ -1,0 +1,13 @@
+- hosts: 89.72.101.0
+  gather_facts: False
+  tasks:
+    # 修改用户组配额
+    - name: modify_group_quota
+      shell: |
+        lfs setquota -g "{{ group }}" -b "{{ softquota }}" -B "{{ hardquota }}" -i "{{ softinode }}" -I "{{ hardinode }}" "{{ fs }}"
+        echo "用户组配额已修改"
+        echo
+        lfs quota -h -g "{{ group }}" "{{ fs }}"
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

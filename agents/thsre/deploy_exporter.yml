@@ -1,0 +1,89 @@
+# 自动部署监控客户端
+---
+- hosts: "{{ from_node }}"
+  remote_user: root
+  gather_facts: F
+  tasks:
+    # t1 拷贝到ansible所在服务器
+    - name: fetch file
+      fetch:
+        src: "{{ src_path }}"
+        dest: /usr/local/ars/ansible-runner-service/samples/exporters/
+        flat: yes
+      register: fetch_result
+
+    # 拷贝失败，结束剧本
+    - name: end play if fetch failed
+      meta: end_play
+      when: fetch_result is failed
+
+# 增加一个任务检查当前节点客户端压缩包是否拷贝过来？
+- hosts: localhost
+  remote_user: root
+  gather_facts: F
+  tasks:
+    # 检查文件是否存在
+    - name: check if tar file exists
+      stat:
+        path: /usr/local/ars/ansible-runner-service/samples/exporters/{{ exporter_tar_name }}
+      register: tar_file_stat
+
+    # 结束剧本
+    - name: end play if tar file does not exist
+      meta: end_play
+      when: not tar_file_stat.stat.exists
+
+
+- hosts: "{{ target_node }}"
+  remote_user: root
+  gather_facts: F
+  serial: 32
+  tasks:
+    # t1 再被控节点创建目录
+    - name: create dir
+      file:
+        path: /opt/thsre/exporters
+        state: directory
+        owner: root
+        group: root
+        mode: u=rwX,g=rwX,o=rX
+
+    # t2 把压缩包拷贝到远程主机并解压
+    - name: copy tar file
+      unarchive:
+        src: /usr/local/ars/ansible-runner-service/samples/exporters/{{ exporter_tar_name }}
+        dest: /opt/thsre/exporters
+        mode: u=rwX,g=rX,o=rX
+        remote_src: no
+      register: copy_result
+
+    # 拷贝失败，结束剧本
+    - name: end play if copy failed
+      meta: end_play
+      when: copy_result is failed
+        
+    # t3 部署服务
+    - name: copy service file
+      copy:
+        src: /opt/thsre/exporters/{{ exporter_name }}/{{ exporter_name }}.service
+        dest: /usr/lib/systemd/system/{{ exporter_name }}.service
+        remote_src: yes
+
+    # t4 reload 服务文件
+    - name: systemctl daemon-reload
+      command: systemctl daemon-reload
+        
+    # t5 启动服务
+    - name: start service
+      service:
+        name: "{{ exporter_name }}"
+        state: started
+        enabled: yes
+    
+    # t6 重启服务
+    - name: restart service
+      service: 
+        name: "{{ exporter_name }}"
+        state: restarted
+        enabled: yes
+

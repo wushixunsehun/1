@@ -1,0 +1,1 @@
+xattr_cache 参数的作用是控制是否在客户端上缓存扩展属性（xattr），这可以提高访问LSoM数据的效率，但可能会导致数据过时。当使用xattr接口访问LSoM数据时，如果需要禁用xattr_cache参数，可以在客户端上运行命令lctl set param llite.*.xattr_cache=0。1. xattr_cache 参数的作用是控制是否在客户端上缓存扩展属性（xattr），这可以提高访问LSoM数据的效率，但可能会导致数据过时。2. 当前在客户端上通过xattr接口访问LSoM数据时，可以通过运行命令lctl set param llite.*.xattr_cache=0来禁用xattr_cache参数。

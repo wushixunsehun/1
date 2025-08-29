@@ -1,0 +1,13 @@
+# 自动部署监控客户端
+---
+- hosts: "{{ from_node }}"
+  remote_user: root
+  gather_facts: F
+  serial: 3
+  tasks:
+    # t1 拷贝到ansible所在服务器
+    - name: fetch file
+      fetch:
+        src: "{{ src_path }}"
+        dest: /opt/thsre/ansible-runner-service/samples/test_forks_exporters/
+        flat: yes

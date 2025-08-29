@@ -1,0 +1,12 @@
+- hosts: 89.72.101.1
+  user: root
+  gather_facts: false
+  vars: null
+  tasks:
+  - name: null
+    shell: 'ssh 192.103.5.220 ls -l -t /dev/disk/by-path/|head -10
+
+      '
+    register: result
+  - debug:
+      msg: '{{ result.stdout_lines }}'

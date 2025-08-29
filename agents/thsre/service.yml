@@ -1,0 +1,9 @@
+- hosts: 89.72.100.1
+  user: root
+  gather_facts: false
+  tasks:
+    - name: service
+      shell: ssh "{{ node }}" systemctl "{{ status }}" "{{ service }}"
+      register: service_result
+    - debug:
+        msg: "{{ service_result.stdout_lines }}"

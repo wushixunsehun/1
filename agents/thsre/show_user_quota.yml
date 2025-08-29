@@ -1,0 +1,10 @@
+- hosts: 89.72.101.0
+  gather_facts: False
+  tasks:
+    # 查询用户配额
+    - name: show_user_quota
+      shell: |
+        lfs quota -h -u "{{ user }}" "{{ fs }}"
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"

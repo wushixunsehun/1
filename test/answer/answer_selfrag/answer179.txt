@@ -1,0 +1,1 @@
+遇到PyTorch版本不匹配导致CUDA不可用的问题，可以通过以下方法解决：1. 创建新的conda环境并安装指定版本的PyTorch、torchvision和torchaudio，同时安装对应的CUDA Toolkit。例如，安装PyTorch 1.12.1、torchvision 0.13.1、torchaudio 0.12.1和CUDA Toolkit 11.6。2. 如果出现CondaVerificationError或ClobberError错误，可能是由于CUDA库损坏或路径冲突，可以尝试清理缓存、重新下载包或调整环境配置。3. 确保安装的PyTorch版本与系统CUDA版本兼容，例如当系统CUDA版本为11.4时，应安装与CUDA 11.3兼容的PyTorch 1.10.1版本，并通过conda安装命令完成安装。

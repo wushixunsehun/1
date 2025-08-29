@@ -1,0 +1,1310 @@
+- description: 该剧本用于杀死指定用户的所有进程，常用于清理或强制终止用户会话。
+  name: 杀死指定用户所有进程
+  parameters:
+  - name: user
+    type: str
+  playbook_content: "- hosts: all\n  user: root\n  gather_facts: False\n  tasks:\n\
+    \    - name: killall\n      shell: killall -u \"{{ user }}\"\n      register:\
+    \ result\n    - debug:\n        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于扫描指定主机（osds）上的空闲磁盘，并返回一个以主机为索引的字典，包含每个主机上未使用的磁盘信息。
+  name: 扫描主机空闲磁盘
+  parameters:
+  - name: osds
+    type: str
+  playbook_content: "#\n# Playbook to scan a set of hosts and return a dict indexed\
+    \ by host containing\n# a list of disks that are unused. Each disk is represented\
+    \ by a dict with the\n# following fields;\n#\n# size_txt (str) e.g 10.0GB\n# size_bytes\
+    \ (int) e.g. 21474836480\n# sectorsize (int) e.g. 512\n# sectors (int) e.g 41943040\n\
+    #\n# example output;\n# ok: [con-1 -> 127.0.0.1] => {\n#    \"free_disks\": {\n\
+    #        \"con-1\": {\n#            \"vdd\": {\n#                \"rotational\"\
+    : true,\n#                \"sectors\": 41943040,\n#                \"sectorsize\"\
+    : 512,\n#                \"size_bytes\": 21474836480,\n#                \"size_txt\"\
+    : \"20.00 GB\"\n#            }\n#        },\n\n- name: probe hosts for free disks\n\
+    \  hosts:\n    - osds\n  vars:\n    free_disks: |\n      {%- set disk_table =\
+    \ dict() %}\n      {%- for host in play_hosts %}\n        {%- set _x = disk_table.__setitem__(host,\
+    \ {}) %}\n        {%- set _devdata = dict() %}\n        {%- for disk in hostvars[host].host_disk\
+    \ %}\n            {%- set _meta = hostvars[host]['ansible_devices'][disk] %}\n\
+    \            {%- set _x = _devdata.__setitem__(disk, dict(size_txt=_meta['size'],\n\
+    \                                                         rotational=_meta['rotational']|bool,\n\
+    \                                                         sectors=_meta['sectors']|int,\n\
+    \                                                         sectorsize=_meta['sectorsize']|int,\n\
+    \                                                         size_bytes=_meta['sectors']|int\
+    \ * _meta['sectorsize']|int)) %}\n        {%- endfor %}\n        {%- set _x =\
+    \ disk_table.__setitem__(host, _devdata) %}\n      {%- endfor %}\n      {{ disk_table\
+    \ }}\n\n  gather_facts: true\n  tasks:\n    - name: setup\n      set_fact:\n \
+    \         host_disk: []\n    - name: Get a list of block devices (excludes loop\
+    \ and child devices)\n      command: lsblk -n --o NAME --nodeps --exclude 7\n\
+    \      register: lsblk_out\n    - name: check if disk {{ item }} is free\n   \
+    \   command: pvcreate --test /dev/{{ item }}\n      ignore_errors: true\n    \
+    \  register: pv_status\n      with_items: \"{{lsblk_out.stdout_lines}}\"\n   \
+    \ - name: Update hosts freedisk list\n      set_fact:\n        host_disk: \"{{host_disk\
+    \ + [item.item]}}\"\n      ignore_errors: true\n      when: item.rc == 0\n   \
+    \   with_items: \"{{ pv_status.results}}\"\n    - name: RESULTS\n      debug:\n\
+    \        var: free_disks\n      delegate_to: 127.0.0.1\n      run_once: True\n"
+  user_id: ''
+- description: 该剧本用于测试传递的参数，主要通过 debug 模块输出存储相关参数的值，验证参数是否正确传递。
+  name: 存储状态测试
+  parameters:
+  - name: node
+    type: str
+  - name: stat
+    type: str
+  playbook_content: "# 测试playbook参数\n- name: 'cfs_stat'\n  hosts: compute\n  gather_facts:\
+    \ False\n  tasks:\n    # task 1\n    - name: echo node\n      shell: echo \"{{\
+    \ node }}\"\n    # test param\n    - name: echo stat\n      debug:\n        msg:\
+    \ \"storage {{ stat }}\"\n    # test param2\n    - name: echo stat\n      debug:\n\
+    \        msg: \"storage {{ stat }}\"\n"
+  user_id: ''
+- description: 该剧本用于解除指定用户在目标主机上的登录错误锁定，通过执行 `pam_tally2` 命令重置用户失败登录计数。
+  name: 用户登录错误解锁
+  parameters:
+  - name: node
+    type: str
+  - name: user
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  gather_facts: false\n  tasks:\n    #\
+    \ 用户登录错误解锁\n    - name:\n      shell: |\n        ssh \"{{ node }}\" pam_tally2\
+    \ -r -u {{ user }} \n      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines\
+    \ }}\"\n"
+  user_id: ''
+- description: 该剧本用于查询指定主机上的节点信息，通过执行 `scontrol show node` 命令获取节点详情。
+  name: 查询节点信息
+  parameters:
+  - name: nodelist
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  user: root\n  gather_facts: False\n \
+    \ tasks:\n    # 查询节点信息\n    - name: show_node\n      shell: scontrol show node\
+    \ {{ nodelist }}\n      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines\
+    \ }}\"\n"
+  user_id: ''
+- description: 用于调整指定队列的 OverSubscribe 参数，控制是否允许队列中的任务超分配资源。
+  name: 调整队列独占模式
+  parameters:
+  - name: partitionname
+    type: str
+  - name: oversubscribe
+    type: str
+  playbook_content: "- hosts: 25.16.106.209\n  user: root\n  gather_facts: False\n\
+    \  tasks:\n    - name: update_partition_oversubscribe\n      shell: |\n      \
+    \  scontrol show partition {{ partitionname }}\n        scontrol update partitionname=\"\
+    {{ partitionname }}\" OverSubscribe=\"{{ oversubscribe }}\"\n        echo \"队列独占模式已调整\"\
+    \n        echo\n        scontrol show partition {{ partitionname }}\n      register:\
+    \ result\n    - debug:\n        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于恢复所有处于暂停状态的作业，并将所有非 ALL 分区的状态设置为可用。
+  name: 恢复所有作业并启用分区
+  parameters:
+  - name: jobid
+    type: str
+  - name: partitionname
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  user: root\n  gather_facts: false\n \
+    \ tasks:\n    - name: resume_job_all\n      shell: |\n        jobid=`squeue -h\
+    \ -t S | awk '{print $1}'`\n        for j in $jobid\n        do \n        scontrol\
+    \ resume $j\n        echo $j\n        done\n        sleep 1\n        partitionname=`scontrol\
+    \ show partition| grep \"PartitionName\" | grep -v ALL |awk -F '=' '{print $2}'`\n\
+    \        for i in $partitionname\n        do\n        scontrol update partition=$i\
+    \ state=up\n        done\n      register: result\n    - debug:\n        msg: \"\
+    {{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本通过读取指定 JBOD 设备的符号链接，获取其对应的设备名称，并输出结果。
+  name: 获取 JBOD 设备符号链接的名称
+  parameters:
+  - name: jbod
+    type: str
+  playbook_content: "- hosts: all\n  user: root\n  gather_facts: false\n  tasks:\n\
+    \    - name:\n      shell: |\n        readlink /dev/disk/by-vdev/{{ jbod }} |\
+    \ xargs basename\n      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines\
+    \ }}\"\n"
+  user_id: ''
+- description: 该剧本用于修改指定文件系统的用户组配额，包括块配额和 inode 配额，并输出当前配额信息。
+  name: 修改用户组配额
+  parameters:
+  - name: group
+    type: str
+  - name: softquota
+    type: int
+  - name: hardquota
+    type: int
+  - name: softinode
+    type: int
+  - name: hardinode
+    type: int
+  - name: fs
+    type: str
+  playbook_content: "- hosts: 89.72.101.0\n  gather_facts: False\n  tasks:\n    #\
+    \ 修改用户组配额\n    - name: modify_group_quota\n      shell: |\n        lfs setquota\
+    \ -g \"{{ group }}\" -b \"{{ softquota }}\" -B \"{{ hardquota }}\" -i \"{{ softinode\
+    \ }}\" -I \"{{ hardinode }}\" \"{{ fs }}\"\n        echo \"用户组配额已修改\"\n      \
+    \  echo\n        lfs quota -h -g \"{{ group }}\" \"{{ fs }}\"\n      register:\
+    \ result\n    - debug:\n        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于测试并输出通过命令行传递的告警相关参数，便于验证告警信息的正确性。
+  name: 自动化告警参数测试
+  parameters:
+  - name: alertname
+    type: str
+  - name: cluster
+    type: str
+  - name: group
+    type: str
+  - name: instance
+    type: str
+  - name: job
+    type: str
+  - name: rack
+    type: str
+  - name: severity
+    type: str
+  - name: source
+    type: str
+  - name: type
+    type: str
+  playbook_content: "- name: self dealing pb\n  hosts: localhost\n  gather_facts:\
+    \ False\n  tasks:\n    # test params\n    - name: echo params\n      debug:\n\
+    \        msg: \"{{ alertname }} - {{ cluster }} - {{ group }} - {{ instance }}\
+    \ - {{ job }} - {{ rack }} - {{ severity }} - {{ source }} - {{ type }}\"\n"
+  user_id: ''
+- description: 该剧本通过 SSH 连接到指定的主机，并执行 Python 脚本以获取指定集群的设备列表。
+  name: 获取集群设备列表
+  parameters:
+  - name: cluster
+    type: str
+  playbook_content: "- hosts: 89.72.101.1\n  user: root\n  gather_facts: false\n \
+    \ vars:\n    - cluster: \"TH-3F\"\n  tasks:\n    - name:\n      shell: |\n   \
+    \     ssh 192.103.5.220 /root/datacopy/get_dev_list.py -m -c \"{{ cluster }}\"\
+    \n      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines\
+    \ }}\"\n"
+  user_id: ''
+- description: 该剧本用于将指定的 JBOD 设备从 ZFS 池中离线，通常用于维护或故障处理。
+  name: 离线指定 JBOD 设备
+  parameters:
+  - name: ost
+    type: str
+  - name: jbod
+    type: str
+  playbook_content: "- hosts: all\n  user: root\n  gather_facts: false\n  tasks:\n\
+    \    - name:\n      shell: |\n        zpool offline \"{{ ost }}\" \"{{ jbod }}\"\
+    \n      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines\
+    \ }}\"\n"
+  user_id: ''
+- description: 该剧本用于查询指定主机上的节点信息，通过执行 `sinfo` 命令并传入节点列表参数来获取结果。
+  name: 查询节点信息
+  parameters:
+  - name: nodelist
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  gather_facts: False\n  tasks:\n    -\
+    \ name: sinfo_node\n      shell: |\n        sinfo -n \"{{ nodelist }}\"\n    \
+    \  register: result\n    - debug:\n        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于测试与本地主机的连接，并输出指定文件内容及传入的参数信息。
+  name: 测试连接与参数输出
+  parameters:
+  - name: node
+    type: str
+  playbook_content: "- name: say 'test'\n  hosts: localhost\n  gather_facts: False\n\
+    \  tasks:\n    # task 1\n    - name: test connection\n      shell: cat /opt/thsre/ansible-runner-service/samples/project/post_config.yml\n\
+    \      register: cat_result\n    # show cat result\n    - name: show cat result\n\
+    \      debug:\n        msg: \"{{ cat_result.stdout }}\"\n    # test param\n  \
+    \  - name: echo params\n      debug:\n        msg: \"{{ node }}\"\n"
+  user_id: ''
+- description: 该剧本用于删除指定的 Slurm 预约任务，执行后会输出“预约已删除”信息。
+  name: 删除预约任务
+  parameters:
+  - name: reservation
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  user: root\n  gather_facts: False\n \
+    \ tasks:\n    - name: delete_reservation\n      shell: |\n        scontrol delete\
+    \ reservation=\"{{ reservation }}\"\n        echo \"预约已删除\"\n      register: result\n\
+    \    - debug:\n        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于取消指定作业，并检查作业运行节点的日志信息，包括用户、分区、节点列表、开始时间、结束时间、状态和工作目录等。
+  name: 取消作业并检查日志
+  parameters:
+  - name: jobid
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  user: root\n  gather_facts: false\n \
+    \ tasks:\n    - name: cancel_job\n      shell: |\n        job_info=`sacct -j \"\
+    {{ jobid }}\" -o User,Partition,nodelist,start,end,state,work -p   -X  -n`\n \
+    \       user=`echo \"$job_info\" | awk -F\\| '{print $1}'`\n        partition=`echo\
+    \ \"$job_info\" | awk -F\\| '{print $2}'`\n        nodelist=`echo \"$job_info\"\
+    \ | awk -F\\| '{print $3}'`\n        starttime=`echo \"$job_info\" | awk -F\\\
+    | '{print $4}'`\n        endtime=`echo \"$job_info\" | awk -F\\| '{print $5}'`\n\
+    \        state=`echo \"$job_info\" | awk -F\\| '{print $6}'`\n        work=`echo\
+    \ \"$job_info\" | awk -F\\| '{print $7}'`\n\n        echo $starttime |grep \"\
+    T\" >/dev/null\n        if [ $? -eq 0 ]\n        then\n            starttime=`echo\
+    \ $starttime |sed 's/T/ /g'`\n        else\n            echo \"start time Unknown\
+    \ $startime\"\n            exit\n        fi\n\n        echo $endtime |grep \"\
+    T\" >/dev/null\n        if [ $? -eq 0 ];then\n          endtime=`echo $endtime\
+    \ |sed 's/T/ /g'`\n        else\n          endtime=`date  +\"%Y-%m-%d %H:%M:%S\"\
+    `\n        fi\n\n\n        echo \"user:\"$user\n        echo \"jobid:\"$1\n  \
+    \      echo \"partition:\"$partition\n        echo \"nodelist:\"$nodelist\n  \
+    \      echo \"start:\"$starttime\n        echo \"end:\"$endtime\n        echo\
+    \ \"state:\"$state\n        echo \"work:\"$work\n        echo \"Please check demsg\
+    \ node's log:\"\n        for x in `sinfo -n $nodelist -o %n -h`\n        do\n\
+    \            echo \"########################\"$x\"############################\"\
+    \n            ssh $x \" journalctl -k -S \\\"$starttime\\\" -U \\\"$endtime\\\"\
+    \ \"    \n        done\n      register: result\n    - debug:\n        msg: \"\
+    {{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于从指定节点上拉取文件并拷贝到 Ansible 服务器的指定路径，用于部署监控客户端。
+  name: 自动部署监控客户端
+  parameters:
+  - name: from_node
+    type: str
+  - name: src_path
+    type: str
+  playbook_content: "# 自动部署监控客户端\n---\n- hosts: \"{{ from_node }}\"\n  remote_user:\
+    \ root\n  gather_facts: F\n  serial: 3\n  tasks:\n    # t1 拷贝到ansible所在服务器\n \
+    \   - name: fetch file\n      fetch:\n        src: \"{{ src_path }}\"\n      \
+    \  dest: /opt/thsre/ansible-runner-service/samples/test_forks_exporters/\n   \
+    \     flat: yes\n"
+  user_id: ''
+- description: 该剧本用于查看指定计算节点上的 Slurm 分区信息。
+  name: 查看分区信息
+  parameters:
+  - name: partition
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  gather_facts: False\n  tasks:\n    -\
+    \ name: sinfo_partition\n      shell: |\n        sinfo -p \"{{ partition }}\"\n\
+    \      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines }}\"\
+    \n"
+  user_id: ''
+- description: 该剧本通过 SSH 连接到指定的主机，并执行 Python 脚本以获取特定集群的设备控制信息。
+  name: 获取集群设备控制信息
+  parameters:
+  - name: path
+    type: str
+  - name: cluster
+    type: str
+  playbook_content: "- hosts: 89.72.101.1\n  user: root\n  gather_facts: false\n \
+    \ vars:\n    - cluster: \"TH-3F\"\n  tasks:\n    - name:\n      shell: |\n   \
+    \     ssh 192.103.5.220 /root/datacopy/get_dev_control.py -u \"{{ path }}\" -c\
+    \ \"{{ cluster }}\"\n      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines\
+    \ }}\"\n"
+  user_id: ''
+- description: 该剧本用于查询指定用户在指定文件系统上的磁盘配额信息。
+  name: 查看用户配额
+  parameters:
+  - name: user
+    type: str
+  - name: fs
+    type: str
+  playbook_content: "- hosts: 89.72.101.0\n  gather_facts: False\n  tasks:\n    #\
+    \ 查询用户配额\n    - name: show_user_quota\n      shell: |\n        lfs quota -h -u\
+    \ \"{{ user }}\" \"{{ fs }}\"\n      register: result\n    - debug:\n        msg:\
+    \ \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于强制终止指定的进程，通过发送 SIGKILL 信号（kill -9）实现。
+  name: 杀死指定进程
+  parameters:
+  - name: process
+    type: str
+  playbook_content: "- hosts: all\n  user: root\n  gather_facts: False\n  tasks:\n\
+    \    - name: kill\n      shell: kill -9 \"{{ process }}\"\n      register: result\n\
+    \    - debug:\n        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于通过storcli工具获取所有主机的RAID卡日志信息。
+  name: 获取RAID卡日志
+  parameters:
+  - name: host
+    type: str
+  - name: user
+    type: str
+  - name: gather_facts
+    type: bool
+  playbook_content: "- hosts: all\n  user: root\n  gather_facts: False\n  tasks:\n\
+    \    # 获取raid卡日志\n    - name: get_raid_log\n      shell: storcli /call show termlog\n\
+    \      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines }}\"\
+    \n"
+  user_id: ''
+- description: 该剧本用于在指定的主机上提交作业，并通过 srun 命令在指定节点上执行 hostname 命令。
+  name: 提交作业并执行命令
+  parameters:
+  - name: partitionname
+    type: str
+  - name: nodes
+    type: str
+  playbook_content: "- hosts: 25.8.100.1\n  user: root\n  gather_facts: false\n  tasks:\n\
+    \  - name: srun_job\n    shell: 'echo \"作业已提交\"\n\n      echo\n\n      srun -Z\
+    \ -p \"{{ partitionname }}\" -w \"{{ nodes }}\" hostname\n\n      '\n    register:\
+    \ result\n  - debug:\n      msg: '{{ result.stdout_lines }}'\n"
+  user_id: ''
+- description: 该剧本用于测试目标主机的连接性，并执行一系列系统操作，包括打印调试信息、睡眠测试、获取IP地址和列出临时目录内容。
+  name: 测试连接与系统操作
+  parameters:
+  - name: sleep_time
+    type: int
+  - name: target_directory
+    type: str
+  - name: verbose
+    type: bool
+  playbook_content: "- name: say 'test'\n  hosts: \n    - login\n  gather_facts: False\n\
+    \  tasks:\n    # task 1\n    - name: test connection\n      ping:\n      register:\
+    \ message\n    # task 2\n    - name: print debug message\n      debug: \n    \
+    \    msg: \"{{ message }}\"\n    # task 3\n    - name: sleep test\n      command:\
+    \ sleep 10\n      async: 15\n    # task 4\n    - name: get ip\n      command:\
+    \ ifconfig\n    # task 5\n    - name: ls test\n      command: ls /tmp/\n"
+  user_id: ''
+- description: 该剧本用于根据主机名和虚拟化类型获取对应的RAID控制器信息，并执行storcli命令输出RAID状态。
+  name: 获取RAID状态信息
+  parameters:
+  - name: virtual
+    type: str
+  playbook_content: "- hosts: all\n  user: root\n  gather_facts: False\n  tasks:\n\
+    \    # 获取raid状态\n    - name: get_raid_info\n      shell: |\n        node=`hostname`\n\
+    \        raid=\"{{ virtual }}\"\n        if [ $node == \"mds0\" ];then\n     \
+    \     raid=\"238\"\n        elif [ $node == \"ost0\" ];then\n          if [ $raid\
+    \ == \"raid1\" ];then raid=\"239\";\n          elif [ $raid == \"raid2\" ];then\
+    \ raid=\"237\";\n          else exit\n          fi\n        elif [ $node == \"\
+    ost1\" ] || [ $node == \"ost2\" ] || [ $node == \"ost3\" ];then\n          if\
+    \ [ $raid == \"raid1\" ];then raid=\"239\";\n          elif [ $raid == \"raid2\"\
+    \ ];then raid=\"238\";\n          else exit;\n          fi\n        else exit;\n\
+    \        fi\n        storcli /call/v${raid} show all\n      register: result\n\
+    \    - debug:\n        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本通过 SSH 连接到指定的远程主机，并执行命令列出目标主机上 /dev/disk/by-path 目录下的前 10 个文件，用于查看磁盘设备信息。
+  name: 查看远程服务器磁盘信息
+  parameters:
+  - name: target_host
+    type: str
+  - name: remote_user
+    type: str
+  playbook_content: "- hosts: 89.72.101.1\n  user: root\n  gather_facts: false\n \
+    \ vars: null\n  tasks:\n  - name: null\n    shell: 'ssh 192.103.5.220 ls -l -t\
+    \ /dev/disk/by-path/|head -10\n\n      '\n    register: result\n  - debug:\n \
+    \     msg: '{{ result.stdout_lines }}'\n"
+  user_id: ''
+- description: 该剧本用于在目标主机上添加指定的用户组，并检查该用户组是否已存在。
+  name: 添加用户组并检查是否存在
+  parameters:
+  - name: group
+    type: str
+  playbook_content: "- hosts: 25.8.100.1\n  gather_facts: false\n  tasks:\n  - name:\
+    \ null\n    shell: 'yhgrpadd \"{{ group }}\"\n\n      yhgrplist | grep -w \"{{\
+    \ group }}\"\n\n      '\n    register: result\n  - debug:\n      msg: '{{ result.stdout_lines\
+    \ }}'\n"
+  user_id: ''
+- description: 该剧本用于修改指定主机上某个用户的主组ID，并检查用户是否存在。
+  name: 修改用户主组ID
+  parameters:
+  - name: gid
+    type: int
+  - name: user
+    type: str
+  playbook_content: "- hosts: 25.8.100.1\n  gather_facts: false\n  tasks:\n  - name:\
+    \ null\n    shell: 'yhusermod -g \"{{ gid }}\" \"{{ user }}\"\n\n      yhuserlist\
+    \ | grep -w \"{{ user }}\"\n\n    register: result\n  - debug:\n      msg: '{{\
+    \ result.stdout_lines }}'\n"
+  user_id: ''
+- description: 该剧本用于恢复指定的 Slurm 作业，并输出作业状态信息。
+  name: 恢复指定作业
+  parameters:
+  - name: jobid
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  user: root\n  gather_facts: False\n \
+    \ tasks:\n    - name: resume_job\n      shell: |\n        scontrol resume \"{{\
+    \ jobid }}\"\n        echo \"作业已恢复\"\n        echo\n        scontrol show jobid\
+    \ \"{{ jobid }}\"\n      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines\
+    \ }}\"\n"
+  user_id: ''
+- description: 该剧本用于在指定的客户端节点上重启指定名称的服务，常用于监控或采集工具的重启操作。
+  name: 重启客户端服务
+  parameters:
+  - name: target_node
+    type: str
+  - name: exporter_name
+    type: str
+  playbook_content: "# 重启客户端\n---\n- hosts: \"{{ target_node }}\"\n  remote_user:\
+    \ root\n  gather_facts: F\n  tasks:\n    # t1 重启服务\n    - name: restart service\n\
+    \      service: \n        name: \"{{ exporter_name }}\"\n        state: restarted\n\
+    \        enabled: no\n"
+  user_id: ''
+- description: 该剧本用于修改指定主机上的某个用户的密码。
+  name: 修改用户密码
+  parameters:
+  - name: passwd
+    type: str
+  - name: user
+    type: str
+  playbook_content: "- hosts: 25.8.100.1\n  gather_facts: false\n  tasks:\n  - name:\
+    \ null\n    shell: 'yhusermod -p \"{{ passwd }}\" \"{{ user }}\"\n\n      echo\
+    \ \"{{ user }}\" \"的密码已修改成功\"\n\n      '\n    register: result\n  - debug:\n \
+    \     msg: '{{ result.stdout_lines }}'\n"
+  user_id: ''
+- description: 该剧本用于取消指定的作业（通过 jobid 参数传入），并输出取消结果。
+  name: 取消指定作业
+  parameters:
+  - name: jobid
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  user: root\n  gather_facts: false\n \
+    \ tasks:\n    - name: cancel_job\n      shell: |\n        scancel \"{{ jobid }}\"\
+    \n        echo \"作业已取消\"\n      register: result\n    - debug:\n        msg: \"\
+    {{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于替换ZFS池中的指定设备，通常用于更换故障磁盘或扩展存储。
+  name: 替换ZFS池设备
+  parameters:
+  - name: ost
+    type: str
+  - name: jbod
+    type: str
+  playbook_content: "- hosts: all\n  user: root\n  gather_facts: false\n  tasks:\n\
+    \    - name:\n      shell: |\n        zpool replace -f \"{{ ost }}\" \"{{ jbod\
+    \ }}\" \"{{ jbod }}\"\n      register: result\n    - debug:\n        msg: \"{{\
+    \ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于在目标主机上删除指定的用户账户。
+  name: 删除指定用户
+  parameters:
+  - name: user
+    type: str
+  playbook_content: "- hosts: 25.8.100.1\n  gather_facts: false\n  tasks:\n  - name:\
+    \ null\n    shell: 'yhuserdel \"{{ user }}\"'\n    register: result\n  - debug:\n\
+    \      msg: '{{ result.stdout_lines }}'\n"
+  user_id: ''
+- description: 该剧本通过 SSH 连接到指定的服务器并执行远程的设备控制脚本，用于管理特定集群下的设备。
+  name: 设备控制脚本执行
+  parameters:
+  - name: cluster
+    type: str
+  - name: device
+    type: str
+  - name: user
+    type: str
+  - name: support
+    type: str
+  playbook_content: "- hosts: 89.72.101.1\n  user: root\n  gather_facts: false\n \
+    \ vars:\n    - cluster: \"TH-3F\"\n  tasks:\n    - name:\n      shell: |\n   \
+    \     ssh 192.103.5.220 /root/datacopy/get_dev_control.py -m -c \"{{ cluster }}\"\
+    \ -d \"{{ device }}\" -U \"{{ user }}\" -s \"{{ support }}\"\n      register:\
+    \ result\n    - debug:\n        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于在指定的主机上创建一个无限期的资源预留（Reservation），并显示预留信息，通常用于维护模式或资源隔离。
+  name: 创建无限期资源预留
+  parameters:
+  - name: reservation
+    type: str
+  - name: users
+    type: str
+  - name: nodelist
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  user: root\n  gather_facts: False\n \
+    \ tasks:\n    - name: create_reservation\n      shell: |\n        scontrol create\
+    \ reservation=\"{{ reservation }}\" user=root,\"{{ users }}\" starttime=now duration=infinite\
+    \ flags=maint nodes=\"{{ nodelist }}\"\n        echo \"预约已创建\"\n        echo\n\
+    \        scontrol show reservarion \"{{ reservation }}\"\n      register: result\n\
+    \    - debug:\n        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于在指定的远程主机上执行 `free -h` 命令，获取并输出系统的内存使用情况。
+  name: 查看服务器内存信息
+  parameters:
+  - name: hostname
+    type: str
+  - name: ansible_host
+    type: str
+  - name: groups
+    type: str
+  playbook_content: "- hosts: localhost\n  gather_facts: false\n  tasks:\n  - name:\
+    \ test\n    add_host: \n      hostname: 89.72.103.16\n      ansible_host: 89.72.103.16\n\
+    \      groups: test\n\n\n- hosts: test\n  user: root\n  gather_facts: False\n\
+    \  tasks:\n    - name: free\n      shell: free -h\n      register: result\n  \
+    \  - debug:\n        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本通过执行 `free -h` 命令获取目标主机的内存使用情况，并输出结果。
+  name: 查看系统内存使用情况
+  parameters:
+  - name: host_pattern
+    type: str
+  - name: user
+    type: str
+  - name: gather_facts
+    type: bool
+  playbook_content: "- hosts: all\n  user: root\n  gather_facts: False\n  tasks:\n\
+    \    - name: free\n      shell: free -h\n      register: result\n    - debug:\n\
+    \        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本通过 IPMI 协议对指定节点执行电源状态控制（如开机、关机等操作）。
+  name: 节点电源控制
+  parameters:
+  - name: node
+    type: str
+  - name: status
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  user: root\n  gather_facts: false\n \
+    \ tasks:\n    - name: power\n      shell: ipmitool -I lanplus -H mon_{{ node }}\
+    \ -Uadmin -PTscc@2021 power {{ status }}\n      register: result\n    - debug:\n\
+    \        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于在指定的监控服务器上获取监控客户端压缩包，并部署到目标节点，完成服务的安装与启动。
+  name: 部署监控客户端
+  parameters:
+  - name: from_node
+    type: str
+  - name: src_path
+    type: str
+  - name: device_ssh_ip
+    type: str
+  - name: exporter_tar_name
+    type: str
+  - name: exporter_name
+    type: str
+  playbook_content: "# 自动部署监控客户端\n# from_node : 监控服务器 配置默认值\n# src_path : 监控服务器上 监控客户端路径\
+    \ 配置默认值\n# device ： 需要重新部署的节点 从报警信息中获取\n# exporter_tar_name : 监控客户端压缩包名字 配置默认值\n\
+    # exporter_name : 监控客户端名字 配置默认值\n\n---\n- hosts: \"{{ from_node }}\"\n  remote_user:\
+    \ root\n  gather_facts: F\n  serial: 32\n  tasks:\n    # t1 拷贝到ansible所在服务器\n\
+    \    - name: fetch file\n      fetch:\n        src: \"{{ src_path }}\"\n     \
+    \   dest: /usr/local/ars/ansible-runner-service/samples/exporters/\n        flat:\
+    \ yes\n\n- hosts: \"{{ device_ssh_ip }}\"\n  remote_user: root\n  gather_facts:\
+    \ F\n  serial: 32\n  tasks:\n    # t1 再被控节点创建目录\n    - name: create dir\n    \
+    \  file:\n        path: /opt/thsre/exporters\n        state: directory\n     \
+    \   owner: root\n        group: root\n        mode: u=rwX,g=rwX,o=rX\n\n    #\
+    \ t2 把压缩包拷贝到远程主机并解压\n    - name: copy tar file\n      unarchive:\n        src:\
+    \ /usr/local/ars/ansible-runner-service/samples/exporters/{{ exporter_tar_name\
+    \ }}\n        dest: /opt/thsre/exporters\n        mode: u=rwX,g=rX,o=rX\n    \
+    \    #backup: yes\n        remote_src: no\n\n    # t3 部署服务\n    - name: copy service\
+    \ file\n      copy:\n        src: /opt/thsre/exporters/{{ exporter_name }}/{{\
+    \ exporter_name }}.service\n        dest: /usr/lib/systemd/system/{{ exporter_name\
+    \ }}.service\n        remote_src: yes\n    \n    # t4 relaod 服务\n    - name: systemctl\
+    \ daemon-reload\n      command: systemctl daemon-reload\n    \n    # t4 启动服务\n\
+    \    - name: start service\n      service:\n        name: \"{{ exporter_name }}\"\
+    \n        state: started\n        enabled: yes\n    \n    # t5 重启服务\n    - name:\
+    \ restart service\n      service: \n        name: \"{{ exporter_name }}\"\n  \
+    \      state: restarted\n        enabled: yes\n"
+  user_id: ''
+- description: 该剧本用于通过 storcli 工具对指定的硬盘进行定位操作，常用于物理硬盘的识别与管理。
+  name: 硬盘定位
+  parameters:
+  - name: disk
+    type: int
+  - name: active
+    type: str
+  playbook_content: "- hosts: all\n  user: root\n  gather_facts: False\n  tasks:\n\
+    \    # 定位硬盘\n    - name: locate_disk\n      shell: storcli /call/eall/s{{disk}}\
+    \ {{ active }} locate\n      register: result\n    - debug:\n        msg: \"{{\
+    \ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于从指定的主机上获取远程文件，并将其保存到本地指定路径中。
+  name: 获取远程文件
+  parameters:
+  - name: from_node
+    type: str
+  - name: src_path
+    type: str
+  playbook_content: "- hosts: \"{{ from_node }}\"\n  remote_user: root\n  gather_facts:\
+    \ F\n  tasks:\n    - name: fetch file\n      fetch:\n        src: \"{{ src_path\
+    \ }}\"\n        dest: /usr/local/ars/ansible-runner-service/samples/project/\n\
+    \        flat: yes\n"
+  user_id: ''
+- description: 该剧本用于调整指定作业的时限，并显示调整后的作业信息。
+  name: 调整作业时限
+  parameters:
+  - name: jobid
+    type: int
+  - name: timelimit
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  user: root\n  gather_facts: False\n \
+    \ tasks:\n    - name: update_job_timelimit\n      shell: |\n        scontrol update\
+    \ jobid=\"{{ jobid }}\" timelimit=\"{{ timelimit }}\"\n        echo \"作业时限已调整\"\
+    \n        echo\n        scontrol show jobid \"{{ jobid }}\"\n      register: result\n\
+    \    - debug:\n        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本通过 IPMI 工具从指定的服务器上获取系统事件日志（SEL），用于监控和排查硬件相关问题。
+  name: 获取服务器日志信息
+  parameters:
+  - name: node
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  user: root\n  gather_facts: false\n \
+    \ tasks:\n    - name: power\n      shell: ipmitool -I lanplus -H mon_{{ node }}\
+    \ -Uadmin -PTscc@2021 sel elist\n      register: result\n    - debug:\n      \
+    \  msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于调整指定计算节点队列的状态（如启用或禁用），并输出调整后的队列信息。
+  name: 调整队列状态
+  parameters:
+  - name: partitionname
+    type: str
+  - name: state
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  user: root\n  gather_facts: False\n \
+    \ tasks:\n    - name: update_partititon_state\n      shell: |\n        scontrol\
+    \ update partitionname=\"{{ partitionname }}\" state=\"{{ state }}\"\n       \
+    \ echo \"队列状态已调整\"\n        echo\n        scontrol show partition {{ partitionname\
+    \ }}\n      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines\
+    \ }}\"\n"
+  user_id: ''
+- description: 该剧本用于将 Slurm 集群中的所有分区状态设置为 down，并暂停所有正在运行的作业。
+  name: 暂停所有作业和分区
+  parameters:
+  - name: host_ip
+    type: str
+  - name: user
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  user: root\n  gather_facts: false\n \
+    \ tasks:\n    - name: suspend_job_all\n      shell: |\n        partitionname=`scontrol\
+    \ show partition | grep \"PartitionName\" | grep -v ALL |awk -F '=' '{print $2}'`\n\
+    \        for i in $partitionname\n        do\n        scontrol update partition=$i\
+    \ state=down\n        done\n\n        sleep 1\n\n        jobid=`squeue -h -t R\
+    \ | awk '{print $1}'`\n        for j in $jobid\n        do\n        scontrol suspend\
+    \ $j\n        echo $j\n        done\n      register: result\n    - debug:\n  \
+    \      msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于调整指定作业的优先级，并显示调整后的作业信息。
+  name: 调整作业优先级
+  parameters:
+  - name: jobid
+    type: str
+  - name: priority
+    type: int
+  playbook_content: "- hosts: 89.72.100.1\n  user: root\n  gather_facts: False\n \
+    \ tasks:\n    - name: update_job_priority\n      shell: |\n        scontrol update\
+    \ jobid=\"{{ jobid }}\" priority=\"{{ priority }}\"\n        echo \"作业优先级已调整\"\
+    \n        echo\n        scontrol show jobid \"{{ jobid }}\"\n      register: result\n\
+    \    - debug:\n        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于在指定主机上添加一个用户，并检查该用户是否已存在。
+  name: 添加用户并检查用户是否存在
+  parameters:
+  - name: fs
+    type: str
+  - name: user
+    type: str
+  playbook_content: "- hosts: 25.8.100.1\n  gather_facts: false\n  tasks:\n  - name:\
+    \ null\n    shell: 'yhuseradd -d /\"{{ fs }}\"/home/\"{{ user }}\" \"{{ user }}\"\
+    \n\n      yhuserlist | grep -w \"{{ user }}\"\n\n    register: result\n  - debug:\n\
+    \      msg: '{{ result.stdout_lines }}'\n"
+  user_id: ''
+- description: 该剧本用于查看指定作业（jobid）的详细信息，通过执行 `scontrol show jobid` 命令获取作业状态和配置。
+  name: 查看作业信息
+  parameters:
+  - name: jobid
+    type: int
+  playbook_content: "- hosts: 89.72.100.1\n  user: root\n  gather_facts: false\n \
+    \ tasks:\n    - name: show_job\n      shell: scontrol show jobid \"{{ jobid }}\"\
+    \n      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines\
+    \ }}\"\n"
+  user_id: ''
+- description: 通过 IPMI 协议对指定节点进行电源状态的控制（如开机、关机等操作）。
+  name: 节点电源控制
+  parameters:
+  - name: node
+    type: str
+  - name: status
+    type: str
+  playbook_content: "- hosts: localhost\n  user: root\n  gather_facts: False\n\n \
+    \ tasks:\n  - name: power\n    command: ipmitool -I lan -H {{ node }}-ipmi -U\
+    \ 'ADMIN' -P  jfzd_xrmj9 power {{ status }}\n    register: result\n  - debug:\
+    \ \n      msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于通过 SSH 连接到指定主机并检查指定服务的状态。
+  name: 查看服务状态
+  parameters:
+  - name: node
+    type: str
+  - name: status
+    type: str
+  - name: service
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  user: root\n  gather_facts: false\n \
+    \ tasks:\n    - name: service\n      shell: ssh \"{{ node }}\" systemctl \"{{\
+    \ status }}\" \"{{ service }}\"\n      register: service_result\n    - debug:\n\
+    \        msg: \"{{ service_result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于查看指定 ZFS 池（通过参数传入）的状态信息，输出其详细状态。
+  name: 查看 ZFS 池状态
+  parameters:
+  - name: ost
+    type: str
+  playbook_content: "- hosts: all\n  user: root\n  gather_facts: false\n  tasks:\n\
+    \    - name: 获取 ZFS 池状态\n      shell: |\n        zpool status \"{{ ost }}\"\n\
+    \      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines }}\"\
+    \n"
+  user_id: ''
+- description: 该剧本用于查询指定用户组的信息，通过执行 `yhgrplist` 命令并过滤出指定组的输出。
+  name: 查询指定组信息
+  parameters:
+  - name: group
+    type: str
+  playbook_content: "- hosts: 25.8.100.1\n  gather_facts: false\n  tasks:\n  - name:\
+    \ null\n    shell: 'yhgrplist | grep -w \"{{ group }}\"'\n    register: result\n\
+    \  - debug:\n      msg: '{{ result.stdout_lines }}'\n"
+  user_id: ''
+- description: 该剧本用于在目标主机上执行自定义的文件系统设置脚本，并挂载指定的Lustre文件系统到指定目录。
+  name: 挂载Lustre文件系统
+  parameters:
+  - name: fssetup_path
+    type: str
+  - name: mount_point
+    type: str
+  - name: lustre_server
+    type: str
+  - name: network_interface
+    type: str
+  - name: timeout
+    type: int
+  playbook_content: "- hosts: all\n  gather_facts: False\n  tasks:\n    - name: mount\n\
+    \      shell: |\n        /usr/local/sbin/fssetup\n        sleep 1\n        mkdir\
+    \ -p /thfs1\n        mount -t lustre -o nosuid,localflock 89.72.102.0@o2ib:/thfs1\
+    \ /thfs1\n      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines\
+    \ }}\"\n"
+  user_id: ''
+- description: 该剧本用于查看指定节点上的分区信息，通过执行 `scontrol show partition` 命令获取分区详情。
+  name: 查看分区信息
+  parameters:
+  - name: partitionname
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  user: root\n  gather_facts: False\n \
+    \ tasks:\n    - name: show_partition\n      shell: scontrol show partition {{\
+    \ partitionname }}\n      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines\
+    \ }}\"\n"
+  user_id: ''
+- description: 该剧本用于在指定主机上执行名为 "cab" 的命令，并输出执行结果。
+  name: 执行机柜命令
+  parameters:
+  - name: cabinet
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  gather_facts: False\n  tasks:\n    -\
+    \ name: cab\n      shell: |\n        cab \"{{ cabinet }}\"\n      register: result\n\
+    \    - debug:\n        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于停止指定节点上的监控服务，并禁用其开机自启。
+  name: 停止指定监控服务
+  parameters:
+  - name: target_node
+    type: str
+  - name: exporter_name
+    type: str
+  playbook_content: "- hosts: \"{{ target_node }}\"\n  remote_user: root\n  gather_facts:\
+    \ F\n  tasks:\n    # t1 关闭服务\n    - name: stop service\n      service: \n    \
+    \    name: \"{{ exporter_name }}\"\n        state: stopped\n        enabled: no\n"
+  user_id: ''
+- description: 该剧本用于查询指定主机上特定节点的资源信息，通过执行 `sinfo` 命令获取节点状态。
+  name: 查看节点资源信息
+  parameters:
+  - name: nodelist
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  gather_facts: False\n  tasks:\n    -\
+    \ name: sinfo_reason\n      shell: |\n        sinfo -R  -n \"{{ nodelist }}\"\n\
+    \      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines }}\"\
+    \n"
+  user_id: ''
+- description: 该剧本通过执行 `uptime` 命令获取目标主机的系统运行时间，并输出结果。
+  name: 查看系统运行时间
+  parameters:
+  - name: host_pattern
+    type: str
+  - name: user
+    type: str
+  - name: gather_facts
+    type: bool
+  playbook_content: "- hosts: all\n  user: root\n  gather_facts: False\n  tasks:\n\
+    \    - name: uptime\n      shell: uptime\n      register: result\n    - debug:\n\
+    \        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于获取目标主机上指定硬盘的详细状态信息，通过执行 storcli 命令实现。
+  name: 获取硬盘状态
+  parameters:
+  - name: disk
+    type: str
+  playbook_content: "- hosts: all\n  user: root\n  gather_facts: False\n  tasks:\n\
+    \    # 获取硬盘状态\n    - name: get_disk_info\n      shell: storcli /call/eall/s{{disk}}\
+    \ show all\n      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines\
+    \ }}\"\n"
+  user_id: ''
+- description: 该剧本用于在指定主机上执行ccst命令，并输出命令的执行结果。
+  name: 执行ccst命令
+  parameters:
+  - name: frame
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  gather_facts: False\n  tasks:\n    -\
+    \ name: ccst\n      shell: |\n        ccst \"{{ frame }}\"\n      register: result\n\
+    \    - debug:\n        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于动态更新指定计算队列（Partition）的节点列表，适用于 Slurm 资源管理系统的节点调整操作。
+  name: 更新计算节点分区配置
+  parameters:
+  - name: partitionname
+    type: str
+  - name: nodelist
+    type: str
+  playbook_content: "- hosts: 25.16.106.209\n  user: root\n  gather_facts: False\n\
+    \  tasks:\n    - name: update_partition_node\n      shell: |\n        scontrol\
+    \ show partition {{ partitionname }}\n        scontrol update partitionname={{\
+    \ partitionname }} nodes={{ nodelist }}\n        echo \"队列节点已调整\"\n        echo\
+    \ \n        scontrol show partition {{ partitionname }}\n      register: result\n\
+    \    - debug:\n        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于查询指定主机上某个用户的登录失败次数，通过执行 `pam_tally2` 命令实现。
+  name: 查询用户登录失败次数
+  parameters:
+  - name: node
+    type: str
+  - name: user
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  gather_facts: false\n  tasks:\n    #\
+    \ 查询用户是否封禁\n    - name: 查询用户登录失败次数\n      shell: |\n        ssh \"{{ node }}\"\
+    \ pam_tally2  -u {{ user }} \n      register: result\n    - debug:\n        msg:\
+    \ \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于检查指定节点的网络连通性，判断节点是否处于“健康”或“死亡”状态。
+  name: 节点健康检查
+  parameters:
+  - name: node
+    type: str
+  playbook_content: "- hosts: all\n  user: root\n  gather_facts: false\n  tasks:\n\
+    \  - name: ping\n    shell: \"if ping -w 1 -s 1 -c1 \\\"{{ node }}\\\" | grep\
+    \ \\\"1 received\\\" > /dev/null\\\n      \\ 2>&1\\nthen\\n  echo \\\"healthy\\\
+    \"\\nelse\\n  echo \\\"dead\\\"\\nfi\\n\"\n    register: result\n  - debug:\n\
+    \      msg: '{{ result.stdout_lines }}'\n"
+  user_id: ''
+- description: 该剧本用于修改指定用户的磁盘配额（包括块配额和 inode 配额），并输出配额信息。
+  name: 修改用户磁盘配额
+  parameters:
+  - name: user
+    type: str
+  - name: softquota
+    type: int
+  - name: hardquota
+    type: int
+  - name: softinode
+    type: int
+  - name: hardinode
+    type: int
+  - name: fs
+    type: str
+  playbook_content: "- hosts: 89.72.101.0\n  gather_facts: false\n  tasks:\n    -\
+    \ name: modify_user_quota\n      shell: |\n        lfs setquota -u \"{{ user }}\"\
+    \ -b \"{{ softquota }}\" -B \"{{ hardquota }}\" -i \"{{ softinode }}\" -I \"{{\
+    \ hardinode }}\" \"{{ fs }}\"\n        echo \"用户配额已修改\"\n        echo\n      \
+    \  lfs quota -h -u \"{{ user }}\" \"{{ fs }}\"\n      register: result\n    -\
+    \ debug:\n        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于将指定的 Prometheus 或 Elasticsearch 配置文件从 Ansible 控制节点拷贝到目标监控服务器的指定路径。
+  name: 拷贝 Prometheus/Elasticsearch 配置文件
+  parameters:
+  - name: target_node
+    type: str
+  - name: instance_type
+    type: str
+  - name: file_name
+    type: str
+  - name: dest_path
+    type: str
+  playbook_content: "# prometheus/es 配置文件拷贝\n---\n- hosts: \"{{ target_node }}\"\n\
+    \  remote_user: root\n  gather_facts: F\n  tasks:\n    # t1 从 ansible 拷贝 config\
+    \ 文件 到 监控服务器\n    - name: copy prometheus/es config file\n      copy:\n      \
+    \  src: \"/usr/local/ars/ansible-runner-service/samples/{{ instance_type }}/{{\
+    \ file_name }}\"\n        dest: \"{{ dest_path }}\"\n        remote_src: no\n"
+  user_id: ''
+- description: 该剧本通过 IPMI 工具从指定的服务器上获取传感器数据，用于监控硬件状态。
+  name: 获取服务器传感器数据
+  parameters:
+  - name: node
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  user: root\n  gather_facts: false\n \
+    \ tasks:\n    - name: power\n      shell: ipmitool -I lanplus -H mon_{{ node }}\
+    \ -Uadmin -PTscc@2021 sdr\n      register: result\n    - debug:\n        msg:\
+    \ \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于测试与指定主机的连接，并输出传递的 replica 参数值。
+  name: 测试主机连接
+  parameters:
+  - name: replica
+    type: str
+  playbook_content: "- name: say 'test'\n  hosts: \"25.16.225.36: replica: 'A'\"\n\
+    \  gather_facts: False\n  tasks:\n    # task 1\n    - name: test connection\n\
+    \      debug:\n        msg: \"{{ replica  }}\"\n"
+  user_id: ''
+- description: 该剧本用于查看指定账户在 Slurm 集群中的关联信息，通过执行 `sacctmgr show association` 命令获取数据。
+  name: 查看账户关联信息
+  parameters:
+  - name: account
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  gather_facts: false\n  tasks:\n    -\
+    \ name: show_account_association\n      shell: |\n        sacctmgr show association\
+    \ account=\"{{ account }}\" -p\n      register: result\n    - debug:\n       \
+    \ msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于从指定节点上获取 Prometheus 的 alert.yml 配置文件，并输出一个测试参数信息。
+  name: 获取 Prometheus 配置文件
+  parameters:
+  - name: node
+    type: str
+  - name: msg
+    type: str
+  playbook_content: "- hosts: \"{{ node }}\" \n  remote_user: root\n  gather_facts:\
+    \ F\n  tasks:\n    # 测试fetch\n    - name: fetch file\n      fetch:\n        src:\
+    \ /opt/thsre/netbox/etc/prometheus/alert.yml\n        dest: /opt/thsre/ansible-runner-service/samples/project/\n\
+    \        flat: yes\n    - name: test param\n      debug:\n        msg: \"{{ msg\
+    \ }}\"\n"
+  user_id: ''
+- description: 该剧本用于测试在指定延迟时间后执行两个睡眠命令，支持通过外部参数控制延迟时间。
+  name: 延迟执行测试剧本
+  parameters:
+  - name: time_delay
+    type: int
+  playbook_content: "#\n# VARS_LIST : time_delay\n#\n- name: test Playbook\n  hosts:\n\
+    \    - localhost\n  gather_facts: False\n  tasks:\n    - name: Step 1\n      command:\
+    \ sleep {{ time_delay }}\n    - name: Step 2\n      command: sleep {{ time_delay\
+    \ }}\n      tags:\n        - onlyme\n"
+  user_id: ''
+- description: 该剧本用于查看目标主机中内存使用率最高的前30个进程信息，帮助运维人员快速定位高内存占用的进程。
+  name: 查看Top内存进程
+  parameters:
+  - name: limit
+    type: int
+  playbook_content: "- hosts: all\n  user: root\n  gather_facts: False\n  tasks:\n\
+    \    - name: top_cpu\n      shell: |\n        ps aux --sort=-%mem | head -30\n\
+    \      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines }}\"\
+    \n"
+  user_id: ''
+- description: 该剧本用于向指定的块设备发送删除指令，通常用于动态管理存储设备。
+  name: 删除指定块设备
+  parameters:
+  - name: device
+    type: str
+  playbook_content: "- hosts: all\n  user: root\n  gather_facts: false\n  tasks:\n\
+    \    - name:\n      shell: |\n        echo 1 > /sys/block/{{ device }}/device/delete\n\
+    \      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines }}\"\
+    \n"
+  user_id: ''
+- description: 该剧本用于查询指定用户在集群中的资源关联信息，通过执行 `sacctmgr` 命令获取用户相关的资源分配情况。
+  name: 查询用户资源关联信息
+  parameters:
+  - name: user
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  gather_facts: False\n  tasks:\n    #\
+    \ 查询用户资源\n    - name: show_user_association\n      shell: |\n        sacctmgr\
+    \ show association user=\"{{ user }}\" -p\n      register: result\n    - debug:\n\
+    \        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于测试通过外部参数传递的节点信息和状态变量，并输出相应的调试信息。
+  name: 资源操作测试
+  parameters:
+  - name: node
+    type: str
+  - name: stat
+    type: str
+  - name: stat2
+    type: str
+  playbook_content: "# 测试playbook参数\n- name: 'resource operation test'\n  hosts: all\n\
+    \  gather_facts: False\n  tasks:\n    # task 1\n    - name: echo node\n      shell:\
+    \ echo \"{{ node }} 资源操作测试 \" \n    # test param\n    - name: echo stat\n    \
+    \  debug:\n        msg: \"storage {{ stat }} 资源操作测试\"\n    # test param2\n   \
+    \ - name: echo stat2\n      debug:\n        msg: \"storage2 {{ stat2 }} 资源操作测试\"\
+    \n"
+  user_id: ''
+- description: 该剧本用于在目标主机上执行 `zpool list` 命令，以查看 ZFS 存储池的详细信息，并输出结果。
+  name: 查看 ZFS 池信息
+  parameters:
+  - name: host_pattern
+    type: str
+  - name: user
+    type: str
+  - name: gather_facts
+    type: bool
+  playbook_content: "- hosts: all\n  user: root\n  gather_facts: false\n  tasks:\n\
+    \    - name: Execute zpool list command\n      shell: |\n        zpool list\n\
+    \      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines }}\"\
+    \n"
+  user_id: ''
+- description: 该剧本用于检查指定主机上的 networkchecker 服务状态，并输出执行结果。
+  name: 网络检查服务状态检测
+  parameters:
+  - name: status
+    type: str
+  playbook_content: "- hosts: 25.8.100.26\n  user: root\n  gather_facts: false\n \
+    \ tasks:\n  - name: networkchecker\n    shell: 'systemctl \"{{ status }}\" networkchecker.service\n\
+    \n      echo \"执行成功\"\n\n      '\n    register: result\n  - debug:\n      msg:\
+    \ '{{ result.stdout_lines }}'\n"
+  user_id: ''
+- description: 该剧本用于挂起指定的 Slurm 作业，并输出作业状态信息。
+  name: 挂起指定作业
+  parameters:
+  - name: jobid
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  user: root\n  gather_facts: false\n \
+    \ tasks:\n    - name: suspend_job\n      shell: |\n        scontrol suspend \"\
+    {{ jobid }}\"\n        echo \"作业已挂起\"\n        echo\n        scontrol show jobid\
+    \ \"{{ jobid }}\"\n      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines\
+    \ }}\"\n"
+  user_id: ''
+- description: 该剧本用于调整指定队列的优先级，通过 Ansible 执行 scontrol 命令实现对 Slurm 集群中特定分区的优先级修改。
+  name: 调整队列优先级
+  parameters:
+  - name: partitionname
+    type: str
+  - name: prioritytier
+    type: int
+  playbook_content: "- hosts: 25.16.106.209\n  user: root\n  gather_facts: False\n\
+    \  tasks:\n    - name: update_partition_prioritytier\n      shell: |\n       \
+    \ scontrol show partition {{ partitionname }}\n        scontrol update partitionname={{\
+    \ partitionname }} prioritytier={{ prioritytier }}\n        echo \"队列优先级已调整\"\n\
+    \        echo\n        scontrol show partition {{ partitionname }}\n      register:\
+    \ result\n    - debug:\n        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本用于查看目标主机上CPU使用率最高的前30个进程信息，帮助运维人员快速定位高CPU占用的进程。
+  name: 查看Top CPU进程
+  parameters:
+  - name: limit
+    type: int
+  playbook_content: "- hosts: all\n  user: root\n  gather_facts: False\n  tasks:\n\
+    \    - name: top_cpu\n      shell: |\n        ps aux --sort=-%cpu | head -30\n\
+    \      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines }}\"\
+    \n"
+  user_id: ''
+- description: 该剧本用于在指定目标节点上自动部署监控客户端，包括文件拷贝、目录创建、服务部署与启动等操作。
+  name: 监控客户端自动部署
+  parameters:
+  - name: from_node
+    type: str
+  - name: src_path
+    type: str
+  - name: exporter_tar_name
+    type: str
+  - name: target_node
+    type: str
+  - name: exporter_name
+    type: str
+  playbook_content: "# 自动部署监控客户端\n---\n- hosts: \"{{ from_node }}\"\n  remote_user:\
+    \ root\n  gather_facts: F\n  tasks:\n    # t1 拷贝到ansible所在服务器\n    - name: fetch\
+    \ file\n      fetch:\n        src: \"{{ src_path }}\"\n        dest: /usr/local/ars/ansible-runner-service/samples/exporters/\n\
+    \        flat: yes\n      register: fetch_result\n\n    # 拷贝失败，结束剧本\n    - name:\
+    \ end play if fetch failed\n      meta: end_play\n      when: fetch_result is\
+    \ failed\n\n# 增加一个任务检查当前节点客户端压缩包是否拷贝过来？\n- hosts: localhost\n  remote_user: root\n\
+    \  gather_facts: F\n  tasks:\n    # 检查文件是否存在\n    - name: check if tar file exists\n\
+    \      stat:\n        path: /usr/local/ars/ansible-runner-service/samples/exporters/{{\
+    \ exporter_tar_name }}\n      register: tar_file_stat\n\n    # 结束剧本\n    - name:\
+    \ end play if tar file does not exist\n      meta: end_play\n      when: not tar_file_stat.stat.exists\n\
+    \n\n- hosts: \"{{ target_node }}\"\n  remote_user: root\n  gather_facts: F\n \
+    \ serial: 32\n  tasks:\n    # t1 再被控节点创建目录\n    - name: create dir\n      file:\n\
+    \        path: /opt/thsre/exporters\n        state: directory\n        owner:\
+    \ root\n        group: root\n        mode: u=rwX,g=rwX,o=rX\n\n    # t2 把压缩包拷贝到远程主机并解压\n\
+    \    - name: copy tar file\n      unarchive:\n        src: /usr/local/ars/ansible-runner-service/samples/exporters/{{\
+    \ exporter_tar_name }}\n        dest: /opt/thsre/exporters\n        mode: u=rwX,g=rX,o=rX\n\
+    \        remote_src: no\n      register: copy_result\n\n    # 拷贝失败，结束剧本\n    -\
+    \ name: end play if copy failed\n      meta: end_play\n      when: copy_result\
+    \ is failed\n    \n    # t3 部署服务\n    - name: copy service file\n      copy:\n\
+    \        src: /opt/thsre/exporters/{{ exporter_name }}/{{ exporter_name }}.service\n\
+    \        dest: /usr/lib/systemd/system/{{ exporter_name }}.service\n        remote_src:\
+    \ yes\n\n    # t4 reload 服务文件\n    - name: systemctl daemon-reload\n      command:\
+    \ systemctl daemon-reload\n    \n    # t5 启动服务\n    - name: start service\n  \
+    \    service:\n        name: \"{{ exporter_name }}\"\n        state: started\n\
+    \        enabled: yes\n\n    # t6 重启服务\n    - name: restart service\n      service:\
+    \ \n        name: \"{{ exporter_name }}\"\n        state: restarted\n        enabled:\
+    \ yes\n"
+  user_id: ''
+- description: 该剧本用于管理 Slurm 集群中的节点和分区信息，支持查看节点、查看分区、更新分区节点列表、调整抢占模式和优先级等操作。
+  name: 节点与分区管理
+  parameters:
+  - name: module
+    type: str
+  - name: nodelist
+    type: str
+  - name: partitionname
+    type: str
+  - name: preemptmode
+    type: str
+  - name: prioritytier
+    type: str
+  playbook_content: "- hosts: localhost\n  user: root\n  vars:\n    module: \"{{ module\
+    \ }}\"\n  tasks:\n\n  - name: show_node\n    when: \n      module==\"show_node\"\
+    \n    shell: scontrol show node {{ nodelist }}\n    register: show_node_result\n\
+    \  - debug:\n      msg: \"{{ show_node_result.stdout_lines }}\"\n    when: \n\
+    \      module==\"show_node\"\n\n\n  - name: show_partition\n    when:\n      module==\"\
+    show_partition\"\n    shell: scontrol show partition {{ partitionname }}\n   \
+    \ register: show_partition_result\n  - debug:\n      msg: \"{{ show_partition_result.stdout_lines\
+    \ }}\"\n    when: \n      module==\"show_partition\"\n\n\n  - name: update_partition_node\n\
+    \    when:\n      module==\"update_partition_node\"\n    shell: |\n      scontrol\
+    \ show partition {{ partitionname }}\n      scontrol update partitionname={{ partitionname\
+    \ }} nodes={{ nodelist }}\n      echo \"队列节点已调整\"\n      echo \n      scontrol\
+    \ show partition {{ partitionname }}\n    register: update_partition_node_result\n\
+    \  - debug:\n      msg: \n        - \"{{ update_partition_node_result.stdout_lines\
+    \ }}\"\n    when:\n      module==\"update_partition_node\"\n\n\n  - name: update_partition_preemptmode\n\
+    \    when:\n      module==\"update_partition_preemptmode\"\n    shell: |\n   \
+    \   scontrol show partition {{ partitionname }}\n      scontrol update partitionname=\"\
+    {{ partitionname }}\" preemptmode=\"{{ preemptmode }}\"\n      echo \"队列抢占模式已调整\"\
+    \n      echo\n      scontrol show partition {{ partitionname }}\n    register:\
+    \ update_partition_preemptmode_result\n  - debug:\n      msg:\n        - \"{{\
+    \ update_partition_preemptmode_result.stdout_lines }}\"\n    when:\n        module==\"\
+    update_partition_preemptmode\"\n\n\n  - name: update_partition_prioritytier\n\
+    \    when:\n      module==\"update_partition_prioritytier\"\n    shell: |\n  \
+    \    scontrol show partition {{ partitionname }}\n      scontrol update partitionname={{\
+    \ partitionname }} prioritytier={{ prioritytier }}\n      echo \"队列优先级已调整\"\n\
+    \      echo\n      scontrol show partition {{ partitionname }}\n    register:\
+    \ update_partition_prioritytier_result\n  - debug:    \n      msg: \n        -\
+    \ \"{{ update_partition_prioritytier_result.stdout_lines }}\"\n    when:\n   \
+    \   module==\"update_partition_prioritytier\"\n"
+  user_id: ''
+- description: 根据节点ID和JBOD编号，动态选择控制器设备，并对指定的S_ID执行设备状态标识操作。
+  name: 控制器设备状态标识设置
+  parameters:
+  - name: jbod
+    type: str
+  - name: active
+    type: str
+  playbook_content: "- hosts: all\n  user: root\n  gather_facts: false\n  tasks:\n\
+    \    - name:\n      shell: |\n        node_id=`echo $(hostname) | cut -d 's' -f\
+    \ 3`\n        jobd_id=`echo \"{{ jbod }}\" |awk -F 'JBOD' '{print $2}' |awk -F\
+    \ '-' '{print $1}'`\n        s_id=`echo \"{{ jbod }}\" |awk -F 'S' '{print $2}'`\n\
+    \        if [[ $(($node_id % 2)) == 0 ]];then\n          if [[ $(($jobd_id % 2))\
+    \ == 0 ]];then\n            controller=`wddcs show  | grep Device |awk '{print\
+    \ $NF}' | awk 'NR==1 {print}'`\n          elif [[ $(($jobd_id % 2)) == 1 ]];then\n\
+    \            controller=`wddcs show  | grep Device |awk '{print $NF}' | awk 'NR==2\
+    \ {print}'`\n          fi\n        elif [[ $(($node_id % 2)) == 1 ]];then\n  \
+    \        if [[ $(($jobd_id % 2)) == 0 ]];then\n            controller=`wddcs show\
+    \  | grep Device |awk '{print $NF}' | awk 'NR==2 {print}'`\n          elif [[\
+    \ $(($jobd_id % 2)) == 1 ]];then\n            controller=`wddcs show  | grep Device\
+    \ |awk '{print $NF}' | awk 'NR==1 {print}'`\n          fi\n        fi\n\n    \
+    \    sg_ses $controller -I0,${s_id} \"{{ active }}\" ident\n        sg_ses $controller\
+    \ -I0,${s_id} \n\n      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines\
+    \ }}\"\n"
+  user_id: ''
+- description: 该剧本用于测试通过外部参数传递的 node、stat 和 stat2 的值，并输出相关信息，主要用于验证参数传递和调试功能。
+  name: 节点状态测试
+  parameters:
+  - name: node
+    type: str
+  - name: stat
+    type: str
+  - name: stat2
+    type: str
+  playbook_content: "# 测试playbook参数\n- name: 'cfs_stat'\n  gather_facts: False\n \
+    \ hosts:\n    - all\n  tasks:\n    # task 1\n    - name: echo node\n      shell:\
+    \ echo \"{{ node }}\"\n    # test param\n    - name: echo stat\n      debug:\n\
+    \        msg: \"{{ stat }}\"\n    # test param2\n    - name: echo stat2\n    \
+    \  debug:\n        msg: \"{{ stat2 }}\"\n"
+  user_id: ''
+- description: 该剧本用于在所有主机上获取日志信息，并在指定主机（mn31）上根据节点名称和日期从远程主机复制日志文件。
+  name: 获取并复制日志文件
+  parameters:
+  - name: node
+    type: str
+  playbook_content: "- hosts: all\n  user: root\n  gather_facts: false\n  tasks:\n\
+    \    - name:\n      shell: |\n        echo \"y\" | wddcs getlog all\n      register:\
+    \ result\n    - debug:\n        msg: \"{{ result.stdout_lines }}\"\n\n- hosts:\
+    \ mn31\n  user: root\n  gather_facts: false\n  tasks:\n    - name:\n      shell:\
+    \ |\n        date=`date +%Y%m%d`\n        nodename=\"{{ node }}\"\n        scp\
+    \ ${nodename}:/tmp/wddcs_${nodename}_${date}_*.tgz /tmp\n      register: result\n\
+    \    - debug:\n        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''
+- description: 该剧本通过 SSH 连接到指定的主机，并执行远程脚本以获取设备列表信息。
+  name: 获取设备列表
+  parameters:
+  - name: user
+    type: str
+  - name: host
+    type: str
+  - name: script_path
+    type: str
+  playbook_content: "- hosts: 89.72.101.1\n  user: root\n  gather_facts: false\n \
+    \ tasks:\n    - name:\n      shell: |\n        ssh 192.103.5.220 /root/datacopy/get_dev_list.py\
+    \ -u\n      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines\
+    \ }}\"\n"
+  user_id: ''
+- description: 该剧本用于修改指定主机上用户的登录期限，通过执行 `yhusermod -e` 命令实现。
+  name: 修改用户登录期限
+  parameters:
+  - name: date
+    type: str
+  - name: user
+    type: str
+  playbook_content: "- hosts: 25.8.100.1\n  gather_facts: false\n  tasks:\n  - name:\
+    \ null\n    shell: 'yhusermod -e \"{{ date }}\" \"{{ user }}\"\n\n      echo \"\
+    用户登录期限已修改\"\n\n      '\n    register: result\n  - debug:\n      msg: '{{ result.stdout_lines\
+    \ }}'\n"
+  user_id: ''
+- description: 该剧本用于查询指定主机上是否存在特定用户，通过执行 `yhuserlist` 命令并过滤出指定用户名的输出结果。
+  name: 查询用户信息
+  parameters:
+  - name: user
+    type: str
+  playbook_content: "- hosts: 25.8.100.1\n  gather_facts: false\n  tasks:\n  - name:\
+    \ null\n    shell: 'yhuserlist | grep -w \"{{ user }}\"'\n    register: result\n\
+    \  - debug:\n      msg: '{{ result.stdout_lines }}'\n"
+  user_id: ''
+- description: 该剧本用于将监控服务器上的配置文件（如 Prometheus 或 ES 的配置文件）部署到目标数据源实例服务器，并根据类型进行服务重启。
+  name: Prometheus 配置文件部署
+  parameters:
+  - name: from_node
+    type: str
+  - name: instance_type
+    type: str
+  - name: src_path
+    type: str
+  - name: file_name
+    type: str
+  - name: target_node
+    type: str
+  - name: dest_path
+    type: str
+  - name: config_file_name
+    type: str
+  - name: file_type
+    type: str
+  playbook_content: "# prometheus 配置文件部署\n# from_node: 监控服务器ip\n# instance_type: 该配置文件所属数据源实例类型：目前支持prometheus和es\n\
+    # src_path: 配置文件在监控服务器上面的路径\n# file_name: 配置文件在监控服务器上面的名字\n# target_node: 数据源实例服务器IP列表（必须在ars的hosts中存在）\n\
+    # dest_path: 配置文件在数据源实例服务器上面的路径\n# config_file_name: 配置文件数据源实例服务器上面的名字\n# file_type:\
+    \ 要拷贝的\n---\n- hosts: \"{{ from_node }}\"\n  remote_user: root\n  gather_facts:\
+    \ F\n  vars:\n    instance_type: \"{{ instance_type }}\"\n    file_type: \"{{\
+    \ file_type }}\"\n  tasks:\n    # t1 从监控服务器拷贝报警文件到 ansible\n    - name: fetch\
+    \ file\n      fetch:\n        src: \"{{ src_path }}\"\n        dest: \"/usr/local/ars/ansible-runner-service/samples/{{\
+    \ instance_type }}/{{ file_name }}\"\n        flat: yes\n\n- hosts: \"{{ target_node\
+    \ }}\"\n  remote_user: root\n  gather_facts: F\n  tasks:\n    # t1 从 ansible 拷贝\
+    \ config 文件 到 promethues/es\n    # 不同 promeheus 节点配置文件不同，所以拷贝的文件是带有参数的，所以使用template\n\
+    \    - name: copy prometheus/es config file\n      template:\n        src: \"\
+    /usr/local/ars/ansible-runner-service/samples/{{ instance_type }}/{{ file_name\
+    \ }}\"\n        dest: \"{{ dest_path }}{{ config_file_name }}\"\n      when: file_type\
+    \ == \"config\"\n\n    # t2 从 ansible 拷贝 alert文件到 prometheus/es\n    # template\
+    \ 不识别{{$message}} 这样的字符串,使用copy\n    - name: copy prometheus/es alert file | alertmanage\
+    \ config file\n      copy:\n        src: \"/usr/local/ars/ansible-runner-service/samples/{{\
+    \ instance_type }}/{{ file_name }}\"\n        dest: \"{{ dest_path }}{{ config_file_name\
+    \ }}\"\n      when: file_type != \"config\"\n\n    # t2 重启 promethues 服务\n   \
+    \ - name: reload prometheus\n      shell: curl -X POST localhost:10900/-/reload\n\
+    \      when: instance_type==\"Prometheus\"\n\n    - name: reload alertengine\n\
+    \      shell: docker restart alertengine\n      when: instance_type==\"ElasticSearch\"\
+    \n\n    - name: reload alertmanage\n      shell: docker restart alertmanager\n\
+    \      when: instance_type==\"AlertManage\"\n"
+  user_id: ''
+- description: 该剧本用于查看指定文件系统中某个用户组的配额信息，通过执行 `lfs quota` 命令实现。
+  name: 查看组配额信息
+  parameters:
+  - name: group
+    type: str
+  - name: fs
+    type: str
+  playbook_content: "- hosts: 89.72.101.0\n  gather_facts: false\n  tasks:\n    -\
+    \ name: show_group_quota\n      shell: |\n        lfs quota -h -g \"{{ group }}\"\
+    \ \"{{ fs }}\"\n      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines\
+    \ }}\"\n"
+  user_id: ''
+- description: 用于更新指定节点的状态，并输出更新后的节点信息。
+  name: 节点状态更新
+  parameters:
+  - name: nodelist
+    type: str
+  - name: state
+    type: str
+  - name: reason
+    type: str
+  playbook_content: "- hosts: 89.72.100.1\n  user: root\n  gather_facts: False\n \
+    \ tasks:\n    - name: update_node_state\n      shell: |\n        scontrol update\
+    \ nodename=\"{{ nodelist }}\" state=\"{{ state }}\" reason=\"{{ reason }}\"\n\
+    \        echo \"节点状态已调整\"\n        echo\n        sinfo -n \"{{ nodelist }}\"\n\
+    \      register: result\n    - debug:\n        msg: \"{{ result.stdout_lines }}\"\
+    \n"
+  user_id: ''
+- description: 该剧本通过执行 `dmesg -T` 命令获取目标主机的系统内核日志，并输出结果。
+  name: 查看系统内核日志
+  parameters:
+  - name: host_pattern
+    type: str
+  - name: user
+    type: str
+  - name: gather_facts
+    type: bool
+  playbook_content: "- hosts: all\n  user: root\n  gather_facts: False\n  tasks:\n\
+    \    - name: dmest -T\n      shell: dmesg -T\n      register: result\n    - debug:\n\
+    \        msg: \"{{ result.stdout_lines }}\"\n"
+  user_id: ''

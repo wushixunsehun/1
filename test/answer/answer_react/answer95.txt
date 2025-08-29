@@ -1,0 +1,5 @@
+read_cache_enable参数用于控制OSS是否启用读缓存功能，当启用时，OSS在处理相同数据的读取请求时会直接使用内存中的数据，从而提升性能；当禁用时，数据在读取后会被丢弃。writethrough_cache_enable参数用于控制写入数据是否保留在内存中供后续读取，适用于需要立即访问刚写入数据的场景，例如生产者-消费者模型或不同节点的IO操作未对齐的共享文件写入。readcache_max_filesize参数用于限制缓存文件的最大大小，适用于小文件重复访问的工作负载，避免大文件占用缓存。通过合理配置这些参数可以优化OSS的缓存策略，提高系统性能。
+1. 启用read_cache_enable参数可以提升OSS的读取性能，适用于重复访问的小文件场景。可以通过以下命令在所有OST上启用read_cache_enable：root@ossl# lctl set param obdfilter.*.read_cache_enable=1。
+2. 禁用writethrough_cache_enable参数可以减少内存占用，适用于大部分IO为文件写入且在短时间内不会被重新读取的场景。可以通过以下命令在所有OST上禁用writethrough_cache_enable：root@ossl# lctl set param obdfilter.*.writethrough_cache_enable=0。
+3. 设置readcache_max_filesize参数可以限制缓存文件的最大大小，适用于小文件重复访问的工作负载。可以通过以下命令在所有OST上设置最大缓存文件大小为32MB：root@ossl# lctl set param obdfilter.*.readcache_max_filesize=32M。
+

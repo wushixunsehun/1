@@ -1,0 +1,2 @@
+Lustre 文件系统中创建快照以确保文件系统一致性的方法主要包括使用 `lctl` 命令结合全局写屏障机制。具体步骤如下：1. 使用 `lctl snapshot create` 命令创建快照，并通过 `-b` 选项自动触发全局写屏障，防止元数据修改，确保快照的一致性。2. 全局写屏障可以通过 `lctl barrier freeze` 命令手动添加，该命令会阻止元数据修改，直到屏障被移除或超时。3. 快照创建完成后，可以通过 `lctl barrier thaw` 命令移除屏障，或等待其自动过期。4. 快照日志记录在 `/var/log/lsnapshot.log` 中，包含快照创建、挂载、销毁等信息，用于跟踪快照活动。5. 创建快照时，还可以通过 `lctl fork lcfg` 和 `lctl erase lcfg` 操作管理快照的配置信息，确保快照的正确配置和管理。[KG] unknown_source, [DC] unknown_source, [DC] unknown_source, [DC] unknown_source
+

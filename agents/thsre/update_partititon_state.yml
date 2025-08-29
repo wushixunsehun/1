@@ -1,0 +1,13 @@
+- hosts: 89.72.100.1
+  user: root
+  gather_facts: False
+  tasks:
+    - name: update_partititon_state
+      shell: |
+        scontrol update partitionname="{{ partitionname }}" state="{{ state }}"
+        echo "队列状态已调整"
+        echo
+        scontrol show partition {{ partitionname }}
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"
